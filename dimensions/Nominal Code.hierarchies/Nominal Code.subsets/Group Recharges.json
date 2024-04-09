@@ -1,0 +1,60 @@
+{
+	"@type":"Subset",
+	"Name":"Group Recharges",
+	"ExpandAbove":true,
+	"Alias":"Alias",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P404')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P406')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P407')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P408')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P409')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P411')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P462')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P530')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P574')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R101')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R203')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R285')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R290')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R295')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R299')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('S230')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('S258')"
+		}
+	]
+}

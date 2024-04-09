@@ -1,0 +1,88 @@
+{
+	"@type":"Process",
+	"Name":"DATALOAD - Insurance - Annual Cost",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"DATALOAD - Insurance - Annual Cost.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"VariablesUIData":
+	[
+		"VarType=32\fColType=827\f",
+		"IgnoredInputVarName=Home\fVarType=32\fColType=1165\f",
+		"IgnoredInputVarName=Commercial_Combined\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Pension_Trustees\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Office_Computers\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Engineering\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Business_Travel\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Excess_Employers_and_Public_Liability\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Fidelity_guarantee\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Personal_accident\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Motor_fleet\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Directors\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Directors_Northampton\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Medical_Malpractice\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=My_Care_My_Home\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Capita_Broker_fee\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Monthly_Totals\fVarType=33\fColType=1165\f",
+		"VarType=33\fColType=827\f",
+		"IgnoredInputVarName=Dept\fVarType=32\fColType=1165\f",
+		"IgnoredInputVarName=Column_20\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Column_21\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Column_22\fVarType=32\fColType=1165\f",
+		"IgnoredInputVarName=Column_23\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Column_24\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Column_25\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Column_26\fVarType=33\fColType=1165\f",
+		"IgnoredInputVarName=Column_27\fVarType=32\fColType=1165\f",
+		"IgnoredInputVarName=Column_28\fVarType=32\fColType=1165\f"
+	],
+	"DataSource":
+	{
+		"Type":"ASCII",
+		"asciiDecimalSeparator":".",
+		"asciiDelimiterChar":",",
+		"asciiDelimiterType":"Character",
+		"asciiHeaderRecords":1,
+		"asciiQuoteCharacter":"\"",
+		"asciiThousandSeparator":",",
+		"dataSourceNameForClient":"model_upload\\Insurance costs - 23.csv",
+		"dataSourceNameForServer":"model_upload\\Insurance costs - 23.csv"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersion",
+			"Prompt":"Which Version?",
+			"Value":"Board Version",
+			"Type":"String"
+		},
+		{
+			"Name":"pYear",
+			"Prompt":"t_Year to Load to",
+			"Value":"Year+1",
+			"Type":"String"
+		},
+		{
+			"Name":"pFilename",
+			"Prompt":"",
+			"Value":"Insurance costs - 23.csv",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vDepartment",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vAnnual_amount",
+			"Type":"Numeric",
+			"Position":18,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

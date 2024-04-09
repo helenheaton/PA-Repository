@@ -1,0 +1,99 @@
+{
+	"@type":"Process",
+	"Name":"EXPORT - P&L by Entity (Nailsea)",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"EXPORT - P&L by Entity (Nailsea).ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"VariablesUIData":
+	[
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=33\fColType=827\f"
+	],
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForClient":"PL by Entity",
+		"dataSourceNameForServer":"PL by Entity",
+		"view":"Source"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersion",
+			"Prompt":"Version to export",
+			"Value":"Board Version",
+			"Type":"String"
+		},
+		{
+			"Name":"pEntity",
+			"Prompt":"Entity to export",
+			"Value":"Nailsea",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vVersion",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vPeriod",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vYear",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vEntity",
+			"Type":"String",
+			"Position":4,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vDepartment",
+			"Type":"String",
+			"Position":5,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vContract",
+			"Type":"String",
+			"Position":6,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vNominal",
+			"Type":"String",
+			"Position":7,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Value",
+			"Type":"Numeric",
+			"Position":8,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

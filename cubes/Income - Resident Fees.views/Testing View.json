@@ -1,0 +1,40 @@
+{
+	"@type":"MDXView",
+	"Name":"Testing View",
+	"MDX@Code.link":"Testing View.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[t_Period].[t_Period]" : "MEMBER_NAME"
+		},
+		"ContextSets" : 
+		{
+			"[Bed Types].[Bed Types]" : 
+			{
+				"Expression" : "{TM1SubsetAll([Bed Types])}"
+			},
+			"[Department].[Department]" : 
+			{
+				"Expression" : "{TM1SubsetAll([Department])}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{TM1SubsetAll([Version])}"
+			},
+			"[t_Year].[t_Year]" : 
+			{
+				"Expression" : "{TM1SubsetAll([t_Year])}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Bed Types].[Bed Types]" : false,
+			"[Department].[Department]" : false,
+			"[Version].[Version]" : false,
+			"[m_Resident Fees Calculation].[m_Resident Fees Calculation]" : false,
+			"[t_Period].[t_Period]" : false,
+			"[t_Year].[t_Year]" : false
+		}
+	}
+}

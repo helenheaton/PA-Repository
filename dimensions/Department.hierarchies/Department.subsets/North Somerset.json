@@ -1,0 +1,16 @@
+{
+	"@type":"Subset",
+	"Name":"North Somerset",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NS01')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NS02')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NS04')"
+		}
+	]
+}

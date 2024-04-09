@@ -1,0 +1,34 @@
+{
+	"@type":"Subset",
+	"Name":"Subcontract AWE",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('m_Index Rate Calculation')/Hierarchies('m_Index Rate Calculation')/Elements('AWE dataset')"
+		},
+		{
+			"@id":"Dimensions('m_Index Rate Calculation')/Hierarchies('m_Index Rate Calculation')/Elements('AWE Month applied')"
+		},
+		{
+			"@id":"Dimensions('m_Index Rate Calculation')/Hierarchies('m_Index Rate Calculation')/Elements('AWE FY')"
+		},
+		{
+			"@id":"Dimensions('m_Index Rate Calculation')/Hierarchies('m_Index Rate Calculation')/Elements('AWE / NLW')"
+		},
+		{
+			"@id":"Dimensions('m_Index Rate Calculation')/Hierarchies('m_Index Rate Calculation')/Elements('AWE / NLW Pre 2010 Rate')"
+		},
+		{
+			"@id":"Dimensions('m_Index Rate Calculation')/Hierarchies('m_Index Rate Calculation')/Elements('Override AWE/NLW')"
+		},
+		{
+			"@id":"Dimensions('m_Index Rate Calculation')/Hierarchies('m_Index Rate Calculation')/Elements('AWE / NLW to Use')"
+		},
+		{
+			"@id":"Dimensions('m_Index Rate Calculation')/Hierarchies('m_Index Rate Calculation')/Elements('AWE / NLW to Use Inc Pre 2010')"
+		},
+		{
+			"@id":"Dimensions('m_Index Rate Calculation')/Hierarchies('m_Index Rate Calculation')/Elements('AWE / NLW to Use Averaging')"
+		}
+	]
+}

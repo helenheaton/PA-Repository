@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Income - Contract Variations",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Contract')"
+		},
+		{
+			"@id":"Dimensions('Contract Variations')"
+		},
+		{
+			"@id":"Dimensions('m_Contract Base Years')"
+		}
+	],
+	"Rules@Code.link":"Income - Contract Variations.rules",
+	"Views@Code.links":
+	[
+		"Income - Contract Variations.views/Default.json"
+	]
+}

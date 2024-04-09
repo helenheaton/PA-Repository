@@ -1,0 +1,69 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Contract Variations",
+	"Elements":
+	[
+		{
+			"Name":"Base contract",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variation 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variation 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variation 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variation 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variation 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Contract incl variations",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Contract incl variations",
+			"ComponentName":"Base contract",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Contract incl variations",
+			"ComponentName":"Variation 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Contract incl variations",
+			"ComponentName":"Variation 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Contract incl variations",
+			"ComponentName":"Variation 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Contract incl variations",
+			"ComponentName":"Variation 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Contract incl variations",
+			"ComponentName":"Variation 5",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

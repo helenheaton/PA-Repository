@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Contract Base Years",
+	"Hierarchies@Code.links":
+	[
+		"m_Contract Base Years.hierarchies/m_Contract Base Years.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Contract Base Years')/Hierarchies('m_Contract Base Years')"
+	}
+}

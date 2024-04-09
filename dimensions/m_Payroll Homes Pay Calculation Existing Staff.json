@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Payroll Homes Pay Calculation Existing Staff",
+	"Hierarchies@Code.links":
+	[
+		"m_Payroll Homes Pay Calculation Existing Staff.hierarchies/m_Payroll Homes Pay Calculation Existing Staff.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')"
+	}
+}

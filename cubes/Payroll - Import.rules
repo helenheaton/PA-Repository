@@ -1,0 +1,18 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+# Import cube should not need any rules 
+
+FEEDERS;
+
+['Contracted Hours']=> DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Hours' );
+
+['Annual Salary']=> DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Annual Salary' );
+
+['Bank Holiday Enhancements']=> DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Bank Holiday Enhancements' );
+
+['Enhancements']=> DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Other Enhancements' );
+
+['Pension Amount 1st April']=> DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pension Amount as at 1st April' );
+
+

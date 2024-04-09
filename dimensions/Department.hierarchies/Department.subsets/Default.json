@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"ExpandAbove":true,
+	"Alias":"Alias",
+	"Expression":"{ORDER([Department].[Department].MEMBERS , IIF([Department].[Department].CURRENTMEMBER.PROPERTIES(\"Alias\")=\"\", [Department].[Department].CURRENTMEMBER.PROPERTIES(\"MEMBER_CAPTION\"), [Department].[Department].CURRENTMEMBER.PROPERTIES(\"Alias\")) , BASC)}"
+}

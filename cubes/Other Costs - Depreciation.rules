@@ -1,0 +1,36 @@
+  # --------------------------------------------------------------------------------------------------
+  # Depreciation
+  # Calculates monthly depreciation cost to P&L
+  #
+  # Created by Jenny Hassett 
+  # --------------------------------------------------------------------------------------------------
+
+SKIPCHECK;
+FEEDSTRINGS;
+
+#Get new Capex spend from 'Property Maintenance Costs' Cube
+['New Capex spend']=N:
+  DB('Other Costs - Property Maintenance Costs', !Version, !Department, !t_Year, !t_Period, 'Capital Expenditure (Non Life-Cycle)' );
+
+#Base depreciation imported from current nominal spend via PAfE
+
+#Calculate New Capex Depreciation (use New Capex spend from above / 5 year straight line)
+['New Capex Depreciation']=N:
+  ['New Capex spend']\5;
+
+#Depreciation adjustements is manual entry
+
+#Total depreciation is a consolidation
+
+#Monthly depreciation = annual / 12
+#['Monthly Depreciation']=N:
+ #['Total Annual Depreciation']\12;
+
+#Amortisation of funding costs/Capitalised interest are all imported from current nominal spend via PAfE
+
+FEEDERS;  
+#Internal Feeders
+['New Capex spend']=>['New Capex Depreciation'];
+
+#External Feeders
+[]=>DB('Other Costs - Depreciation - Summary', !Version, !t_Year, !t_Period, !Department, ATTRS( 'm_Depreciation', !m_Depreciation, 'Nominal Code' ), !m_Depreciation );

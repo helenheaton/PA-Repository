@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Payroll - Apprentice Levy",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Admin Department')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Apprentice Levy')"
+		}
+	],
+	"Rules@Code.link":"Payroll - Apprentice Levy.rules",
+	"Views@Code.links":
+	[
+		"Payroll - Apprentice Levy.views/Default.json"
+	]
+}

@@ -1,0 +1,155 @@
+#region Prolog
+
+# Imports leaf level data from CSV
+# Programmed for up to 9 dimensions
+
+sFileLocation = GetProcessErrorFileDirectory;
+sFileLocation = Subst(sFileLocation, 1, LONG( sFileLocation )-5)|'Data\Model_Upload';
+
+sFileName = pCube | ' Extract.csv';
+
+
+# If the version doesn't exist, add it in
+IF(Dimix('Version', pVersion)=0);
+  DimensionElementInsertDirect( 'Version', '', pVersion, 'N' );
+  DimensionElementComponentAdd( 'Version', 'All Versions', pVersion, 1 );
+Endif;
+
+
+sView = GetProcessName;
+sSubset = GetProcessName|pCube;
+nTemp = 1;
+
+nCubeLogging = CubeGetLogChanges( pCube );
+CubeSetLogChanges( pCube, 0 );
+
+# Create Target view and clear data
+
+ViewDestroy( pCube, sView );
+ViewCreate( pCube, sView, nTemp );
+
+nDim=CubeDimensionCountGet( pCube );
+iDim = 1;
+While (iDim <= nDim);
+  sDim = TABDIM( pCube, iDim );
+  SubsetDestroy( sDim, sSubset );
+  SubsetCreate( sDim, sSubset, nTemp );
+  SubsetMDXSet( sDim, sSubset, 'TM1Filterbylevel(TM1SubsetAll(['| sDim |']),0)' );
+  SubsetMDXSet( sDim, sSubset, '' );
+  ViewSubsetAssign( pCube, sView, sDim, sSubset );
+iDim = iDim+1;
+End;
+
+sDim = 'Version';
+SubsetDeleteAllElements( sDim, sSubset );
+SubsetMDXSet( sDim, sSubset, '{[' | sDim | '].[ ' | pVersion | ']}' );
+SubsetMDXSet( sDim, sSubset, '' );
+
+ViewZeroOut( pCube, sView );
+
+# Define source file
+
+IF(FileExists( sFileLocation |'\'| sFileName )=0);
+  ProcessBreak;
+Endif;
+
+DatasourceType = 'CHARACTERDELIMITED';
+DatasourceNameForClient = sFileLocation |'\'| sFileName;
+DatasourceNameForServer = sFileLocation |'\'| sFileName;
+DatasourceASCIIHeaderRecords = 1;
+#endregion
+#region Data
+
+IF(TABDIM( pCube, 1)@='Version');
+  v1=pVersion;
+ElseIf(TABDIM( pCube, 2)@='Version');
+  v2=pVersion;
+ElseIf(TABDIM( pCube, 3)@='Version');
+  v3=pVersion;
+ElseIf(TABDIM( pCube, 4)@='Version');
+  v4=pVersion;
+ElseIf(TABDIM( pCube, 5)@='Version');
+  v5=pVersion;
+ElseIf(TABDIM( pCube, 6)@='Version');
+  v6=pVersion;
+ElseIf(TABDIM( pCube, 7)@='Version');
+  v7=pVersion;
+ElseIf(TABDIM( pCube, 8)@='Version');
+  v8=pVersion;  
+ElseIf(TABDIM( pCube, 9)@='Version');
+  v9=pVersion;  
+Else;
+  ProcessError;
+Endif;
+
+
+
+IF(nDim = 2);
+  If(ElementType( TabDim(pCube, 2), TabDim(pCube, 2), v2 )@='S');
+    CellPutS(( v3 ), pCube, v1, v2 );
+  Else;
+    CellPutN(StringToNumber( v3 ), pCube, v1, v2 );
+  Endif;
+  
+ElseIf(nDim = 3);
+  If(ElementType( TabDim(pCube, 3), TabDim(pCube, 3), v3 )@='S');
+    CellPutS(( v4 ), pCube, v1, v2, v3 );
+  Else;
+    CellPutN(StringToNumber( v4 ), pCube, v1, v2, v3 );
+  Endif;
+  
+ElseIf(nDim = 4);
+  If(ElementType( TabDim(pCube, 4), TabDim(pCube, 4), v4 )@='S');
+    CellPutS(( v5 ), pCube, v1, v2, v3, v4 );
+  Else;
+    CellPutN(StringToNumber( v5 ), pCube, v1, v2, v3, v4 );
+  Endif;
+  
+ElseIf(nDim = 5);
+  If(ElementType( TabDim(pCube, 5), TabDim(pCube, 5), v5 )@='S');
+    CellPutS(( v6 ), pCube, v1, v2, v3, v4, v5 );
+  Else;
+    CellPutN(StringToNumber( v6 ), pCube, v1, v2, v3, v4, v5 );
+  Endif;
+  
+ElseIf(nDim = 6);
+  If(ElementType( TabDim(pCube, 6), TabDim(pCube, 6), v6 )@='S');
+    CellPutS(( v7 ), pCube, v1, v2, v3, v4, v5, v6 );
+  Else;
+    CellPutN(StringToNumber( v7 ), pCube, v1, v2, v3, v4, v5, v6 );
+  Endif;
+  
+ElseIf(nDim = 7);
+  If(ElementType( TabDim(pCube, 7), TabDim(pCube, 7), v7 )@='S');
+    CellPutS(( v8 ), pCube, v1, v2, v3, v4, v5, v6, v7 );
+  Else;
+    CellPutN(StringToNumber( v8 ), pCube, v1, v2, v3, v4, v5, v6, v7 );
+  Endif;
+  
+ElseIf(nDim = 8);
+  If(ElementType( TabDim(pCube, 8), TabDim(pCube, 8), v8 )@='S');
+    CellPutS(( v9 ), pCube, v1, v2, v3, v4, v5, v6, v7, v8 );
+  Else;
+    CellPutN(StringToNumber( v9 ), pCube, v1, v2, v3, v4, v5, v6, v7, v8);
+  Endif;
+  
+ElseIf(nDim = 9);
+  If(ElementType( TabDim(pCube, 9), TabDim(pCube, 9), v9 )@='S');
+    CellPutS(( v10 ), pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9 );
+  Else;
+    CellPutN(StringToNumber( v10 ), pCube, v1, v2, v3, v4, v5, v6, v7, v8, v9 );
+  Endif;
+  
+Else; 
+# More than 9 dimensions
+ProcessError;
+Endif;
+
+#endregion
+#region Epilog
+
+CubeSetLogChanges( pCube, nCubeLogging );
+
+
+
+#endregion

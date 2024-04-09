@@ -1,0 +1,390 @@
+{
+	"@type":"Chore",
+	"Name":"Export Budgets",
+	"StartTime":"2024-01-10T10:54Z",
+	"DSTSensitive":true,
+	"Active":false,
+	"ExecutionMode":"SingleCommit",
+	"Frequency":"P0DT00H00M00S",
+	"Tasks":
+	[
+		{
+			"Step":0,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Barton"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Barton)')"
+			}
+		},
+		{
+			"Step":1,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Cambria"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Cambria)')"
+			}
+		},
+		{
+			"Step":2,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"De Montfort"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (De Montfort)')"
+			}
+		},
+		{
+			"Step":3,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Developments"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Developments)')"
+			}
+		},
+		{
+			"Step":4,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"FM Services"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (FM Services)')"
+			}
+		},
+		{
+			"Step":5,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Surehaven Glasgow"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Group)')"
+			}
+		},
+		{
+			"Step":6,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Healthcare"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Healthcare)')"
+			}
+		},
+		{
+			"Step":7,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Herefordshire"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Herefordshire)')"
+			}
+		},
+		{
+			"Step":8,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Ledbury"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Ledbury)')"
+			}
+		},
+		{
+			"Step":9,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Managed Services"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Managed Services)')"
+			}
+		},
+		{
+			"Step":10,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Nailsea"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Nailsea)')"
+			}
+		},
+		{
+			"Step":11,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Northamptonshire"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Northamptonshire)')"
+			}
+		},
+		{
+			"Step":12,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"North Somerset"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (North Somerset)')"
+			}
+		},
+		{
+			"Step":13,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Shaw Community (DCA) Services"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Shaw Community (DCA) Services)')"
+			}
+		},
+		{
+			"Step":14,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Shaw Foundation"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Shaw Foundation)')"
+			}
+		},
+		{
+			"Step":15,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Shaw Pembroke"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Shaw Pembs Specialist)')"
+			}
+		},
+		{
+			"Step":16,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Specialist Services"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Specialist Services)')"
+			}
+		},
+		{
+			"Step":17,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Surehaven"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Surehaven)')"
+			}
+		},
+		{
+			"Step":18,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Surehaven Glasgow"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Surehaven Glasgow)')"
+			}
+		},
+		{
+			"Step":19,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"Surehaven Pembroke"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (Surehaven Pembroke)')"
+			}
+		},
+		{
+			"Step":20,
+			"Parameters":
+			[
+				{
+					"Name":"pEntity",
+					"Value":"West Sussex"
+				},
+				{
+					"Name":"pVersion",
+					"Value":"Board Version"
+				}
+			],
+			"Process":
+			{
+				"@id":"Processes('EXPORT - P&L by Entity (West Sussex)')"
+			}
+		}
+	]
+}

@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Expression":"{TM1FILTERBYLEVEL([t_Period].[t_Period].MEMBERS , 0),[t_Period].[t_Period].[FY]}"
+}

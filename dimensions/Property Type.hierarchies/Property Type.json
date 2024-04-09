@@ -1,0 +1,60 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Property Type",
+	"Elements":
+	[
+		{
+			"Name":"Flats",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"1 Bed Flat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2 Bed Flat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCB Property",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"All Property Types",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Flats",
+			"ComponentName":"1 Bed Flat",
+			"Weight":1
+		},
+		{
+			"ParentName":"Flats",
+			"ComponentName":"2 Bed Flat",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Property Types",
+			"ComponentName":"Flats",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Property Types",
+			"ComponentName":"NCB Property",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Property Types",
+			"ComponentName":"Other",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

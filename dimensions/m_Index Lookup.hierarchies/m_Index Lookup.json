@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Index Lookup",
+	"Elements":
+	[
+		{
+			"Name":"Index",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

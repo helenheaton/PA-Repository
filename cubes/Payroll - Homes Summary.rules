@@ -1,0 +1,22 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+['R106', 'Senior Support Worker']=N:
+IF(!Department@='NH12'% !Department@='HH03'% !Department@='HH05'% !Department@='DM08'% !Department@='DM09'% !Department@='DM11'% !Department@='DM12'% !Department@='DM13'% !Department@='DM14'% !Department@='SW03'% !Department@='VC03' ,
+  DB('Payroll - Homes Pay Calc inc Vacancies', !Version, !t_Period, !t_Year, !Department, 'Senior Support Worker', 'Monthly Cost' )
+  ,Continue);
+
+['R104', 'Senior Support Worker']=N:
+IF(!Department@='NH12'% !Department@='HH03'% !Department@='HH05'% !Department@='DM08'% !Department@='DM09'% !Department@='DM11'% !Department@='DM12'% !Department@='DM13'% !Department@='DM14'% !Department@='SW03'% !Department@='VC03' ,
+  Continue,
+  DB('Payroll - Homes Pay Calc inc Vacancies', !Version, !t_Period, !t_Year, !Department, 'Senior Support Worker', 'Monthly Cost' ));
+  
+[]=N:
+IF(!Nominal Code@=ATTRS( 'Staff Grade', !Staff Grade, 'Nominal Code'),
+  DB('Payroll - Homes Pay Calc inc Vacancies', !Version, !t_Period, !t_Year, !Department, !Staff Grade, 'Monthly Cost' )
+  ,continue);
+
+
+feeders;
+
+[]=>DB('Payroll Costs by Dept', !Version, !t_Period, !t_Year, !Department, Attrs('Department',!Department,'Contract'), !'Nominal Code' );

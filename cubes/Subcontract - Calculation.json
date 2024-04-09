@@ -1,0 +1,34 @@
+{
+	"@type":"Cube",
+	"Name":"Subcontract - Calculation",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Contract')"
+		},
+		{
+			"@id":"Dimensions('Cost Type')"
+		},
+		{
+			"@id":"Dimensions('m_Subcontract Calculation')"
+		}
+	],
+	"Rules@Code.link":"Subcontract - Calculation.rules",
+	"Views@Code.links":
+	[
+		"Subcontract - Calculation.views/Default.json",
+		"Subcontract - Calculation.views/Total Subcontract sum by Department.json"
+	]
+}

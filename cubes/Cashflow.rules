@@ -1,0 +1,618 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+['% Change on Prior Year']=C:  (['Year+1']-['Current Year'])\['Current Year'];
+
+# Forecast is Actual until current month, then it takes the version specified in the model parameter cube
+['Forecast','Current Year']=N:
+  IF(AttrN('t_Period', !t_Period, 'Index')<=AttrN('t_Period', DB('Admin - Model Parameters', 'Actual Period', 'Value'), 'Index'),
+    ['Actual'],
+    DB('Cashflow', DB('Admin - Model Parameters', 'Version for Forecast', 'Value'), !t_Period, !t_Year, !Entity, !Department, !Cashflow Consol Layer, !Nominal Code )
+    );
+
+# Non PL items 
+
+['Transfers (to)/from Reserve Accounts', 'Source']=N:
+IF(!Department@=Attrs('Entity',!Entity,'Investment Activities Dept' ),
+DB('Cashflow - Non PL Cash Items', !Version, !t_Period, !t_Year, !Entity, 'Net Life Cycle Transfer')
++ DB('Cashflow - Non PL Cash Items', !Version, !t_Period, !t_Year, !Entity, 'Net DSR Transfer'),
+Continue);
+
+['Dividends', 'Source']=N:
+IF(!Department@=Attrs('Entity',!Entity,'Investment Activities Dept' ),
+DB('Cashflow - Non PL Cash Items', !Version, !t_Period, !t_Year, !Entity, 'Net Dividends'),
+Continue);
+
+# Entered as a negative in Non PL Cash Items
+['Capital Expenditure', 'Source']=N:
+IF(!Department@=Attrs('Entity',!Entity,'Investment Activities Dept' ),
+DB('Cashflow - Non PL Cash Items', !Version, !t_Period, !t_Year, !Entity, 'Capital Expenditure'),
+Continue);
+
+# Entered as a negative in Non PL Cash Items
+['R119', 'GP01', 'Source']=N:
+-DB('Cashflow - Non PL Cash Items', !Version, !t_Period, !t_Year, !Entity, 'Head Office Bonus Payments');
+
+
+#Region Capital codes are from the Loans cube
+
+# Income from Capital 
+
+['Source','Sub Debt Capital Receivable']=N:
+DB('Loans by Entity', !Version, !t_Period, !t_Year, 'Entity':'All Entities', !Department, !Entity, 'All Sources Exc WC', 'Nominal Code':'Sub Debt Interest External', 'Capital Repayments' )
++DB('Loans by Entity', !Version, !t_Period, !t_Year, 'Entity':'All Entities', !Department, !Entity,  'All Sources Exc WC', 'Nominal Code':'Sub Debt Interest Internal', 'Capital Repayments' )
++DB('Loans by Entity', !Version, !t_Period, !t_Year, 'Entity':'All Entities', !Department, !Entity, 'All Sources Exc WC', 'Nominal Code':'Other Interest Payable', 'Capital Repayments' );
+
+
+# Internal Loans
+
+['Source','Sub Debt Capital External']=N:
+DB('Loans by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, 'All Loaning Entities', 'All Sources Exc WC', 'Nominal Code':'Sub Debt Interest External', 'Capital Repayments' );
+
+['Source','Sub Debt Capital Internal']=N:
+DB('Loans by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, 'All Loaning Entities', 'All Sources Exc WC', 'Nominal Code':'Sub Debt Interest Internal', 'Capital Repayments' );
+
+['Source','Other Loan Capital Payable']=N:
+DB('Loans by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, 'All Loaning Entities', 'All Sources Exc WC', 'Nominal Code':'Other Interest Payable', 'Capital Repayments' )
++
+IF(!t_Period@='March' & !Entity@='Group' & !Department@='GP02',
+DB('Loans - Deferred Consideration', !Version, 'FY', Attrs('t_Year',!t_Year,'Financial Year'), 'All Deferred Consideration People', 'Capital' )
+,0)
+;
+
+
+# External Loans
+
+['Source','Senior Debt Capital']=N:
+DB('Loans by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, 'All Loaning Entities', 'All Sources Exc WC', 'Nominal Code':'Senior Debt Interest', 'Capital Repayments' );
+
+
+# Working Capital
+
+['Source','Intercompany Lending']=N:
+DB('Loans by Entity', !Version, !t_Period, !t_Year, 'Entity':'All Entities', !Department, !Entity, 'Working Capital', 'Nominal Code':'Other Interest Payable', 'Capital Repayments' )
+-DB('Loans by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, 'All Loaning Entities', 'Working Capital', 'Nominal Code':'Other Interest Payable', 'Capital Repayments' );
+
+
+#EndRegion
+
+# Loans come from the Loan cubes
+['Source']=N:
+IF( DB('Loans by Entity', !Version, 'FY', !t_Year, !Entity, !Department, 'All Loaning Entities', 'All Sources', !'Nominal Code', 'Interest' )<>0 % 
+DB('Loans by Entity', !Version, 'FY', !t_Year, 'All Entities', !Department, !Entity, 'All Sources', !'Nominal Code', 'Internal Cash Income' )<>0,
+  DB('Loans by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, 'All Loaning Entities', 'All Sources', !'Nominal Code', 'Cash Interest Repayments' )
++
+  DB('Loans by Entity', !Version, !t_Period, !t_Year, 'All Entities', !Department, !Entity, 'All Sources', !'Nominal Code', 'Internal Cash Income' ),
+  Continue)
++
+IF(!t_Period@='September' & !Entity@='Group' & !Department@='GP02' & !Nominal Code@='S216',
+DB('Loans - Deferred Consideration', !Version, 'H1', Attrs('t_Year',!t_Year,'Financial Year'), 'All Deferred Consideration People', 'Interest' ),0)
++
+IF(!t_Period@='March' & !Entity@='Group' & !Department@='GP02' & !Nominal Code@='S216',
+DB('Loans - Deferred Consideration', !Version, 'H2', Attrs('t_Year',!t_Year,'Financial Year'), 'All Deferred Consideration People', 'Interest' ),0);
+  
+
+
+
+
+
+# Else it should come from PL by Entity
+['Source']=N:
+DB('PL by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, 'All Contracts',!Nominal Code);
+
+
+# Generally follows P&L phasing but needs adjustment for CQC fees. Each entity has a different month in which these are paid so needs to be factored in in some way.
+# P&L cost source is S236 which needs to be removed and the cash payment made in the correct month for each entity.
+
+['S236','Phasing']=N:
+IF(Attrs('Entity',!Entity,'CQC Payment Month')@='',
+stet,
+continue);
+
+['S236','Phasing']=N:
+IF(!t_Period@<>Attrs('Entity',!Entity,'CQC Payment Month'),
+-['Source'],
+continue);
+
+['S236','Phasing']=N:
+IF(!t_Period@=Attrs('Entity',!Entity,'CQC Payment Month'),
+(['Source','FY']-['Source']),
+continue);
+
+
+
+#Region Phasing
+
+['Phasing']=N:
+IF(DB('Cashflow - Payment Profile', !Version, 'April', !Department, !'Nominal Code', 'Payment' )@=''
+& DB('Cashflow - Payment Profile', !Version, 'May', !Department, !'Nominal Code', 'Payment' )@=''
+& DB('Cashflow - Payment Profile', !Version, 'June', !Department, !'Nominal Code', 'Payment' )@=''
+& DB('Cashflow - Payment Profile', !Version, 'July', !Department, !'Nominal Code', 'Payment' )@=''
+& DB('Cashflow - Payment Profile', !Version, 'August', !Department, !'Nominal Code', 'Payment' )@=''
+& DB('Cashflow - Payment Profile', !Version, 'September', !Department, !'Nominal Code', 'Payment' )@=''
+& DB('Cashflow - Payment Profile', !Version, 'October', !Department, !'Nominal Code', 'Payment' )@=''
+& DB('Cashflow - Payment Profile', !Version, 'November', !Department, !'Nominal Code', 'Payment' )@=''
+& DB('Cashflow - Payment Profile', !Version, 'December', !Department, !'Nominal Code', 'Payment' )@=''
+& DB('Cashflow - Payment Profile', !Version, 'January', !Department, !'Nominal Code', 'Payment' )@=''
+& DB('Cashflow - Payment Profile', !Version, 'February', !Department, !'Nominal Code', 'Payment' )@=''
+& DB('Cashflow - Payment Profile', !Version, 'March', !Department, !'Nominal Code', 'Payment' )@='',
+  0,
+  CONTINUE);
+
+['Phasing']=N:
+IF(DB('Cashflow - Payment Profile', !Version, !t_Period, !Department, !'Nominal Code', 'Payment' )@='',
+-['Source'],
+Continue);
+
+
+
+
+# Nasty phasing calc 
+
+# If there is a payment in the previous month, there will be nothing accrued to pay. 
+['Phasing']=N:
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Previous Period'), !Department, !'Nominal Code', 'Payment' )@='Payment',
+    0, 
+    Continue);
+
+# If the period is April, it is the first month so there will be nothing accrued to pay. 
+ ['Phasing']=N:
+ IF(DB('Cashflow - Payment Profile', !Version,  !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment',
+ IF(!t_Period@='April', 
+   0,
+   Continue),continue);
+
+# If there was a payment 2 months ago, there will be one month to pay
+# If the last month is April, then there will be one month to pay. 
+['Phasing']=N:
+# Previous Month 1
+ IF(DB('Cashflow - Payment Profile', !Version,  !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-2'), !Department, !'Nominal Code', 'Payment' )@='Payment'
+% Attrs('t_Period', !t_Period, 'Previous Period')@='April', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Previous Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  ,Continue),Continue);
+
+['Phasing']=N:
+# Previous Month 2
+ IF(DB('Cashflow - Payment Profile', !Version,  !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-3'), !Department, !'Nominal Code', 'Payment' )@='Payment'
+  % Attrs('t_Period', !t_Period, 'Period-2')@='April', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Previous Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-2'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+
+['Phasing']=N:
+# Previous Month 3
+ IF(DB('Cashflow - Payment Profile', !Version,  !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-4'), !Department, !'Nominal Code', 'Payment' )@='Payment'
+  % Attrs('t_Period', !t_Period, 'Period-3')@='April', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Previous Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-2'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-3'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),CONTINUE); 
+
+['Phasing']=N:
+# Previous Month 4
+ IF(DB('Cashflow - Payment Profile', !Version,  !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-5'), !Department, !'Nominal Code', 'Payment' )@='Payment'
+  % Attrs('t_Period', !t_Period, 'Period-4')@='April', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Previous Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-2'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-3'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-4'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+['Phasing']=N:
+# Previous Month 5
+ IF(DB('Cashflow - Payment Profile', !Version,  !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-6'), !Department, !'Nominal Code', 'Payment' )@='Payment'
+  % Attrs('t_Period', !t_Period, 'Period-5')@='April', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Previous Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-2'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-3'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-4'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-5'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+['Phasing']=N:
+# Previous Month 6
+ IF(DB('Cashflow - Payment Profile', !Version,  !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-7'), !Department, !'Nominal Code', 'Payment' )@='Payment'
+  % Attrs('t_Period', !t_Period, 'Period-6')@='April', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Previous Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-2'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-3'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-4'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-5'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-6'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+['Phasing']=N:
+# Previous Month 7
+ IF(DB('Cashflow - Payment Profile', !Version,  !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-8'), !Department, !'Nominal Code', 'Payment' )@='Payment'
+  % Attrs('t_Period', !t_Period, 'Period-7')@='April', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Previous Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-2'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-3'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-4'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-5'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-6'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-7'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),CONTINUE); 
+
+['Phasing']=N:
+# Previous Month 8
+ IF(DB('Cashflow - Payment Profile', !Version,  !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-9'), !Department, !'Nominal Code', 'Payment' )@='Payment'
+  % Attrs('t_Period', !t_Period, 'Period-8')@='April', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Previous Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-2'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-3'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-4'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-5'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-6'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-7'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-8'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+['Phasing']=N:
+# Previous Month 9 
+IF(DB('Cashflow - Payment Profile', !Version,  !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-10'), !Department, !'Nominal Code', 'Payment' )@='Payment'
+  % Attrs('t_Period', !t_Period, 'Period-9')@='April', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Previous Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-2'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-3'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-4'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-5'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-6'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-7'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-8'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-9'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),CONTINUE); 
+
+['Phasing']=N:
+# Previous Month 10
+ IF(DB('Cashflow - Payment Profile', !Version,  !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-11'), !Department, !'Nominal Code', 'Payment' )@='Payment'
+  % Attrs('t_Period', !t_Period, 'Period-10')@='April', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Previous Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-2'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-3'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-4'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-5'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-6'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-7'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-8'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-9'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-10'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+['Phasing']=N:
+# Previous Month 11
+ IF(DB('Cashflow - Payment Profile', !Version,  !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment',
+IF(DB('Cashflow - Payment Profile', !Version,   !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment'
+  % Attrs('t_Period', !t_Period, 'Period-11')@='April', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Previous Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-2'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-3'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-4'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-5'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-6'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-7'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-8'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-9'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-10'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-11'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+
+#EndRegion
+
+#Region Phasing Payment In Advance
+# If there is a payment in the next month, there will be nothing accrued to pay. 
+['Phasing']=N:
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Next Period'), !Department, !'Nominal Code', 'Payment' )@='Payment In Advance',
+    0, 
+    Continue);
+
+# If the period is March, it is the last month so there will be nothing accrued to pay. 
+ ['Phasing']=N:
+IF(DB('Cashflow - Payment Profile', !Version,   !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment In Advance',
+ IF(!t_Period@='March', 
+   0,
+   Continue),continue);
+
+# If there is a payment in 2 months, there will be one month to pay
+# If the last month is March, then there will be one month to pay. 
+['Phasing']=N:
+# Next Month 1
+IF(DB('Cashflow - Payment Profile', !Version,   !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment In Advance',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-10'), !Department, !'Nominal Code', 'Payment' )@='Payment In Advance'
+% Attrs('t_Period', !t_Period, 'Next Period')@='March', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Next Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  ,Continue),CONTINUE);
+
+['Phasing']=N:
+# Next Month 2
+IF(DB('Cashflow - Payment Profile', !Version,   !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment In Advance',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-9'), !Department, !'Nominal Code', 'Payment' )@='Payment In Advance'
+  % Attrs('t_Period', !t_Period, 'Period-10')@='March', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Next Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-10'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+
+['Phasing']=N:
+# Next Month 3
+IF(DB('Cashflow - Payment Profile', !Version,   !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment In Advance',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-8'), !Department, !'Nominal Code', 'Payment' )@='Payment In Advance'
+  % Attrs('t_Period', !t_Period, 'Period-9')@='March', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Next Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-10'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-9'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),CONTINUE); 
+
+['Phasing']=N:
+# Next Month 4
+IF(DB('Cashflow - Payment Profile', !Version,   !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment In Advance',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-7'), !Department, !'Nominal Code', 'Payment' )@='Payment In Advance'
+  % Attrs('t_Period', !t_Period, 'Period-8')@='March', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Next Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-10'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-9'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-8'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+['Phasing']=N:
+# Next Month 5
+IF(DB('Cashflow - Payment Profile', !Version,   !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment In Advance',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-6'), !Department, !'Nominal Code', 'Payment' )@='Payment In Advance'
+  % Attrs('t_Period', !t_Period, 'Period-7')@='March', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Next Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-10'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-9'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-8'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-7'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+['Phasing']=N:
+# Next Month 6
+IF(DB('Cashflow - Payment Profile', !Version,   !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment In Advance',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-5'), !Department, !'Nominal Code', 'Payment' )@='Payment In Advance'
+  % Attrs('t_Period', !t_Period, 'Period-6')@='March', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Next Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-10'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-9'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-8'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-7'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-6'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+['Phasing']=N:
+# Next Month 7
+IF(DB('Cashflow - Payment Profile', !Version,   !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment In Advance',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-4'), !Department, !'Nominal Code', 'Payment' )@='Payment In Advance'
+  % Attrs('t_Period', !t_Period, 'Period-5')@='March', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Next Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-10'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-9'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-8'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-7'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-6'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-5'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),Continue); 
+
+['Phasing']=N:
+# Next Month 8
+IF(DB('Cashflow - Payment Profile', !Version,   !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment In Advance',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-3'), !Department, !'Nominal Code', 'Payment' )@='Payment In Advance'
+  % Attrs('t_Period', !t_Period, 'Period-4')@='March', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Next Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-10'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-9'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-8'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-7'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-6'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-5'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-4'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+['Phasing']=N:
+# Next Month 9
+IF(DB('Cashflow - Payment Profile', !Version,   !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment In Advance',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Period-2'), !Department, !'Nominal Code', 'Payment' )@='Payment In Advance'
+  % Attrs('t_Period', !t_Period, 'Period-3')@='March', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Next Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-10'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-9'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-8'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-7'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-6'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-5'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-4'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-3'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+['Phasing']=N:
+# Next Month 10
+IF(DB('Cashflow - Payment Profile', !Version,   !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment In Advance',
+IF(DB('Cashflow - Payment Profile', !Version,   Attrs('t_Period', !t_Period, 'Previous Period'), !Department, !'Nominal Code', 'Payment' )@='Payment In Advance'
+  % Attrs('t_Period', !t_Period, 'Period-2')@='March', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Next Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-10'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-9'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-8'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-7'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-6'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-5'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-4'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-3'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-2'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+['Phasing']=N:
+# Next Month 11
+IF(DB('Cashflow - Payment Profile', !Version,   !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment In Advance',
+IF(DB('Cashflow - Payment Profile', !Version,   !t_Period,  !Department, !'Nominal Code', 'Payment' )@='Payment In Advance'
+  % Attrs('t_Period', !t_Period, 'Previous Period')@='March', 
+  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Next Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+  +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-10'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-9'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-8'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-7'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-6'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-5'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-4'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-3'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Period-2'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+    +  DB('Cashflow', !Version,  Attrs('t_Period', !t_Period, 'Previous Period'), !t_Year, !Entity, !Department, 'Source', !'Nominal Code' )
+,Continue),continue); 
+
+
+#EndRegion
+
+
+
+
+
+
+#Region Eliminations
+
+# S213 in Nailsea – full amount to be reversed out
+['S213','Nailsea','Elimination']=N:
+-['Source'];
+
+# P302 in Group – equal and opposite reversal to what is made in the Nailsea entity.
+['P302','Elimination']=N:
+-DB('Loans by Entity', !Version, !t_Period, !t_Year, 'Nailsea', !Department, !Entity, 'Working Capital', !'Nominal Code', 'Internal Cash Income');
+
+# West Sussex - the cash flow the interest receivable in the cash flow from this loan needs to be removed so it matches the non-payment in Nailsea.
+['P396','Elimination']=N:
+-DB('Loans by Entity', !Version, !t_Period, !t_Year, 'Nailsea', !Department, !Entity, 'Loan Schedule', !'Nominal Code', 'Internal Cash Income');
+
+
+# These nominal codes are not cash items and need to be excluded from the cash flow 
+# P304, P305, R501, P259, P334, P117 (but for Northamptonshire only)
+['Northamptonshire',{
+#'P304', 'P305', 'R501', 'P259', 'P334', 
+'P117'},'Elimination']=N:
+-['Source'];
+
+
+
+#EndRegion
+
+
+#Region Consolidated Eliminations
+['Consolidated Eliminations', 'P200']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P201']=N:-['Cashflow'];
+['Consolidated Eliminations', 'R280']=N:-['Cashflow'];
+['Consolidated Eliminations', 'R281']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P404']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P406']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P407']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P408']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P409']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P411']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P420']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P421']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P422']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P423']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P425']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P426']=N:-['Cashflow'];
+
+['Consolidated Eliminations', 'P405']=N:-['Cashflow'];
+['Consolidated Eliminations', 'R282']=N:-['Cashflow'];
+['Consolidated Eliminations', 'R290']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P462']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P530']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P574']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P575']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P576']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P578']=N:-['Cashflow'];
+['Consolidated Eliminations', 'R285']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P310']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P311']=N:-['Cashflow'];
+
+['Consolidated Eliminations', 'P312']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P313']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P314']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P315']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P350']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P395']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P390']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P316']=N:-['Cashflow'];
+['Consolidated Eliminations', 'R255']=N:-['Cashflow'];
+['Consolidated Eliminations', 'R260']=N:-['Cashflow'];
+['Consolidated Eliminations', 'R258']=N:-['Cashflow'];
+['Consolidated Eliminations', 'P302']=N:-['Cashflow'];
+['Consolidated Eliminations', 'S213']=N:-['Cashflow'];
+['Consolidated Eliminations', 'Sub debt capital receivable']=N:-['Cashflow'];
+['Consolidated Eliminations', 'Sub debt capital internal']=N:-['Cashflow'];
+
+
+
+
+FEEDERS;
+
+['Actual','Current Year']              =>['Forecast'];
+['Board Version','Current Year']       =>['Forecast'];
+['Operational  Budget','Current Year'] =>['Forecast'];
+['Steady State','Current Year']        =>['Forecast'];
+
+['Source']=>['Phasing'];
+
+
+['S213','Nailsea','Source']=>['Elimination'];
+['Northamptonshire',{'P117'},'Source']=>['Elimination'];
+['S213','Nailsea','Source']=>['P302','Group','Elimination'];
+
+
+['Cashflow', 'P200']=>['Consolidated Eliminations'];
+['Cashflow', 'P201']=>['Consolidated Eliminations'];
+['Cashflow', 'R280']=>['Consolidated Eliminations'];
+['Cashflow', 'R281']=>['Consolidated Eliminations'];
+['Cashflow', 'P404']=>['Consolidated Eliminations'];
+['Cashflow', 'P406']=>['Consolidated Eliminations'];
+['Cashflow', 'P407']=>['Consolidated Eliminations'];
+['Cashflow', 'P408']=>['Consolidated Eliminations'];
+['Cashflow', 'P409']=>['Consolidated Eliminations'];
+['Cashflow', 'P411']=>['Consolidated Eliminations'];
+['Cashflow', 'P420']=>['Consolidated Eliminations'];
+['Cashflow', 'P421']=>['Consolidated Eliminations'];
+['Cashflow', 'P422']=>['Consolidated Eliminations'];
+['Cashflow', 'P423']=>['Consolidated Eliminations'];
+['Cashflow', 'P425']=>['Consolidated Eliminations'];
+['Cashflow', 'P426']=>['Consolidated Eliminations'];
+
+['Cashflow', 'P405']=>['Consolidated Eliminations'];
+['Cashflow', 'R282']=>['Consolidated Eliminations'];
+['Cashflow', 'R290']=>['Consolidated Eliminations'];
+['Cashflow', 'P462']=>['Consolidated Eliminations'];
+['Cashflow', 'P530']=>['Consolidated Eliminations'];
+['Cashflow', 'P574']=>['Consolidated Eliminations'];
+['Cashflow', 'P575']=>['Consolidated Eliminations'];
+['Cashflow', 'P576']=>['Consolidated Eliminations'];
+['Cashflow', 'P578']=>['Consolidated Eliminations'];
+['Cashflow', 'R285']=>['Consolidated Eliminations'];
+['Cashflow', 'P310']=>['Consolidated Eliminations'];
+['Cashflow', 'P311']=>['Consolidated Eliminations'];
+
+['Cashflow', 'P312']=>['Consolidated Eliminations'];
+['Cashflow', 'P313']=>['Consolidated Eliminations'];
+['Cashflow', 'P314']=>['Consolidated Eliminations'];
+['Cashflow', 'P315']=>['Consolidated Eliminations'];
+['Cashflow', 'P350']=>['Consolidated Eliminations'];
+['Cashflow', 'P395']=>['Consolidated Eliminations'];
+['Cashflow', 'P390']=>['Consolidated Eliminations'];
+['Cashflow', 'P316']=>['Consolidated Eliminations'];
+['Cashflow', 'R255']=>['Consolidated Eliminations'];
+['Cashflow', 'R260']=>['Consolidated Eliminations'];
+['Cashflow', 'R258']=>['Consolidated Eliminations'];
+['Cashflow', 'P302']=>['Consolidated Eliminations'];
+['Cashflow', 'S213']=>['Consolidated Eliminations'];
+['Cashflow', 'Sub debt capital receivable']=>['Consolidated Eliminations'];
+['Cashflow', 'Sub debt capital internal']=>['Consolidated Eliminations'];

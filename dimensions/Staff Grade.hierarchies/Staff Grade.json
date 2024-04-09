@@ -1,0 +1,234 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Staff Grade",
+	"Elements":
+	[
+		{
+			"Name":"All Staff Grades",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"General Manager",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Manager",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Deputy Manager",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Administrator",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Team Leader 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Team Leader 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Team Leader 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Support Worker",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Senior Support Worker",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Catering Assistant",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cook",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Senior cook",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Catering Manager",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Domestic",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Activity Worker",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Handyman",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Porter / Concierge",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Occupational Therapist",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OT Co-ordinator",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OT Assistant",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Driver",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Psychiatrist",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Psychologists",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Domestic Supervisor",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"General Manager",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Manager",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Deputy Manager",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Administrator",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Team Leader 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Team Leader 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Team Leader 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Support Worker",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Senior Support Worker",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Catering Assistant",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Cook",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Senior cook",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Catering Manager",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Domestic Supervisor",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Domestic",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Activity Worker",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Handyman",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Porter / Concierge",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Occupational Therapist",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"OT Co-ordinator",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"OT Assistant",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Driver",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Psychiatrist",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Staff Grades",
+			"ComponentName":"Psychologists",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Staff Grade.subsets/Default.json"
+	]
+}

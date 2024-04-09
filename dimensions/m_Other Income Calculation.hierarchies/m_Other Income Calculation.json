@@ -1,0 +1,20 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Other Income Calculation",
+	"Elements":
+	[
+		{
+			"Name":"Description",
+			"Type":"String"
+		},
+		{
+			"Name":"Nominal Code",
+			"Type":"String"
+		},
+		{
+			"Name":"Amount £",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

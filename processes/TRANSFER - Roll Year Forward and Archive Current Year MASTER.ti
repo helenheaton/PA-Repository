@@ -1,0 +1,93 @@
+#region Prolog
+
+# Moves Current Year Data in Archive Cubes. 
+
+
+# Create a list of all cubes to loop through
+sDim = '}Cubes';
+sSubset = GetProcessName;
+nTemp = 1;
+
+SubsetDestroy( sDim, sSubset );
+SubsetCreate( sDim, sSubset, nTemp );
+SubsetMDXSet( sDim, sSubset, 'TM1Filterbylevel(TM1SubsetAll(['| sDim |']),0)' );
+SubsetMDXSet( sDim, sSubset, '' );
+
+DatasourceDimensionSubset = sSubset;
+DatasourceNameForClient = sDim;
+DatasourceNameForServer = sDim;
+DataSourceType = 'SUBSET';
+
+RunProcess( 'Admin - Create Archive Cubes');
+#endregion
+#region Data
+
+sCube = vCube;
+
+nDim=CubeDimensionCountGet( sCube);
+iDim = 1;
+While (iDim <= nDim);
+  sDim = TABDIM( sCube, iDim ); 
+  IF(sDim @='t_Year');
+    IF(CubeExists( 'zArchive - '|sCube )<>0);
+      ExecuteProcess( 'TRANSFER - Roll Year Forward and Archive Export to CSV', 'pCube', sCube, 'pYear', 'Year+1');
+      ExecuteProcess( 'TRANSFER - Roll Year Forward and Archive Current Year Import from CSV', 'pCube', sCube, 'pYear', 'Year+1');
+      ExecuteProcess( 'ADMIN - Delete ASCII File', 'pCube', sCube);
+        
+      ExecuteProcess( 'TRANSFER - Roll Year Forward and Archive Export to CSV', 'pCube', sCube, 'pYear', 'Current Year');
+      ExecuteProcess( 'TRANSFER - Roll Year Forward and Archive Current Year Import from CSV', 'pCube', sCube, 'pYear', 'Current Year');
+      ExecuteProcess( 'ADMIN - Delete ASCII File', 'pCube', sCube);
+
+      ExecuteProcess( 'TRANSFER - Roll Year Forward and Archive Export to CSV', 'pCube', sCube, 'pYear', 'Year-1');
+      ExecuteProcess( 'TRANSFER - Roll Year Forward and Archive Current Year Import from CSV', 'pCube', sCube, 'pYear', 'Year-1');
+      ExecuteProcess( 'ADMIN - Delete ASCII File', 'pCube', sCube);
+
+      ExecuteProcess( 'TRANSFER - Roll Year Forward and Archive Export to CSV', 'pCube', sCube, 'pYear', 'Year-2');
+      ExecuteProcess( 'TRANSFER - Roll Year Forward and Archive Current Year Import from CSV', 'pCube', sCube, 'pYear', 'Year-2');
+      ExecuteProcess( 'ADMIN - Delete ASCII File', 'pCube', sCube);
+
+      IF(pRoll<>0);
+        ExecuteProcess( 'TRANSFER - Roll Year Forward and Archive Export to CSV', 'pCube', sCube, 'pYear', 'Year-1');
+        ExecuteProcess( 'TRANSFER - Roll Year Forward Import from CSV', 'pCube', sCube, 'pTarget', 'Year-2');
+        ExecuteProcess( 'ADMIN - Delete ASCII File', 'pCube', sCube);
+    
+        ExecuteProcess( 'TRANSFER - Roll Year Forward and Archive Export to CSV', 'pCube', sCube, 'pYear', 'Current Year');
+        ExecuteProcess( 'TRANSFER - Roll Year Forward Import from CSV', 'pCube', sCube, 'pTarget', 'Year-1');
+        ExecuteProcess( 'ADMIN - Delete ASCII File', 'pCube', sCube);
+
+        ExecuteProcess( 'TRANSFER - Roll Year Forward and Archive Export to CSV', 'pCube', sCube, 'pYear', 'Year+1');
+        ExecuteProcess( 'TRANSFER - Roll Year Forward Import from CSV', 'pCube', sCube, 'pTarget', 'Current Year');
+        ExecuteProcess( 'ADMIN - Delete ASCII File', 'pCube', sCube);
+      Endif;
+        
+    Endif;
+  Endif;
+  iDim = iDim+1;
+End;
+
+#endregion
+#region Epilog
+
+# Move year forward
+sYear = CellGetS( 'Admin - Model Parameters', 'Current Year', 'Value' );
+sNextYear = Attrs('t_Financial Year', sYear, 'Year+1' );
+
+IF(pRoll<>0);
+  CellPutS( sNextYear, 'Admin - Model Parameters', 'Current Year', 'Value' );
+Endif;
+
+
+sDim = '}Cubes';
+sSubset = GetProcessName;
+nEl=SubsetGetSize( sDim, sSubset );
+iEl = 1;
+While (iEl <= nEl);
+  sCube = SubsetGetElementName( sDim, sSubset, iEl );
+  CubeProcessFeeders( sCube );
+  iEl = iEl+1;
+End;
+
+#sleep(1000);
+#ExecuteProcess('ADMIN - Save Data All');
+
+#endregion

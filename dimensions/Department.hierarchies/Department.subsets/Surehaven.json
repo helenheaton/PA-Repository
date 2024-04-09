@@ -1,0 +1,13 @@
+{
+	"@type":"Subset",
+	"Name":"Surehaven",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('HV01')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('HV02')"
+		}
+	]
+}

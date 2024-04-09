@@ -1,0 +1,54 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Loans Working Capital",
+	"Elements":
+	[
+		{
+			"Name":"Opening Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Additional Loans",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Interest",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Interest Repayment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Closing Balance",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Closing Balance",
+			"ComponentName":"Opening Balance",
+			"Weight":1
+		},
+		{
+			"ParentName":"Closing Balance",
+			"ComponentName":"Additional Loans",
+			"Weight":1
+		},
+		{
+			"ParentName":"Closing Balance",
+			"ComponentName":"Interest",
+			"Weight":1
+		},
+		{
+			"ParentName":"Closing Balance",
+			"ComponentName":"Interest Repayment",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_Loans Working Capital.subsets/Default.json"
+	]
+}

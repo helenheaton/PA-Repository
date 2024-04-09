@@ -1,0 +1,42 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+['Uplift Amount']=N:
+  ['Annual Salary']*['Uplift Percentage'];
+
+['Employers NI']= N:
+IF( ['Annual Salary']>DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Allowance' ),
+  (['Annual Salary']-DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Allowance' ))
+  *DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Percentage' ),
+  0);
+  
+['Annual Expenses']=N:
+['Expenses per Month']*12;
+
+['Foundation Percentage']=N:
+1-['Group Percentage'];
+
+['Group Amount']=N:
+['Group Percentage']*['Total Cost'];
+
+['Foundation Amount']=N:
+['Foundation Percentage']*['Total Cost'];
+
+
+FEEDERS;
+['Uplift Percentage']=>['Uplift Amount'];
+
+['Annual Salary']=>['Employers NI'];
+
+['Expenses per Month']=>['Annual Expenses'];
+
+['Group Percentage']=>['Foundation Percentage'];
+
+['Annual Salary']=>['Group Amount'];
+  
+['Annual Salary']=>['Foundation Amount'];
+
+# external feeders
+
+['Foundation Amount']=>DB('Other Costs - Costs by Dept', !Version, 'FY', !t_Year, 'NH01', 'S280' );
+['Group Amount']=>DB('Other Costs - Costs by Dept', !Version, 'FY', !t_Year, 'GP01', 'S280' );

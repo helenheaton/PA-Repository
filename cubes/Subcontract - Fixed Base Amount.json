@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Subcontract - Fixed Base Amount",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Contract')"
+		},
+		{
+			"@id":"Dimensions('Cost Type')"
+		},
+		{
+			"@id":"Dimensions('m_Base Information')"
+		}
+	],
+	"Rules@Code.link":"Subcontract - Fixed Base Amount.rules",
+	"Views@Code.links":
+	[
+		"Subcontract - Fixed Base Amount.views/Default.json"
+	]
+}

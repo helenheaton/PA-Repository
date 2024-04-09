@@ -1,0 +1,53 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Department].[Department]" : "Alias"
+		},
+		"ContextSets" : 
+		{
+			"[Contract].[Contract]" : 
+			{
+				"Expression" : "{[Contract].[Contract].MEMBERS}"
+			},
+			"[Department].[Department]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Entity].[Entity]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			},
+			"[t_Period].[t_Period]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[t_Year].[t_Year]" : 
+			{
+				"Expression" : "{[t_Year].[t_Year].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Contract].[Contract]" : false,
+			"[Cost Type].[Cost Type]" : false,
+			"[Department].[Department]" : true,
+			"[Entity].[Entity]" : true,
+			"[Version].[Version]" : false,
+			"[m_Subcontract Recharge].[m_Subcontract Recharge]" : false,
+			"[t_Period].[t_Period]" : false,
+			"[t_Year].[t_Year]" : false
+		}
+	}
+}

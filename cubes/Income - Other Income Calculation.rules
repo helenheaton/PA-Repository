@@ -1,0 +1,18 @@
+# --------------------------------------------------------------------------------------------------
+# Income - Other Income Calculation
+# Created by Jenny 
+# --------------------------------------------------------------------------------------------------
+
+SKIPCHECK;
+FEEDSTRINGS;
+
+['Description']=S:
+DB('Income - Other Income Input', !Version, !t_Year, !Department, !'Other Income Item', 'Description');
+
+['Nominal Code']=S:
+DB('Income - Other Income Input', !Version, !t_Year, !Department, !'Other Income Item', 'Nominal Code');
+
+FEEDERS;
+# External Feeders
+# Added by Cathy 30/10/2023
+[]=>DB('Income - Other Income - Summary', !Version, !t_Year, !t_Period, !Department, !'Other Income Item', DB('Income - Other Income Calculation', !Version, !t_Year, !t_Period, !Department, !'Other Income Item', 'Nominal Code'), !'m_Other Income Calculation' );

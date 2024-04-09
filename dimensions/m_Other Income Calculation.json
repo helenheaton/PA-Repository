@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Other Income Calculation",
+	"Hierarchies@Code.links":
+	[
+		"m_Other Income Calculation.hierarchies/m_Other Income Calculation.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Other Income Calculation')/Hierarchies('m_Other Income Calculation')"
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"@type":"Cube",
+	"Name":"Income - Property Rental Income",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Property Type')"
+		},
+		{
+			"@id":"Dimensions('Funding Types - Beds')"
+		},
+		{
+			"@id":"Dimensions('Property Rental Income Element')"
+		},
+		{
+			"@id":"Dimensions('m_Property Rental Income Calculation')"
+		}
+	],
+	"Rules@Code.link":"Income - Property Rental Income.rules",
+	"Views@Code.links":
+	[
+		"Income - Property Rental Income.views/Default.json"
+	]
+}

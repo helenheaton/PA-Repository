@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Index Lookup",
+	"Hierarchies@Code.links":
+	[
+		"m_Index Lookup.hierarchies/m_Index Lookup.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Index Lookup')/Hierarchies('m_Index Lookup')"
+	}
+}

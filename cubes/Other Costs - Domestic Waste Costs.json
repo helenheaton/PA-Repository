@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Other Costs - Domestic Waste Costs",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('m_Domestic Waste Calculation')"
+		}
+	],
+	"Rules@Code.link":"Other Costs - Domestic Waste Costs.rules",
+	"Views@Code.links":
+	[
+		"Other Costs - Domestic Waste Costs.views/Default.json"
+	]
+}

@@ -1,0 +1,394 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Payroll Head Office Pay Calculation",
+	"Elements":
+	[
+		{
+			"Name":"Hours",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pension Percentage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pay Increase Method - April",
+			"Type":"String"
+		},
+		{
+			"Name":"Pay Increase Method - October",
+			"Type":"String"
+		},
+		{
+			"Name":"Annual Salary",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"April Increase Percentage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"April Increase Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"April Monetary Increase",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"April Override Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"October Increase Percentage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"October Increase Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"October Monetary Increase",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"October Override Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pension Amount - October",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Employers NI - October",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pension Amount - April",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Employers NI - April",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Car Allowance - April",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Car Allowance - October",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Annual Cost - October",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Annual Cost - April",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Monthly Payroll Cost - April",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly Payroll Cost - October",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly Apprentice Levy - April",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly Apprentice Levy - October",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Annual Salary - April",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Annual Salary - October",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Start Month",
+			"Type":"String"
+		},
+		{
+			"Name":"End Month",
+			"Type":"String"
+		},
+		{
+			"Name":"Total Payroll Cost",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Payroll Cost April",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Payroll Cost May",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Payroll Cost June",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Payroll Cost July",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Payroll Cost August",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Payroll Cost September",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Payroll Cost October",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Payroll Cost November",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Payroll Cost December",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Payroll Cost January",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Payroll Cost February",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Payroll Cost March",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Apprentice Levy",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Apprentice Levy April",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Apprentice Levy May",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Apprentice Levy June",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Apprentice Levy July",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Apprentice Levy August",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Apprentice Levy September",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Apprentice Levy October",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Apprentice Levy November",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Apprentice Levy December",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Apprentice Levy January",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Apprentice Levy February",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Apprentice Levy March",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Annual Cost - October",
+			"ComponentName":"Annual Salary - October",
+			"Weight":1
+		},
+		{
+			"ParentName":"Annual Cost - October",
+			"ComponentName":"Pension Amount - October",
+			"Weight":1
+		},
+		{
+			"ParentName":"Annual Cost - October",
+			"ComponentName":"Employers NI - October",
+			"Weight":1
+		},
+		{
+			"ParentName":"Annual Cost - October",
+			"ComponentName":"Car Allowance - October",
+			"Weight":1
+		},
+		{
+			"ParentName":"Annual Cost - April",
+			"ComponentName":"Annual Salary - April",
+			"Weight":1
+		},
+		{
+			"ParentName":"Annual Cost - April",
+			"ComponentName":"Pension Amount - April",
+			"Weight":1
+		},
+		{
+			"ParentName":"Annual Cost - April",
+			"ComponentName":"Employers NI - April",
+			"Weight":1
+		},
+		{
+			"ParentName":"Annual Cost - April",
+			"ComponentName":"Car Allowance - April",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Payroll Cost",
+			"ComponentName":"Payroll Cost April",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Payroll Cost",
+			"ComponentName":"Payroll Cost May",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Payroll Cost",
+			"ComponentName":"Payroll Cost June",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Payroll Cost",
+			"ComponentName":"Payroll Cost July",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Payroll Cost",
+			"ComponentName":"Payroll Cost August",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Payroll Cost",
+			"ComponentName":"Payroll Cost September",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Payroll Cost",
+			"ComponentName":"Payroll Cost October",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Payroll Cost",
+			"ComponentName":"Payroll Cost November",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Payroll Cost",
+			"ComponentName":"Payroll Cost December",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Payroll Cost",
+			"ComponentName":"Payroll Cost January",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Payroll Cost",
+			"ComponentName":"Payroll Cost February",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Payroll Cost",
+			"ComponentName":"Payroll Cost March",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Apprentice Levy",
+			"ComponentName":"Apprentice Levy April",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Apprentice Levy",
+			"ComponentName":"Apprentice Levy May",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Apprentice Levy",
+			"ComponentName":"Apprentice Levy June",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Apprentice Levy",
+			"ComponentName":"Apprentice Levy July",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Apprentice Levy",
+			"ComponentName":"Apprentice Levy August",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Apprentice Levy",
+			"ComponentName":"Apprentice Levy September",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Apprentice Levy",
+			"ComponentName":"Apprentice Levy October",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Apprentice Levy",
+			"ComponentName":"Apprentice Levy November",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Apprentice Levy",
+			"ComponentName":"Apprentice Levy December",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Apprentice Levy",
+			"ComponentName":"Apprentice Levy January",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Apprentice Levy",
+			"ComponentName":"Apprentice Levy February",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Apprentice Levy",
+			"ComponentName":"Apprentice Levy March",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_Payroll Head Office Pay Calculation.subsets/Default.json"
+	]
+}

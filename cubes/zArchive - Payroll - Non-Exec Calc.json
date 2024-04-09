@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"zArchive - Payroll - Non-Exec Calc",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Director')"
+		},
+		{
+			"@id":"Dimensions('m_Non Exec Calculation')"
+		}
+	],
+	"Views@Code.links":[]
+}

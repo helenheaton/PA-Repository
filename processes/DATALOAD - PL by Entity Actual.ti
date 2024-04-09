@@ -1,0 +1,88 @@
+#region Prolog
+
+sCube = 'PL by Entity';
+sView = GetProcessName;
+sSubset = GetProcessName;
+nTemp = 1;
+sVersion = 'Actual';
+
+
+# Clear Target
+
+# turn off logging
+nCubeLogging = CubeGetLogChanges( sCube );
+CubeSetLogChanges( sCube, 0 );
+
+# Create target and clear any data
+ViewDestroy( sCube, sView );
+ViewCreate( sCube, sView, nTemp ); 
+
+nDim=CubeDimensionCountGet( sCube);
+iDim = 1;
+While (iDim <= nDim);
+  sDim = TABDIM( sCube, iDim ); 
+  SubsetDestroy( sDim, sSubset );
+  SubsetCreate( sDim, sSubset, nTemp );
+  SubsetMDXSet( sDim, sSubset, 'TM1Filterbylevel(TM1SubsetAll(['| sDim |']),0)' );
+  SubsetMDXSet( sDim, sSubset, '' );
+  ViewSubsetAssign( sCube, sView, sDim, sSubset );
+iDim = iDim+1;
+End;
+
+sDim = 'Version';
+SubsetMDXSet( sDim, sSubset, '{[' | sDim | '].[ ' | sVersion | ']},{[' | sDim | '].[Projections]}' );  
+SubsetMDXSet( sDim, sSubset, '' );
+
+sDim = 't_Year';
+SubsetMDXSet( sDim, sSubset, '{[' | sDim | '].[Current Year]}' );  
+SubsetMDXSet( sDim, sSubset, '' );
+
+sDim = 'Entity';
+SubsetMDXSet( sDim, sSubset, '{[' | sDim | '].[' | pEntity | ']}' );  
+SubsetMDXSet( sDim, sSubset, '' );
+
+ViewZeroOut( sCube, sView );
+
+
+# Define source
+
+sFileLocation = GetProcessErrorFileDirectory;
+sFileLocation = Subst(sFileLocation, 1, LONG( sFileLocation )-5)|'Data\Model_Upload';
+sFileName = pEntity | sVersion | ' ' | pYear | '.csv';
+
+DataSourceType = 'CHARACTERDELIMITED';
+DatasourceNameForClient = sFileLocation|'\'|sFileName;
+DatasourceNameForServer = sFileLocation|'\'|sFileName;
+
+#endregion
+#region Data
+
+# These are old departments which don't need loading. 
+IF(vDept@='CM11' % vDept@='CC70' % vDept@='HH04' % vDept@='DM10' % vDept@='SW04' % vDept@='HH10' 
+% vDept@='NH36' % vDept@='GP15' % vDept@='GP03' % vDept@='NS05');
+  ItemSkip;
+Endif;
+
+sContract = Attrs('Department', vDept, 'Contract' );
+If(sContract@='N/A'); sContract='None'; Endif;
+
+CellPutN( vP01, 'PL by Entity', sVersion, 'P01', 'Current Year', pEntity, vDept, sContract, vNominal  );
+CellPutN( vP02, 'PL by Entity', sVersion, 'P02', 'Current Year', pEntity, vDept, sContract, vNominal  );
+CellPutN( vP03, 'PL by Entity', sVersion, 'P03', 'Current Year', pEntity, vDept, sContract, vNominal  );
+CellPutN( vP04, 'PL by Entity', sVersion, 'P04', 'Current Year', pEntity, vDept, sContract, vNominal  );
+CellPutN( vP05, 'PL by Entity', sVersion, 'P05', 'Current Year', pEntity, vDept, sContract, vNominal  );
+CellPutN( vP06, 'PL by Entity', sVersion, 'P06', 'Current Year', pEntity, vDept, sContract, vNominal  );
+CellPutN( vP07, 'PL by Entity', sVersion, 'P07', 'Current Year', pEntity, vDept, sContract, vNominal  );
+CellPutN( vP08, 'PL by Entity', sVersion, 'P08', 'Current Year', pEntity, vDept, sContract, vNominal  );
+CellPutN( vP09, 'PL by Entity', sVersion, 'P09', 'Current Year', pEntity, vDept, sContract, vNominal  );
+CellPutN( vP10, 'PL by Entity', sVersion, 'P10', 'Current Year', pEntity, vDept, sContract, vNominal  );
+CellPutN( vP11, 'PL by Entity', sVersion, 'P11', 'Current Year', pEntity, vDept, sContract, vNominal  );
+CellPutN( vP12, 'PL by Entity', sVersion, 'P12', 'Current Year', pEntity, vDept, sContract, vNominal  );
+
+CellPutN( vProj, 'PL by Entity', 'Projections', 'P12', 'Current Year', pEntity, vDept, sContract, vNominal  );
+
+
+#endregion
+#region Epilog
+CubeSetLogChanges( sCube, nCubeLogging );
+#endregion

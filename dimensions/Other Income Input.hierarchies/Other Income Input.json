@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Other Income Input",
+	"Elements":
+	[
+		{
+			"Name":"Description",
+			"Type":"String"
+		},
+		{
+			"Name":"Nominal Code",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

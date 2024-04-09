@@ -1,0 +1,16 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+
+
+FEEDERS;
+
+['Agency']=>DB('Payroll Costs by Dept', !Version, !t_Period, !t_Year, !Department, Attrs('Department',!Department,'Contract'), 'R105' );
+
+['Sleep In Costs']=>DB('Payroll Costs by Dept', !Version, !t_Period, !t_Year, !Department, Attrs('Department',!Department,'Contract'), 'R114' );
+
+['Redundancy']=>DB('Payroll Costs by Dept', !Version, !t_Period, !t_Year, !Department, Attrs('Department',!Department,'Contract'), 'R140' );
+
+['On Call Allowance']=>DB('Payroll Costs by Dept', !Version, !t_Period, !t_Year, !Department, Attrs('Department',!Department,'Contract'), 'R175' );
+
+# Bank Staff isn't needed. 

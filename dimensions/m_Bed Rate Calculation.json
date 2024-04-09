@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Bed Rate Calculation",
+	"Hierarchies@Code.links":
+	[
+		"m_Bed Rate Calculation.hierarchies/m_Bed Rate Calculation.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Bed Rate Calculation')/Hierarchies('m_Bed Rate Calculation')"
+	}
+}

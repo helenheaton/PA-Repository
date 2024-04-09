@@ -1,0 +1,17 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+
+[]=N:
+IF(!Nominal Code@=DB('Income - Other Income Calculation', !Version, !t_Year, !t_Period, !Department, !'Other Income Item', 'Nominal Code'),
+  DB('Income - Other Income Calculation', !Version, !t_Year, !t_Period, !Department, !'Other Income Item', !m_Other Income Calculation),
+  0);
+  
+[]=S:
+IF(!Nominal Code@=DB('Income - Other Income Calculation', !Version, !t_Year, !t_Period, !Department, !'Other Income Item', 'Nominal Code'),
+  DB('Income - Other Income Calculation', !Version, !t_Year, !t_Period, !Department, !'Other Income Item', !m_Other Income Calculation),
+  '');
+  
+  
+FEEDERS;
+['Amount £']=>DB('Income by Home', !Version, !t_Period, !t_Year, !Department, !'Nominal Code', 'Other Income');

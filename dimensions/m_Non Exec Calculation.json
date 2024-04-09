@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Non Exec Calculation",
+	"Hierarchies@Code.links":
+	[
+		"m_Non Exec Calculation.hierarchies/m_Non Exec Calculation.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Non Exec Calculation')/Hierarchies('m_Non Exec Calculation')"
+	}
+}

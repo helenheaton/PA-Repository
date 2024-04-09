@@ -1,0 +1,339 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Resident Fees Calculation",
+	"Elements":
+	[
+		{
+			"Name":"Total Block Beds",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Market Beds",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Spot Beds",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Number of Beds",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Number of Days Per Period",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Market / Spot Void %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Number of Void Beds",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adjusted Total Beds",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Block Bed Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Market Bed Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Spot Bed Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Block Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Market Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Gross Market Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Spot Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Gross Spot Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Void Adjustment (Spot)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Weekly 1:1 Hours",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1:1 Hourly Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1:1 Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Care Bed Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Number of Domiciliary Care Hours",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Weekly Block Domiciliary Care Hours",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Weekly Market Domiciliary Care Hours",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Weekly Spot Domiciliary Care Hours",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Block Domiciliary Care Hourly Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Market Domiciliary Care Hourly Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Spot Domiciliary Care Hourly Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Domiciliary Care Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"FNC Rate Per Week",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Gross FNC Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FNC Void %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FNC Void Adjustment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Calculate FNC Income Separately?",
+			"Type":"String"
+		},
+		{
+			"Name":"Net FNC Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Void Adjustment (Market)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Adjustments (Market)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Adjustments (Spot)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Adjustments (Block)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Gross Block Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adjustments (Market Domiciliary Care)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adjustments (Spot Domiciliary Care)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adjustments (Block Domiciliary Care)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Block Domiciliary Care Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Market Domiciliary Care Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Spot Domiciliary Care Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Gross Block Domiciliary Care Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Gross Market Domiciliary Care Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Gross Spot Domiciliary Care Income",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Number of Beds",
+			"ComponentName":"Total Block Beds",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Number of Beds",
+			"ComponentName":"Total Market Beds",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Number of Beds",
+			"ComponentName":"Total Spot Beds",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Block Income",
+			"ComponentName":"Gross Block Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Block Income",
+			"ComponentName":"Other Adjustments (Block)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Market Income",
+			"ComponentName":"Gross Market Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Market Income",
+			"ComponentName":"Void Adjustment (Market)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Market Income",
+			"ComponentName":"Other Adjustments (Market)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Spot Income",
+			"ComponentName":"Gross Spot Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Spot Income",
+			"ComponentName":"Void Adjustment (Spot)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Spot Income",
+			"ComponentName":"Other Adjustments (Spot)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Number of Domiciliary Care Hours",
+			"ComponentName":"Weekly Block Domiciliary Care Hours",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Number of Domiciliary Care Hours",
+			"ComponentName":"Weekly Market Domiciliary Care Hours",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Number of Domiciliary Care Hours",
+			"ComponentName":"Weekly Spot Domiciliary Care Hours",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Domiciliary Care Income",
+			"ComponentName":"Net Block Domiciliary Care Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Domiciliary Care Income",
+			"ComponentName":"Net Market Domiciliary Care Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Domiciliary Care Income",
+			"ComponentName":"Net Spot Domiciliary Care Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net FNC Income",
+			"ComponentName":"Gross FNC Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net FNC Income",
+			"ComponentName":"FNC Void Adjustment",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Block Domiciliary Care Income",
+			"ComponentName":"Gross Block Domiciliary Care Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Block Domiciliary Care Income",
+			"ComponentName":"Adjustments (Block Domiciliary Care)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Market Domiciliary Care Income",
+			"ComponentName":"Gross Market Domiciliary Care Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Market Domiciliary Care Income",
+			"ComponentName":"Adjustments (Market Domiciliary Care)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Spot Domiciliary Care Income",
+			"ComponentName":"Gross Spot Domiciliary Care Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Spot Domiciliary Care Income",
+			"ComponentName":"Adjustments (Spot Domiciliary Care)",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_Resident Fees Calculation.subsets/Default.json"
+	]
+}

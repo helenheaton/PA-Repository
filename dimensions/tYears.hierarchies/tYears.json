@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"tYears",
+	"Elements":
+	[
+		{
+			"Name":"Current Year",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Last Year",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

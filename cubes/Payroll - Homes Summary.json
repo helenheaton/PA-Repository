@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Payroll - Homes Summary",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Staff Grade')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		}
+	],
+	"Rules@Code.link":"Payroll - Homes Summary.rules",
+	"Views@Code.links":
+	[
+		"Payroll - Homes Summary.views/Default.json"
+	]
+}

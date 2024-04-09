@@ -1,0 +1,44 @@
+  # --------------------------------------------------------------------------------------------------
+  # Income - Resident Fees - Summary
+  # Summarises data from Income - Resident Fees by Nominal Code
+  #
+  # Helen Heaton
+  # Last updated 07/12/23
+  # --------------------------------------------------------------------------------------------------
+
+SKIPCHECK;
+FEEDSTRINGS;
+
+# Calculate Total Care Bed Income
+  ['Total Care Bed Income']=N:
+    ['Net Block Income'] + ['Net Market Income'] +['Net Spot Income'] + ['1:1 Income'];  
+
+# Calculate Total Income and total for the year
+  ['Total Income']=N:
+      ['Total Care Bed Income'] + ['Total Domiciliary Care Income'] + ['Net FNC Income']; 
+
+# Summarise data from 'Income - Resident Fees' by Nominal Code
+[]=N:
+IF(!Nominal Code@=ATTRS( 'm_Resident Fees Calculation', !m_Resident Fees Calculation, 'Nominal Code'),
+  DB('Income - Resident Fees', !Version, !t_Year, !t_Period, !Department, 'All Bed Types', !m_Resident Fees Calculation)
+  ,continue);
+
+#################################################################################################################
+feeders;
+#################################################################################################################
+
+### Internal ###
+['FNC Void Adjustment'] => ['Net FNC Income'];
+['Void Adjustment (Market)'] => ['Net Market Income'];
+['Other Adjustments (Market)'] => ['Net Market Income'];
+['Net Block Income']=>['Total Care Bed Income'];
+['Net Market Income']=>['Total Care Bed Income'];
+['Net Spot Income']=>['Total Care Bed Income'];
+['1:1 Income']=>['Total Care Bed Income'];
+['Total Care Bed Income'] => ['Total Income'];
+['Total Domiciliary Care Income'] => ['Total Income'];
+['Net FNC Income'] => ['Total Income'];
+
+
+### External ###
+['Total Income'] => db('Income by Home', !Version, !t_Period, !t_Year, !Department, !'Nominal Code', 'Resident Fees' );

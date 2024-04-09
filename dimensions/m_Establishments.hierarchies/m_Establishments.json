@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Establishments",
+	"Elements":
+	[
+		{
+			"Name":"Hours",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

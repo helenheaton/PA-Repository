@@ -1,0 +1,33 @@
+{
+	"@type":"Cube",
+	"Name":"PL by Dept",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Contract')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		}
+	],
+	"Rules@Code.link":"PL by Dept.rules",
+	"Views@Code.links":
+	[
+		"PL by Dept.views/DATACOPY - Payroll to P&L.json",
+		"PL by Dept.views/Default.json",
+		"PL by Dept.views/For excel report.json",
+		"PL by Dept.views/Process View.json"
+	]
+}

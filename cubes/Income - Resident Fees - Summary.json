@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"Income - Resident Fees - Summary",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('m_Resident Fees Calculation')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		}
+	],
+	"Rules@Code.link":"Income - Resident Fees - Summary.rules",
+	"Views@Code.links":[]
+}

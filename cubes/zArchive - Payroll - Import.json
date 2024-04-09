@@ -1,0 +1,26 @@
+{
+	"@type":"Cube",
+	"Name":"zArchive - Payroll - Import",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Payroll Contract Type')"
+		},
+		{
+			"@id":"Dimensions('Staff Grade')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Data')"
+		}
+	],
+	"Views@Code.links":[]
+}

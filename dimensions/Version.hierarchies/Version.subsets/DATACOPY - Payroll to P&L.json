@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"DATACOPY - Payroll to P&L",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Board Version')"
+		}
+	]
+}

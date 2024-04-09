@@ -1,0 +1,14 @@
+{
+	"@type":"Cube",
+	"Name":"Admin - Department Control",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('m_Department Control')"
+		}
+	],
+	"Views@Code.links":[]
+}

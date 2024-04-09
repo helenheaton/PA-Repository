@@ -1,0 +1,33 @@
+{
+	"@type":"Cube",
+	"Name":"Subcontract - Other In Year Charges",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Contract')"
+		},
+		{
+			"@id":"Dimensions('Cost Type')"
+		},
+		{
+			"@id":"Dimensions('m_Other Charges')"
+		}
+	],
+	"Rules@Code.link":"Subcontract - Other In Year Charges.rules",
+	"Views@Code.links":
+	[
+		"Subcontract - Other In Year Charges.views/Default.json"
+	]
+}

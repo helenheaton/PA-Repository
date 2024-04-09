@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Loans Deferred Consideration",
+	"Elements":
+	[
+		{
+			"Name":"Capital",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Interest",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

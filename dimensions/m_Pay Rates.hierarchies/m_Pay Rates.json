@@ -1,0 +1,67 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Pay Rates",
+	"Elements":
+	[
+		{
+			"Name":"Pay Increase Method - April",
+			"Type":"String"
+		},
+		{
+			"Name":"Current Hourly Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Living Wage Increase Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"April Increase Percentage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"April Increase Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"April Monetary Increase",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"April Override Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hourly Pay - April",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pay Increase Method - October",
+			"Type":"String"
+		},
+		{
+			"Name":"October Increase Percentage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"October Increase Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"October Monetary Increase",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"October Override Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hourly Pay - October",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_Pay Rates.subsets/Default.json"
+	]
+}

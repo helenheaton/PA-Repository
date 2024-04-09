@@ -1,0 +1,58 @@
+#region Prolog
+SourceCubeName = 'PL by entity';
+
+
+#################################################################################
+### Define Source View ###
+ViewName='EXPORT - PL by Entity';
+
+if(ViewExists(SourceCubeName,ViewName)=1);
+   ViewDestroy(SourceCubeName,ViewName);
+endif;
+ViewCreate(SourceCubeName,ViewName);
+
+# Create set for version dimension
+DimName='Version';
+SubName = ViewName;
+
+if(SubsetExists(DimName,SubName)=1);
+   SubsetDeleteAllElements(DimName,SubName);
+else;
+SubsetCreate(DimName,SubName);
+endif;
+
+SubsetElementInsert(DimName,SubName,pVersion,1);
+ViewSubsetAssign(SourceCubeName,ViewName,DimName,SubName);
+
+# Create set for version Entity
+DimName='Entity';
+SubName = ViewName;
+
+if(SubsetExists(DimName,SubName)=1);
+   SubsetDeleteAllElements(DimName,SubName);
+else;
+SubsetCreate(DimName,SubName);
+endif;
+
+SubsetElementInsert(DimName,SubName,pEntity,1);
+ViewSubsetAssign(SourceCubeName,ViewName,DimName,SubName);
+
+# Assign other subsets
+ViewSubsetAssign(SourceCubeName,ViewName,'t_Year','Current Year');
+ViewSubsetAssign(SourceCubeName,ViewName,'t_Period','All leaves');
+ViewSubsetAssign(SourceCubeName,ViewName,'Department','All leaves');
+ViewSubsetAssign(SourceCubeName,ViewName,'Contract','All contracts');
+ViewSubsetAssign(SourceCubeName,ViewName,'Nominal Code','All leaves');
+
+
+### Set View Extract parameters ###
+ViewExtractSkipCalcsSet( SourceCubeName, ViewName, 0 );
+ViewExtractSkipRuleValuesSet( SourceCubeName, ViewName, 0 );
+ViewExtractSkipZeroesSet( SourceCubeName, ViewName, 0 );
+
+### Assign Datasource ###
+DataSourceType = 'VIEW';
+DatasourceNameForServer = SourceCubeName;
+DatasourceNameForClient = SourceCubeName;
+DatasourceCubeView = ViewName;
+#endregion

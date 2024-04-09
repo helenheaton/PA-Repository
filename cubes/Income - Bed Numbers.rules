@@ -1,0 +1,32 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+#Average number of beds (all bed types) for full year
+['FY']=
+(['April']+['May']+['June']+['July']+['August']+['September']+['October']+['November']+['December']+['January']+['February']+['March'])/12;
+
+
+
+FEEDERS;
+
+# External Feeders
+['Total Funding Types']=>DB('Income - Property Rental Income',!Version,!t_Year,!t_Period,!Department,!Bed Types, !Funding Types - Beds,'All Rental Income Elements', 'Number of Properties' );
+
+['Total Funding Types']=>DB('Income - Resident Fees', !Version, !t_Year, !t_Period, !Department, !'Bed Types', 'Total Number of Beds');
+
+#['1:1 Hours','Total Funding Types']=>DB('Income - Resident Fees', !Version, !t_Year, !t_Period, !Department, !'Bed Types', 'Weekly 1:1 Hours');
+
+['Domiciliary Care','Total Funding Types']=>DB('Income - Resident Fees', !Version, !t_Year, !t_Period, !Department, !'Bed Types', 'Total Number of Domiciliary Care Hours');
+
+['Contract']=>DB('Income - Unitary Charge Income', !Version, !t_Year, !t_Period, !Department, !'Bed Types', 'Number of Beds' );
+
+#['Contract','1:1 Hours']=>DB('Income - Unitary Charge Income', !Version, !t_Year, !t_Period, !Department, !'Bed Types', 'Number of Hours care per week' );
+
+
+['All Care Bed Types','Total Funding Types']=>DB('Other Costs - Resident & Staff Related & Other Costs', !Version, !t_Year, !t_Period, !Department,'All Other Costs', 'Number of Day Care Places');
+['All Care Bed Types','Total Funding Types']=>DB('Other Costs - Resident & Staff Related & Other Costs', !Version, !t_Year, !t_Period, !Department,'All Other Costs', 'Number of Beds');
+
+['CK10'] => DB('Income - Property Rental Income', !Version, !t_Year, !t_Period, 'CK40', 'All Property Types', !'Funding Types - Beds', 'All Rental Income Elements', 'Number of Properties' );
+['CK11'] => DB('Income - Property Rental Income', !Version, !t_Year, !t_Period, 'CK41', 'All Property Types', !'Funding Types - Beds', 'All Rental Income Elements', 'Number of Properties' );
+['CK13'] => DB('Income - Property Rental Income', !Version, !t_Year, !t_Period, 'CK43', 'All Property Types', !'Funding Types - Beds', 'All Rental Income Elements', 'Number of Properties' );
+['GP12'] => DB('Income - Property Rental Income', !Version, !t_Year, !t_Period, 'GP13', 'All Property Types', !'Funding Types - Beds', 'All Rental Income Elements', 'Number of Properties' ); 

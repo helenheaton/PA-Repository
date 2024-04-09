@@ -1,0 +1,33 @@
+{
+	"@type":"Cube",
+	"Name":"Other Costs - Group Recharges",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Admin Department')"
+		},
+		{
+			"@id":"Dimensions('Group Recharges')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		}
+	],
+	"Rules@Code.link":"Other Costs - Group Recharges.rules",
+	"Views@Code.links":
+	[
+		"Other Costs - Group Recharges.views/Default.json"
+	]
+}

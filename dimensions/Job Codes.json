@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Job Codes",
+	"Hierarchies@Code.links":
+	[
+		"Job Codes.hierarchies/Job Codes.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Job Codes')/Hierarchies('Job Codes')"
+	}
+}

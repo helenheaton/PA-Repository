@@ -1,0 +1,15 @@
+{
+	"@type":"MDXView",
+	"Name":"Process View",
+	"MDX@Code.link":"Process View.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : {},
+		"ExpandAboves" : 
+		{
+			"[Version].[Version]" : false,
+			"[m_Control].[m_Control]" : false
+		}
+	}
+}

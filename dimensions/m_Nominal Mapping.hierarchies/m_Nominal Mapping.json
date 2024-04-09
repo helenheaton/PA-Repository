@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Nominal Mapping",
+	"Elements":
+	[
+		{
+			"Name":"Income",
+			"Type":"String"
+		},
+		{
+			"Name":"Cost",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

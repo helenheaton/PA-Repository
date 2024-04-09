@@ -1,0 +1,28 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Funding Types - Rates",
+	"Elements":
+	[
+		{
+			"Name":"Contract",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Block",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Market",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Spot",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"1:1",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

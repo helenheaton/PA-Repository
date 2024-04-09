@@ -1,0 +1,25 @@
+{
+	"@type":"Subset",
+	"Name":"Northamptonshire",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NC01')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NC03')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NP01')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NP02')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NP03')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NP04')"
+		}
+	]
+}

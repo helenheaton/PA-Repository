@@ -1,0 +1,263 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+
+#Region April
+
+# Override is a true override
+['April Override Value']=N:
+ IF(DB('Payroll - Head Office Pay Calc', !Version, !t_Year, !Department, !'Staff Member', 'Pay Increase Method - April')@='Override',
+  stet,
+  0);
+  
+['Annual Salary - April']=N:
+IF(DB('Payroll - Head Office Pay Calc',!Version, !t_Year, !Department, !'Staff Member', 'Pay Increase Method - April')@='Override',
+    ['April Override Value'],
+  Continue);
+
+# Monetary Increase
+
+['April Monetary Increase']=N:
+IF(DB('Payroll - Head Office Pay Calc',!Version, !t_Year, !Department, !'Staff Member', 'Pay Increase Method - April')@='Monetary Amount',
+  stet,
+  0);
+  
+['Annual Salary - April']=N:
+IF(DB('Payroll - Head Office Pay Calc',!Version, !t_Year, !Department, !'Staff Member', 'Pay Increase Method - April')@='Monetary Amount',
+  ['April Monetary Increase']+['Annual Salary'],
+  Continue);
+
+# Percentage Increase
+
+['April Increase Percentage']=N:
+  DB('Payroll - Assumptions', !Version, !t_Year, 'Head Office Staff April Increase' );
+
+['April Increase Value']=N:
+IF(DB('Payroll - Head Office Pay Calc',!Version, !t_Year, !Department, !'Staff Member', 'Pay Increase Method - April')@='Percentage Increase',
+  ['Annual Salary'] * DB('Payroll - Assumptions', !Version, !t_Year, 'Head Office Staff April Increase' ),
+  0);  
+  
+['Annual Salary - April']=N:
+IF(DB('Payroll - Head Office Pay Calc',!Version, !t_Year, !Department, !'Staff Member', 'Pay Increase Method - April')@='Percentage Increase',
+  ['April Increase Value']+['Annual Salary'],
+  Continue); 
+  
+# If blank
+
+['Annual Salary - April']=N:
+IF(DB('Payroll - Head Office Pay Calc',!Version, !t_Year, !Department, !'Staff Member', 'Pay Increase Method - April')@='',
+  ['Annual Salary'],
+  Continue); 
+  
+# Other Costs  
+    
+['Employers NI - April']= N:
+IF( (['Annual Salary - April']+['Car Allowance - April'])>DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Allowance' ),
+  (['Annual Salary - April']+['Car Allowance - April']-DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Allowance' ))
+  *DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Percentage' ),
+  0);
+
+['Pension Amount - April']=N:
+IF(['Pension Percentage']=0,
+  ['Annual Salary - April'] * DB('Payroll - Assumptions', !Version, !t_Year, 'NEST Pension Percentage' ),
+  ['Annual Salary - April']*['Pension Percentage']);
+
+['Monthly Payroll Cost - April']=N:
+['Annual Cost - April']\12;
+
+['Monthly Apprentice Levy - April']=N:
+['Annual Salary - April']\12
+*DB('Payroll - Assumptions', !Version, !t_Year, 'Apprentice Levy Percentage' );
+
+#EndRegion
+
+
+
+#Region October
+
+# Override is a true override
+
+['October Override Value']=N:
+ IF(DB('Payroll - Head Office Pay Calc', !Version, !t_Year, !Department, !'Staff Member', 'Pay Increase Method - October')@='Override',
+  stet,
+  0);
+  
+['Annual Salary - October']=
+IF(DB('Payroll - Head Office Pay Calc',!Version, !t_Year, !Department, !'Staff Member', 'Pay Increase Method - October')@='Override',
+    ['October Override Value'],
+  Continue);
+
+# Monetary Increase
+
+['October Monetary Increase']=N:
+IF(DB('Payroll - Head Office Pay Calc',!Version, !t_Year, !Department, !'Staff Member', 'Pay Increase Method - October')@='Monetary Amount',
+  stet,
+  0);
+
+['Annual Salary - October']=N:
+IF(DB('Payroll - Head Office Pay Calc',!Version, !t_Year, !Department, !'Staff Member', 'Pay Increase Method - October')@='Monetary Amount',
+  ['October Monetary Increase']+['Annual Salary - April'],
+  Continue);
+
+# Percentage Increase
+
+['October Increase Percentage']=N:
+  DB('Payroll - Assumptions', !Version, !t_Year, 'Head Office Staff October Increase' );
+
+['October Increase Value']=N:
+IF(DB('Payroll - Head Office Pay Calc',!Version, !t_Year, !Department, !'Staff Member', 'Pay Increase Method - October')@='Percentage Increase',
+  ['Annual Salary - April'] * DB('Payroll - Assumptions', !Version, !t_Year, 'Head Office Staff October Increase' ),
+  0);  
+  
+['Annual Salary - October']=N:
+IF(DB('Payroll - Head Office Pay Calc',!Version, !t_Year, !Department, !'Staff Member', 'Pay Increase Method - October')@='Percentage Increase',
+  ['October Increase Value']+['Annual Salary - April'],
+  Continue); 
+
+# If blank
+
+['Annual Salary - October']=N:
+IF(DB('Payroll - Head Office Pay Calc',!Version, !t_Year, !Department, !'Staff Member', 'Pay Increase Method - October')@='',
+  ['Annual Salary - April'],
+  Continue); 
+
+# Other Costs  
+    
+['Employers NI - October']= N:
+IF( (['Annual Salary - October']+['Car Allowance - October'])>DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Allowance' ),
+  (['Annual Salary - October']+['Car Allowance - October']-DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Allowance' ))
+  *DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Percentage' ),
+  0);
+
+['Pension Amount - October']=N:
+IF(['Pension Percentage']=0,
+  ['Annual Salary - October'] * DB('Payroll - Assumptions', !Version, !t_Year, 'NEST Pension Percentage' ),
+  ['Annual Salary - October']*['Pension Percentage']);
+
+['Monthly Payroll Cost - October']=N:
+['Annual Cost - October']\12;
+
+['Monthly Apprentice Levy - October']=N:
+['Annual Salary - October']\12
+*DB('Payroll - Assumptions', !Version, !t_Year, 'Apprentice Levy Percentage' );
+
+#EndRegion
+
+
+#Region Start / End Dates
+
+[]=N:
+IF(ELISANC( 'm_Payroll Head Office Pay Calculation', 'Total Payroll Cost', !m_Payroll Head Office Pay Calculation)<>0,
+  IF(Attrn('t_Period',Subst(!m_Payroll Head Office Pay Calculation,14,long(!m_Payroll Head Office Pay Calculation)-13),'Index')>=
+  Attrn('t_Period',DB('Payroll - Head Office Pay Calc', !Version, !t_Year, !Department, !'Staff Member', 'Start Month' ),'Index')
+  % DB('Payroll - Head Office Pay Calc', !Version, !t_Year, !Department, !'Staff Member', 'Start Month' )@='',
+    IF(Attrn('t_Period',Subst(!m_Payroll Head Office Pay Calculation,14,long(!m_Payroll Head Office Pay Calculation)-13),'Index')<=
+    Attrn('t_Period',DB('Payroll - Head Office Pay Calc', !Version, !t_Year, !Department, !'Staff Member', 'End Month' ),'Index')
+    % DB('Payroll - Head Office Pay Calc', !Version, !t_Year, !Department, !'Staff Member', 'End Month' )@='',
+      IF(Attrn('t_Period',Subst(!m_Payroll Head Office Pay Calculation,14,long(!m_Payroll Head Office Pay Calculation)-13),'Index')<=6,
+        ['Monthly Payroll Cost - April'],
+        ['Monthly Payroll Cost - October'])
+      ,0)
+    ,0)
+  ,continue);
+
+[]=N:
+IF(ELISANC( 'm_Payroll Head Office Pay Calculation', 'Total Apprentice Levy', !m_Payroll Head Office Pay Calculation)<>0,
+  IF(Attrn('t_Period',Subst(!m_Payroll Head Office Pay Calculation,17,long(!m_Payroll Head Office Pay Calculation)-16),'Index')>=
+  Attrn('t_Period',DB('Payroll - Head Office Pay Calc', !Version, !t_Year, !Department, !'Staff Member', 'Start Month' ),'Index')
+  % DB('Payroll - Head Office Pay Calc', !Version, !t_Year, !Department, !'Staff Member', 'Start Month' )@='',
+    IF(Attrn('t_Period',Subst(!m_Payroll Head Office Pay Calculation,17,long(!m_Payroll Head Office Pay Calculation)-16),'Index')<=
+    Attrn('t_Period',DB('Payroll - Head Office Pay Calc', !Version, !t_Year, !Department, !'Staff Member', 'End Month' ),'Index')
+    % DB('Payroll - Head Office Pay Calc', !Version, !t_Year, !Department, !'Staff Member', 'End Month' )@='',
+      IF(Attrn('t_Period',Subst(!m_Payroll Head Office Pay Calculation,17,long(!m_Payroll Head Office Pay Calculation)-16),'Index')<=6,
+        ['Monthly Apprentice Levy - April'],
+        ['Monthly Apprentice Levy - October'])
+      ,0)
+    ,0)
+  ,continue);
+
+
+#EndRegion
+
+
+
+
+FEEDERS;
+
+#Region April
+
+['April Override Value']=>['Annual Salary - April'];
+
+['April Monetary Increase']=>['Annual Salary - April'];
+
+['Annual Salary']=>['Annual Salary - April'];
+
+['Annual Salary']=>['April Increase Percentage'];
+
+['Annual Salary']=>['April Increase Value'];
+
+['April Increase Value']=>['Annual Salary - April'];
+
+['Annual Salary']=>['Employers NI - April'];
+
+['Car Allowance - April']=>['Employers NI - April'];
+
+['Annual Salary - April']=>['Pension Amount - April'];
+
+['Annual Cost - April']=>['Monthly Payroll Cost - April'];
+
+['Annual Salary - April']=>['Monthly Apprentice Levy - April'];
+
+#EndRegion
+
+
+#Region October
+
+['October Override Value']=>['Annual Salary - October'];
+
+['October Monetary Increase']=>['Annual Salary - October'];
+
+['Annual Salary - April']=>['Annual Salary - October'];
+
+['Annual Salary - April']=>['October Increase Percentage'];
+
+['Annual Salary - April']=>['October Increase Value'];
+
+['October Increase Value']=>['Annual Salary - October'];
+
+['Annual Salary - April']=>['Employers NI - October'];
+
+['Car Allowance - October']=>['Employers NI - October'];
+
+['Annual Salary - October']=>['Pension Amount - October'];
+
+['Annual Cost - October']=>['Monthly Payroll Cost - October'];
+
+['Annual Salary - October']=>['Monthly Apprentice Levy - October'];
+
+#EndRegion
+
+
+# Other Feeders
+
+['Monthly Payroll Cost - April']=>['Total Payroll Cost'];
+
+['Monthly Payroll Cost - October']=>['Total Payroll Cost'];
+
+['Monthly Apprentice Levy - April']=>['Total Apprentice Levy'];
+
+['Monthly Apprentice Levy - October']=>['Total Apprentice Levy'];
+
+
+# External Feeders
+
+['Monthly Apprentice Levy - April']=>DB('Payroll - Apprentice Levy', !Version, 'H1', !t_Year, !Department, ATTRS( 'Department', !Department, 'Admin Dept' ), 'Gross Cost' );
+
+['Monthly Apprentice Levy - October']=>DB('Payroll - Apprentice Levy', !Version, 'H2', !t_Year, !Department,ATTRS( 'Department', !Department, 'Admin Dept' ), 'Gross Cost' );
+
+# Monthly Payroll Costs > Total Payroll Cost > Payroll Costs by Dept
+# Hence skipping middle feeder. 
+
+['Monthly Payroll Cost - April','Current Staff']=>DB('Payroll Costs by Dept', !Version, 'H1', !t_Year, !Department, Attrs('Department',!Department,'Contract'), 'R100' );
+
+['Monthly Payroll Cost - October','Current Staff']=>DB('Payroll Costs by Dept', !Version, 'H2', !t_Year, !Department, Attrs('Department',!Department,'Contract'), 'R100' );

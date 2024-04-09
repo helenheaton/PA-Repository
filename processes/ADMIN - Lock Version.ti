@@ -1,0 +1,50 @@
+#region Prolog
+
+cubelockoverride(1);
+
+sCube = 'Admin - Version Control';
+sView = GetProcessName;
+sSubset = GetProcessName;
+nTemp = 1;
+
+ViewDestroy( sCube, sView );
+ViewCreate( sCube, sView, nTemp ); 
+
+nDim=CubeDimensionCountGet( sCube);
+iDim = 1;
+While (iDim <= nDim);
+  sDim = TABDIM( sCube, iDim ); 
+  SubsetDestroy( sDim, sSubset );
+  SubsetCreate( sDim, sSubset, nTemp );
+  SubsetMDXSet( sDim, sSubset, 'TM1Filterbylevel(TM1SubsetAll(['| sDim |']),0)' );
+  SubsetMDXSet( sDim, sSubset, '' );
+  ViewSubsetAssign( sCube, sView, sDim, sSubset );
+iDim = iDim+1;
+End;
+
+# Update Source view
+ViewExtractSkipCalcsSet (sCube, sView, 0);
+ViewExtractSkipRuleValuesSet (sCube, sView, 0);
+ViewExtractSkipZeroesSet (sCube, sView, 0); 
+
+DataSourceCubeView = sView;
+DatasourceNameForClient = sCube; 
+DatasourceNameForServer = sCube; 
+DatasourceType = 'VIEW';
+
+IF(CubeExists( '}elementproperties_Version' )=0);
+  CubeCreate('}elementproperties_Version','Version','}ElementProperties');
+Endif;
+#endregion
+#region Metadata
+
+#endregion
+#region Data
+
+if(vValue @= 'Locked');
+cellputs('admin', '}elementproperties_Version', vVersion, 'lock');
+else;
+cellputs('', '}elementproperties_Version', vVersion, 'lock');
+endif;
+
+#endregion

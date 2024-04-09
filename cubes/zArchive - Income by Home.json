@@ -1,0 +1,26 @@
+{
+	"@type":"Cube",
+	"Name":"zArchive - Income by Home",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		},
+		{
+			"@id":"Dimensions('m_Income by Home')"
+		}
+	],
+	"Views@Code.links":[]
+}

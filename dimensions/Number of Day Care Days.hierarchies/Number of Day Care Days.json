@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Number of Day Care Days",
+	"Elements":
+	[
+		{
+			"Name":"Number of Day Care Days",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

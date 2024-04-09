@@ -1,0 +1,47 @@
+{
+	"@type":"MDXView",
+	"Name":"Cashflow by company",
+	"MDX@Code.link":"Cashflow by company.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Department].[Department]" : "Alias",
+			"[Nominal Code].[Cashflow]" : "MEMBER_NAME"
+		},
+		"ContextSets" : 
+		{
+			"[Cashflow Consol Layer].[Cashflow Consol Layer]" : 
+			{
+				"Expression" : "{[Cashflow Consol Layer].[Cashflow Consol Layer].MEMBERS}"
+			},
+			"[Department].[Department]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Nominal Code].[Cashflow]" : 
+			{
+				"Expression" : "{TM1TOGGLEEXPANDMODE(TM1TOGGLEEXPANDMODE(TM1SubsetToSet([Nominal Code].[Cashflow] , \"Default\" , \"public\") , EXPAND_ABOVE) , EXPAND_ABOVE)}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			},
+			"[t_Year].[t_Year]" : 
+			{
+				"Expression" : "{[t_Year].[t_Year].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Cashflow Consol Layer].[Cashflow Consol Layer]" : false,
+			"[Department].[Department]" : false,
+			"[Entity].[Entity]" : true,
+			"[Nominal Code].[Cashflow]" : true,
+			"[Version].[Version]" : false,
+			"[t_Period].[t_Period]" : false,
+			"[t_Year].[t_Year]" : false
+		}
+	}
+}

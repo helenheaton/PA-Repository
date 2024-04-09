@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Loans Deferred Consideration",
+	"Hierarchies@Code.links":
+	[
+		"m_Loans Deferred Consideration.hierarchies/m_Loans Deferred Consideration.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Loans Deferred Consideration')/Hierarchies('m_Loans Deferred Consideration')"
+	}
+}

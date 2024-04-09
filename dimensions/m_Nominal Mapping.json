@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Nominal Mapping",
+	"Hierarchies@Code.links":
+	[
+		"m_Nominal Mapping.hierarchies/m_Nominal Mapping.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Nominal Mapping')/Hierarchies('m_Nominal Mapping')"
+	}
+}

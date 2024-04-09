@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_CQC Fees Mapping",
+	"Elements":
+	[
+		{
+			"Name":"P&L",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cash Flow",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

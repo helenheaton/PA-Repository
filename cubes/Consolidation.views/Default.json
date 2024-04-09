@@ -1,0 +1,39 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[Entity].[Entity]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			},
+			"[t_Period].[t_Period]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[t_Year].[t_Year]" : 
+			{
+				"Expression" : "{[t_Year].[t_Year].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Consol Layer].[Consol Layer]" : false,
+			"[Entity].[Entity]" : true,
+			"[Nominal Code].[Nominal Code]" : true,
+			"[Version].[Version]" : false,
+			"[t_Period].[t_Period]" : false,
+			"[t_Year].[t_Year]" : false
+		}
+	}
+}

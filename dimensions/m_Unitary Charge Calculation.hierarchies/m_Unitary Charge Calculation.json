@@ -1,0 +1,124 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Unitary Charge Calculation",
+	"Elements":
+	[
+		{
+			"Name":"Number of Days",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Number of Beds",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bed Rate incl FNC",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Bed Rate excl FNC",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FNC",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Calculate FNC Income Separately?",
+			"Type":"String"
+		},
+		{
+			"Name":"Number of Hours care per week",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hourly Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Supplementary Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Contract Sum",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Adjustments to Unitary Charges",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Unitary Charge based on bed numbers",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Unitary Charge based on contract fixed amount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FM External Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Day Care Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FNC Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FNC Void Assumption",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Bed Rate incl FNC",
+			"ComponentName":"Bed Rate excl FNC",
+			"Weight":1
+		},
+		{
+			"ParentName":"Bed Rate incl FNC",
+			"ComponentName":"FNC",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Contract Sum",
+			"ComponentName":"Unitary Charge based on bed numbers",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Contract Sum",
+			"ComponentName":"Unitary Charge based on contract fixed amount",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Contract Sum",
+			"ComponentName":"FNC Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Contract Sum",
+			"ComponentName":"FM External Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Contract Sum",
+			"ComponentName":"Day Care Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Contract Sum",
+			"ComponentName":"Supplementary Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Contract Sum",
+			"ComponentName":"Adjustments to Unitary Charges",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

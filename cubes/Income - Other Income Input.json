@@ -1,0 +1,26 @@
+{
+	"@type":"Cube",
+	"Name":"Income - Other Income Input",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Other Income Item')"
+		},
+		{
+			"@id":"Dimensions('Other Income Input')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"Income - Other Income Input.views/Default.json"
+	]
+}

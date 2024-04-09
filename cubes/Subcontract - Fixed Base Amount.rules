@@ -1,0 +1,44 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+
+['Amount',{'Care AEI','Care RPI'}]=N:
+IF(Attrs('Contract', !Contract, 'Care Provider')@='',
+  0,
+  continue);
+
+['Amount','Managed']=N:
+IF(Attrs('Contract', !Contract, 'Managed Provider')@='',
+  0,
+  continue);
+
+['Amount',{'FM RPI','FM AEI'}]=N:
+IF(Attrs('Contract', !Contract, 'FM Provider')@='',
+  0,
+  continue);
+
+
+# Bring in index value
+['Index']=N:
+DB('Admin - Index Rates', Attrs('t_Year',!t_Year,'Financial Year'), !Contract, 
+DB('Subcontract - Index Lookup',!Contract,!Cost Type,'Index'));
+
+# Calculated amount 
+['Calculated Value']=N:
+['Amount']*(['Index']);
+
+# Higher levels can reverse the calc so the % is always right
+['Index']=C:
+(['Calculated Value']-['Amount'])
+\['Amount'];
+
+
+FEEDERS;
+
+# Indirect Feeder, index only needs feeding if there is an amount
+['Amount']=>['Index'];
+
+['Amount']=>['Calculated Value'];
+
+# Feeding from Amount instead of Calculated value as Amount is the source for Calc value.
+['Amount']=>DB('Subcontract - Calculation', !Version, 'FY', !t_Year, !Department, !Contract, 'All Cost Types', 'Value');

@@ -1,0 +1,26 @@
+{
+	"@type":"Cube",
+	"Name":"zArchive - Income - Unitary Charge Income - Summary",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('m_Unitary Charge Calculation')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		}
+	],
+	"Views@Code.links":[]
+}

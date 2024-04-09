@@ -1,0 +1,45 @@
+  # --------------------------------------------------------------------------------------------------
+  # Other Costs - Annual Cost Assumptions
+  # Holds operating cost assumptions per resident, per WTE and per home
+  #
+  # Paul De Duonni
+  # Last updated 17/11/23
+  # --------------------------------------------------------------------------------------------------
+  
+  Skipcheck;
+  Feedstrings;
+
+  #Zero totals at All Department and All Other Costs level
+  ['All Departments']=C:
+    0;
+  ['All Other Costs']=C:
+    0;
+
+
+  # Get Annual Domestic Waste costs from Domestic Costs Cube (Added by Jenny Hassett)
+  ['Domestic Waste','Fixed Amount']=N:
+    db('Other Costs - Domestic Waste Costs', !Version, !Department, !t_Year, 'Total Collection Costs (Gross)' );
+    
+  # Get Irrecoverable VAT amount from SubContract - Calculation Cube
+  ['Irrecoverable Input VAT','Fixed Amount']=N:
+    db('Subcontract - Calculation', !Version, 'FY', !t_Year, !Department, 'All Contracts', 'Irrecoverable VAT calc', 'Value' );
+    
+FEEDERS;
+#['Domestic Waste']=>['R268 Domestic Waste Collection'];
+
+
+#External Feeders
+['Total Amounts']=>DB('Other Costs - Resident & Staff Related & Other Costs', !Version, !t_Year,'FY', !Department, !'Other Costs', 'Cost (Per Bed Per Week)' );
+
+['Total Amounts']=>DB('Other Costs - Resident & Staff Related & Other Costs', !Version, !t_Year,'FY', !Department, !'Other Costs', 'Cost (Per Bed Per Annum)' );
+
+['Variable Amount (Day Care Places)']=>DB('Other Costs - Resident & Staff Related & Other Costs', !Version, !t_Year,'FY', !Department, !'Other Costs', 'Cost (Per Day Care Place Per Day)' );
+
+['Fixed Amount']=>DB('Other Costs - Resident & Staff Related & Other Costs', !Version, !t_Year,'FY', !Department, !'Other Costs', 'Cost (Per WTE Per Annum)' );
+
+['Fixed Amount']=>DB('Other Costs - Resident & Staff Related & Other Costs', !Version, !t_Year,'FY', !Department, !'Other Costs', 'Cost (Per Home / Dept Per Month)' );
+
+['Fixed Amount']=>DB('Other Costs - Resident & Staff Related & Other Costs', !Version, !t_Year,'FY', !Department, !'Other Costs', 'Cost (Per Home / Dept Per Quarter)' );
+
+['Fixed Amount']=>DB('Other Costs - Resident & Staff Related & Other Costs', !Version, !t_Year,'FY', !Department, !'Other Costs', 'Cost (Per Home / Dept Per Annum)' );
+

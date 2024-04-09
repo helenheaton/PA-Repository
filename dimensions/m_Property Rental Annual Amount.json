@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Property Rental Annual Amount",
+	"Hierarchies@Code.links":
+	[
+		"m_Property Rental Annual Amount.hierarchies/m_Property Rental Annual Amount.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Property Rental Annual Amount')/Hierarchies('m_Property Rental Annual Amount')"
+	}
+}

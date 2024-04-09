@@ -1,0 +1,170 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"ExpandAbove":true,
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Residents Fees - Block')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Residents Fees - Market')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Grant income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Unitary Charge income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Day Care income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Domiciliary Care income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Other Care income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Voids')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Care Income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('FM external income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Internal Contract Income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Property income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Development fee income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('External management fees')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Internal Management Fees')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Overhead Recharges')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Other income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Property Sales Income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Non Care Income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Total Operating Receipts')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Payroll')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Care operating costs')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Property And Building Costs')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Building Lease Costs')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Utilities')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Insurance')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Other operating costs')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Operating Costs')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Project Development costs')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Other Overheads')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Overheads')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Payments')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Operating Cash Flow')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Sub debt interest receivable')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Sub Debt Capital Receivable')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Other Investment Income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Investment income')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Senior Debt Interest')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Senior Debt Capital')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Sub Debt Interest External')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Sub Debt Capital External')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Sub Debt Interest Internal')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Sub Debt Capital Internal')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Other Loan Capital Payable')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Other Interest Payable')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Investment Costs')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Capital Expenditure')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Transfers (to)/from Reserve Accounts')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Intercompany Lending')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Dividends')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Exceptional Items')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Corporation Tax')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Other Cash Flow Items')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Cashflow')/Elements('Net Cash Flow')"
+		}
+	]
+}

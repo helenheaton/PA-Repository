@@ -1,0 +1,335 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+#Region From Loans - Import cube
+
+['Loan Schedule', 'PL Interest']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0,
+      DB('Loans - Import', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'PL Interest' )\6, 
+      IF(ELISANC( 't_Period', 'H2', !t_Period)<>0,
+        DB('Loans - Import', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'PL Interest' )\6, 
+        continue)
+      ),
+    continue),
+  CONTINUE);
+  
+['Loan Schedule', 'Internal PL Income']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0,
+      DB('Loans - Import', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'PL Interest' )\6, 
+      IF(ELISANC( 't_Period', 'H2', !t_Period)<>0,
+        DB('Loans - Import', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'PL Interest' )\6, 
+        continue)
+      ),
+    continue),
+  CONTINUE);  
+
+# Cash Interest 
+
+['Loan Schedule', 'Cash Interest Repayments']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q1'),
+      DB('Loans - Import', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2, 
+      IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q2'),
+        DB('Loans - Import', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2, 
+        IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q3'),
+          DB('Loans - Import', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2,
+          IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q4'),
+            DB('Loans - Import', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2,
+            continue)))),
+    continue),
+  CONTINUE);
+  
+['Loan Schedule', 'Cash Interest Repayments']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment H1'),
+      DB('Loans - Import', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' ), 
+      IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment H2'),
+        DB('Loans - Import', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' ), 
+        continue)
+      ),
+    continue),
+  CONTINUE);
+
+
+# Internal Income 
+
+['Loan Schedule', 'Internal Cash Income']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q1'),
+      DB('Loans - Import', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2, 
+      IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q2'),
+        DB('Loans - Import', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2, 
+        IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q3'),
+          DB('Loans - Import', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2,
+          IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q4'),
+            DB('Loans - Import', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2,
+            continue)))),
+    continue),
+  CONTINUE);
+
+[ 'Loan Schedule', 'Internal Cash Income']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment H1'),
+      DB('Loans - Import', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' ), 
+      IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment H2'),
+        DB('Loans - Import', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' ), 
+        continue)
+      ),
+    continue),
+  CONTINUE); 
+
+# Capital Repayments
+
+[ 'Loan Schedule', 'Capital Repayments']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment Q1'),
+      DB('Loans - Import', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Capital Repayments' )\2, 
+      IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment Q2'),
+        DB('Loans - Import', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Capital Repayments' )\2, 
+        IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment Q3'),
+          DB('Loans - Import', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Capital Repayments' )\2,
+          IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment Q4'),
+            DB('Loans - Import', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Capital Repayments' )\2,
+            continue)))),
+    continue),
+  CONTINUE);
+
+['Loan Schedule' , 'Capital Repayments']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment H1'),
+      DB('Loans - Import', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Capital Repayments' ), 
+      IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment H2'),
+        DB('Loans - Import', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Capital Repayments' ), 
+        continue)
+      ),
+    continue),
+  CONTINUE);
+
+    
+#EndRegion
+
+
+#Region From Loans - EOT Loans cube
+
+# PL Interest
+
+[ 'EOT', 'PL Interest']=N:
+0;
+# IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ),
+#   IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ),
+#     IF(ELISANC( 't_Period', 'H1', !t_Period)<>0,
+#       DB('Loans - EOT Loans', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'PL Interest' )\6, 
+#       IF(ELISANC( 't_Period', 'H2', !t_Period)<>0,
+#         DB('Loans - EOT Loans', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'PL Interest' )\6, 
+#         continue)
+#       ),
+#     continue),
+#   CONTINUE);
+
+['EOT', 'Internal PL Income']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0,
+      DB('Loans - EOT Loans', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'PL Interest' )\6, 
+      IF(ELISANC( 't_Period', 'H2', !t_Period)<>0,
+        DB('Loans - EOT Loans', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'PL Interest' )\6, 
+        continue)
+      ),
+    continue),
+  CONTINUE);
+
+
+# Interest Repayments
+
+['EOT', 'Cash Interest Repayments']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q1'),
+      DB('Loans - EOT Loans', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2, 
+      IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q2'),
+      DB('Loans - EOT Loans', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2, 
+        IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q3'),
+      DB('Loans - EOT Loans', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2, 
+          IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q4'),
+      DB('Loans - EOT Loans', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2, 
+            continue)))),
+    continue),
+  CONTINUE);
+
+['EOT', 'Cash Interest Repayments']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment H1'),
+      DB('Loans - EOT Loans', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' ), 
+      IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment H2'),
+        DB('Loans - EOT Loans', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' ), 
+        continue)
+      ),
+    continue),
+  CONTINUE);
+
+# Internal Cash Income
+
+['EOT', 'Internal Cash Income']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q1'),
+      DB('Loans - EOT Loans', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2, 
+      IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q2'),
+      DB('Loans - EOT Loans', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2, 
+        IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q3'),
+      DB('Loans - EOT Loans', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2, 
+          IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q4'),
+      DB('Loans - EOT Loans', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' )\2, 
+            continue)))),
+    continue),
+  CONTINUE);
+
+[ 'EOT', 'Internal Cash Income']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment H1'),
+      DB('Loans - EOT Loans', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' ), 
+      IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment H2'),
+        DB('Loans - EOT Loans', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Cash Interest Repayments' ), 
+        continue)
+      ),
+    continue),
+  CONTINUE);  
+
+# Capital Repayments
+
+[ 'EOT', 'Capital Repayments']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment Q1'),
+      DB('Loans - EOT Loans', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Capital Repayments' )\2, 
+      IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment Q2'),
+      DB('Loans - EOT Loans', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Capital Repayments' )\2, 
+        IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment Q3'),
+      DB('Loans - EOT Loans', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Capital Repayments' )\2, 
+          IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment Q4'),
+      DB('Loans - EOT Loans', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Capital Repayments' )\2, 
+            continue)))),
+    continue),
+  CONTINUE);
+
+[ 'EOT', 'Capital Repayments']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ),
+    IF(ELISANC( 't_Period', 'H1', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment H1'),
+      DB('Loans - EOT Loans', !Version, 'H1', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Capital Repayments' ), 
+      IF(ELISANC( 't_Period', 'H2', !t_Period)<>0 & !t_Period@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment H2'),
+        DB('Loans - EOT Loans', !Version, 'H2', attrs('t_Year',!t_Year,'Financial Year'), !Entity, !'Loaning Entity', 'Capital Repayments' ), 
+        continue)
+      ),
+    continue),
+  CONTINUE);
+
+
+#EndRegion
+
+
+#Region From Loans - Working Capital Loans
+
+['Working Capital', 'Capital Repayments']=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'WC Cost Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'WC Cost Nominal Code' ),
+    -DB('Loans - Working Capital Loans', !Version, !t_Period, !t_Year, !Entity, !'Loaning Entity', 'Additional Loans' ),
+    CONTINUE),
+  CONTINUE);
+
+['Working Capital', {'PL Interest','Cash Interest Repayments'}]=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'WC Cost Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'WC Cost Nominal Code' ),
+    DB('Loans - Working Capital Loans', !Version, !t_Period, !t_Year, !Entity, !'Loaning Entity', 'Interest' ),
+    CONTINUE),
+  continue);
+
+['Working Capital', {'Internal Cash Income','Internal PL Income'}]=N:
+IF(!Department@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'WC Internal Income Department' ),
+  IF(!Nominal Code@=DB('Loans - Lookup', !Entity, !'Loaning Entity', 'WC Internal Income Nominal Code' ),
+    DB('Loans - Working Capital Loans', !Version, !t_Period, !t_Year, !Entity, !'Loaning Entity', 'Interest' ),
+    CONTINUE),
+  continue);
+
+#EndRegion
+
+
+FEEDERS;
+
+# External Feeders
+
+['PL Interest']=>DB('PL by Dept', !Version, !t_Period, !t_Year, !Department, Attrs('Department',!Department,'Contract'), !'Nominal Code' );
+
+['Internal PL Income']=>DB('PL by Dept', !Version, !t_Period, !t_Year, !Department, Attrs('Department',!Department,'Contract'), !'Nominal Code' );
+
+
+#Region Cashflow Capital 
+
+['Capital Repayments','Nominal Code':'Nominal Code':'Sub Debt Interest External']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Loaning Entity, !Department,'Source','Sub Debt Capital Receivable');
+
+['Capital Repayments','Nominal Code':'Nominal Code':'Sub Debt Interest Internal']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Loaning Entity, !Department,'Source','Sub Debt Capital Receivable');
+
+['Capital Repayments','Nominal Code':'Nominal Code':'Other Interest Payable']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Loaning Entity, !Department,'Source','Sub Debt Capital Receivable');
+
+['Capital Repayments','Nominal Code':'Nominal Code':'Sub Debt Interest External']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Entity, !Department,'Source','Sub Debt Capital External');
+
+['Capital Repayments','Nominal Code':'Nominal Code':'Sub Debt Interest Internal']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Entity, !Department,'Source','Sub Debt Capital Internal');
+
+['Capital Repayments','Nominal Code':'Nominal Code':'Other Interest Payable']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Entity, !Department,'Source','Other Loan Capital Payable');
+
+['Capital Repayments','Nominal Code':'Nominal Code':'Senior Debt Interest']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Entity, !Department,'Source','Senior Debt Capital');
+
+['Capital Repayments','Working Capital','Nominal Code':'Nominal Code':'Other Interest Payable']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Loaning Entity, !Department,'Source','Intercompany Lending');
+
+['Capital Repayments','Working Capital','Nominal Code':'Nominal Code':'Other Interest Payable']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Entity, !Department,'Source','Intercompany Lending');
+
+#EndRegion
+
+
+
+['Nailsea','P302','Internal Cash Income']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Loaning Entity, !Department, 'Elimination', !'Nominal Code' );
+
+['Nailsea','P396','Internal Cash Income']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Loaning Entity, !Department, 'Elimination', !'Nominal Code' );
+
+
+
+
+
+
+['Cash Interest Repayments']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Entity, !Department, 'Source', !'Nominal Code' );
+
+['Internal Cash Income']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Loaning Entity, !Department, 'Source', !'Nominal Code' );
+
+
+
+# ['Source','Senior Debt Capital']=N:
+# +DB('Loans by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, 'All Loaning Entities', 'All Sources Exc WC', 'Nominal Code':'Senior Debt Interest', 'Capital Repayments' );
+
+
+# ['Source','Sub Debt Capital External']=N:
+# DB('Loans by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, 'All Loaning Entities', 'All Sources Exc WC', 'Nominal Code':'Sub Debt Interest External', 'Capital Repayments' );
+
+
+# ['Source','Sub Debt Capital Internal']=N:
+# DB('Loans by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, 'All Loaning Entities', 'All Sources Exc WC', 'Nominal Code':'Sub Debt Interest Internal', 'Capital Repayments' );
+
+
+# ['Source','Other Loan Capital Payable']=N:
+# DB('Loans by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, 'All Loaning Entities', 'All Sources Exc WC', 'Nominal Code':'Other Interest Payable', 'Capital Repayments' );
+
+
+# ['Source','Intercompany Lending']=N:
+# DB('Loans by Entity', !Version, !t_Period, !t_Year, 'Entity':'All Entities', !Department, !Entity, 'Working Capital', 'Nominal Code':'Other Interest Payable', 'Capital Repayments' )
+# -DB('Loans by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, 'All Loaning Entities', 'Working Capital', 'Nominal Code':'Other Interest Payable', 'Capital Repayments' );

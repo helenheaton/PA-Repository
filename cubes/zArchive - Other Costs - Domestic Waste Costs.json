@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"zArchive - Other Costs - Domestic Waste Costs",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('m_Domestic Waste Calculation')"
+		}
+	],
+	"Views@Code.links":[]
+}

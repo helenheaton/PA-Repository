@@ -1,0 +1,92 @@
+#region Prolog
+
+sCube = 'Payroll - Head Office Pay Calc';
+sView = GetProcessName;
+sSubset = GetProcessName;
+nTemp = 1;
+
+# Define source
+
+sFileLocation = GetProcessErrorFileDirectory;
+sFileLocation = Subst(sFileLocation, 1, LONG( sFileLocation )-5)|'Data\Model_Upload';
+DatasourceNameForClient = sFileLocation|'\'|pFileName;
+DatasourceNameForServer = sFileLocation|'\'|pFileName;
+DataSourceType = 'CHARACTERDELIMITED';
+
+# Clear Target
+
+# turn off logging
+nCubeLogging = CubeGetLogChanges( sCube );
+CubeSetLogChanges( sCube, 0 );
+
+# Create target and clear any data
+ViewDestroy( sCube, sView );
+ViewCreate( sCube, sView, nTemp ); 
+
+nDim=CubeDimensionCountGet( sCube);
+iDim = 1;
+While (iDim <= nDim);
+  sDim = TABDIM( sCube, iDim ); 
+  SubsetDestroy( sDim, sSubset );
+  SubsetCreate( sDim, sSubset, nTemp );
+  SubsetMDXSet( sDim, sSubset, 'TM1Filterbylevel(TM1SubsetAll(['| sDim |']),0)' );
+  SubsetMDXSet( sDim, sSubset, '' );
+  ViewSubsetAssign( sCube, sView, sDim, sSubset );
+iDim = iDim+1;
+End;
+
+sDim = 'Version';
+SubsetMDXSet( sDim, sSubset, '{[' | sDim | '].[ ' | pVersion | ']}' );  
+SubsetMDXSet( sDim, sSubset, '' );
+
+sDim = 't_Year';
+SubsetMDXSet( sDim, sSubset, '{[' | sDim | '].[' | pYear | ']}' );  
+SubsetMDXSet( sDim, sSubset, '' );
+
+sDim = 'm_Payroll Head Office Pay Calculation';
+SubsetMDXSet( sDim, sSubset, '
+{[m_Payroll Head Office Pay Calculation].[m_Payroll Head Office Pay Calculation].[Annual Salary],
+[m_Payroll Head Office Pay Calculation].[m_Payroll Head Office Pay Calculation].[Hours],
+[m_Payroll Head Office Pay Calculation].[m_Payroll Head Office Pay Calculation].[Pension Percentage]}' );  
+SubsetMDXSet( sDim, sSubset, '' );
+
+
+#ViewZeroOut( sCube, sView );
+#endregion
+#region Metadata
+
+
+If(dimix('Staff Member',vName)=0);
+  DimensionElementInsertDirect( 'Staff Member', '', vName, 'N' );
+  DimensionElementComponentAddDirect( 'Staff Member', 'Current Staff', vName, 1 );
+Endif;
+
+AttrPutS( vJobCode, 'Staff Member',vName, 'Job Code' );
+AttrPutS( vJobName, 'Staff Member',vName, 'Job Name' );
+AttrPutS( vEmpID, 'Staff Member',vName, 'Employee ID'  );
+
+
+#endregion
+#region Data
+
+
+
+IF(Dimix('Payroll Contract Type', vcontract)=0);
+  IF(vContract@='NJC');
+    vContract = 'Council';
+  Elseif (vContract@='');
+    vContract = 'Shaw';
+  Else;
+    vContract='BUPA';
+  Endif;
+Endif;  
+
+CellPutN( vAnnualSalary, sCube, pVersion, pYear, vDept, vName, 'Annual Salary' );
+CellPutN( vSTDHours, sCube, pVersion, pYear, vDept, vName, 'Hours' );
+CellPutN( vPensionPer\100, sCube, pVersion, pYear, vDept, vName, 'Pension Percentage' );
+
+
+#endregion
+#region Epilog
+CubeSetLogChanges( sCube, nCubeLogging );
+#endregion

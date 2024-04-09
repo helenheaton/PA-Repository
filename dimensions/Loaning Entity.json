@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Loaning Entity",
+	"Hierarchies@Code.links":
+	[
+		"Loaning Entity.hierarchies/Loaning Entity.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Loaning Entity')/Hierarchies('Loaning Entity')"
+	}
+}

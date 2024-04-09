@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Income by Home",
+	"Hierarchies@Code.links":
+	[
+		"m_Income by Home.hierarchies/m_Income by Home.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Income by Home')/Hierarchies('m_Income by Home')"
+	}
+}

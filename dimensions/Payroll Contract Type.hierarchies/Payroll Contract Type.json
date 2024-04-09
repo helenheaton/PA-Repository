@@ -1,0 +1,69 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Payroll Contract Type",
+	"Elements":
+	[
+		{
+			"Name":"All Contract Types",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"NHS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"TUPE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Shaw",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"BUPA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Council",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Contract Types",
+			"ComponentName":"Shaw",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Contract Types",
+			"ComponentName":"NHS",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Contract Types",
+			"ComponentName":"Council",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Contract Types",
+			"ComponentName":"TUPE",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Contract Types",
+			"ComponentName":"BUPA",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Contract Types",
+			"ComponentName":"Bank",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

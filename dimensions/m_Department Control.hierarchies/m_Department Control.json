@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Department Control",
+	"Elements":
+	[
+		{
+			"Name":"Open Month",
+			"Type":"String"
+		},
+		{
+			"Name":"Open Year",
+			"Type":"String"
+		},
+		{
+			"Name":"Close Month",
+			"Type":"String"
+		},
+		{
+			"Name":"Close Year",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

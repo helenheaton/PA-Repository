@@ -1,0 +1,32 @@
+{
+	"@type":"Cube",
+	"Name":"Income - Unitary Charge Income",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Bed Types')"
+		},
+		{
+			"@id":"Dimensions('m_Unitary Charge Calculation')"
+		}
+	],
+	"Rules@Code.link":"Income - Unitary Charge Income.rules",
+	"Views@Code.links":
+	[
+		"Income - Unitary Charge Income.views/Default.json",
+		"Income - Unitary Charge Income.views/Income - Unitary Charge Income.json",
+		"Income - Unitary Charge Income.views/Total Contract Sum by department.json"
+	]
+}

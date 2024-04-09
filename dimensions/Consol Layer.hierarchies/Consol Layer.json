@@ -1,0 +1,42 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Consol Layer",
+	"Elements":
+	[
+		{
+			"Name":"Source",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Eliminations",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Consol Adjustments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Consolidated",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Consolidated",
+			"ComponentName":"Source",
+			"Weight":1
+		},
+		{
+			"ParentName":"Consolidated",
+			"ComponentName":"Eliminations",
+			"Weight":1
+		},
+		{
+			"ParentName":"Consolidated",
+			"ComponentName":"Consol Adjustments",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

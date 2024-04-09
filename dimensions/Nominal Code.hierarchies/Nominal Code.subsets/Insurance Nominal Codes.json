@@ -1,0 +1,90 @@
+{
+	"@type":"Subset",
+	"Name":"Insurance Nominal Codes",
+	"ExpandAbove":true,
+	"Alias":"Alias",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P504')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P505')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P506')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P507')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P508')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P509')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P510')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P513')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P514')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P515')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P516')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R186')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R188')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R189')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R190')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R193')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R194')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R197')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R198')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R200')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R201')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R202')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R205')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R206')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R207')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('P503')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Elements('R184')"
+		}
+	]
+}

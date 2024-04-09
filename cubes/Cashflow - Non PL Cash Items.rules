@@ -1,0 +1,17 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+['LC Spend']=N:
+DB('PL by Entity', !Version, !t_Period, !t_Year, !Entity, 'All Departments', 'All Contracts', 'R228');
+
+FEEDERS;
+
+['Net DSR Transfer']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Entity, Attrs('Entity',!Entity,'Investment Activities Dept' ), 'Source', 'Transfers (to)/from Reserve Accounts' );
+
+['Net Life Cycle Transfer']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Entity, Attrs('Entity',!Entity,'Investment Activities Dept' ), 'Source', 'Transfers (to)/from Reserve Accounts' );
+
+['Net Dividends']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Entity, Attrs('Entity',!Entity,'Investment Activities Dept' ), 'Source', 'Dividends' );
+
+['Head Office Bonus Payments']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Entity, 'GP01', 'Source', 'R119' );
+
+['Capital Expenditure']=>DB('Cashflow', !Version, !t_Period, !t_Year, !Entity, Attrs('Entity',!Entity,'Investment Activities Dept' ), 'Source', 'Capital Expenditure' );

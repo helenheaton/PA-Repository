@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Picklist Financial Year",
+	"Expression":"{TM1FILTERBYLEVEL([t_Financial Year].[t_Financial Year].MEMBERS , 0)}"
+}

@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"Subcontract - Nominal Lookup",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Contract')"
+		},
+		{
+			"@id":"Dimensions('Cost Type')"
+		},
+		{
+			"@id":"Dimensions('m_Nominal Mapping')"
+		}
+	],
+	"Views@Code.links":[]
+}

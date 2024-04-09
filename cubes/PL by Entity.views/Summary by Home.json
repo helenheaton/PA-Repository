@@ -1,0 +1,49 @@
+{
+	"@type":"MDXView",
+	"Name":"Summary by Home",
+	"MDX@Code.link":"Summary by Home.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Department].[Department]" : "Alias",
+			"[Nominal Code].[Nominal Code]" : "Alias"
+		},
+		"ContextSets" : 
+		{
+			"[Contract].[Contract]" : 
+			{
+				"Expression" : "{[Contract].[Contract].MEMBERS}"
+			},
+			"[Department].[Department]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Entity].[Entity]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[t_Period].[t_Period]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[t_Year].[t_Year]" : 
+			{
+				"Expression" : "{[t_Year].[t_Year].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Contract].[Contract]" : false,
+			"[Department].[Department]" : true,
+			"[Entity].[Entity]" : true,
+			"[Nominal Code].[Nominal Code]" : true,
+			"[Version].[Version]" : false,
+			"[t_Period].[t_Period]" : false,
+			"[t_Year].[t_Year]" : false
+		}
+	}
+}

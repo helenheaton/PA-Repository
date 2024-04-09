@@ -1,0 +1,106 @@
+ # --------------------------------------------------------------------------------------------------
+  # Other Costs - Costs by Dept
+  # Pulls together all the other operating costs into one cube 
+  #
+  # Paul De Duonni
+  # Last updated 29/11/23
+  # --------------------------------------------------------------------------------------------------
+  
+  Skipcheck;
+  Feedstrings;
+
+
+#Region Opening and Closing Months
+
+[]=N:
+IF(DB('Admin - Department Control', !Department, 'Open Year')@='',
+  Continue,
+  IF(Numbr(Attrs('t_Year', !t_Year, 'Financial Year')) < Numbr(DB('Admin - Department Control', !Department, 'Open Year')),
+    0,
+    Continue));
+
+[]=N:
+IF(DB('Admin - Department Control', !Department, 'Open Year')@='',
+  Continue,
+  IF(Numbr(Attrs('t_Year', !t_Year, 'Financial Year')) = Numbr(DB('Admin - Department Control', !Department, 'Open Year')),
+    IF(AttrN('t_Period', !t_Period, 'Index') < AttrN('t_Period',DB('Admin - Department Control', !Department, 'Open Month'), 'Index'),
+      0,
+      Continue),
+    Continue));
+
+[]=N:
+IF(DB('Admin - Department Control', !Department, 'Close Year')@='',
+  Continue,
+  IF(Numbr(Attrs('t_Year', !t_Year, 'Financial Year')) > Numbr(DB('Admin - Department Control', !Department, 'Close Year')),
+    0,
+    Continue));
+
+[]=N:
+IF(DB('Admin - Department Control', !Department, 'Close Year')@='',
+  Continue,
+  IF(Numbr(Attrs('t_Year', !t_Year, 'Financial Year')) = Numbr(DB('Admin - Department Control', !Department, 'Close Year')),
+    IF(AttrN('t_Period', !t_Period, 'Index') > AttrN('t_Period',DB('Admin - Department Control', !Department, 'Close Month'), 'Index'),
+      0,
+      Continue),
+    Continue));
+
+#EndRegion
+
+
+
+
+# Bring in the non exec costs from non exec
+['S280','GP01']=N:
+DB('Payroll - Non-Exec Calc', !Version, !t_Year, 'All Directors', 'Group Amount' )\12;
+
+['S280','NH01']=N:
+DB('Payroll - Non-Exec Calc', !Version, !t_Year, 'All Directors', 'Foundation Amount' )\12;
+
+
+# Bring in Property Maintenance costs
+[]=N:
+If(DB('Other Costs - Property Maintenance Costs - Summary', !Version, !t_Year, !t_Period, !Department, !'Nominal Code', 'All Prop. Maint. Costs')<>0,
+  DB('Other Costs - Property Maintenance Costs - Summary', !Version, !t_Year, !t_Period, !Department, !'Nominal Code', 'All Prop. Maint. Costs'),
+  Continue);
+
+# Bring in Depreciation
+[]=N:
+IF(DB('Other Costs - Depreciation - Summary', !Version, !t_Year, !t_Period, !Department, !'Nominal Code', 'All Costs' )<>0,
+  DB('Other Costs - Depreciation - Summary', !Version, !t_Year, !t_Period, !Department, !'Nominal Code', 'All Costs' ),
+  Continue);
+
+
+
+# Bring in utilities from utilities
+[]=N: 
+IF(DB('Other Costs - Utilities', !Version, !Department, !t_Year, !t_Period, !Nominal Code)<>0, 
+DB('Other Costs - Utilities', !Version, !Department, !t_Year, !t_Period, !Nominal Code), 
+Continue); 
+
+# Get other operating costs from Other Costs - Resident & Staff Related & Other Costs cube
+   []=N:
+     # IF(ATTRS('Nominal Code', !Nominal Code , 'Alias')@='R201 Homes Insurance Recharge',
+     #    If(ATTRS('Department', !Department, 'Insurance (R201)')@='Y',
+     #      DB('Other Costs - Resident & Staff Related & Other Costs', !Version, !t_Year, !t_Period, !Department, 'R201 Homes Insurance Recharge', 'Budgeted Costs Per Home / Dept' ),
+     #    CONTINUE),
+      DB('Other Costs - Resident & Staff Related & Other Costs', !Version, !t_Year, !t_Period, !Department, ATTRS('Nominal Code', !Nominal Code , 'Alias') , 'Budgeted Costs Per Home / Dept');
+
+
+FEEDERS;
+
+# External Feeders
+['R101']=>DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, !Department, 'All Admin Departments', 'Annual Cost Assumptions', !'Nominal Code' );
+['R203']=>DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, !Department, 'All Admin Departments', 'Annual Cost Assumptions', !'Nominal Code' );
+['R290']=>DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, !Department, 'All Admin Departments', 'Annual Cost Assumptions', !'Nominal Code' );
+['R295']=>DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, !Department, 'All Admin Departments', 'Annual Cost Assumptions', !'Nominal Code' );
+['S230']=>DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, !Department, 'All Admin Departments', 'Annual Cost Assumptions', !'Nominal Code' );
+['S258']=>DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, !Department, 'All Admin Departments', 'Annual Cost Assumptions', !'Nominal Code' );
+
+
+['R201']=>DB('Other Costs - Insurance Recharges', !Version, !t_Period, !t_Year, !Department, Attrs('Department',!Department,'Company Name'), 'Care Homes', !'Nominal Code' );
+['R201']=>DB('Other Costs - Insurance Recharges', !Version, !t_Period, !t_Year, !Department, Attrs('Department',!Department,'Company Name'), 'Admin Departments', !'Nominal Code' );
+
+['S236']=>DB('Other Costs - CQC Fees', !Version, !t_Period, !t_Year, !Department, 'P&L' );
+['S236']=>DB('Other Costs - CQC Fees', !Version, !t_Period, !t_Year, !Department, 'Cash Flow' );
+
+[]=>DB('PL by Dept', !Version, !t_Period, !t_Year, !Department, Attrs('Department',!Department,'Contract'), !'Nominal Code' );

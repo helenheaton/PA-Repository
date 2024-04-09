@@ -1,0 +1,17 @@
+{
+	"@type":"Cube",
+	"Name":"Day Care Days",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('Number of Day Care Days')"
+		}
+	],
+	"Views@Code.links":[]
+}

@@ -1,0 +1,35 @@
+{
+	"@type":"Cube",
+	"Name":"Cashflow",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Cashflow Consol Layer')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		}
+	],
+	"Rules@Code.link":"Cashflow.rules",
+	"Views@Code.links":
+	[
+		"Cashflow.views/Cashflow by company.json",
+		"Cashflow.views/Cash Flow Manual Entry.json",
+		"Cashflow.views/Default.json"
+	]
+}

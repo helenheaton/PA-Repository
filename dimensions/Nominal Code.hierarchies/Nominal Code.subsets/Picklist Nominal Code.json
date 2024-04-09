@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Picklist Nominal Code",
+	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([Nominal Code].[Nominal Code]) , 0)}}"
+}

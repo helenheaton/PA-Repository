@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Insurance Allocation",
+	"Hierarchies@Code.links":
+	[
+		"Insurance Allocation.hierarchies/Insurance Allocation.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Insurance Allocation')/Hierarchies('Insurance Allocation')"
+	}
+}

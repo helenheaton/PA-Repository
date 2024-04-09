@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Staff Grade",
+	"Hierarchies@Code.links":
+	[
+		"Staff Grade.hierarchies/Staff Grade.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Staff Grade')/Hierarchies('Staff Grade')"
+	}
+}

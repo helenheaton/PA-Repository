@@ -1,0 +1,32 @@
+{
+	"@type":"Cube",
+	"Name":"Payroll Costs by Dept",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Contract')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		}
+	],
+	"Rules@Code.link":"Payroll Costs by Dept.rules",
+	"Views@Code.links":
+	[
+		"Payroll Costs by Dept.views/DATACOPY - Payroll to P&L.json",
+		"Payroll Costs by Dept.views/Source.json",
+		"Payroll Costs by Dept.views/Default.json"
+	]
+}

@@ -1,0 +1,18 @@
+{
+	"@type":"Cube",
+	"Name":"Loans - Lookup",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Loaning Entity')"
+		},
+		{
+			"@id":"Dimensions('m_Loans Lookup')"
+		}
+	],
+	"Rules@Code.link":"Loans - Lookup.rules",
+	"Views@Code.links":[]
+}

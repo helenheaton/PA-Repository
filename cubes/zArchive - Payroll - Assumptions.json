@@ -1,0 +1,17 @@
+{
+	"@type":"Cube",
+	"Name":"zArchive - Payroll - Assumptions",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Assumptions')"
+		}
+	],
+	"Views@Code.links":[]
+}

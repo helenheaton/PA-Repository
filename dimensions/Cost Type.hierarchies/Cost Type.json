@@ -1,0 +1,83 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Cost Type",
+	"Elements":
+	[
+		{
+			"Name":"All Cost Types",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Managed",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FM RPI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FM AEI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Care RPI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Care AEI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total for Irrecoverable VAT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Irrecoverable VAT calc",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Cost Types",
+			"ComponentName":"Care RPI",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Cost Types",
+			"ComponentName":"Care AEI",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Cost Types",
+			"ComponentName":"Managed",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Cost Types",
+			"ComponentName":"FM RPI",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Cost Types",
+			"ComponentName":"FM AEI",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total for Irrecoverable VAT",
+			"ComponentName":"Managed",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total for Irrecoverable VAT",
+			"ComponentName":"FM RPI",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total for Irrecoverable VAT",
+			"ComponentName":"FM AEI",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

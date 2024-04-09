@@ -1,0 +1,88 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+['Original Value',{'Care AEI','Care RPI'}]=N:
+IF(Attrs('Contract', !Contract, 'Care Provider')@='',0,continue);
+
+['Original Value',{'FM RPI', 'FM AEI'}]=N:
+IF(Attrs('Contract', !Contract, 'FM Provider')@='',0,continue);
+
+['Original Value','Managed']=N:
+IF(Attrs('Contract', !Contract, 'Managed Provider')@='',0,continue);
+
+['Original Value']=N:
+IF(!Entity@=!Contract,
+DB('Subcontract - Calculation', !Version, !t_Period, !t_Year, !Department, !Contract, !'Cost Type', 'Value' ),0);
+
+['Credit']=N:
+['Original Value'];
+
+# Managed Services has an income on MS01 per contract.
+['MS Recharge','MS01','Managed', 'Managed Services']=N: ['Original Value','All Departments','All Entities'];
+
+# Managed Services has a cost on MS01. Contracts are merged (None)
+['MS Credit','None', 'Managed','Managed Services','MS01']=N:['Original Value','All Departments', 'All Contracts', 'All Entities'];
+
+
+['Recharge', {'Care RPI', 'Care AEI'}, 'Healthcare']= N:
+DB('Subcontract - Recharges', !Version, !t_Period, !t_Year, 'All Entities', 
+!Department, !Contract, !'Cost Type', 'Original Value' );
+
+['Recharge', {'FM RPI', 'FM AEI'}, 'FM Services']= N:
+DB('Subcontract - Recharges', !Version, !t_Period, !t_Year, 'All Entities', 
+!Department, !Contract, !'Cost Type', 'Original Value' );
+
+# Managed costs go to Group, None, GP01
+['Recharge', 'Cost type':'Managed', 'Group','GP01']= N:
+DB('Subcontract - Recharges', !Version, !t_Period, !t_Year, 'All Entities', 
+  'All Departments', !Contract, !'Cost Type', 'Original Value' );
+
+
+
+['Recharge']=N: 0;
+
+
+FEEDERS;
+
+['Original Value']=>['Credit'];
+
+['Original Value','Managed']=>['MS Recharge','MS01','Managed Services'];
+
+['Original Value','Managed']=>['MS Credit','MS01','Managed Services', 'None'];
+
+['Original Value','Managed']=>['Recharge','GP01','Group'];
+
+['Original Value',{'Care RPI','Care AEI'},'All Entities']=>['Recharge','Healthcare'];
+
+['Original Value',{'FM RPI', 'FM AEI'},'All Entities']=>['Recharge','FM Services'];
+
+#['Original Value','Cost type':'Managed','All Entities']=>['Recharge','Managed Services'];
+
+['Credit']=> DB('PL by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, !Contract, DB('Subcontract - Nominal Lookup', !Entity, !Contract, !'Cost Type', 'Cost' ));
+
+['Recharge']=> DB('PL by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, !Contract, DB('Subcontract - Nominal Lookup', !Entity, !Contract, !'Cost Type', 'Income' ));
+
+
+#['MS Recharge']=> DB('PL by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, !Contract, DB('Subcontract - Nominal Lookup', !Entity, !Contract, !'Cost Type', 'Income' ));
+
+#['MS Credit']=> DB('PL by Entity', !Version, !t_Period, !t_Year, !Entity, !Department, !Contract, DB('Subcontract - Nominal Lookup', !Entity, !Contract, !'Cost Type', 'Cost' ));
+
+
+# original value is a child of total value, so only total value needs feeding. 
+['Managed','Credit']=>DB('PL by Dept', !Version, !t_Period, !t_Year, !Department, !Contract, 
+DB('Subcontract - Nominal Lookup',Attrs('Department',!Department,'Company Name'), !Contract, 'Managed', 'Cost' ));
+['Managed','MS Credit']=>DB('PL by Dept', !Version, !t_Period, !t_Year, !Department, !Contract, 
+DB('Subcontract - Nominal Lookup',Attrs('Department',!Department,'Company Name'), !Contract, 'Managed', 'Cost' ));
+['Managed','Recharge']=>DB('PL by Dept', !Version, !t_Period, !t_Year, !Department, !Contract, 
+DB('Subcontract - Nominal Lookup',Attrs('Department',!Department,'Company Name'), !Contract, 'Managed', 'Cost' ));
+['Managed','MS Recharge']=>DB('PL by Dept', !Version, !t_Period, !t_Year, !Department, !Contract, 
+DB('Subcontract - Nominal Lookup',Attrs('Department',!Department,'Company Name'), !Contract, 'Managed', 'Cost' ));
+
+['Managed','Credit']=>DB('PL by Dept', !Version, !t_Period, !t_Year, !Department, !Contract, 
+DB('Subcontract - Nominal Lookup',Attrs('Department',!Department,'Company Name'), !Contract, 'Managed', 'Income'));
+['Managed','MS Credit']=>DB('PL by Dept', !Version, !t_Period, !t_Year, !Department, !Contract, 
+DB('Subcontract - Nominal Lookup',Attrs('Department',!Department,'Company Name'), !Contract, 'Managed', 'Income'));
+['Managed','Recharge']=>DB('PL by Dept', !Version, !t_Period, !t_Year, !Department, !Contract, 
+DB('Subcontract - Nominal Lookup',Attrs('Department',!Department,'Company Name'), !Contract, 'Managed', 'Income'));
+['Managed','MS Recharge']=>DB('PL by Dept', !Version, !t_Period, !t_Year, !Department, !Contract, 
+DB('Subcontract - Nominal Lookup',Attrs('Department',!Department,'Company Name'), !Contract, 'Managed', 'Income'));

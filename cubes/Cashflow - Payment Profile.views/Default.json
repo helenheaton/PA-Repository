@@ -1,0 +1,32 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Department].[Department]" : "Alias"
+		},
+		"ContextSets" : 
+		{
+			"[Department].[Department]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Department].[Department]" : true,
+			"[Nominal Code].[Cashflow]" : true,
+			"[Version].[Version]" : false,
+			"[m_Cashflow Payment Profile].[m_Cashflow Payment Profile]" : false,
+			"[t_Period].[t_Period]" : false
+		}
+	}
+}
