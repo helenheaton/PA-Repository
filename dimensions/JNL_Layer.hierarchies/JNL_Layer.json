@@ -1,0 +1,39 @@
+{
+	"@type":"Hierarchy",
+	"Name":"JNL_Layer",
+	"Elements":
+	[
+		{
+			"Name":"Local MA Journal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MAE Product Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MAE Allocation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MAE Elimination",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Group MA Journal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Group Consol Reclass",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Group Consol Caspean",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"JNL_Layer.subsets/All Leaves.json"
+	]
+}

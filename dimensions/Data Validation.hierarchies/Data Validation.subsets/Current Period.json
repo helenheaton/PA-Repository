@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Current Period",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Data Validation')/Hierarchies('Data Validation')/Elements('Current Period')"
+		}
+	]
+}

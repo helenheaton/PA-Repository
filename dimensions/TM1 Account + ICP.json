@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"TM1 Account + ICP",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('TM1 Account + ICP')/Hierarchies('TM1 Account + ICP')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"TM1 Account + ICP.hierarchies/TM1 Account + ICP.json"
+	]
+}

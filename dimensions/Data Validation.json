@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"Data Validation",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Data Validation')/Hierarchies('Data Validation')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"Data Validation.hierarchies/Data Validation.json"
+	]
+}

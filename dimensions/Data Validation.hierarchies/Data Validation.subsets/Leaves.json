@@ -1,0 +1,13 @@
+{
+	"@type":"Subset",
+	"Name":"Leaves",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Data Validation')/Hierarchies('Data Validation')/Elements('Current Period')"
+		},
+		{
+			"@id":"Dimensions('Data Validation')/Hierarchies('Data Validation')/Elements('Period Reload')"
+		}
+	]
+}

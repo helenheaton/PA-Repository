@@ -1,0 +1,47 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Sales Analysis",
+	"Elements":
+	[
+		{
+			"Name":"Sales Air",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales Hotel",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales Car",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales Land Other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales Other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sales Merchant Fees",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Sales",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Revenue",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Revenue",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Sales Analysis.subsets/Sales Items.json"
+	]
+}

@@ -1,0 +1,52 @@
+{
+	"@type":"Hierarchy",
+	"Name":"MA_Error_Measures",
+	"Elements":
+	[
+		{
+			"Name":"Source",
+			"Type":"String"
+		},
+		{
+			"Name":"Date uploaded",
+			"Type":"String"
+		},
+		{
+			"Name":"Source Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Source Company",
+			"Type":"String"
+		},
+		{
+			"Name":"Target Company",
+			"Type":"String"
+		},
+		{
+			"Name":"Source Account Code",
+			"Type":"String"
+		},
+		{
+			"Name":"Target Account Code",
+			"Type":"String"
+		},
+		{
+			"Name":"Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Period Error",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Company Error",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Account Error",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

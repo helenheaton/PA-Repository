@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Sales Items",
+	"Expression":"{EXCEPT([Sales Analysis].[Sales Analysis].MEMBERS , {[Sales Analysis].[Sales Analysis].[Total Revenue],[Sales Analysis].[Sales Analysis].[Net Sales]})}"
+}

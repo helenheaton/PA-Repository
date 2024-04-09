@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"m_User Parameters",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_User Parameters')/Hierarchies('m_User Parameters')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"m_User Parameters.hierarchies/m_User Parameters.json"
+	]
+}

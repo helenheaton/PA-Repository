@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_User Parameters",
+	"Elements":
+	[
+		{
+			"Name":"Layer",
+			"Type":"String"
+		},
+		{
+			"Name":"Company",
+			"Type":"String"
+		},
+		{
+			"Name":"Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Compare to",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

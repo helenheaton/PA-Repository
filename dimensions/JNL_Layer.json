@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"JNL_Layer",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('JNL_Layer')/Hierarchies('JNL_Layer')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"JNL_Layer.hierarchies/JNL_Layer.json"
+	]
+}

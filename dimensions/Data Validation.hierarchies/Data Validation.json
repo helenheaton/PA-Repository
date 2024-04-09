@@ -1,0 +1,39 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Data Validation",
+	"Elements":
+	[
+		{
+			"Name":"Check",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Current Period",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Period Reload",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Check",
+			"ComponentName":"Current Period",
+			"Weight":1
+		},
+		{
+			"ParentName":"Check",
+			"ComponentName":"Period Reload",
+			"Weight":-1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Data Validation.subsets/Current Period.json",
+		"Data Validation.subsets/Leaves.json",
+		"Data Validation.subsets/zClearforImport.json",
+		"Data Validation.subsets/zDataTransfer_Fact from Staging.json"
+	]
+}
