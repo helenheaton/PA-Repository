@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"zImport_Stats",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MA_Layer')/Hierarchies('MA_Layer')/Elements('Statistics')"
+		}
+	]
+}

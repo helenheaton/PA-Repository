@@ -1,0 +1,222 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Intercompany",
+	"Elements":
+	[
+		{
+			"Name":"101601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"101602",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"101701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"206201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"206202",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"206701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"206702",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"207201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"207701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"208201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"208203",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"315501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"315502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"316001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"316002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"316501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"317001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"317501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"317601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"317602",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"317603",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"426002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"426501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Intercompany",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"101601",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"101602",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"101701",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"206201",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"206202",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"206701",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"206702",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"207201",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"207701",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"208201",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"208203",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"315501",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"315502",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"316001",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"316002",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"316501",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"317001",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"317501",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"317601",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"317602",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"317603",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"426002",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Intercompany",
+			"ComponentName":"426501",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

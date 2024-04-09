@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"NetChange",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MA_Measures')/Hierarchies('MA_Measures')/Elements('MA_Net_Change')"
+		}
+	]
+}

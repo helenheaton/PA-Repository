@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Statistics",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MA_Layer')/Hierarchies('MA_Layer')/Elements('Statistics')"
+		}
+	]
+}

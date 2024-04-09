@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"zClearforImport - Import 1 Consol",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202402')"
+		}
+	]
+}

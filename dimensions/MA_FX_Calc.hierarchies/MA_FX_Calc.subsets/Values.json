@@ -1,0 +1,13 @@
+{
+	"@type":"Subset",
+	"Name":"Values",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MA_FX_Calc')/Hierarchies('MA_FX_Calc')/Elements('Local Currency Value')"
+		},
+		{
+			"@id":"Dimensions('MA_FX_Calc')/Hierarchies('MA_FX_Calc')/Elements('GBP Value')"
+		}
+	]
+}

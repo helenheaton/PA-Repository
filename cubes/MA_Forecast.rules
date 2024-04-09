@@ -1,0 +1,4 @@
+# MA_Forecast
+# This cube is a summary of the data from Forecast_Layer
+# This cube is used for reporting
+# Calculations needed for Report. Keep these at the beginning so that they always apply 

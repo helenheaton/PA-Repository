@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"@Staff Costs",
+	"Expression":"{{DISTINCT({DESCENDANTS([TM1 Accounts].[TM1 Accounts].[Staff Costs])})}}"
+}

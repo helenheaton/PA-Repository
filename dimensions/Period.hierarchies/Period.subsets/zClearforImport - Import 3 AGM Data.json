@@ -1,0 +1,46 @@
+{
+	"@type":"Subset",
+	"Name":"zClearforImport - Import 3 AGM Data",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('2022')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202103')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202104')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202105')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202106')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202107')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202108')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202109')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202110')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202111')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202112')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202201')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202202')"
+		}
+	]
+}

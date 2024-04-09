@@ -1,0 +1,88 @@
+{
+	"@type":"NativeView",
+	"Name":"zFX from Fact",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('MA_Currencies')/Hierarchies('MA_Currencies')/Subsets('GBP')"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('YTD-Month')/Hierarchies('YTD-Month')/Subsets('Fact elements')"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Companies')/Hierarchies('Companies')/Subsets('All Leaves')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('AC1')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Period')/Hierarchies('Period')/Subsets('zFX from Fact')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('201703')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('MA_Scenario')/Hierarchies('MA_Scenario')/Subsets('All Leaves')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('MA_Scenario')/Hierarchies('MA_Scenario')/Elements('Actual')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('MA_Currency_Scenario')/Hierarchies('MA_Currency_Scenario')/Subsets('User defined 1')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('MA_Currency_Scenario')/Hierarchies('MA_Currency_Scenario')/Elements('User defined 1')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('MA_Layer')/Hierarchies('MA_Layer')/Subsets('All Leaves')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('MA_Layer')/Hierarchies('MA_Layer')/Elements('Source System')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('TM1 Accounts')/Hierarchies('TM1 Accounts')/Subsets('All Leaves')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('TM1 Accounts')/Hierarchies('TM1 Accounts')/Elements('ALL ACCOUNTS')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.00"
+}

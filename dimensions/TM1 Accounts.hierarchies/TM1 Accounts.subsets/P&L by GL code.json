@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"P&L by GL code",
+	"Expression":"{DRILLDOWNMEMBER({[TM1 Accounts].[TM1 Accounts].[Earnings]} , {[TM1 Accounts].[TM1 Accounts].[Earnings],[TM1 Accounts].[TM1 Accounts].[Reported EBITDA],[TM1 Accounts].[TM1 Accounts].[Sustainable EBITDA],[TM1 Accounts].[TM1 Accounts].[Total Costs],[TM1 Accounts].[TM1 Accounts].[Local EBITDA],[TM1 Accounts].[TM1 Accounts].[Local EBITDA^Gross Profit],[TM1 Accounts].[TM1 Accounts].[Local EBITDA^Gross Profit^Total Gross Profit POS],[TM1 Accounts].[TM1 Accounts].[Local EBITDA^Gross Profit^Total Gross Profit POS^Total Revenue],[TM1 Accounts].[TM1 Accounts].[Local EBITDA^Gross Profit^Total Gross Profit POS^L2_Direct Costs],[TM1 Accounts].[TM1 Accounts].[Local EBITDA^Gross Profit^L2_Sales],[TM1 Accounts].[TM1 Accounts].[ITDA],[TM1 Accounts].[TM1 Accounts].[L1_Rent - ROU]} , RECURSIVE),[TM1 Accounts].[TM1 Accounts].[Balance Sheet],[TM1 Accounts].[TM1 Accounts].[ALL ACCOUNTS]}"
+}

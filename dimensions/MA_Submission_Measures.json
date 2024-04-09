@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"MA_Submission_Measures",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('MA_Submission_Measures')/Hierarchies('MA_Submission_Measures')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"MA_Submission_Measures.hierarchies/MA_Submission_Measures.json"
+	]
+}

@@ -1,0 +1,87 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+IF(SUBSETEXISTS('Companies','zImport_Budget')=0);
+SUBSETCREATE('Companies','zImport_Budget');
+ELSE; 
+SUBSETDELETEALLELEMENTS('Companies','zImport_Budget');
+ENDIF;
+
+if(~pCompany@='');
+SUBSETELEMENTINSERT('Companies','zImport_Budget',pCompany,1);
+endif;
+
+IF(SUBSETEXISTS('Period','zImport_Budget')=0);
+SUBSETCREATE('Period','zImport_Budget');
+ELSE;
+SUBSETDELETEALLELEMENTS('Period','zImport_Budget');
+ENDIF;
+
+if(~pPeriod @= '');
+SUBSETELEMENTINSERT('Period','zImport_Budget',pPeriod,1);
+endif;
+
+IF(VIEWEXISTS('MA_Fact','zImport_Budget')=0);
+VIEWCREATE('MA_Fact','zImport_Budget');
+Else;
+ViewDestroy('MA_Fact','zImport_Budget');
+
+VIEWCREATE('MA_Fact','zImport_Budget');
+ENDIF;
+
+VIEWEXTRACTSKIPCALCSSET('MA_Fact','zImport_Budget',1);
+VIEWEXTRACTSKIPRULEVALUESSET('MA_Fact','zImport_Budget',1);
+VIEWEXTRACTSKIPZEROESSET('MA_Fact','zImport_Budget',1);
+
+If(~pCompany @= '');
+VIEWSUBSETASSIGN('MA_Fact','zImport_Budget','Companies','zImport_Budget');
+else;
+VIEWSUBSETASSIGN('MA_Fact','zImport_Budget','Companies','All Leaves');
+endif;
+
+If(~pPeriod @= '');
+VIEWSUBSETASSIGN('MA_Fact','zImport_Budget','Period','zImport_Budget');
+else;
+VIEWSUBSETASSIGN('MA_Fact','zImport_Budget','Period','All Leaves');
+endif;
+
+VIEWSUBSETASSIGN('MA_Fact','zImport_Budget','MA_Scenario','zImport_Budget');
+VIEWSUBSETASSIGN('MA_Fact','zImport_Budget','MA_Layer','All Leaves');
+VIEWSUBSETASSIGN('MA_Fact','zImport_Budget','TM1 Accounts','All Leaves');
+VIEWSUBSETASSIGN('MA_Fact','zImport_Budget','YTD-Month','zImport_Budget');
+VIEWZEROOUT('MA_Fact','zImport_Budget');
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+vperiod = subst(vPeriod, 1, 6);
+
+if(~pPeriod @= '' & ~vPeriod @= pPeriod & ~pPeriod @='ALL');
+Itemskip;
+endif;
+if(~pCompany @= '' & ~vCompany @= pCompany);
+ItemSkip;
+Endif;
+
+#special case to load Transaction Value
+if(vLayer @= 'Statistics' & vTM1Account @= '992601');
+
+CellPutN( vValue, 'MA_Fact', vCompany, vPeriod, 'Budget', vLayer, vtm1account, 'Month'  );
+endif;
+
+if(~vtm1account@='000000');
+
+CellIncrementN( vValue, 'MA_Fact', vCompany, vPeriod, vScenario, vLayer, vtm1account, 'Month'  );
+
+
+endif;
+#asciioutput('.\logs\BSP&L', vtm1account);
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

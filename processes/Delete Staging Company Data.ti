@@ -1,0 +1,94 @@
+#region Prolog
+
+
+# Quit if user didn't confirm 
+If(pConfirm @<>'yes');
+   processquit;
+Endif;
+
+
+### Define cubes and views ###
+SourceCube='MA_Staging';
+
+ViewName='zDeleteData';
+SubName = ViewName;
+
+if(ViewExists( SourceCube, viewname )= 1);
+  ViewDestroy( SourceCube, ViewName );
+  ViewCreate( SourceCube, ViewName, 0);
+else;
+  ViewCreate( SourceCube, ViewName, 0);
+endif;
+
+
+# ===========================================================================================
+# Create Source View
+# ===========================================================================================
+
+# Company
+DimName = 'Companies';
+
+IF(SUBSETEXISTS(DimName,SubName)=1);
+  SubsetDestroy(DimName,SubName);
+endif;
+SubsetCreate(DimName,SubName);
+
+
+if(pCompany@<>'');
+  SUBSETELEMENTINSERT(DimName,SubName,pCompany,1);
+  VIEWSUBSETASSIGN(SourceCube,ViewName,'Companies',SubName);
+endif;
+
+if(pCompany@='');
+  VIEWSUBSETASSIGN(SourceCube,ViewName,'Companies','All Leaves');
+endif;
+
+
+# Period
+DimName = 'Period';
+
+IF(SUBSETEXISTS(DimName,SubName)=1);
+  SubsetDestroy(DimName,SubName);
+endif;
+SubsetCreate(DimName,SubName);
+
+if(pPeriod @='');
+  pPeriod = CellGetS( 'MA_parameters', 'Current Period', 'Value' );
+  SUBSETELEMENTINSERT(DimName,SubName,pPeriod,1);
+  VIEWSUBSETASSIGN(SourceCube, ViewName,DimName,SubName);
+Else;  
+  sMDX='DISTINCT({[Period].[Period].[' | pPeriod | '],DESCENDANTS([Period].[Period].[' | pPeriod | '] , 99 , LEAVES),[Period].[Period].[Unassigned]})';
+  SubsetMDXSet(DimName,SubName,sMDX);
+  SubsetMDXSet(DimName,SubName,'');
+  ViewSubsetAssign(SourceCube, ViewName,DimName,SubName);
+Endif;
+
+
+### Other dimensions ###
+# VIEWSUBSETASSIGN(SourceCube,ViewName,'MA_Scenario','All Leaves');
+# VIEWSUBSETASSIGN(SourceCube,ViewName,'MA_Dept','All Depts');
+# VIEWSUBSETASSIGN(SourceCube,ViewName,'ICP','All Companies');
+# VIEWSUBSETASSIGN(SourceCube,ViewName,'MA_Layer','All Leaves');
+# VIEWSUBSETASSIGN(SourceCube,ViewName,'TM1 Accounts','All Leaves');
+VIEWSUBSETASSIGN(SourceCube,ViewName,'MA_FX_Calc','Values');
+# VIEWSUBSETASSIGN(SourceCube,ViewName,'MA_Measures','All Leaves');
+
+
+VIEWEXTRACTSKIPCALCSSET(SourceCube,ViewName,1);
+VIEWEXTRACTSKIPRULEVALUESSET(SourceCube,ViewName,1);
+VIEWEXTRACTSKIPZEROESSET(SourceCube,ViewName,1);
+
+
+DataSourceType = 'VIEW';
+DataSourceNameForServer = SourceCube;
+DataSourceNameForClient = SourceCube;
+DataSourceCubeView = ViewName;
+
+
+VIEWZEROOUT(SourceCube,ViewName);
+#endregion
+#region Epilog
+if(pFact @= 'Yes');
+ExecuteProcess( 'DataTransfer 2 & 3 wrapper', 'PCompany', pCompany, 'pPeriod', pPeriod );
+Endif;
+#endregion

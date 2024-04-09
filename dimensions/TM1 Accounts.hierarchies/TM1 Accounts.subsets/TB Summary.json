@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"TB Summary",
+	"Expression":"{DRILLDOWNMEMBER({[TM1 Accounts].[TM1 Accounts].[Balance Sheet]} , {[TM1 Accounts].[TM1 Accounts].[Balance Sheet]} , RECURSIVE),DRILLDOWNMEMBER({[TM1 Accounts].[TM1 Accounts].[Earnings]} , {[TM1 Accounts].[TM1 Accounts].[Earnings],[TM1 Accounts].[TM1 Accounts].[Earnings^Reported EBITDA],[TM1 Accounts].[TM1 Accounts].[Earnings^Reported EBITDA^Sustainable EBITDA],[TM1 Accounts].[TM1 Accounts].[Total Costs]} , RECURSIVE),[TM1 Accounts].[TM1 Accounts].[ALL ACCOUNTS]}"
+}

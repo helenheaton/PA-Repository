@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"zClearforImport",
+	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([MA_Measures].[MA_Measures]) , 0)}}"
+}

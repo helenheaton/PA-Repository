@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"MA_FX_Calc",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('MA_FX_Calc')/Hierarchies('MA_FX_Calc')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"MA_FX_Calc.hierarchies/MA_FX_Calc.json"
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"MA_Parameters",
+	"Elements":
+	[
+		{
+			"Name":"Current Period",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Reporting Period",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Current Year",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Submission ID",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

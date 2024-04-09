@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"zUser Model Parameter",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('zUser Model Parameter')/Hierarchies('zUser Model Parameter')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"zUser Model Parameter.hierarchies/zUser Model Parameter.json"
+	]
+}

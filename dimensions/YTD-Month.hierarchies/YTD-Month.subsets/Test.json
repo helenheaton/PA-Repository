@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Test",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('YTD-Month')/Hierarchies('YTD-Month')/Elements('Check')"
+		}
+	]
+}

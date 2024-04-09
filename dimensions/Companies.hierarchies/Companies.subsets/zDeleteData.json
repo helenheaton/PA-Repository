@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"zDeleteData",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('SG1')"
+		}
+	]
+}

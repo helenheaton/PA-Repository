@@ -1,0 +1,33 @@
+{
+	"@type":"Cube",
+	"Name":"Check Totals",
+	"Rules@Code.link":"Check Totals.rules",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Companies')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('MA_Scenario')"
+		},
+		{
+			"@id":"Dimensions('MA_Layer')"
+		},
+		{
+			"@id":"Dimensions('TM1 Accounts')"
+		},
+		{
+			"@id":"Dimensions('YTD-Month')"
+		},
+		{
+			"@id":"Dimensions('Check Totals Measures')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"Check Totals.views/Source LC Total Balance Sheet.json"
+	]
+}

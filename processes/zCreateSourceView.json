@@ -1,0 +1,13 @@
+{
+	"@type":"Process",
+	"Name":"zCreateSourceView",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zCreateSourceView.ti",
+	"UIData":"_ParameterConstraints=e30=€",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

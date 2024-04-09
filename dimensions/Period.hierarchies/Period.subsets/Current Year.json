@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Current Year",
+	"Expression":"{DRILLDOWNMEMBER({STRTOMEMBER(\"[Period].[\" + [MA_Parameters].([MA_Parameters].[Current Year],[MA_Parameters_Measure].[Value]) + \"]\")} , {STRTOMEMBER(\"[Period].[\" + [MA_Parameters].([MA_Parameters].[Current Year],[MA_Parameters_Measure].[Value]) + \"]\")} , RECURSIVE)}"
+}

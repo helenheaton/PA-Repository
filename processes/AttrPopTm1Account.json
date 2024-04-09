@@ -1,0 +1,43 @@
+{
+	"@type":"Process",
+	"Name":"AttrPopTm1Account",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"AttrPopTm1Account.ti",
+	"UIData":"_ParameterConstraints=e30=€",
+	"VariablesUIData":
+	[
+		"VarType=32€ColType=827€",
+		"IgnoredInputVarName=V2€VarType=32€ColType=1165€",
+		"VarType=32€ColType=827€"
+	],
+	"DataSource":
+	{
+		"Type":"ASCII",
+		"asciiDecimalSeparator":".",
+		"asciiDelimiterChar":",",
+		"asciiDelimiterType":"Character",
+		"asciiHeaderRecords":1,
+		"asciiQuoteCharacter":"\"",
+		"asciiThousandSeparator":",",
+		"dataSourceNameForClient":"model_upload\\MA Mapping.csv",
+		"dataSourceNameForServer":"model_upload\\MA Mapping.csv"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"Account_Type",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"TM1_Account",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

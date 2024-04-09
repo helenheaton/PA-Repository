@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"zTransposeToMA_Fact",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Journal Data')/Hierarchies('Journal Data')/Elements('Amount')"
+		}
+	]
+}

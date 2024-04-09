@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Amount",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Journal Data')/Hierarchies('Journal Data')/Elements('Amount')"
+		}
+	]
+}

@@ -1,0 +1,47 @@
+{
+	"@type":"Cube",
+	"Name":"MA_Staging",
+	"Rules@Code.link":"MA_Staging.rules",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('MA_Scenario')"
+		},
+		{
+			"@id":"Dimensions('Companies')"
+		},
+		{
+			"@id":"Dimensions('MA_Dept')"
+		},
+		{
+			"@id":"Dimensions('ICP')"
+		},
+		{
+			"@id":"Dimensions('MA_Layer')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('TM1 Accounts')"
+		},
+		{
+			"@id":"Dimensions('MA_Measures')"
+		},
+		{
+			"@id":"Dimensions('MA_FX_Calc')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"MA_Staging.views/zClearforImport - Import 3 AGM Data.json",
+		"MA_Staging.views/zClearforImport - Import 3b AGM TB.json",
+		"MA_Staging.views/zClearforImport - Import 5 Stats.json",
+		"MA_Staging.views/zDeleteData.json",
+		"MA_Staging.views/zFact from Staging.json",
+		"MA_Staging.views/zStaging from JNL.json",
+		"MA_Staging.views/All Accounts check.json",
+		"MA_Staging.views/Default.json",
+		"MA_Staging.views/zzz.json"
+	]
+}

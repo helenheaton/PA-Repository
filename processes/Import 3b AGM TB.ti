@@ -1,0 +1,207 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# This process imports the raw AGM TB extract for AGM companies
+# The postings are imported to MA_Fact_Staging
+#
+# Last updated by Helen Heaton | Budgeting Solutions | 28/06/2023
+
+DatasourceNameForServer = 'model_upload/' | pFileName;
+# Quit if user didn't confirm 
+If(pConfirm @<>'yes');
+   processquit;
+Endif;
+
+
+# ===========================================================================================
+# Define cubes, views and variables
+# ===========================================================================================
+
+### Define cubes
+CubeName1='MA_Staging';
+CubeName2='MA_Fact_Submission';
+
+### Defines views
+ViewName='zClearforImport - Import 3b AGM TB';
+SubName=ViewName;
+
+
+### Define Variables
+vScenario = 'Actual';
+vSubmission = cellgets('MA_Parameters', 'Submission ID', 'Value');
+ErrorID = 0;
+
+# ===========================================================================================
+# Create the View to clear out - MA_Fact_Staging
+# ===========================================================================================
+
+### Destroy and recreate view ###
+if(ViewExists(CubeName1,ViewName)=1);
+  ViewDestroy(CubeName1,ViewName);
+endif;
+ViewCreate(CubeName1,ViewName);
+
+### Company dimension ###
+IF(SUBSETEXISTS('Companies',SubName)=0);
+   SUBSETCREATE('Companies',SubName);
+ELSE; 
+   SUBSETDELETEALLELEMENTS('Companies',SubName);
+ENDIF;
+
+if(pCompany@='');
+  VIEWSUBSETASSIGN(CubeName1,ViewName,'Companies','@AGM');
+Else;
+  SUBSETELEMENTINSERT('Companies',SubName,pCompany,1);
+  VIEWSUBSETASSIGN(CubeName1,ViewName,'Companies',SubName);
+Endif;
+
+### Period dimension ###
+IF(SUBSETEXISTS('Period',SubName)=0);
+  SUBSETCREATE('Period',SubName);
+ELSE;
+  SUBSETDELETEALLELEMENTS('Period',SubName);
+ENDIF;
+
+if(pPeriod @='');
+  pPeriod = CellGetS( 'MA_parameters', 'Current Period', 'Value' );
+  SUBSETELEMENTINSERT('Period',SubName,pPeriod,1);
+  VIEWSUBSETASSIGN(CubeName1,SubName,'Period',SubName);
+Else;  
+  sMDX='DISTINCT({[Period].[Period].[' | pPeriod | '],DESCENDANTS([Period].[Period].[' | pPeriod | '] , 99 , LEAVES)})';
+  SubsetMDXSet('Period',SubName,sMDX);
+  SubsetMDXSet('Period',SubName,'');
+
+  ViewSubsetAssign(CubeName1,ViewName,'Period',SubName);
+
+Endif;
+
+### Other dimensions ###
+VIEWSUBSETASSIGN(CubeName1,SubName,'MA_Scenario','Actual');
+VIEWSUBSETASSIGN(CubeName1,SubName,'MA_Dept','ZZZ');
+VIEWSUBSETASSIGN(CubeName1,SubName,'ICP','All Leaves');
+VIEWSUBSETASSIGN(CubeName1,SubName,'MA_Layer','Source System');
+VIEWSUBSETASSIGN(CubeName1,SubName,'TM1 Accounts','All Leaves');
+VIEWSUBSETASSIGN(CubeName1,SubName,'MA_Measures','Closing');
+VIEWSUBSETASSIGN(CubeName1,SubName,'MA_FX_Calc','Values');
+
+### Set View Extract parameters ###
+VIEWEXTRACTSKIPCALCSSET(CubeName1,ViewName,1);
+VIEWEXTRACTSKIPRULEVALUESSET(CubeName1,ViewName,1);
+VIEWEXTRACTSKIPZEROESSET(CubeName1,ViewName,1);
+
+### Clear the view ###
+ViewZeroOut( CubeName1, SubName );
+
+# ===========================================================================================
+# Clear the errors
+# ===========================================================================================
+
+CubeName = 'MA_Errors';
+
+### Destroy and recreate view ###
+if(ViewExists(CubeName, ViewName)=1);
+  ViewDestroy(CubeName, ViewName);
+endif;
+ViewCreate(CubeName,ViewName);
+
+VIEWSUBSETASSIGN(CubeName,SubName,'MA_Error_Source','AGM Import');
+ViewZeroOut( CubeName, ViewName );
+
+cellputs('', 'Messages', 'AGM Import errors', 'MessageText' );
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# ===========================================================================================
+# Skip over data data in the file if it doesn't match the parameters
+# ===========================================================================================
+# Ignore non-data lines
+IF(LineType @<> 'D1');
+  Itemskip;
+Endif;
+
+# Ignore incorrect company data and only accept data for AGM companies
+if(pCompany@='');
+  IF (SubsetElementExists( 'Companies', '@AGM', pCompany ) = 0);
+      ItemSkip;
+  Endif;
+Else;
+  IF (SubsetElementExists( 'Companies', SubName, pCompany ) = 0);
+      ItemSkip;
+  Endif;
+Endif;
+
+# Ignore incorrect period data
+IF (SubsetElementExists( 'Period', SubName, pPeriod ) = 0);
+    ItemSkip;
+Endif;
+
+# ===========================================================================================
+# Get TM1 account and ICP from the account mapping table
+# ==========================================================================================
+
+# log error if nominal code does not exist in the maping table
+if(DimensionElementExists( 'MA Account', MA_Account ) = 0);
+	ErrorType = 'MA account does not exist';
+    ErrorID = ErrorID + 1;
+    ErrorIDString = numbertostring(ErrorID);
+    cellputs(pCompany, 'MA_Errors',ErrorIDString,'Company', 'AGM Import','Value' );
+    cellputs(pPeriod, 'MA_Errors',ErrorIDString,'Period','AGM Import','Value' );
+    cellputs(vSubmission, 'MA_Errors',ErrorIDString,'Submission','AGM Import','Value' );
+    cellputs(ErrorType, 'MA_Errors',ErrorIDString,'Error type','AGM Import','Value' );
+    cellputs(MA_Account, 'MA_Errors',ErrorIDString,'Error Value','AGM Import','Value' );
+    itemskip;
+endif;
+
+
+ASCIIOutput( '..\Logs\Test.txt' , MA_Account, NumberToString( MA_Closing ));
+
+
+Tm1Account = CellgetS('MA_Account_Mapping',Attrs('Companies', pCompany, 'Mapping Code'), MA_Account, 'TM1 Account');
+vICP = CellgetS('MA_Account_Mapping',Attrs('Companies', pCompany, 'Mapping Code'), MA_Account, 'ICP');
+
+if(DimensionElementExists( 'TM1 Accounts', tm1account ) = 0);
+	ASCIIOutput( '..\Logs\Missing TM1 Account ('|pcompany|') .txt' , MA_Account, Tm1Account);
+    itemskip;
+endif;
+# ===========================================================================================
+#Foreign Exchange
+# ===========================================================================================
+ForexRatePL = cellgetn('MA_Currency', ATTRS('Companies',pCompany,'FX Currency'), 'Actual', pPeriod, 'GBP P&L') ;
+ForexRateBS = cellgetn('MA_Currency', ATTRS('Companies',pCompany,'FX Currency'), 'Actual', pPeriod, 'GBP BS') ;
+
+If (attrs('TM1 Accounts', TM1Account, 'Account Type') @= 'P&L');
+  ForexRate = ForexRatePL;
+  else;
+  ForexRate = ForexRateBS;
+endif;
+
+ClosingGBP = MA_Closing * ForexRate;
+
+# CellIncrementN( MA_Opening, 'MA_Staging', pCompany,'Current Period', Current_Period,Tm1Account ,  'MA_Opening' );
+# CellIncrementN( MA_DR, 'MA_Staging', pCompany,'Current Period', Current_Period,Tm1Account ,  'MA_DR' );
+# CellincrementN( MA_CR, 'MA_Staging', pCompany,'Current Period', Current_Period,Tm1Account , 'MA_CR' );
+CellincrementN( MA_Closing, 'MA_Staging', vScenario, pCompany, 'ZZZ', vICP, 'Source System', pPeriod, Tm1Account , 'AGM_Import_Closing', 'Local Currency Value' );
+CellincrementN( ClosingGBP, 'MA_Staging', vScenario, pCompany, 'ZZZ', vICP, 'Source System', pPeriod, Tm1Account , 'AGM_Import_Closing', 'GBP Value' );
+
+
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# If errors generate an error message
+If(ErrorID > 0);
+cellputs(ErrorIDString | ' errors encountered. Please check the error record.', 'Messages', 'AGM Import Errors', 'MessageText' );
+Endif;
+
+# If successful, update the submissions cube
+vDate = Timst(now(),'\d/\m/\Y at \h:\i:\s');
+Cellputs (vDate, 'MA_Fact_Submission', pCompany, pPeriod, vSubmission, 'Submission Date' );
+#endregion

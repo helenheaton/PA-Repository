@@ -1,0 +1,20 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+#Insert Reporting FX and Alt Reporting FX attribute
+AttrPutS( Alt_Reporting_FX, 'Companies', Company, 'Alt FX Currency' );
+AttrPutS( Reporting_FX, 'Companies', Company, 'FX Currency' );
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

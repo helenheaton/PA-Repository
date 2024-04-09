@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Expression":"{[MA_Currencies].[MA_Currencies].[GBP],ORDER(TM1FILTERBYLEVEL(TM1SUBSETALL([MA_Currencies].[MA_Currencies]) , 1) , [MA_Currencies].[MA_Currencies].CURRENTMEMBER.PROPERTIES(\"MEMBER_NAME\") , BASC)}"
+}

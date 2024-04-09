@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"MA_Currency_Scenario",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('MA_Currency_Scenario')/Hierarchies('MA_Currency_Scenario')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"MA_Currency_Scenario.hierarchies/MA_Currency_Scenario.json"
+	]
+}

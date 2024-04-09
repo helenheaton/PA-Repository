@@ -1,0 +1,13 @@
+{
+	"@type":"Subset",
+	"Name":"Budget and FC",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MA_Currency_Scenario')/Hierarchies('MA_Currency_Scenario')/Elements('Budget')"
+		},
+		{
+			"@id":"Dimensions('MA_Currency_Scenario')/Hierarchies('MA_Currency_Scenario')/Elements('Forecast')"
+		}
+	]
+}

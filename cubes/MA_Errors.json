@@ -1,0 +1,26 @@
+{
+	"@type":"Cube",
+	"Name":"MA_Errors",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('ID')"
+		},
+		{
+			"@id":"Dimensions('MA_Errors')"
+		},
+		{
+			"@id":"Dimensions('MA_Error_Source')"
+		},
+		{
+			"@id":"Dimensions('Value')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"MA_Errors.views/zClearforImport.json",
+		"MA_Errors.views/zClearforImport - Import 3b AGM TB.json",
+		"MA_Errors.views/zClearforImport - Import 5 Stats.json",
+		"MA_Errors.views/default.json"
+	]
+}

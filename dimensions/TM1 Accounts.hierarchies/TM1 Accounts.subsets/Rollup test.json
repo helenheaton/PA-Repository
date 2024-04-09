@@ -1,0 +1,13 @@
+{
+	"@type":"Subset",
+	"Name":"Rollup test",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('TM1 Accounts')/Hierarchies('TM1 Accounts')/Elements('ALL ACCOUNTS')"
+		},
+		{
+			"@id":"Dimensions('TM1 Accounts')/Hierarchies('TM1 Accounts')/Elements('L2_Statistical Accounts')"
+		}
+	]
+}

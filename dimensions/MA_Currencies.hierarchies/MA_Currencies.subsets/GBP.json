@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"GBP",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MA_Currencies')/Hierarchies('MA_Currencies')/Elements('GBP')"
+		}
+	]
+}

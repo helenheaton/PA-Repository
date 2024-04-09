@@ -1,0 +1,13 @@
+{
+	"@type":"Process",
+	"Name":"zClearAll",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zClearAll.ti",
+	"UIData":"_ParameterConstraints=e30=€",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

@@ -1,0 +1,14 @@
+{
+	"@type":"Dimension",
+	"Name":"TM1 Accounts",
+	"AllLeavesHierarchyName":"Leaves",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('TM1 Accounts')/Hierarchies('TM1 Accounts')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"TM1 Accounts.hierarchies/TM1 Accounts.json",
+		"TM1 Accounts.hierarchies/Intercompany.json"
+	]
+}

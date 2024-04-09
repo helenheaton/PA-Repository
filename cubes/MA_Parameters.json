@@ -1,0 +1,14 @@
+{
+	"@type":"Cube",
+	"Name":"MA_Parameters",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('MA_Parameters')"
+		},
+		{
+			"@id":"Dimensions('MA_Parameters_Measure')"
+		}
+	],
+	"Views@Code.links":[]
+}

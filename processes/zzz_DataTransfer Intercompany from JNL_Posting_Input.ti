@@ -1,0 +1,245 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# Helen Heaton
+# 21/12/2022
+
+#--------------------------------------------------------------------------------------------
+# CREATE SOURCE VIEW
+#--------------------------------------------------------------------------------------------
+
+# Variables
+CubeName='JNL_Posting_Input';
+ViewName='zTransposeToMA_Intercompany';
+SubName=ViewName;
+
+# Destroy view if it already exists. Create Clean view.
+if(ViewExists(CubeName,ViewName)=1);
+  ViewDestroy(CubeName,ViewName);
+endif;
+
+ViewCreate(CubeName,ViewName);
+
+#--------------------------------------------------------------------------------------------
+# Period dimension
+
+DimName='Period';
+
+if(pYearPeriod@<>'');
+
+  if(SubsetExists(DimName,SubName)=1);
+    SubsetDeleteAllElements(DimName,SubName);
+    else;
+    SubsetCreate(DimName,SubName);
+  endif;
+
+  sMDX='DISTINCT({[Period].[Period].[' | pYearPeriod | '],DESCENDANTS([Period].[Period].[' | pYearPeriod | '] , 99 , LEAVES)})';
+  SubsetMDXSet(DimName,SubName,sMDX);
+  SubsetMDXSet(DimName,SubName,'');
+
+  ViewSubsetAssign(CubeName,ViewName,DimName,SubName);
+
+endif;
+
+#--------------------------------------------------------------------------------------------
+# Journal Data dimension
+
+DimName='Journal Data';
+
+if(SubsetExists(DimName,SubName)=1);
+  SubsetDeleteAllElements(DimName,SubName);
+  else;
+  SubsetCreate(DimName,SubName);
+endif;
+
+SubsetElementInsert(DimName,SubName,'Amount',1);
+
+ViewSubsetAssign(CubeName,ViewName,DimName,SubName);
+
+ViewExtractSkipCalcsSet( CubeName, ViewName, 1 );
+ViewExtractSkipRuleValuesSet( CubeName, ViewName, 0 );
+ViewExtractSkipZeroesSet( CubeName, ViewName, 1 );
+
+#--------------------------------------------------------------------------------------------
+# Assign Datasource
+
+DataSourceType = 'VIEW';
+DatasourceNameForServer = CubeName;
+DatasourceNameForClient = CubeName;
+DatasourceCubeView = ViewName;
+
+
+
+
+#--------------------------------------------------------------------------------------------
+# CREATE AND ZERO TARGET VIEW
+#--------------------------------------------------------------------------------------------
+
+# Variables
+CubeName='MA_Intercompany';
+CubeSetLogChanges(CubeName,0);
+ViewName='zZeroJournalImport';
+SubName=ViewName;
+
+# Destroy view if it already exists. Create Clean view.if(SubsetExists(DimName,SubName)=1);
+if(ViewExists(CubeName,ViewName)=1);
+  ViewDestroy(CubeName,ViewName);
+endif;
+
+ViewCreate(CubeName,ViewName);
+
+#--------------------------------------------------------------------------------------------
+# Period dimension
+
+DimName='Period';
+
+if(pYearPeriod@<>'');
+
+  if(SubsetExists(DimName,SubName)=1);
+    SubsetDeleteAllElements(DimName,SubName);
+    else;
+    SubsetCreate(DimName,SubName);
+  endif;
+
+  sMDX='DISTINCT({[Period].[Period].[' | pYearPeriod | '],DESCENDANTS([Period].[Period].[' | pYearPeriod | '] , 99 , LEAVES)})';
+  SubsetMDXSet(DimName,SubName,sMDX);
+  SubsetMDXSet(DimName,SubName,'');
+
+  ViewSubsetAssign(CubeName,ViewName,DimName,SubName);
+
+endif;
+
+#--------------------------------------------------------------------------------------------
+# Layer Dimension
+
+DimName='MA_Layer';
+
+if(SubsetExists(DimName,SubName)=1);
+  SubsetDeleteAllElements(DimName,SubName);
+  else;
+  SubsetCreate(DimName,SubName);
+endif;
+
+sMDX='EXCEPT([MA_Layer].[MA_Layer].MEMBERS , {[MA_Layer].[MA_Layer].[Source System]})';
+SubsetMDXSet(DimName,SubName,sMDX);
+SubsetMDXSet(DimName,SubName,'');
+
+ViewSubsetAssign(CubeName,ViewName,DimName,SubName);
+
+#--------------------------------------------------------------------------------------------
+# Other Dimensions
+
+ViewSubsetAssign(CubeName,ViewName,'MA_Scenario','Actual');
+ViewSubsetAssign(CubeName,ViewName,'YTD-Month','Month');
+
+#--------------------------------------------------------------------------------------------
+# Zero out target view
+
+ViewZeroOut(CubeName,ViewName);
+
+# Clear Destination #2 - if year (and period) specified, clear out
+# =====================================================
+# CubeName='MA_Fact_Dept_Analysis';
+# CubeSetLogChanges(CubeName,0);
+# ViewName='zZeroJournalImport';
+# SubName=ViewName;
+
+# if(ViewExists(CubeName,ViewName)=1);
+# ViewDestroy(CubeName,ViewName);
+# endif;
+# ViewCreate(CubeName,ViewName);
+
+# if(pYearPeriod@<>'');
+# DimName='Period';
+#--------------------------------------------------------------------------------------------
+# if(SubsetExists(DimName,SubName)=1);
+# SubsetDeleteAllElements(DimName,SubName);
+# else;
+# SubsetCreate(DimName,SubName);
+# endif;
+## SubsetElementInsert(DimName,SubName,pYearPeriod,1);
+#sMDX='DRILLDOWNMEMBER({[Period].[Period].[' | pYearPeriod | ']} , {[Period].[Period].[' | pYearPeriod | ']} , RECURSIVE)';
+# sMDX='DISTINCT({[Period].[Period].[' | pYearPeriod | '],DESCENDANTS([Period].[Period].[' | pYearPeriod | '] , 99 , LEAVES)})';
+#  SubsetMDXSet(DimName,SubName,sMDX);
+#  SubsetMDXSet(DimName,SubName,'');
+
+# ViewSubsetAssign(CubeName,ViewName,DimName,SubName);
+# endif;
+
+# DimName='MA_Layer';
+# #--------------------------------------------------------------------------------------------
+# if(SubsetExists(DimName,SubName)=1);
+# SubsetDeleteAllElements(DimName,SubName);
+# else;
+# SubsetCreate(DimName,SubName);
+# endif;
+# ## SubsetElementInsert(DimName,SubName,pYearPeriod,1);
+# sMDX='EXCEPT([MA_Layer].[MA_Layer].MEMBERS , {[MA_Layer].[MA_Layer].[Source System]})';
+#  SubsetMDXSet(DimName,SubName,sMDX);
+#  SubsetMDXSet(DimName,SubName,'');
+
+# ViewSubsetAssign(CubeName,ViewName,DimName,SubName);
+
+# ViewZeroOut(CubeName,ViewName);
+
+
+
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+# determine whether we want Local Currency or GBP based on Journal Type
+
+sAccount=CELLGETS('JNL_Posting_Input',Companies,Period,vJournal,Sequence,'TM1 Account');
+sMALayer=CELLGETS('JNL_Posting_Input',Companies,Period,vJournal,Sequence,'MA_LAYER');
+sDept=CELLGETS('JNL_Posting_Input',Companies,Period,vJournal,Sequence,'MA_DEPT');
+sICP=CELLGETS('JNL_Posting_Input',Companies,Period,vJournal,Sequence,'ICP');
+
+if(sMALayer@='Local Adjustment MA');
+  sMALayer='Local Adjustment';
+endif;
+
+if(sMALayer@='SOURCE SYSTEM');
+  itemskip;
+endif;
+
+sMALayerParent=ELPAR('MA_Layer',sMALayer,1);
+if(sMALayerParent@='Source LC');
+ nValue=CELLGETN('JNL_Posting_Input',Companies,Period,vJournal,Sequence,'Value Local Currency');
+else;
+ nValue=CELLGETN('JNL_Posting_Input',Companies,Period,vJournal,Sequence,'Value GBP');
+endif;
+
+# until mapping is complete
+if(DimensionElementExists('TM1 Accounts', sAccount )=0);
+  itemskip;
+endif;
+
+
+#CubeName='MA_Fact';
+#CELLINCREMENTN(nValue,CubeName,Companies,Period,'Actual',sMALayer,sAccount,'Month');
+
+CubeName='MA_Intercompany';
+CELLINCREMENTN(nValue,CubeName,Companies,Period,'Actual',sMALayer,sAccount,sICP,'Month');
+
+
+
+
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+CubeName='MA_Fact';
+CubeSetLogChanges(CubeName,1);
+
+CubeName='MA_Fact_Dept_Analysis';
+CubeSetLogChanges(CubeName,1);
+#endregion

@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"MA_Currency",
+	"Elements":
+	[
+		{
+			"Name":"GBP P&L",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GBP BS",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

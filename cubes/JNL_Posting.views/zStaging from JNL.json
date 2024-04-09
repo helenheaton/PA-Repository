@@ -1,0 +1,68 @@
+{
+	"@type":"NativeView",
+	"Name":"zStaging from JNL",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Journal Data')/Hierarchies('Journal Data')/Subsets('process_flag')"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Sequence')/Hierarchies('Sequence')/Subsets('All Leaves')"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('MA_Scenario')/Hierarchies('MA_Scenario')/Subsets('All Leaves')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('MA_Scenario')/Hierarchies('MA_Scenario')/Elements('Actual')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Companies')/Hierarchies('Companies')/Subsets('Leaf elements')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('AC1')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Period')/Hierarchies('Period')/Subsets('zStaging from JNL')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('201703')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Journal by Reference')/Hierarchies('Journal by Reference')/Subsets('All Leaves')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Journal by Reference')/Hierarchies('Journal by Reference')/Elements('¦÷>ò6c³¤#÷\u001Buˆ\u0005ò ús›\u0005:j“\u0007´ºÉÃo“\u0007±zÎ\u001BræŽ7êÐ‘œó ¶M\u001E65ç•ØB^ÅàÄF\u0007yxÑ´æ<Ó{''yÆeÙ\u0002.\u000BÄ\u0012y£\\\u0016(C\u0017sYxø‚¼ÈŽ')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.00"
+}

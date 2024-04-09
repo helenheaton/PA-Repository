@@ -1,0 +1,46 @@
+{
+	"@type":"Subset",
+	"Name":"zClearforImport - Import 5 Stats",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('2024')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202303')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202304')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202305')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202306')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202307')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202308')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202309')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202310')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202311')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202312')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202401')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202402')"
+		}
+	]
+}

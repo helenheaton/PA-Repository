@@ -1,0 +1,5 @@
+#region Prolog
+ExecuteProcess( 'DataTransfer 2 Fact from Staging', 'PCompany', pCompany, 'pPeriod', pPeriod ); 
+ExecuteProcess( 'DataTransfer 3 MA_Fact FX from MA_Fact', 'PCompany', pCompany, 'pPeriod', pPeriod );
+
+#endregion

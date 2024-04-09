@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Messages",
+	"Elements":
+	[
+		{
+			"Name":"AGM Import errors",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Statistics Import errors",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

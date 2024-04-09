@@ -1,0 +1,56 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+if(~pPeriod @='');
+Current_Period = pperiod;
+else;
+Current_Period= CellGetS( 'MA_Parameters', 'Current Period', 'Value' );
+endif;
+
+Current_Year = subst(Current_Period, 1,4);
+Current_Month = attrs('Period', Current_Period, 'Month Name');
+Region = attrs('Companies', pcompany, 'Region');
+Filename = '..\Data\model_upload\'|Region|' PTD TB_'|Current_Month|' '|Current_Year|'.csv';
+if(FileExists(Filename) = 1);
+	DatasourceNameForServer = Filename;
+    else;
+    ProcessBreak;
+
+endif;
+
+
+
+
+
+
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+if(Dimensionelementexists('MA Account', MA_account) = 0);
+		ASCIIOutput( '..\Logs\Missing MA Account ('|pcompany|') .txt' ,pCompany, MA_Account);
+	Itemskip;
+Endif;
+
+Tm1Account = CellgetS('MA_Account_Mapping',Attrs('Companies', pCompany, 'Mapping Code'), MA_Account, 'TM1 Account');
+if(DimensionElementExists( 'TM1 Accounts', tm1account ) = 0);
+
+	ASCIIOutput( '..\Logs\Missing TM1 Account ('|pcompany|') .txt' , MA_Account, Tm1Account);
+    itemskip;
+endif;
+
+CellIncrementN( MA_Opening, 'MA Fact Staging', pCompany,'Current Period', Current_Period,Tm1Account ,  'MA_Opening' );
+CellIncrementN( MA_DR, 'MA Fact Staging', pCompany,'Current Period', Current_Period,Tm1Account ,  'MA_DR' );
+CellincrementN( MA_CR, 'MA Fact Staging', pCompany,'Current Period', Current_Period,Tm1Account , 'MA_CR' );
+CellincrementN( MA_Closing, 'MA Fact Staging', pCompany,'Current Period', Current_Period,Tm1Account , 'AGM_Import_Closing' );
+
+
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

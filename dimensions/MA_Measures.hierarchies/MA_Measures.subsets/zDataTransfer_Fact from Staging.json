@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"zDataTransfer_Fact from Staging",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MA_Measures')/Hierarchies('MA_Measures')/Elements('AGM_Import_Closing')"
+		}
+	]
+}

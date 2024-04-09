@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"zClearforImport - Import 3b AGM TB",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('SG1')"
+		}
+	]
+}

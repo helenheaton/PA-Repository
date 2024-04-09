@@ -1,0 +1,285 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+# This process imports the journal extract from Access: tm1_output_budget.csv
+# The journals are imported to JNL_Posting_Input
+#
+# Last updated by Helen Heaton | Budgeting Solutions | 08/05/2023
+
+# ===========================================================================================
+
+# # Define data source file location
+# pFileLocation='.\model_upload\';
+# pFilePathName=pFileLocation | pFileName;
+
+# if(FileExists(pFilePathName)=1);
+# #  DatasourceNameForServer=pFilePathName;
+# else;
+#   # choice of erroring, or use a default. probably error
+#   pErrorMsg='File not found: ' | pFilePathName;
+#   ProcessBreak;
+# endif;
+
+# since even setting the properties seems to make no diference, try here!>
+# DimensionSortOrder ('Journal by Reference', 'ByName', 'Ascending','ByHierarchy', 'Ascending'); 
+
+DatasourceNameForServer = 'model_upload/' | pFileName;
+
+# Define cubes and views
+CubeName1='JNL_Posting';
+# CubeName2 = 'MA_Intercompany';
+# CubeName3 = 'Check Errors';
+
+ViewName='zClearforImport - Import 2 Budget';
+SubName = ViewName;
+
+# ===========================================================================================
+# Destroy and recreate views
+# ===========================================================================================
+
+# Cube 1
+CubeSetLogChanges(CubeName1,0);
+
+if(ViewExists(CubeName1,ViewName)=1);
+  ViewDestroy(CubeName1,ViewName);
+endif;
+ViewCreate(CubeName1,ViewName);
+
+
+# ===========================================================================================
+# Create the View to clear out - JNL_Posting_Input
+# ===========================================================================================
+
+### Period Dimension ###
+IF(SUBSETEXISTS('Period',SubName)=1);
+  SUBSETDESTROY('Period',SubName);
+ENDIF;
+SUBSETCREATE('Period',SubName);
+
+if(pPeriod @='');
+  pPeriod = CellGetS( 'MA_parameters', 'Current Period', 'Value' );
+  SUBSETELEMENTINSERT('Period',SubName,pPeriod,1);
+  VIEWSUBSETASSIGN(CubeName1,SubName,'Period',SubName);
+Else;  
+  sMDX='DISTINCT({[Period].[Period].[' | pPeriod | '],DESCENDANTS([Period].[Period].[' | pPeriod | '] , 99 , LEAVES)})';
+  SubsetMDXSet('Period',SubName,sMDX);
+  SubsetMDXSet('Period',SubName,'');
+
+  ViewSubsetAssign(CubeName1,ViewName,'Period',SubName);
+
+Endif;
+
+### Other Dimensions ###
+ViewSubsetAssign(CubeName1,ViewName,'MA_Scenario','Budget and FC');
+
+### Clear the view ###
+ViewZeroOut(CubeName1,ViewName);
+
+# ===========================================================================================
+# Logging variables
+# ===========================================================================================
+nTimeStart=NOW;
+nRecordsMetaData=0;
+nRecordsData=0;
+nErrors=0;
+
+nStart = now();
+nTime = timst(nStart, '\d\m\y-\h\i\s');
+
+
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+
+#nValue=SumOfMA_DR-SumOfMA_CR;
+# skip rows with no value
+#if(nValue=0);
+# itemskip;
+#endif;
+
+# add new JNL codes to dim:"Journal by Reference"
+
+DimName='Journal by Reference';
+if(DIMIX(DimName,JOURNAL_CODE)=0);
+DimensionElementInsert(DimName,'','TOTAL JOURNALS','N'); 
+  DimensionElementInsert(DimName,'',JOURNAL_CODE,'N');
+  DimensionElementInsert(DimName,'',MA_LAYER,'N');
+  DimensionElementInsert(DimName,'',Report_Level_2,'N'); 
+  DimensionElementComponentAdd(DimName,MA_LAYER,JOURNAL_CODE,1);
+ DimensionElementComponentAdd(DimName,Report_Level_2,MA_LAYER,1);
+ DimensionElementComponentAdd(DimName,'TOTAL JOURNALS',Report_Level_2,1);
+  
+ DimensionElementComponentAdd(DimName,Report_Level_2,MA_LAYER,1);
+endif;
+
+nRecordsMetaData = nRecordsMetaData +1;
+ID = NumberToString( nRecordsMetaData );
+
+IF (DimensionElementExists( 'ID', ID )=0);
+  DimensionElementInsert( 'ID', '' , ID, 'N' );
+Endif;
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+nRecordsData=nRecordsData+1;
+sError='';
+
+TargetCompany = '';
+TargetAccount = '';
+
+ID = NumberToString( nRecordsData );
+
+# ===========================================================================================
+# Prepare Data
+# ===========================================================================================
+
+### Periods ###
+
+Source_period = subst(Source_period,1,6);
+Consol_FX_period = subst(Consol_FX_Period,1,6);
+
+# If the period exists use it, otherwise flag as an error
+if(SubsetElementExists( 'Period', 'All Leaves', Source_period) = 0); 
+  SourcePeriod = Source_period;
+  TargetPeriod = 'Unassigned';
+  PeriodError = 1;
+else;
+  SourcePeriod = Source_period;
+  TargetPeriod = Source_period;
+  PeriodError = 0;
+Endif;
+
+### Company ###
+# If the Company exists use it, otherwise flag as an error
+if(SubsetElementExists( 'Companies', 'All Leaves', Source_Company) = 0); 
+  SourceCompany = Source_Company;
+  TargetCompany = 'Unassigned';
+  CompanyError = 1;
+else;
+  SourceCompany = Source_Company;
+  TargetCompany = Source_Company;
+  CompanyError = 0;
+Endif;
+
+### Account ###
+# If the Account exists use it, otherwise flag as an error
+IF(DimensionElementExists( 'TM1 Accounts', TM1_account ) = 0);
+  SourceAccount = TM1_Account;
+  TargetAccount = 'Unassigned';
+  AccountError = 1;
+else;
+  SourceAccount = TM1_Account;
+  TargetAccount = TM1_account;
+  AccountError = 0;
+Endif;
+
+### Other Dimensions ###
+vScenario = MA_Scenario;
+
+
+### Value ###
+nValue = MA_Rpt_Value;
+#nvalue = SumOfMA_Closing - SumofMA_Opening; 
+# skip rows with no value
+#if(nValue=0);
+# itemskip;
+#endif;
+
+### update attributes of Journal code (Journal by Reference) ###
+ATTRPUTS(Report_Level_2,'Journal by Reference',JOURNAL_CODE,'Report_Level_2');
+
+# ===========================================================================================
+# Find the next empty journal line to insert into
+# ===========================================================================================
+
+# can either: 1: loop through until find a blank. 2: iterate a counter somewhere. lets try looping first and see how long it takes
+
+#IF(PeriodError <> 1);
+  i=1;
+  tDim=DIMSIZ('Sequence');
+  while( i<=tDim );
+    # Don't look at the Amount field as it's sometimes nil so you miss the rest of the journal - instead
+    # Use Source_System as this is never null
+#    nNextEmpty=CELLGETN(CubeName,Source_Company,Source_period,JOURNAL_CODE,numbertostring(i),'Amount');
+    sNextEmpty=CELLGETS(CubeName1,vScenario, Source_Company,Source_period,JOURNAL_CODE,numbertostring(i),'Source_System');
+ 
+#    if(nNextEmpty = 0);
+    if(sNextEmpty @= '');     
+      Break;
+    endif;
+   
+    i=i+1;
+  end;
+  
+  if(i>tDim);
+    sError='Too many rows in this journal! Manually update the dimension:Sequence';
+  endif;
+#ENDIF;
+
+
+# handle/report caught minor errors
+if(sError@<>'');
+ nErrors=nErrors+1;
+ logoutput('INFO',sError | ' :  sourcerow:' | numbertostring(nRecordsData) | ' : ' | Source_Company |'|'| Source_period |'|'| JOURNAL_CODE |'|'| TM1_Account |'|'| numbertostring(nValue));
+ itemskip;
+endif;
+
+# Ignore 533502 which is a current year earnings balance in reserves
+If (TM1_Account @= '533502');
+  ItemSkip;
+endif;
+
+# ensure fx period is populated. sometimes it is "0", or just a year, eg 2020, in which case will assume.... same
+if(Consol_FX_Period@='' % Consol_FX_Period@='0' % LONG(Consol_FX_Period)=4);
+  Consol_FX_Period=Source_period;
+endif;
+
+
+# ===========================================================================================
+# Put data into 'Journal Posting Input'
+# ===========================================================================================
+Journal_line = numbertostring(i);
+
+
+
+# Only import periods that exist in the subset previously defined
+if (SubsetElementExists( 'Period', SubName, Source_period) = 1);
+  if(CompanyError = 0   & AccountError = 0);
+    CELLPUTS(Consol_FX_Period,CubeName1,vScenario, Source_Company,Source_period,JOURNAL_CODE,numbertostring(i),'FX_Period');
+    CELLPUTS(TM1_Account,CubeName1,vScenario,Source_Company,Source_period,JOURNAL_CODE,numbertostring(i),'TM1 Account');
+    CELLPUTS(MA_FX,CubeName1,vScenario,Source_Company,Source_period,JOURNAL_CODE,numbertostring(i),'MA FX');
+    CELLPUTS(MA_Dept,CubeName1,vScenario,Source_Company,Source_period,JOURNAL_CODE,numbertostring(i),'MA_Dept');
+    CELLPUTS(Source_System,CubeName1,vScenario,Source_Company,Source_period,JOURNAL_CODE,numbertostring(i),'Source_System');
+    CELLPUTS(MA_LAYER,CubeName1,vScenario,Source_Company,Source_period,JOURNAL_CODE,numbertostring(i),'MA_LAYER');
+    CELLPUTS(MA_ICP,CubeName1,vScenario,Source_Company,Source_period,JOURNAL_CODE,numbertostring(i),'ICP');
+    CellIncrementN(nValue,CubeName1,vScenario,Source_Company,Source_period,JOURNAL_CODE,numbertostring(i),'Amount');
+
+#    CELLPUTN(nValue,CubeName1,vScenario,Source_Company,Source_period,JOURNAL_CODE,numbertostring(i),'Closing Balance Local Currency');
+  endif;
+endif;
+
+ 
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+CubeName='JNL_Posting';
+CubeSetLogChanges(CubeName,1);
+
+# if(pErrorMsg@='');
+#  if(nErrors<>0);
+#    pErrorMsg=GetProcessName | ' Completed with errors - see debug log. nErrors='| numbertostring(nErrors);
+#  else;
+#    pErrorMsg=GetProcessName | ' Completed Successfully. Rows=' | numbertostring(nRecordsData);
+#  endif;
+# endif;
+
+# LOGOUTPUT('INFO',pErrorMsg);
+#endregion

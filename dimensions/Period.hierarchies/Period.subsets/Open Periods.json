@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Open Periods",
+	"Expression":"{{FILTER(TM1SubsetAll([Period].[Period]), ([Period].[Period].CURRENTMEMBER.PROPERTIES(\"Period Status\") = \"open\"))}}"
+}

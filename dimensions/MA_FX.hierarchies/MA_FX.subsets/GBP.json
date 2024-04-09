@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"GBP",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MA_FX')/Hierarchies('MA_FX')/Elements('GBP')"
+		}
+	]
+}

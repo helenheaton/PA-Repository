@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Message Text",
+	"Elements":
+	[
+		{
+			"Name":"MessageText",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

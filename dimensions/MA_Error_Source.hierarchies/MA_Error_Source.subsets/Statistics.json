@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Statistics",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MA_Error_Source')/Hierarchies('MA_Error_Source')/Elements('Statistics')"
+		}
+	]
+}

@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"MA_Fact_Submission",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Companies')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('MA_Submissions')"
+		},
+		{
+			"@id":"Dimensions('MA_Submission_Measures')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"MA_Fact_Submission.views/Submissions.json"
+	]
+}

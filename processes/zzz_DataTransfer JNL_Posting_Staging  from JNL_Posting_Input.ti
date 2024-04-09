@@ -1,0 +1,185 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# This process summarises the data from JNL_Posting_Input and calculates the period movement based on closing balances
+# The postings are then transferred to MA Fact Staging
+# Intercompany postings are posted to MA_Intercompany
+#
+# Last updated by helen.heaton@budgetingsolutions.co.uk 27/01/2023
+
+# ===========================================================================================
+# Define cubes and destroy and recreate views
+# ===========================================================================================
+
+### Logging parameters ###
+sLogDirectory = GetProcessErrorFileDirectory;
+ 
+### Define cubes and views ###
+SourceCube='JNL_Posting_Input';
+TargetCube1='JNL_Posting_Staging';
+#TargetCube2 ='MA_Fact_Dept_Analysis';
+#TargetCube3 = 'MA_Intercompany';
+
+SourceViewName='zSource - Staging from JNL';
+TargetViewName='zClearforImport - Staging from JNL';
+
+### Destroy and recreate source view ###
+
+if(ViewExists(SourceCube,SourceViewName)=1);
+  ViewDestroy(SourceCube,SourceViewName);
+endif;
+ViewCreate(SourceCube,SourceViewName);
+
+
+### Destroy and recreate target views ###
+CubeSetLogChanges(TargetCube1, 0);
+#CubeSetLogChanges(TargetCube2, 0);
+#CubeSetLogChanges(TargetCube3, 0);
+
+if(ViewExists(TargetCube1,TargetViewName)=1);
+  ViewDestroy(TargetCube1,TargetViewName);
+endif;
+ViewCreate(TargetCube1,TargetViewName);
+
+
+# ===========================================================================================
+# Create Source View
+# ===========================================================================================
+SubName=SourceViewName;
+
+### Period Dimension ###
+DimName='Period';
+
+if(SubsetExists(DimName,SubName)=1);
+  SubsetDestroy(DimName,SubName);
+endif;
+  SubsetCreate(DimName,SubName);
+
+
+if(pPeriod @='');
+  pPeriod = CellGetS( 'MA_parameters', 'Current Period', 'Value' );
+  SUBSETELEMENTINSERT(DimName,SubName,pPeriod,1);
+  VIEWSUBSETASSIGN(SourceCube, SourceViewName,DimName,SubName);
+Else;  
+  sMDX='DISTINCT({[Period].[Period].[' | pPeriod | '],DESCENDANTS([Period].[Period].[' | pPeriod | '] , 99 , LEAVES),[Period].[Period].[Unassigned]})';
+  SubsetMDXSet(DimName,SubName,sMDX);
+  SubsetMDXSet(DimName,SubName,'');
+  ViewSubsetAssign(SourceCube, SourceViewName,DimName,SubName);
+Endif;
+
+### Other dimensions ###
+VIEWSUBSETASSIGN(SourceCube, SourceViewName,'Companies','All Leaves');
+VIEWSUBSETASSIGN(SourceCube, SourceViewName,'Sequence','All Leaves');
+VIEWSUBSETASSIGN(SourceCube, SourceViewName,'Journal by reference','All Leaves');
+VIEWSUBSETASSIGN(SourceCube, SourceViewName,'Journal Data','Closing Local');
+
+
+### Set View Extract parameters ###
+ViewExtractSkipCalcsSet( SourceCube, SourceViewName, 1 );
+ViewExtractSkipRuleValuesSet( SourceCube, SourceViewName, 0 );
+ViewExtractSkipZeroesSet( SourceCube, SourceViewName, 1 );
+
+### Assign Datasource ###
+DataSourceType = 'VIEW';
+DatasourceNameForServer = SourceCube;
+DatasourceNameForClient = SourceCube;
+DatasourceCubeView = SourceViewName;
+
+
+# ===========================================================================================
+# Clear Destination #1 - MA_Journal_Staging
+# ===========================================================================================
+# already defined above when we created the sourceview
+SubName = SourceViewName;
+
+### Period dimension ###
+DimName='Period';
+VIEWSUBSETASSIGN(TargetCube1, TargetViewName, DimName, SubName);
+
+### Clear the view ###
+ViewZeroOut(TargetCube1, TargetViewName);
+
+
+# ===========================================================================================
+# Clear Destination #2 - if year (and period) specified, clear out
+# ===========================================================================================
+
+# SubName = TargetViewName;
+
+# ### Period Dimension ###
+# DimName='Period';
+# ViewSubsetAssign(TargetCube2,TargetViewName,DimName,SubName);
+
+# ### Layer Dimension ###
+# DimName='MA_Layer';
+# ViewSubsetAssign(TargetCube2,TargetViewName,DimName,SubName);
+
+# ### Clear the view ###
+# ViewZeroOut(TargetCube2,TargetViewName);
+
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# ===========================================================================================
+# Prepare Data
+# ===========================================================================================
+
+### Get journal info for posting ###
+sAccount=CELLGETS(SourceCube,vCompanies,vPeriod,vJournal,vSequence,'TM1 Account');
+sMALayer=CELLGETS(SourceCube,vCompanies,vPeriod,vJournal,vSequence,'MA_LAYER');
+sDept=CELLGETS(SourceCube,vCompanies,vPeriod,vJournal,vSequence,'MA_DEPT');
+sICP=CELLGETS(SourceCube,vCompanies,vPeriod,vJournal,vSequence,'ICP');
+sCurrency = CELLGETS(SourceCube,vCompanies,vPeriod,vJournal,vSequence,'MA FX');
+nClosingLocal = CELLGETN(SourceCube,vCompanies,vPeriod,vJournal,vSequence,'Closing Balance Local Currency');
+nClosingGBP = CELLGETN(SourceCube,vCompanies,vPeriod,vJournal,vSequence,'Closing Balance GBP');
+
+# For debugging
+#AsciiOutput(sLogDirectory | 'journal.log', vJournal, numbertostring(nClosingLocal),numbertostring(nClosingGBP),TargetCube1,vCompanies, sDept, sICP, sMALayer, vPeriod,sAccount, sCurrency); 
+
+
+# ===========================================================================================
+# Put data into 'MA_Journal_Staging
+# ===========================================================================================
+
+If(CellIsUpdateable( TargetCube1,vCompanies, sDept, sICP, sMALayer, vPeriod,sAccount, 'AGM_Import_Closing', 'Local Currency Value' )=1);
+  CELLINCREMENTN(nClosingLocal,TargetCube1,vCompanies, sDept, sICP, sMALayer, vPeriod,sAccount, 'AGM_Import_Closing', 'Local Currency Value');
+Endif;
+
+If(CellIsUpdateable( TargetCube1,vCompanies, sDept, sICP, sMALayer, vPeriod,sAccount, 'AGM_Import_Closing', 'GBP Value' )=1);
+  CELLINCREMENTN(nClosingGBP,TargetCube1, vCompanies, sDept, sICP, sMALayer, vPeriod, sAccount, 'AGM_Import_Closing', 'GBP Value');
+Endif;
+
+If(CellIsUpdateable( TargetCube1,vCompanies, sDept, sICP, sMALayer, vPeriod,sAccount, 'AGM_Import_Closing', 'Local Currency' )=1);
+  CELLPUTS(sCurrency,TargetCube1, vCompanies, sDept, sICP, sMALayer, vPeriod, sAccount, 'AGM_Import_Closing', 'Local Currency');
+Endif;
+
+# ===========================================================================================
+# Put Data into 'MA_Fact_Dept_Analysis'
+# ===========================================================================================
+
+#CELLINCREMENTN(nValue,TargetCube2,Companies,sDept,Period,'Actual',sMALayer,sAccount,'MA_Closing');
+
+
+# ===========================================================================================
+# Put Data into 'MA_Intercompany'
+# ===========================================================================================
+
+#CELLINCREMENTN(nValue,TargetCube2,Companies,sDept,Period,'Actual',sMALayer,sAccount,'Month');
+
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# turn logging back on
+CubeSetLogChanges(TargetCube1, 1);
+#CubeSetLogChanges(TargetCube2, 1);
+#CubeSetLogChanges(TargetCube3, 1);
+#endregion

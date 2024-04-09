@@ -1,0 +1,6 @@
+['GBP BS'] = C:DB('MA_Currency', !MA_FX, !MA_Currency_Scenario,Elcomp('Period',!Period, 12), 'GBP BS' );
+['GBP P&L'] = C:ConsolidatedAvg( 1, 'MA_Currency', !MA_FX, !MA_Currency_Scenario, !Period, 'GBP P&L' );
+
+FEEDERS;
+['GBP BS'] => DB( 'MA_Fact', 'WINGS', !Period, !MA_Currency_Scenario, 'Source GBP', 'ALL ACCOUNTS', 'Month'  );
+['GBP P&L'] =>  DB( 'MA_Fact', 'WINGS', !Period, !MA_Currency_Scenario, 'Source GBP', 'ALL ACCOUNTS', 'Month'  );

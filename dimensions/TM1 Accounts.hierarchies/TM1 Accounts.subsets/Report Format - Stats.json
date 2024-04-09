@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Report Format - Stats",
+	"Expression":"{DRILLDOWNMEMBER({[TM1 Accounts].[TM1 Accounts].[L2_Statistical Accounts]} , {[TM1 Accounts].[TM1 Accounts].[L2_Statistical Accounts]} , RECURSIVE),DRILLDOWNMEMBER({[TM1 Accounts].[TM1 Accounts].[FTE Total]} , {[TM1 Accounts].[TM1 Accounts].[FTE Total]} , RECURSIVE)}"
+}

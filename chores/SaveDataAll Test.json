@@ -1,0 +1,20 @@
+{
+	"@type":"Chore",
+	"Name":"SaveDataAll Test",
+	"StartTime":"2022-09-29T21:00Z",
+	"DSTSensitive":true,
+	"Active":true,
+	"ExecutionMode":"SingleCommit",
+	"Frequency":"P1DT00H00M00S",
+	"Tasks":
+	[
+		{
+			"Step":0,
+			"Parameters":[],
+			"Process":
+			{
+				"@id":"Processes('zSaveDataAll')"
+			}
+		}
+	]
+}

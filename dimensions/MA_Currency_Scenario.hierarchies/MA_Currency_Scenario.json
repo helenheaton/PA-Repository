@@ -1,0 +1,36 @@
+{
+	"@type":"Hierarchy",
+	"Name":"MA_Currency_Scenario",
+	"Elements":
+	[
+		{
+			"Name":"Actual",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Budget",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forecast",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"User defined 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"User defined 2",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"MA_Currency_Scenario.subsets/Actual.json",
+		"MA_Currency_Scenario.subsets/Actuals.json",
+		"MA_Currency_Scenario.subsets/All Leaves.json",
+		"MA_Currency_Scenario.subsets/Budget.json",
+		"MA_Currency_Scenario.subsets/Budget and FC.json",
+		"MA_Currency_Scenario.subsets/User defined 1.json"
+	]
+}

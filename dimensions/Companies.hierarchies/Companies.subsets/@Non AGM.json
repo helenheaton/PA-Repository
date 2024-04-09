@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"@Non AGM",
+	"Expression":"{TM1FILTERBYLEVEL(FILTER(TM1SUBSETALL([Companies]) , [Companies].[AGM?] = \"\") , 0)}"
+}

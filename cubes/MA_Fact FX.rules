@@ -1,0 +1,50 @@
+#---------------------------------------------------------------------------------------------------
+# MA_Fact FX
+# This cube converts GBP values from the  MA_Fact cube into all currencies
+# 
+# Last updated by Helen Heaton | Budgeting Solutions | 20/06/2023
+#
+#---------------------------------------------------------------------------------------------------
+
+skipcheck;
+FEEDSTRINGS;
+
+#---------------------------------------------------------------------------------------------------
+# Internal Calculations
+#---------------------------------------------------------------------------------------------------
+
+# For the balance sheet convert month and YTD at the balance sheet rate
+[] = c: IF(ELISCOMP( 'MA_Currencies',!MA_Currencies, 'All Currencies')=1
+             ,IF(ellev('Period',!Period)=0 
+                  ,IF( ELISANC( 'TM1 Accounts', 'Balance Sheet', !TM1 Accounts)=1
+                      ,['GBP'] \ db('MA_Currency', !MA_Currencies, !MA_Currency_Scenario, !Period, 'GBP BS')
+                      ,continue)
+                   ,ConsolidateChildren( 'Period' ))
+              ,continue);
+
+#For the P&L convert the month at the P&L rate
+['Month'] = c: IF(  ELISCOMP( 'MA_Currencies',!MA_Currencies, 'All Currencies')=1
+                   ,IF(  ellev('Period',!Period)=0 
+                        ,IF( ELISANC( 'TM1 Accounts', 'Earnings', !TM1 Accounts)=1
+                            ,['GBP'] \ db('MA_Currency', !MA_Currencies, !MA_Currency_Scenario, !Period, 'GBP P&L')
+                            ,continue)
+                         ,ConsolidateChildren( 'Period' ))
+                    ,continue);
+
+#For the P&L calculate the YTD from the converted month values
+['YTD'] = c:   IF(  ELISCOMP( 'MA_Currencies',!MA_Currencies, 'All Currencies')=1
+                   ,IF(  ellev('Period',!Period)=0 
+                        ,IF( ELISANC( 'TM1 Accounts', 'Earnings', !TM1 Accounts)=1
+                            ,IF( ATTRS('Period', !Period, 'Month No') @= '1' 
+                                ,['Month']
+                                ,['Month'] + db('MA_Fact FX', !Companies, ATTRS('Period', !Period, 'Prev Month'), !MA_Scenario, !MA_Currency_Scenario, !MA_Layer, !'TM1 Accounts', 'YTD', !MA_Currencies ))
+                            ,continue)
+                         ,ConsolidateChildren( 'Period' ))
+                   ,continue);
+
+           
+     
+#---------------------------------------------------------------------------------------------------
+FEEDERS;
+#---------------------------------------------------------------------------------------------------
+

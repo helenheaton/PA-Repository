@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"BS",
+	"Expression":"{FILTER(TM1SUBSETALL([TM1 Accounts]) , [TM1 Accounts].[Account Type] = \"BS\")}"
+}

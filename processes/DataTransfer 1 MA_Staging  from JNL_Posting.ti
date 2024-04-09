@@ -1,0 +1,383 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# This process summarises the data from JNL_Posting and calculates the period movement based on closing balances
+# The postings are then transferred to MA_Staging
+#
+# Last updated by Helen Heaton | Budgeting Solutions | 09/06/2023
+
+# ===========================================================================================
+# Define cubes and destroy and recreate views
+# ===========================================================================================
+#LogOutput( 'Info', 'Start Prolog' );
+
+
+### Logging parameters ###
+sLogDirectory = GetProcessErrorFileDirectory;
+i = 0; 
+msg = '';
+### Define cubes and views ###
+SourceCube='JNL_Posting';
+TargetCube='MA_Staging';
+
+ViewName='zStaging from JNL';
+SubName = ViewName;
+
+### Destroy and recreate source view ###
+if(ViewExists(SourceCube,ViewName)=1);
+  ViewDestroy(SourceCube,ViewName);
+endif;
+ViewCreate(SourceCube,ViewName);
+
+### Destroy and recreate target views ###
+CubeSetLogChanges(TargetCube, 0);
+
+if(ViewExists(TargetCube,ViewName)=1);
+  ViewDestroy(TargetCube,ViewName);
+endif;
+ViewCreate(TargetCube,ViewName);
+
+# ===========================================================================================
+# Create Source View
+# ===========================================================================================
+
+### Period Dimension ###
+DimName='Period';
+
+if(SubsetExists(DimName,SubName)=1);
+  SubsetDestroy(DimName,SubName);
+endif;
+  SubsetCreate(DimName,SubName);
+
+
+if(pPeriod @='');
+  pPeriod = CellGetS( 'MA_parameters', 'Current Period', 'Value' );
+  SUBSETELEMENTINSERT(DimName,SubName,pPeriod,1);
+  VIEWSUBSETASSIGN(SourceCube, ViewName,DimName,SubName);
+Else;  
+  sMDX='DISTINCT({[Period].[Period].[' | pPeriod | '],DESCENDANTS([Period].[Period].[' | pPeriod | '] , 99 , LEAVES),[Period].[Period].[Unassigned]})';
+  SubsetMDXSet(DimName,SubName,sMDX);
+  SubsetMDXSet(DimName,SubName,'');
+  ViewSubsetAssign(SourceCube, ViewName,DimName,SubName);
+Endif;
+
+### Other dimensions ###
+VIEWSUBSETASSIGN(SourceCube, ViewName,'Companies','Leaf elements');
+VIEWSUBSETASSIGN(SourceCube, ViewName,'Sequence','All Leaves');
+VIEWSUBSETASSIGN(SourceCube, ViewName,'Journal by reference','All Leaves');
+VIEWSUBSETASSIGN(SourceCube, ViewName,'Journal Data','Process_Flag');
+VIEWSUBSETASSIGN(SourceCube, ViewName,'MA_Scenario','All Leaves');
+
+### Set View Extract parameters ###
+ViewExtractSkipCalcsSet( SourceCube, ViewName, 0 );
+ViewExtractSkipRuleValuesSet( SourceCube, ViewName, 0 );
+ViewExtractSkipZeroesSet( SourceCube, ViewName, 1 );
+
+### Assign Datasource ###
+DataSourceType = 'VIEW';
+DatasourceNameForServer = SourceCube;
+DatasourceNameForClient = SourceCube;
+DatasourceCubeView = ViewName;
+
+
+# ===========================================================================================
+# Clear Target Cube - non AGM  - source layer - Actual
+# ===========================================================================================
+
+### Period dimension ###
+# already defined above when we created the source view
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'Period', SubName);
+
+### Other dimensions ###
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'Companies', '@Non AGM');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Layer', 'Source System');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Scenario', 'Actual');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Dept', 'All Leaves');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'ICP', 'All Leaves');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'TM1 Accounts', 'All Leaves');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Measures', 'All leaves');
+
+### Clear the view ###
+ViewZeroOut(TargetCube, ViewName);
+
+
+# ===========================================================================================
+# Clear Target Cube - AGM  - source layer - Actual
+# ===========================================================================================
+
+# Only clear out if the pAGMImport parameter is set to yes
+IF (pAGMImport @= 'Yes');
+    ### Period dimension ###
+    # already defined above when we created the source view
+    VIEWSUBSETASSIGN(TargetCube, ViewName, 'Period', SubName);
+
+    ### Other dimensions ###
+    VIEWSUBSETASSIGN(TargetCube, ViewName, 'Companies', '@AGM');
+    VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Layer', 'Source System');
+    VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Scenario', 'Actual');
+    VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Dept', 'All Leaves');
+    VIEWSUBSETASSIGN(TargetCube, ViewName, 'ICP', 'All Leaves');
+    VIEWSUBSETASSIGN(TargetCube, ViewName, 'TM1 Accounts', 'All Leaves');
+    VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Measures', 'All leaves');
+
+    ### Clear the view ###
+    ViewZeroOut(TargetCube, ViewName);
+Endif;
+
+# ===========================================================================================
+# Clear Target Cube - Journal layers - Actual
+# ===========================================================================================
+### Period dimension ###
+# already defined above when we created the source view
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'Period', SubName);
+
+### Other dimensions ###
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'Companies', 'All Leaves');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Layer', 'Journal Layers');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Scenario', 'Actual');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Dept', 'All Leaves');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'ICP', 'All Leaves');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'TM1 Accounts', 'All Leaves');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Measures', 'All leaves');
+
+### Clear the view ###
+ViewZeroOut(TargetCube, ViewName);
+
+
+# ===========================================================================================
+# Clear Target Cube - Budget and FC
+# ===========================================================================================
+### Period dimension ###
+# already defined above when we created the source view
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'Period', SubName);
+
+### Other dimensions ###
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'Companies', 'All leaves');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Layer', 'All Leaves');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Scenario', 'Budget and FC');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Dept', 'All Leaves');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'ICP', 'All Leaves');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'TM1 Accounts', 'All Leaves');
+VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Measures', 'All leaves');
+
+### Clear the view ###
+ViewZeroOut(TargetCube, ViewName);
+
+
+# # ===========================================================================================
+# # Reselect Target cube for import
+# # ===========================================================================================
+# ### Period dimension ###
+# # already defined above when we created the source view
+# VIEWSUBSETASSIGN(TargetCube, ViewName, 'Period', SubName);
+
+# ### Other dimensions ###
+# VIEWSUBSETASSIGN(TargetCube, ViewName, 'Companies', 'All Leaves');
+# VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Layer', 'All Leaves');
+# VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Scenario', 'All Leaves');
+# VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Dept', 'All Leaves');
+# VIEWSUBSETASSIGN(TargetCube, ViewName, 'ICP', 'All Leaves');
+# VIEWSUBSETASSIGN(TargetCube, ViewName, 'TM1 Accounts', 'All Leaves');
+# VIEWSUBSETASSIGN(TargetCube, ViewName, 'MA_Measures', 'All leaves');
+# #LogOutput( 'Info', 'End Prolog' );
+
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+#i = i+ 1;
+
+#If(i = 1);
+#  LogOutput( 'Info', 'Start Data' );
+#Endif;
+
+# ===========================================================================================
+# For debugging
+# ===========================================================================================
+
+#  If (sAccount @<> '320001');
+#    Itemskip;
+#  Endif;
+
+#   If (vScenario @<> 'Actual');
+#     Itemskip;
+#   Endif;
+
+#   If (vJournal @<> 'CJ_018');
+#     Itemskip;
+#   Endif;
+
+#  If (vCompanies @<> 'CP2');
+#     Itemskip;
+#   Endif;
+
+#  If (vPeriod @<> '202310');
+#     Itemskip;
+#   Endif;
+
+
+# ===========================================================================================
+# Prepare Data
+# ===========================================================================================
+
+### Skip Blank lines ###
+sSource = CELLGETS(SourceCube,vScenario,vCompanies,vPeriod,vJournal,vSequence,'Source_System');
+
+If (sSource @= '');
+  Itemskip;
+Endif;
+
+
+### Get journal info for posting ###
+sAccount=CELLGETS(SourceCube,vScenario,vCompanies,vPeriod,vJournal,vSequence,'TM1 Account');
+sMALayer=CELLGETS(SourceCube,vScenario,vCompanies,vPeriod,vJournal,vSequence,'MA_LAYER');
+sDept=CELLGETS(SourceCube,vScenario,vCompanies,vPeriod,vJournal,vSequence,'MA_DEPT');
+sICP=CELLGETS(SourceCube,vScenario,vCompanies,vPeriod,vJournal,vSequence,'ICP');
+sCurrency = CELLGETS(SourceCube,vScenario,vCompanies,vPeriod,vJournal,vSequence,'MA FX');
+nClosingLocal = CELLGETN(SourceCube,vScenario,vCompanies,vPeriod,vJournal,vSequence,'Closing Balance Local Currency');
+nClosingGBP = CELLGETN(SourceCube,vScenario,vCompanies,vPeriod,vJournal,vSequence,'Closing Balance GBP');
+nMovementGBP = CELLGETN(SourceCube,vScenario,vCompanies,vPeriod,vJournal,vSequence,'Value GBP');
+nMovementLocal = CELLGETN(SourceCube,vScenario,vCompanies,vPeriod,vJournal,vSequence,'Value Local Currency');
+
+
+### Skip AGM Actual Source Data unless the pAGMImport parameter is set to yes
+IF (pAGMImport @<> 'Yes');
+  IF (sMALayer @= 'Source System');
+    IF (vScenario@='Actual');
+      IF(attrs('Companies', vCompanies, 'AGM?') @= 'Y');
+        Itemskip;
+      Endif;  
+    Endif;
+  Endif;
+Endif;
+
+# Fix Journal layers
+If (sMALayer @= 'LOCAL ALLOCATION');
+    sMaLayer = 'LOCAL ADJUSTMENT';
+Endif;
+
+# Exceptions to ignore
+#If (vCompanies @<> 'BR1');
+If (vJournal @= 'LS_004');
+   Itemskip;
+Endif;
+#Endif;
+
+# Ignore the Year end alignment Journal except for Brazil as without it the source TB doesn't balance
+If (vCompanies @<> 'BR1');
+  If (vJournal @= 'LJ_003');
+    If (sAccount @= '532001');
+      Itemskip;
+    Endif;
+  Endif;
+Endif;
+
+#For this Line on Brazil move from Local adjustment to Source LC so that the year end alignment rule in the MA_Staging cube includes it
+If (vCompanies @= 'BR1');
+  If (vJournal @= 'LJ_003');
+    If (sAccount @= '532001');
+      sMALayer = 'Source System';
+    Endif;
+  Endif;
+Endif;
+
+# GBP balance correction account - ignore as this is now calculated in TM1
+If (sMaLayer @<> 'Group Consol Reclass');
+ If (sMaLayer @<> 'Group Consol Caspean');
+  If (sAccount @= '533601');
+    Itemskip;
+  Endif;  
+ Endif;
+Endif;
+
+# If (sMaLayer @= 'Group Consol Caspean');
+#   If (sAccount @= '532001');
+#     Itemskip;
+#   Endif;  
+# Endif;
+
+
+
+# If (vJournal @= 'CJ_008');
+#   If (sMALayer @= 'Group Consol Caspean');
+#     Itemskip;
+#   Endif;
+# Endif;
+
+
+
+
+# For debugging
+#AsciiOutput(sLogDirectory | 'journal.log', vJournal, numbertostring(nClosingLocal),numbertostring(nClosingGBP),TargetCube,vCompanies, sDept, sICP, sMALayer, vPeriod,sAccount, sCurrency); 
+
+
+# Convert erroneous ICPs to ZZZ
+If(DimensionElementExists( 'ICP', sICP ) = 0);
+    sICP = 'ZZZ';
+EndIf;
+
+# Convert erroneous Departments to ZZZ
+If(DimensionElementExists( 'MA_Dept', sDept ) = 0);
+    sDept = 'ZZZ';
+EndIf;
+
+
+# ===========================================================================================
+# Put data into 'MA_Journal_Staging
+# ===========================================================================================
+
+# Closing Local Currency- Actual
+If(CellIsUpdateable( TargetCube,vScenario,vCompanies, sDept, sICP, sMALayer, vPeriod, sAccount, 'AGM_Import_Closing', 'Local Currency Value' )=1);
+#  IF(vScenario @= 'Actual');
+    CELLINCREMENTN(nClosingLocal, TargetCube, vScenario, vCompanies, sDept, sICP, sMALayer, vPeriod,sAccount, 'AGM_Import_Closing', 'Local Currency Value');
+#  Endif;
+Endif;
+
+# # Closing GBP - Actual
+#If(CellIsUpdateable( TargetCube,'Actual',vCompanies, sDept, sICP, sMALayer, vPeriod, sAccount, 'AGM_Import_Closing', 'GBP Value' )=1);
+#  IF(vScenario @= 'Actual');
+    CELLINCREMENTN(nClosingGBP,TargetCube,vScenario, vCompanies, sDept, sICP, sMALayer, vPeriod, sAccount, 'AGM_Import_Closing', 'GBP Value');
+#  Endif;
+#endif;
+
+
+
+
+# Movement GBP - All Scenarios
+If(CellIsUpdateable( TargetCube,vScenario,vCompanies, sDept, sICP, sMALayer, vPeriod, sAccount, 'MA_Net_Change', 'GBP Value' )=1);
+      CELLINCREMENTN(nMovementGBP, TargetCube, vScenario, vCompanies, sDept, sICP, sMALayer, vPeriod, sAccount, 'MA_Net_Change', 'GBP Value');
+Endif;
+
+
+# Movement Local - All Scenarios
+If (vJournal @= 'LJ_003');
+   If (sCurrency @= 'GBP');
+     Itemskip;
+   Endif;
+Endif;
+
+If(CellIsUpdateable( TargetCube,vScenario,vCompanies, sDept, sICP, sMALayer, vPeriod, sAccount, 'MA_Net_Change', 'Local Currency Value' )=1);
+    CELLINCREMENTN(nMovementLocal, TargetCube, vScenario, vCompanies, sDept, sICP, sMALayer, vPeriod, sAccount, 'MA_Net_Change', 'Local Currency Value');
+Endif;
+
+# If(CellIsUpdateable( TargetCube, vScenario, vCompanies, sDept, sICP, sMALayer, vPeriod,sAccount, 'AGM_Import_Closing', 'Local Currency' )=1);
+#   CELLPUTS(sCurrency,TargetCube, vScenario, vCompanies, sDept, sICP, sMALayer, vPeriod, sAccount, 'AGM_Import_Closing', 'Local Currency');
+# Endif;
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#LogOutput( 'Info', 'Start Epilog' );
+
+#msg @= 'Processed ' | i | ' records';
+#LogOutput( 'Info', msg);
+# turn logging back on
+CubeSetLogChanges(SourceCube, 1);
+CubeSetLogChanges(TargetCube, 1);
+#endregion

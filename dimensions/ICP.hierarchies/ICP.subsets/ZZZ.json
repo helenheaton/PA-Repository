@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"ZZZ",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('ICP')/Hierarchies('ICP')/Elements('ZZZ')"
+		}
+	]
+}

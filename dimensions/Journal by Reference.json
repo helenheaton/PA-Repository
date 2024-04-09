@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"Journal by Reference",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Journal by Reference')/Hierarchies('Journal by Reference')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"Journal by Reference.hierarchies/Journal by Reference.json"
+	]
+}

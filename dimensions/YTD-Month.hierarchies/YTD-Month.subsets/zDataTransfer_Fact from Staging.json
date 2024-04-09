@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"zDataTransfer_Fact from Staging",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('YTD-Month')/Hierarchies('YTD-Month')/Elements('Check')"
+		}
+	]
+}

@@ -1,0 +1,35 @@
+{
+	"@type":"Cube",
+	"Name":"MA_Fact_Dept_Analysis",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Companies')"
+		},
+		{
+			"@id":"Dimensions('MA_Dept')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('MA_Scenario')"
+		},
+		{
+			"@id":"Dimensions('MA_Layer')"
+		},
+		{
+			"@id":"Dimensions('TM1 Accounts')"
+		},
+		{
+			"@id":"Dimensions('YTD-Month')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"MA_Fact_Dept_Analysis.views/zClearforImport - Fact from JNL.json",
+		"MA_Fact_Dept_Analysis.views/zClearforImport - Staging from JNL.json",
+		"MA_Fact_Dept_Analysis.views/zZeroJournalImport.json",
+		"MA_Fact_Dept_Analysis.views/Default - Dept Analysis.json"
+	]
+}

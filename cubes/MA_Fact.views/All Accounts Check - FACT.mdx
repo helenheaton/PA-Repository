@@ -1,0 +1,1 @@
+SELECT NON EMPTY {TM1SubsetToSet([Period].[Period],"All Leaves","public")} ON 0, NON EMPTY {TM1FILTERBYLEVEL(TM1SUBSETALL([Companies].[Companies]) , 0)} ON 1 FROM [MA_Fact] WHERE ([TM1 Accounts].[TM1 Accounts].[ALL ACCOUNTS], [MA_Layer].[MA_Layer].[Source LC], [MA_Scenario].[MA_Scenario].[Actual], [YTD-Month].[YTD-Month].[YTD])

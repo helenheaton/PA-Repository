@@ -1,0 +1,250 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+# This process imports the TB extract for AGM companies from Access: tm1_output_AGM.txt
+# The postings are imported to MA_Fact_Staging
+# Errors are logged in MA_Errors
+#
+# Last updated by Helen Heaton | Budgeting Solutions | 24/04/2023
+
+DatasourceNameForServer = 'model_upload/' | pFileName;
+
+### Define cubes and views ###
+CubeName1='MA_Staging';
+CubeName3 = 'Check Errors';
+
+ViewName='zClearforImport - Import 3 AGM Data';
+SubName=ViewName;
+
+### Initialise variables for logging ###
+ID = '';
+metacount = 0;
+datacount = 0;
+nStart = now();
+nTime = timst(nStart, '\d\m\y-\h\i\s');
+
+# ===========================================================================================
+# Create the View to clear out - MA_Fact_Staging
+# ===========================================================================================
+
+### Destroy and recreate view ###
+if(ViewExists(CubeName1,ViewName)=1);
+  ViewDestroy(CubeName1,ViewName);
+endif;
+ViewCreate(CubeName1,ViewName);
+
+### Company dimension ###
+IF(SUBSETEXISTS('Companies',SubName)=0);
+   SUBSETCREATE('Companies',SubName);
+ELSE; 
+   SUBSETDELETEALLELEMENTS('Companies',SubName);
+ENDIF;
+
+if(pCompany@='');
+  VIEWSUBSETASSIGN(CubeName1,ViewName,'Companies','@AGM');
+Else;
+  SUBSETELEMENTINSERT('Companies',SubName,pCompany,1);
+  VIEWSUBSETASSIGN(CubeName1,ViewName,'Companies',SubName);
+Endif;
+
+### Period dimension ###
+IF(SUBSETEXISTS('Period',SubName)=0);
+  SUBSETCREATE('Period',SubName);
+ELSE;
+  SUBSETDELETEALLELEMENTS('Period',SubName);
+ENDIF;
+
+if(pPeriod @='');
+  pPeriod = CellGetS( 'MA_parameters', 'Current Period', 'Value' );
+  SUBSETELEMENTINSERT('Period',SubName,pPeriod,1);
+  VIEWSUBSETASSIGN(CubeName1,SubName,'Period',SubName);
+Else;  
+  sMDX='DISTINCT({[Period].[Period].[' | pPeriod | '],DESCENDANTS([Period].[Period].[' | pPeriod | '] , 99 , LEAVES)})';
+  SubsetMDXSet('Period',SubName,sMDX);
+  SubsetMDXSet('Period',SubName,'');
+
+  ViewSubsetAssign(CubeName1,ViewName,'Period',SubName);
+
+Endif;
+
+### Other dimensions ###
+VIEWSUBSETASSIGN(CubeName1,SubName,'MA_Scenario','Actual');
+VIEWSUBSETASSIGN(CubeName1,SubName,'MA_Dept','ZZZ');
+VIEWSUBSETASSIGN(CubeName1,SubName,'ICP','All Leaves');
+VIEWSUBSETASSIGN(CubeName1,SubName,'MA_Layer','Source System');
+VIEWSUBSETASSIGN(CubeName1,SubName,'TM1 Accounts','All Leaves');
+VIEWSUBSETASSIGN(CubeName1,SubName,'MA_Measures','Closing');
+VIEWSUBSETASSIGN(CubeName1,SubName,'MA_FX_Calc','Values');
+
+### Set View Extract parameters ###
+VIEWEXTRACTSKIPCALCSSET(CubeName1,ViewName,1);
+VIEWEXTRACTSKIPRULEVALUESSET(CubeName1,ViewName,1);
+VIEWEXTRACTSKIPZEROESSET(CubeName1,ViewName,1);
+
+### Clear the view ###
+ViewZeroOut( CubeName1, SubName );
+
+# ===========================================================================================
+# Create the View to clear out - MA_Errors
+# ===========================================================================================
+# if(ViewExists(CubeName3,ViewName)=1);
+#   ViewDestroy(CubeName3,ViewName);
+# endif;
+# ViewCreate(CubeName3,ViewName);
+
+# ### Period dimension ###
+# ViewSubsetAssign(CubeName3,ViewName,'Period',SubName);
+
+# ### Other dimensions ###
+# VIEWSUBSETASSIGN(CubeName3,SubName,'MA_Scenario', 'Actual');
+# VIEWSUBSETASSIGN(CubeName3,SubName,'MA_Layer','Source System');
+
+# ### Clear the view ###
+# ViewZeroOut( CubeName3, SubName );
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+metacount = metacount +1;
+ID = NumberToString( metacount );
+
+IF (DimensionElementExists( 'ID', ID )=0);
+  DimensionElementInsert( 'ID', '' , ID, 'N' );
+Endif;
+
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+SourcePeriod = '';
+SourceCompany = '';
+SourceAccount = '';
+TargetCompany = '';
+TargetAccount = '';
+
+datacount = datacount +1;
+ID = NumberToString( datacount );
+
+# ===========================================================================================
+# Skip over data data in the file if it doesn't match the parameters
+# ===========================================================================================
+if(pCompany@='');
+  IF (SubsetElementExists( 'Companies', '@AGM', vCompany ) = 0);
+      ItemSkip;
+  Endif;
+Else;
+  IF (SubsetElementExists( 'Companies', SubName, vCompany ) = 0);
+      ItemSkip;
+  Endif;
+Endif;
+
+
+IF (SubsetElementExists( 'Period', SubName, vPeriod ) = 0);
+    ItemSkip;
+Endif;
+
+
+
+# ===========================================================================================
+# Prepare data
+# ===========================================================================================
+
+# If the period exists use it, otherwise flag as an error
+# if(SubsetElementExists( 'Period', 'Leaf Members', vPeriod) = 0); 
+#   SourcePeriod = vPeriod;
+#   TargetPeriod = 'Unassigned';
+#   Period = '';
+# else;
+#   TargetPeriod = vPeriod;
+# Endif;
+
+# if the pCompany parameter is supplied only import that company, otherwise import everything
+# if (pCompany @<> '' & vCompany @<> pCompany);
+#   ItemSkip;
+# endif;
+
+# If the Company exists use it, otherwise flag as an error
+# if(SubsetElementExists( 'Companies', '@AGM', vCompany) = 0); 
+#   SourceCompany = vCompany;
+#   TargetCompany = 'Unassigned';
+#   vCompany = '';
+# else;
+#   TargetCompany = vCompany;
+# Endif;
+
+# Get mapped TM1 Account
+IF(DimensionElementExists( 'MA Account', vMA_account ) = 1);
+  vTM1account = CellGetS( 'MA_Account_Mapping', attrs('Companies', vCompany, 'Mapping Code'), vMA_account,  'TM1 Account' ); 
+  else;
+  vTM1account = '';
+endif;
+
+# If the Account exists use it, otherwise flag as an error
+# if(vtm1account @= ''); 
+#   SourceAccount = MA_Account1;
+#   TargetAccount = 'Unassigned';
+# else;
+#   TargetAccount = vtm1account;
+# Endif;
+
+# ICP
+IF(DimensionElementExists( 'MA Account', vMA_account ) = 1); 
+  vICP = CellGetS( 'MA_Account_Mapping', attrs('Companies', vCompany, 'Mapping Code'), vMA_account, 'ICP' ); 
+  else;
+  vICP = 'ZZZ';
+endif;
+
+# Other dimensions
+vDept = 'ZZZ';
+vLayer = 'Source System';
+vScenario = 'Actual';
+
+#Foreign Exchange
+ForexRatePL = cellgetn('MA_Currency', ATTRS('Companies',vCompany,'FX Currency'), 'Actual', vPeriod, 'GBP P&L') ;
+ForexRateBS = cellgetn('MA_Currency', ATTRS('Companies',vCompany,'FX Currency'), 'Actual', vPeriod, 'GBP BS') ;
+
+If (attrs('TM1 Accounts', vTM1Account, 'Account Type') @= 'P&L');
+  ForexRate = ForexRatePL;
+  else;
+  ForexRate = ForexRateBS;
+endif;
+
+ClosingGBP = Closing * ForexRate;
+
+
+# ===========================================================================================
+# Put data into MA_Fact_Staging
+# ===========================================================================================
+IF(vPeriod @<> '');
+  IF(vCompany @<> '');
+    IF(vMA_account@<> '');
+      CellIncrementN(Closing, CubeName1, vScenario, vCompany, vDept, vICP, vLayer, vPeriod, vTM1account, 'AGM_Import_Closing','Local Currency Value' );
+          CellIncrementN(ClosingGBP, CubeName1, vScenario, vCompany, vDept, vICP, vLayer, vPeriod, vTM1account, 'AGM_Import_Closing','GBP Value' );
+      CellPutS(vCurrency, CubeName1, vScenario, vCompany, vDept, vICP, vLayer, vPeriod, vTM1account, 'AGM_Import_Closing', 'Local Currency' );
+    endif;
+  endif;
+endif;
+
+
+# ===========================================================================================
+# Put data into MA_Errors
+# ===========================================================================================
+# IF(SourcePeriod @<> ''  % SourceCompany @<> ''    % SourceAccount @<> '');
+#   CellPutS( 'AGM TB', CubeName3, TargetCompany,  TargetPeriod, 'Actual', 'Source System', ID, 'Source');
+#   CellPutS( nTime, CubeName3, TargetCompany, TargetPeriod, 'Actual', 'Source System', ID, 'Date Uploaded');
+#   CellPutS( SourcePeriod, CubeName3, TargetCompany, TargetPeriod, 'Actual', 'Source System', ID, 'Source Period');
+#   CellPutS( SourceCompany, CubeName3, TargetCompany, TargetPeriod, 'Actual', 'Source System', ID, 'Source Company');
+#   CellPutS( TargetCompany, CubeName3, TargetCompany, TargetPeriod, 'Actual', 'Source System', ID, 'Target Company');
+#   CellPutS( SourceAccount, CubeName3, TargetCompany, TargetPeriod, 'Actual', 'Source System', ID, 'Source Account Code');
+#   CellPutS( TargetAccount, CubeName3, TargetCompany, TargetPeriod, 'Actual', 'Source System', ID, 'Target Account Code');
+#   CellIncrementN(Closing - Opening, CubeName3, TargetCompany, TargetPeriod,'Actual', 'Source System', ID, 'Value');
+# endif;
+
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

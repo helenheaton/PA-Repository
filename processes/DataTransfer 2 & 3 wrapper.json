@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"DataTransfer 2 & 3 wrapper",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"DataTransfer 2 & 3 wrapper.ti",
+	"UIData":"_ParameterConstraints=e30=€",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pCompany",
+			"Prompt":"Company to Transfer. Blank for all",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pPeriod",
+			"Prompt":"Blank is current period, \"ALL PERIODS\" is all periods,  \"yyyymm\" to specifiy a particular period, \"yyyy\" to specify a particular year",
+			"Value":"all periods",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

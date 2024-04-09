@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"zUser Parameter",
+	"Elements":
+	[
+		{
+			"Name":"Parameter",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

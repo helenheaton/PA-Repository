@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"All Journals",
+	"Expression":"{DRILLDOWNMEMBER({[MA_Layer].[MA_Layer].[All Journals]} , {[MA_Layer].[MA_Layer].[All Journals]} , RECURSIVE)}"
+}

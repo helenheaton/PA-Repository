@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"Forecast_Layer",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Forecast_Layer')/Hierarchies('Forecast_Layer')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"Forecast_Layer.hierarchies/Forecast_Layer.json"
+	]
+}

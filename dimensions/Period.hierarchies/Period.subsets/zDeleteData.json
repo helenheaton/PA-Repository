@@ -1,0 +1,13 @@
+{
+	"@type":"Subset",
+	"Name":"zDeleteData",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202307')"
+		},
+		{
+			"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('Unassigned')"
+		}
+	]
+}

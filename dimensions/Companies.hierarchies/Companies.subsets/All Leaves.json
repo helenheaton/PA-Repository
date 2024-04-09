@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"All Leaves",
+	"Expression":"{[Companies].[Companies].[WINGS],TM1FILTERBYLEVEL(TM1SUBSETALL([Companies].[Companies]) , 0)}"
+}

@@ -1,0 +1,41 @@
+# ---------------------------------------------------------
+#Region System
+FEEDSTRINGS;
+SKIPCHECK;
+#EndRegion
+# ---------------------------------------------------------
+
+# -------------------------------------------------------------------------------------------------
+# Get Values from Staging
+# -------------------------------------------------------------------------------------------------
+# YTD
+['Actual', 'Source System', 'YTD', 'MA Fact Staging'] = N:
+  db('MA Fact Staging', !Companies, 'Current Period', !Period, !TM1 Accounts, 'MA_Closing' );
+  
+# Month  
+['Actual', 'Source System', 'Month', 'MA Fact Staging'] = N:
+  db('MA Fact Staging', !Companies, 'Current Period', !Period, !TM1 Accounts, 'MA_Net_Change' );
+
+# -------------------------------------------------------------------------------------------------
+# Get Journal Values
+# -------------------------------------------------------------------------------------------------
+# ['Actual', 'Month', 'JNL Posting Input' ] = N:
+#   If(db('JNL_Posting_Input', !Companies, !Period, '', 'Total', 'MA_Layer' ) @= !MA_Layer, continue, stet);
+
+# ['Actual', 'Month', 'JNL Posting Input' ] = N:
+#   If(db('JNL_Posting_Input', !Companies, !Period, '', 'Total', 'TM1 Account' ) @= !TM1 Accounts, continue, stet);
+
+# ['Actual', 'Month', 'JNL Posting Input' ] = N:
+#   db('JNL_Posting_Input', !Companies, !Period, 'Total Journals', 'Total', 'Value Local Currency' );
+
+
+# -------------------------------------------------------------------------------------------------
+# Get Values MA_Fact
+# -------------------------------------------------------------------------------------------------
+# YTD Values
+['Actual', 'MA Fact'] = N:
+  db('MA_Fact', !Companies,  !Period, 'Actual', !MA_Layer, !TM1 Accounts, !YTD-Month );
+  
+# Year end alignment
+['Actual', 'Check Totals Measures':'Year end alignment'] = N:
+  db('MA_Fact', !Companies,  !Period, 'Actual', 'Year End Alignment', !TM1 Accounts, !YTD-Month );

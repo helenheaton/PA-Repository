@@ -1,0 +1,13 @@
+{
+	"@type":"Subset",
+	"Name":"zImport_Budget",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MA_Scenario')/Hierarchies('MA_Scenario')/Elements('Budget')"
+		},
+		{
+			"@id":"Dimensions('MA_Scenario')/Hierarchies('MA_Scenario')/Elements('Forecast')"
+		}
+	]
+}

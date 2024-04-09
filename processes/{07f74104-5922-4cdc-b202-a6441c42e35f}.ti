@@ -1,0 +1,68 @@
+#region Prolog
+MinorErrorLogMax = -1;
+OnMinorErrorDoItemSkip = 1;
+SetInputCharacterSet('TM1CS_UTF8');
+vType='N';
+vWeightNum=1.0;
+lastAttr='';
+iAttr=DIMSIZ('}ElementAttributes_MA_Company');
+i=iAttr;
+While(i > 0);
+attrName = DIMNM('}ElementAttributes_MA_Company', i);
+If(SUBST(attrName,0,1)@<>'}');
+lastAttr=attrName;
+i=0;
+Else;
+i=i-1;
+EndIf;
+End;
+ElementAttrInsert('MA_Company','MA_Company',lastAttr,'Company_Desc','A');
+lastAttr = 'Company_Desc';
+#endregion
+#region Metadata
+If(vLevel0@<>'');
+If(vLevel1@<>'');
+If(HierarchyElementExists('MA_Company','Leaves',vLevel1)=1);
+StringToNumber('IMPERROR_CL_'|vLevel1);
+EndIf;
+HierarchyElementInsert('MA_Company','MA_Company','',vLevel1,'C');
+If(vLevel2@<>'');
+If(HierarchyElementExists('MA_Company','Leaves',vLevel2)=1);
+StringToNumber('IMPERROR_CL_'|vLevel2);
+EndIf;
+HierarchyElementInsert('MA_Company','MA_Company','',vLevel2,'C');
+HierarchyElementComponentAdd('MA_Company','MA_Company',vLevel2,vLevel1,vWeightNum);
+If(vLevel3@<>'');
+If(HierarchyElementExists('MA_Company','Leaves',vLevel3)=1);
+StringToNumber('IMPERROR_CL_'|vLevel3);
+EndIf;
+HierarchyElementInsert('MA_Company','MA_Company','',vLevel3,'C');
+HierarchyElementComponentAdd('MA_Company','MA_Company',vLevel3,vLevel2,vWeightNum);
+If(vLevel4@<>'');
+If(HierarchyElementExists('MA_Company','Leaves',vLevel4)=1);
+StringToNumber('IMPERROR_CL_'|vLevel4);
+EndIf;
+HierarchyElementInsert('MA_Company','MA_Company','',vLevel4,'C');
+HierarchyElementComponentAdd('MA_Company','MA_Company',vLevel4,vLevel3,vWeightNum);
+If(vLevel5@<>'');
+If(HierarchyElementExists('MA_Company','Leaves',vLevel5)=1);
+StringToNumber('IMPERROR_CL_'|vLevel5);
+EndIf;
+HierarchyElementInsert('MA_Company','MA_Company','',vLevel5,'C');
+HierarchyElementComponentAdd('MA_Company','MA_Company',vLevel5,vLevel4,vWeightNum);
+EndIf;
+EndIf;
+EndIf;
+EndIf;
+EndIf;
+HierarchyElementInsert('MA_Company','MA_Company','',vLevel0,vType);
+If(vLevel1@<>'');
+HierarchyElementComponentAdd('MA_Company','MA_Company',vLevel1,vLevel0,vWeightNum);
+EndIf;
+EndIf;
+#endregion
+#region Data
+If(vLevel0@<>'');
+ElementAttrPutS(vAttr1,'MA_Company','MA_Company',vLevel0,'Company_Desc');
+EndIf;
+#endregion

@@ -1,0 +1,1 @@
+SELECT {TM1FILTERBYLEVEL(TM1SUBSETALL([MA_FX].[MA_FX]) , 0)}*{[MA_Currency].[MA_Currency].MEMBERS} ON 0, NON EMPTY {TM1SubsetToSet([Period].[Period],"All Leaves","public")} ON 1 FROM [MA_Currency] WHERE ([MA_Currency_Scenario].[MA_Currency_Scenario].[Budget])

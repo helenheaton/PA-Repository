@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"process_flag",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Journal Data')/Hierarchies('Journal Data')/Elements('process_flag')"
+		}
+	]
+}

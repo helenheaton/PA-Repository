@@ -1,0 +1,37 @@
+{
+	"@type":"Cube",
+	"Name":"MA_Fact FX",
+	"Rules@Code.link":"MA_Fact FX.rules",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Companies')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('MA_Scenario')"
+		},
+		{
+			"@id":"Dimensions('MA_Currency_Scenario')"
+		},
+		{
+			"@id":"Dimensions('MA_Layer')"
+		},
+		{
+			"@id":"Dimensions('TM1 Accounts')"
+		},
+		{
+			"@id":"Dimensions('YTD-Month')"
+		},
+		{
+			"@id":"Dimensions('MA_Currencies')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"MA_Fact FX.views/zFX from Fact.json",
+		"MA_Fact FX.views/Default.json"
+	]
+}

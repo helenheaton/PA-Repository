@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"AR_Import",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('AR_Import')/Hierarchies('AR_Import')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"AR_Import.hierarchies/AR_Import.json"
+	]
+}

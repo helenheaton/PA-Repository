@@ -1,0 +1,91 @@
+{
+	"@type":"Process",
+	"Name":"DataTransfer 1 MA_Staging  from JNL_Posting",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"DataTransfer 1 MA_Staging  from JNL_Posting.ti",
+	"UIData":"_ParameterConstraints=e30=€",
+	"VariablesUIData":
+	[
+		"VarType=32€ColType=827€",
+		"VarType=32€ColType=827€",
+		"VarType=32€ColType=827€",
+		"VarType=32€ColType=827€",
+		"VarType=32€ColType=827€",
+		"VarType=32€ColType=827€",
+		"VarType=33€ColType=827€"
+	],
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForClient":"JNL_Posting",
+		"dataSourceNameForServer":"JNL_Posting",
+		"view":"zClearforImport - Import 3 Journals"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pPeriod",
+			"Prompt":"Blank for Current Period, else yyyymm, yyyy or All Periods",
+			"Value":"all periods",
+			"Type":"String"
+		},
+		{
+			"Name":"pAGMImport",
+			"Prompt":"Do you wish to overwrite AGM source system info? Only select 'Yes' if you are certain that AGM source system information is included in the consol file uploaded",
+			"Value":"No",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vScenario",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vCompanies",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vPeriod",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vJournal",
+			"Type":"String",
+			"Position":4,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vSequence",
+			"Type":"String",
+			"Position":5,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"V2",
+			"Type":"String",
+			"Position":6,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Value",
+			"Type":"Numeric",
+			"Position":7,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

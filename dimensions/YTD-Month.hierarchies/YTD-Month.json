@@ -1,0 +1,30 @@
+{
+	"@type":"Hierarchy",
+	"Name":"YTD-Month",
+	"Elements":
+	[
+		{
+			"Name":"YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Month",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Check",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"YTD-Month.subsets/Default.json",
+		"YTD-Month.subsets/Fact elements.json",
+		"YTD-Month.subsets/Month.json",
+		"YTD-Month.subsets/Test.json",
+		"YTD-Month.subsets/YTD.json",
+		"YTD-Month.subsets/zDataTransfer_Fact from Staging.json",
+		"YTD-Month.subsets/zImport_Budget.json",
+		"YTD-Month.subsets/zZeroJournalImport.json"
+	]
+}

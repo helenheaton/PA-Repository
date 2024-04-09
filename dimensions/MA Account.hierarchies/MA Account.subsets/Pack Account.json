@@ -1,0 +1,1768 @@
+{
+	"@type":"Subset",
+	"Name":"Pack Account",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001004')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001006')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001007')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001008')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001009')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001011')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001012')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001013')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001014')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001015')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001016')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001017')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001018')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001019')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1001030')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002004')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002006')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002007')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002008')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002009')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002011')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002012')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002014')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002015')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002016')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002017')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002018')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002100')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002101')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002102')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002103')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002104')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002200')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002202')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1002300')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003004')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003006')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003007')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003008')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003009')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003011')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003012')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003014')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003015')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003017')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1003018')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100004')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100006')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100007')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100008')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100009')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100011')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100012')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100013')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100014')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100015')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1100022')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('1200001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001004')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001006')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001007')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001008')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001009')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001011')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001012')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001013')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001015')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001016')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001017')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001018')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001019')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('2001020')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001020')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001030')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001040')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001050')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001060')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001061')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001062')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001063')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001064')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001065')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001066')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001067')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001068')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001069')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001070')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001079')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001080')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001090')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001100')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001110')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001120')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001130')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001140')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001150')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001160')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001170')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001180')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001181')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001182')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001190')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001200')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001201')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001202')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001203')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001204')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001205')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001206')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001207')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001208')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001209')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001210')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001211')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001212')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001213')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001214')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001215')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001216')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001217')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001218')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001219')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001221')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001222')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001230')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001240')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001241')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001245')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001250')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001260')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001270')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001280')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001290')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001300')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001310')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001320')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001330')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001340')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3001350')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002000')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002020')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002030')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002040')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002050')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002060')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002070')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002080')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002090')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002091')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002100')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002101')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002110')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002120')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002121')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002122')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002123')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002124')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3002125')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003000')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003020')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003030')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003031')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003040')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003041')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003050')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003060')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003070')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003071')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003072')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003073')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003080')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003081')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003082')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003083')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003084')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003085')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003086')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003087')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003088')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003089')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003090')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003091')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003092')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003093')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003094')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003095')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003096')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3003097')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('3999999')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('4000001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('4000002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('4000003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('4000004')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('4000005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5001001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5001002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5001003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5002001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5002002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5002003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5002004')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5002005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5002006')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5003001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5003002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5003003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5003004')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5003005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5003006')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5003007')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5003008')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5003009')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5003010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('5003011')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001004')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001006')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001007')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001008')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001009')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001011')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001012')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001013')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001014')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001015')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001016')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001017')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001018')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001019')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001020')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001021')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001022')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001023')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001025')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001114')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001200')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001201')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001202')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001203')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001204')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001205')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001206')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001207')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001208')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001209')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001210')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001211')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001212')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001213')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001214')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6001215')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002004')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002007')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002008')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002009')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002011')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002012')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002013')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002014')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002015')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002016')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002017')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002018')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002019')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002022')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6002100')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6003001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6003002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6003003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6003004')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6003005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6003006')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6003007')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6003010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6003011')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6003020')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6003021')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6004000')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6004001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6004002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6005001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6005002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6005003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6005004')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6005005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6005006')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006000')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006004')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006006')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006007')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006008')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006009')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006011')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006012')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006013')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006014')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('6006015')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001101')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001102')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001103')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001104')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001201')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001202')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001301')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001302')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001401')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001402')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001501')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001502')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001600')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001601')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001602')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001700')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001701')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001702')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001801')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001802')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001901')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001902')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001910')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001911')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7001913')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7002000')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7002001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7002130')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003004')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003006')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003007')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003008')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003009')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003011')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003012')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003013')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003014')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003015')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003016')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003017')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003018')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003019')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003020')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003021')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003022')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003023')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003024')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003025')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003026')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003027')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003030')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003031')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003032')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7003033')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005101')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005102')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005106')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005110')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005113')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005120')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005130')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005140')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005145')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005146')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005150')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005151')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005152')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005161')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005165')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005166')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005168')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005169')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005170')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005201')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005203')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005204')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005205')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005206')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005207')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005215')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005300')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005301')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005302')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005303')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005304')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005305')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005306')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005307')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005308')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005309')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005310')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005311')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005312')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005313')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005314')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005315')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005316')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005317')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005318')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005319')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005320')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005330')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005331')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005340')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005400')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005411')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005412')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005413')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005414')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005415')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005416')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005417')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005418')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005419')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005420')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005421')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005422')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005423')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005424')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005425')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005500')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005501')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005600')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('7005601')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('8000100')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('9999993')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('9999994')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('9999995')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('9999996')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('9999997')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('9999998')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('9999999')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('MAN_TTV')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('MAN_TRN')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('MAN_SBR')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('MAN_FT3')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('MAN_FT2')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('MAN_FT1')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('MAN_DAY')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('MAN_ADS')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997005340')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997005330')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997005320')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997005300')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003025')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003022')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003021')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003020')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003016')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003015')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003014')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003013')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003009')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003008')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003007')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003006')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996002015')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996002011')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996002010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996002009')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996002008')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996002007')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996001114')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996001020')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996001019')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996001018')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996001017')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996001016')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996001015')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996001014')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996001013')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996001012')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996001011')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('996001010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('99999997')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('99999951')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('99999943')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('99999942')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('99999941')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('99999932')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005601')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005600')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005415')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005414')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005318')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005315')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005313')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005312')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005311')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005215')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005205')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005204')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005203')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005201')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005168')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97005145')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97003027')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97003018')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97003005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97003001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97002202')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97002201')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97002000')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97001702')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97001701')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97001302')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97001301')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97001226')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('97001216')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96006003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96003003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96003002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96002014')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96002012')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96002005')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96002003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96002002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96002001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96001226')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96001216')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96001209')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96001021')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('95002002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('95002001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('95003010')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('93001068')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('92101001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('91101001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('91100014')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('30030851')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('91002001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('91002002')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('91002003')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('91101001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('92001001')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('93001030')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('93002121')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96002012')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('96002014')"
+		},
+		{
+			"@id":"Dimensions('MA Account')/Hierarchies('MA Account')/Elements('997003013')"
+		}
+	]
+}

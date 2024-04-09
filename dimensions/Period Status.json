@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"Period Status",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Period Status')/Hierarchies('Period Status')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"Period Status.hierarchies/Period Status.json"
+	]
+}

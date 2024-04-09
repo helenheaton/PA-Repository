@@ -1,0 +1,31 @@
+#region Prolog
+MinorErrorLogMax = -1;
+OnMinorErrorDoItemSkip = 1;
+SetInputCharacterSet('TM1CS_UTF8');
+vType='N';
+vWeightNum=1.0;
+lastAttr='';
+iAttr=DIMSIZ('}ElementAttributes_TM1 Accounts');
+i=iAttr;
+While(i > 0);
+attrName = DIMNM('}ElementAttributes_TM1 Accounts', i);
+If(SUBST(attrName,0,1)@<>'}');
+lastAttr=attrName;
+i=0;
+Else;
+i=i-1;
+EndIf;
+End;
+ElementAttrInsert('TM1 Accounts','TM1 Accounts',lastAttr,'Description','A');
+lastAttr = 'Description';
+#endregion
+#region Metadata
+If(vLevel0@<>'');
+HierarchyElementInsert('TM1 Accounts','TM1 Accounts','',vLevel0,vType);
+EndIf;
+#endregion
+#region Data
+If(vLevel0@<>'');
+ElementAttrPutS(vAttr1,'TM1 Accounts','TM1 Accounts',vLevel0,'Description');
+EndIf;
+#endregion

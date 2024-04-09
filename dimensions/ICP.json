@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"ICP",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('ICP')/Hierarchies('ICP')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"ICP.hierarchies/ICP.json"
+	]
+}

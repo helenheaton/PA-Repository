@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"zParameterSelection",
+	"Expression":"{TM1FILTERBYPATTERN(TM1SUBSETALL([Period]) , [MA_Parameters].([MA_Parameters].[Current Period],[MA_Parameters_Measure].[Current Period])) + TM1FILTERBYLEVEL(TM1SUBSETALL([Period].[Period]) , 0)}"
+}

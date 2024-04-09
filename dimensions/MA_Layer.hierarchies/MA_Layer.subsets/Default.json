@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Expression":"{DRILLDOWNMEMBER({[MA_Layer].[MA_Layer].[Source LC]} , {[MA_Layer].[MA_Layer].[Source LC]} , RECURSIVE),DRILLDOWNMEMBER({[MA_Layer].[MA_Layer].[Group MA]} , {[MA_Layer].[MA_Layer].[Group MA]} , RECURSIVE),EXCEPT(DRILLDOWNMEMBER({[MA_Layer].[MA_Layer].[Group Statutory]} , {[MA_Layer].[MA_Layer].[Group Statutory]} , RECURSIVE) , {[MA_Layer].[MA_Layer].[Group MA]}),[MA_Layer].[MA_Layer].[Statistics]}"
+}

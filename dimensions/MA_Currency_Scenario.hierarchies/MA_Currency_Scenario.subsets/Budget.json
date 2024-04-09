@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Budget",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MA_Currency_Scenario')/Hierarchies('MA_Currency_Scenario')/Elements('Budget')"
+		}
+	]
+}

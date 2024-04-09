@@ -1,0 +1,78 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#pPeriod = CellGetS( 'MA_parameters', 'Current Period', 'Value' );
+IF(SUBSETEXISTS('Companies','zImport_Stats')=0);
+SUBSETCREATE('Companies','zImport_Stats');
+ELSE; 
+SUBSETDELETEALLELEMENTS('Companies','zImport_Stats');
+ENDIF;
+
+if(~pCompany@='');
+SUBSETELEMENTINSERT('Companies','zImport_Stats',pCompany,1);
+endif;
+
+IF(SUBSETEXISTS('Period','zImport_Stats')=0);
+SUBSETCREATE('Period','zImport_Stats');
+ELSE;
+SUBSETDELETEALLELEMENTS('Period','zImport_Stats');
+ENDIF;
+
+#SUBSETELEMENTINSERT('Period','zImport_Stats',pPeriod,1);
+
+
+IF(VIEWEXISTS('MA_Fact','zImport_Stats')=0);
+VIEWCREATE('MA_Fact','zImport_Stats');
+Else;
+ViewDestroy('MA_Fact','zImport_Stats');
+
+VIEWCREATE('MA_Fact','zImport_Stats');
+ENDIF;
+
+VIEWEXTRACTSKIPCALCSSET('MA_Fact','zImport_Stats',1);
+VIEWEXTRACTSKIPRULEVALUESSET('MA_Fact','zImport_Stats',1);
+VIEWEXTRACTSKIPZEROESSET('MA_Fact','zImport_Stats',1);
+
+If(~pCompany @= '');
+VIEWSUBSETASSIGN('MA_Fact','zImport_Stats','Companies','zImport_Stats');
+else;
+VIEWSUBSETASSIGN('MA_Fact','zImport_Stats','Companies','All Leaves');
+endif;
+
+VIEWSUBSETASSIGN('MA_Fact','zImport_Stats','Period','All Leaves');
+
+
+VIEWSUBSETASSIGN('MA_Fact','zImport_Stats','MA_Scenario','Actual');
+VIEWSUBSETASSIGN('MA_Fact','zImport_Stats','MA_Layer','zImport_Stats');
+VIEWSUBSETASSIGN('MA_Fact','zImport_Stats','TM1 Accounts','All Leaves');
+VIEWSUBSETASSIGN('MA_Fact','zImport_Stats','YTD-Month','zImport_Budget');
+VIEWZEROOUT('MA_Fact','zImport_Stats');
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+vperiod = subst(vPeriod, 1, 6);
+
+#if(~pPeriod @= '' & ~vPeriod @= pPeriod);
+#Itemskip;
+#endif;
+if(pCompany @<> '' & vCompany @<> pCompany);
+ItemSkip;
+Endif;
+
+# if(vICP @= 'ZZZ');
+# ItemSkip;
+# Endif;
+
+vtm1account = CellGetS( 'MA_Account_Mapping', attrs('Companies', vCompany, 'Mapping Code'), vMAaccount,'TM1 Account'); 
+
+CellIncrementN( vStats, 'MA_Fact', vCompany, vPeriod, 'Actual', 'Statistics', vtm1account, 'Month');
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

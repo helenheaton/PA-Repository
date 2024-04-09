@@ -1,0 +1,28 @@
+{
+	"@type":"Hierarchy",
+	"Name":"MA_Errors",
+	"Elements":
+	[
+		{
+			"Name":"Company",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Period",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Submission",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Error Type",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Error Value",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,39 @@
+{
+	"@type":"Process",
+	"Name":"Delete Staging Company Data",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Delete Staging Company Data.ti",
+	"UIData":"_ParameterConstraints=e30=€",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pCompany",
+			"Prompt":"Company to Transfer. Blank for all",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pPeriod",
+			"Prompt":"Blank is current period, \"ALL PERIODS\" is all periods,  \"yyyymm\" to specifiy a particular period, \"yyyy\" to specify a particular year",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pFact",
+			"Prompt":"Select \"Yes\" to also transfer this data clear to MA_Fact",
+			"Value":"No",
+			"Type":"String"
+		},
+		{
+			"Name":"pConfirm",
+			"Prompt":"Select \"Yes\" to confirm WARNING: DATA DELETION. PLEASE ENSURE ALL ABOVE PARAMETERS ARE CORRECT BEFORE CONFIRMING,",
+			"Value":"No",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

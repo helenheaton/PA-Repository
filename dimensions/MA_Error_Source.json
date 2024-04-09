@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"MA_Error_Source",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('MA_Error_Source')/Hierarchies('MA_Error_Source')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"MA_Error_Source.hierarchies/MA_Error_Source.json"
+	]
+}

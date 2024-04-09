@@ -1,0 +1,20 @@
+{
+	"@type":"Cube",
+	"Name":"MA_Account_Mapping",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Company Mapping Code')"
+		},
+		{
+			"@id":"Dimensions('MA Account')"
+		},
+		{
+			"@id":"Dimensions('MA_Mapping')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"MA_Account_Mapping.views/Default.json"
+	]
+}

@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"MA_Currency",
+	"Rules@Code.link":"MA_Currency.rules",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('MA_FX')"
+		},
+		{
+			"@id":"Dimensions('MA_Currency_Scenario')"
+		},
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('MA_Currency')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"MA_Currency.views/Default.json"
+	]
+}

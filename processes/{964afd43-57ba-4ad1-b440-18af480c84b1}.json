@@ -1,0 +1,36 @@
+{
+	"@type":"Process",
+	"Name":"{964afd43-57ba-4ad1-b440-18af480c84b1}",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"{964afd43-57ba-4ad1-b440-18af480c84b1}.ti",
+	"DataSource":
+	{
+		"Type":"ASCII",
+		"asciiDecimalSeparator":".",
+		"asciiDelimiterChar":",",
+		"asciiDelimiterType":"Character",
+		"asciiHeaderRecords":2,
+		"asciiQuoteCharacter":"\"",
+		"asciiThousandSeparator":",",
+		"dataSourceNameForClient":"",
+		"dataSourceNameForServer":"model_upload\\TM1 to MA Account Mapping.csv"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"vLevel0",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vAttr1",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

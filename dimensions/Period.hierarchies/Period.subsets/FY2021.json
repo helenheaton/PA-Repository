@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"FY2021",
+	"Expression":"{DRILLDOWNMEMBER({[Period].[Period].[2021]} , {[Period].[Period].[2021]} , RECURSIVE)}"
+}

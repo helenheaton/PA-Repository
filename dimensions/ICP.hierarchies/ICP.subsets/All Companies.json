@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"All Companies",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('ICP')/Hierarchies('ICP')/Elements('All Companies')"
+		}
+	]
+}

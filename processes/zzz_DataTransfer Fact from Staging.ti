@@ -1,0 +1,129 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+#--------------------------------------------------------------------
+# Create Subsets Based on Parameters if supplied
+#--------------------------------------------------------------------
+# Company
+IF(SUBSETEXISTS('Companies','zDataTransfer_Fact from Staging')=0);
+SUBSETCREATE('Companies','zDataTransfer_Fact from Staging');
+ELSE; 
+SUBSETDELETEALLELEMENTS('Companies','zDataTransfer_Fact from Staging');
+ENDIF;
+
+if(pCompany@<>'');
+SUBSETELEMENTINSERT('Companies','zDataTransfer_Fact from Staging',pCompany,1);
+endif;
+
+# Period
+IF(SUBSETEXISTS('Period','zDataTransfer_Fact from Staging')=0);
+SUBSETCREATE('Period','zDataTransfer_Fact from Staging');
+ELSE;
+SUBSETDELETEALLELEMENTS('Period','zDataTransfer_Fact from Staging');
+ENDIF;
+
+if(pPeriod @<> '');
+If (pPeriod @<> 'ALL PERIODS');
+SUBSETELEMENTINSERT('Period','zDataTransfer_Fact from Staging',pPeriod,1);
+
+endif;
+endif;
+
+
+#--------------------------------------------------------------------
+# Create the Source View
+#--------------------------------------------------------------------
+IF(VIEWEXISTS('MA Fact Staging','zDataTransfer_Fact from Staging')=0);
+VIEWCREATE('MA Fact Staging','zDataTransfer_Fact from Staging');
+else;
+ViewDestroy('MA Fact Staging','zDataTransfer_Fact from Staging');
+VIEWCREATE('MA Fact Staging','zDataTransfer_Fact from Staging');
+ENDIF;
+
+# Assign Company - Specified Company or all companies
+If(pCompany @<> '');
+VIEWSUBSETASSIGN('MA Fact Staging','zDataTransfer_Fact from Staging','Companies','zDataTransfer_Fact from Staging');
+else;
+VIEWSUBSETASSIGN('MA Fact Staging','zDataTransfer_Fact from Staging','Companies','All Leaves');
+endif;
+
+# Assign Period - specified month, all months, or current period
+If(pPeriod @<> '');
+  If  (pPeriod @= 'ALL PERIODS');
+      VIEWSUBSETASSIGN('MA Fact Staging','zDataTransfer_Fact from Staging','Period','All Leaves');
+      else;
+      VIEWSUBSETASSIGN('MA Fact Staging','zDataTransfer_Fact from Staging','Period','zDataTransfer_Fact from Staging');
+  endif;
+  else;
+  VIEWSUBSETASSIGN('MA Fact Staging','zDataTransfer_Fact from Staging','Period','Current Period');
+endif;
+
+# Other dimensions
+VIEWSUBSETASSIGN('MA Fact Staging','zDataTransfer_Fact from Staging','Data Validation','Current Period');
+VIEWSUBSETASSIGN('MA Fact Staging','zDataTransfer_Fact from Staging','TM1 Accounts','All Leaves');
+VIEWSUBSETASSIGN('MA Fact Staging','zDataTransfer_Fact from Staging','MA_Measures','Closing');
+
+VIEWEXTRACTSKIPCALCSSET('MA Fact Staging','zDataTransfer_Fact from Staging',0);
+VIEWEXTRACTSKIPRULEVALUESSET('MA Fact Staging','zDataTransfer_Fact from Staging',0);
+VIEWEXTRACTSKIPZEROESSET('MA Fact Staging','zDataTransfer_Fact from Staging',0);
+
+DataSourceType = 'VIEW';
+DataSourceNameForServer = 'MA Fact Staging';
+DataSourceCubeView = 'zDataTransfer_Fact from Staging';
+
+#--------------------------------------------------------------------
+# Create and Zero Out the Target View
+#--------------------------------------------------------------------
+IF(VIEWEXISTS('MA_Fact','zDataTransfer_Fact from Staging')=0);
+VIEWCREATE('MA_Fact','zDataTransfer_Fact from Staging');
+Else;
+ViewDestroy('MA_Fact','zDataTransfer_Fact from Staging');
+VIEWCREATE('MA_Fact','zDataTransfer_Fact from Staging');
+ENDIF;
+
+# Assign Company - Specified Company or all companies
+If(pCompany @<> '');
+VIEWSUBSETASSIGN('MA_Fact','zDataTransfer_Fact from Staging','Companies','zDataTransfer_Fact from Staging');
+else;
+VIEWSUBSETASSIGN('MA_Fact','zDataTransfer_Fact from Staging','Companies','All Leaves');
+endif;
+
+# Assign Period - specified month, all months, or current period
+If(pPeriod @<> '');
+  If  (pPeriod @= 'ALL PERIODS');
+      VIEWSUBSETASSIGN('MA_Fact','zDataTransfer_Fact from Staging','Period','All Leaves');
+      else;
+      VIEWSUBSETASSIGN('MA_Fact','zDataTransfer_Fact from Staging','Period','zDataTransfer_Fact from Staging');
+  endif;
+  else;
+  VIEWSUBSETASSIGN('MA Fact','zDataTransfer_Fact from Staging','Period','Current Period');
+endif;
+
+# Other dimensions
+VIEWSUBSETASSIGN('MA_Fact','zDataTransfer_Fact from Staging','MA_Scenario','Actual');
+VIEWSUBSETASSIGN('MA_Fact','zDataTransfer_Fact from Staging','MA_Layer','Source System');
+VIEWSUBSETASSIGN('MA_Fact','zDataTransfer_Fact from Staging','TM1 Accounts','All Leaves');
+VIEWSUBSETASSIGN('MA_Fact','zDataTransfer_Fact from Staging','YTD-Month','YTD');
+
+VIEWEXTRACTSKIPCALCSSET('MA_Fact','zDataTransfer_Fact from Staging',1);
+VIEWEXTRACTSKIPRULEVALUESSET('MA_Fact','zDataTransfer_Fact from Staging',1);
+VIEWEXTRACTSKIPZEROESSET('MA_Fact','zDataTransfer_Fact from Staging',0);
+
+VIEWZEROOUT('MA_Fact','zDataTransfer_Fact from Staging');
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+ IF (CellIsUpdateable( 'MA_Fact',vcompanies, vperiod, 'Actual', 'Source System', vTm1Accounts , 'YTD' )=1);
+   CellIncrementN( Value, 'MA_Fact',vcompanies, vperiod, 'Actual', 'Source System', vTm1Accounts , 'YTD'  );
+ endif;
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion

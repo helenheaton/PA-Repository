@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"MA_Mapping",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('MA_Mapping')/Hierarchies('MA_Mapping')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"MA_Mapping.hierarchies/MA_Mapping.json"
+	]
+}

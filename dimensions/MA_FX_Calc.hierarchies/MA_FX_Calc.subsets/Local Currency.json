@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Local Currency",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MA_FX_Calc')/Hierarchies('MA_FX_Calc')/Elements('Local Currency Value')"
+		}
+	]
+}

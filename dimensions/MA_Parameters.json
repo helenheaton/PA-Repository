@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"MA_Parameters",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('MA_Parameters')/Hierarchies('MA_Parameters')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"MA_Parameters.hierarchies/MA_Parameters.json"
+	]
+}

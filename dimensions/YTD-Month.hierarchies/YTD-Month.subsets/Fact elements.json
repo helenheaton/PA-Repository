@@ -1,0 +1,13 @@
+{
+	"@type":"Subset",
+	"Name":"Fact elements",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('YTD-Month')/Hierarchies('YTD-Month')/Elements('YTD')"
+		},
+		{
+			"@id":"Dimensions('YTD-Month')/Hierarchies('YTD-Month')/Elements('Month')"
+		}
+	]
+}

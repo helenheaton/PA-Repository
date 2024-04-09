@@ -1,0 +1,34 @@
+#region Prolog
+MinorErrorLogMax = -1;
+OnMinorErrorDoItemSkip = 1;
+SetInputCharacterSet('TM1CS_UTF8');
+vType='N';
+vWeightNum=1.0;
+lastAttr='';
+iAttr=DIMSIZ('}ElementAttributes_TM1 Account + ICP');
+i=iAttr;
+While(i > 0);
+attrName = DIMNM('}ElementAttributes_TM1 Account + ICP', i);
+If(SUBST(attrName,0,1)@<>'}');
+lastAttr=attrName;
+i=0;
+Else;
+i=i-1;
+EndIf;
+End;
+ElementAttrInsert('TM1 Account + ICP','TM1 Account + ICP',lastAttr,'Account Name','A');
+lastAttr = 'Account Name';
+ElementAttrInsert('TM1 Account + ICP','TM1 Account + ICP',lastAttr,'TM1 Natural Account','S');
+lastAttr = 'TM1 Natural Account';
+#endregion
+#region Metadata
+If(vLevel0@<>'');
+HierarchyElementInsert('TM1 Account + ICP','TM1 Account + ICP','',vLevel0,vType);
+EndIf;
+#endregion
+#region Data
+If(vLevel0@<>'');
+ElementAttrPutS(vAttr1,'TM1 Account + ICP','TM1 Account + ICP',vLevel0,'Account Name');
+ElementAttrPutS(vAttr2,'TM1 Account + ICP','TM1 Account + ICP',vLevel0,'TM1 Natural Account');
+EndIf;
+#endregion

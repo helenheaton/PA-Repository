@@ -1,0 +1,6383 @@
+{
+	"@type":"Hierarchy",
+	"Name":"TM1 Accounts",
+	"Elements":
+	[
+		{
+			"Name":"L1_Investments",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L2_Non Current Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"100101",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Investments Other",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"100201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Fixed Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"100601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100602",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100603",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100604",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100605",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100606",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100607",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100608",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100609",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100610",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100611",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100612",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100613",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100614",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100615",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100616",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100617",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100618",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100619",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100620",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100621",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100622",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100623",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100624",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Right of Use Asset",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"100701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100702",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Intangible Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"101101",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"101103",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"101104",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Intercompany Loan",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"101601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Other Intercompany AR",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"101701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Other Non Current Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"102101",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"102102",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Bank & Petty Cash",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L2_Current Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"205001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"205002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"205101",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Cash In Transit",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"205201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Credit Card Wait",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"205301",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Trade AR",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"205701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"205703",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"205704",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"205706",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"205707",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Inter Company Trade",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"206201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"206202",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Inter Company Non Trade",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"206701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"206702",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Inter Company AR GDS Commissions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"207201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Shared Costs Receivable",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"207701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Inter Company Loan Current",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"208201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Related Party Loan Current BTG",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"208601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Other Debtors",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"208701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"208702",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"208703",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"208704",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"208705",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Override Commissiom Provision",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"209201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"209202",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"209203",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"209204",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Prepaid Expenses",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"209701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Withholding Tax",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"210201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"210202",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"210203",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_VAT Receivable / Payable",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"210701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"210702",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"210703",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Corporation Tax",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"211201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"211202",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Other Current Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"211701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"211702",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"211703",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"211704",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"211705",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"211706",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Accounts Payable",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L2_Current Liabilities",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"315001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"315002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Accounts Payable/Clearing - BSP",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"315101",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"315102",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"315103",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"315104",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"315105",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"315106",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Accounts Payable/Clearing - Credit Cards",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"315201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"315202",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Intercompany - AP trade",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"315501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"315502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Intercompany - AP non trade",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"316001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"316002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Intercompany - AP GDS/Commissions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"316501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Shared Costs Payable",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"317001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Related Party Loans Payable",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"317401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Inter Co Loans Payable",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"317501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Other Intercompany AP",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"317601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"317602",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"317603",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Accruals",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"318001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"318002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"318003",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"318004",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"318005",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"318006",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"318007",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"318008",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"318009",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"318010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_RHA",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"319001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_AR Deposits Payable",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"319501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"320001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Deferred Tax Liability",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"321001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Other Current Liabilities",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"321501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321503",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321504",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321505",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321506",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321507",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321508",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321509",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321510",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321511",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321512",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321513",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321514",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321515",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_External Loans",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"321601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321602",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_ROU - Current Liabilities",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"321701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Loans Related Party",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"322001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L2_Non Current Liabilities",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"425501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Loans Related Party BTG",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"425601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Loan Intercompany",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"426001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"426002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Other Long Term Intercompany",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"426501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Clearing Accounts",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"427501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"427502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"427503",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"427504",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"427505",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"427506",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Other Long Term",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"428001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428004",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428008",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428009",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428011",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428012",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428013",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428014",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428015",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428016",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428017",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428018",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_ROU - Non Current Liabilities",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"428101",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_TRX-Non Current Liabilities",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"428201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Deferred Revenue",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"428501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Share Capital",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L2_Equity",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"530001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"530002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"530003",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"530004",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"530501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"531001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"531501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Retained income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"532001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"532002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"532003",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"532004",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"532005",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Dividends",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"532501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Current Year Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"533501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_FX on Consolidation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"533601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Non-Controlling Interest",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"533701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"533702",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"533703",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Sales Air",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Gross Profit",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total Gross Profit POS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total Revenue",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Sales",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L2_Direct Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L2_Sales",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"635001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"635002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"635003",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"635004",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"635005",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"635006",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"635007",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"635008",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"635009",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Sales Hotel",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"635501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Sales Car",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"636001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Sales Land Other",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"636501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"636502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Sales Other",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"637001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"637002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"637003",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"637004",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"637005",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"637006",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"637007",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"637008",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"637009",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"637010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Commission Air",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"637501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"637502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"637503",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"637504",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Commission Hotel",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"638001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Commission Car",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"638501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Commission Land Other",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"639001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"639002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Commission Other",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"639501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"639502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"639503",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"639504",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"639505",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"639506",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"639507",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"639508",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_MSM/VCF Air",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"640001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"640002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"640003",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"640004",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_MSM/VCF Hotel",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"640501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_MSM/VCF Car",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"641001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_MSM/VCF Land Other",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"641501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"641502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_MSM/VCF Other",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"642001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"642002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"642003",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"642004",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"642005",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"642006",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"642007",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"642008",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"642009",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"642501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"643001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"643501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Wings24",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"644001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_GDS Revenue",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"644501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"644502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Overrides",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"645001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Commission Received - Non- point of sale",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"645501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"645502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Other income/Incidental income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"646001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"646002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"646003",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_ADM",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"648501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Merchant Fees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"649001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_GDS Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"649501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Share Cost Recovery",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"649601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_F/X Margin",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"650001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Direct Cost Air",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L2_MSM/VCF",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"755001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"755002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"755003",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"755004",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"755005",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Direct Cost Hotel",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"755501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Direct Cost Car",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"756001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Direct Cost Land Other",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"756501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"756502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Direct Cost Other",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"757001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"757002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"757003",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"757004",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"757005",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"757006",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"757007",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"757008",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"757009",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Staff Errors",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"757501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Commercial Write Off",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"758001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Intercompany Unmatched",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"758501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"758502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"759001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"759501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"759502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"760001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Accounting Fees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total Cost before Shared Service",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Staff Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Infrastructure",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"865001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Advertising & Marketing",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"865401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"865701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Amortisation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"865801",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"865802",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Profit On Sale Of Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"866201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Audit Fees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"866601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"866602",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Bad Debts",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"867001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"867002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Bank Charges",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"867401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Commission Paid",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"867801",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Computer Expenses",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"868201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"868202",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Consultation Fees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"868601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Consumables",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"869001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"869401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"869402",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"869403",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Data Line",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"869801",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Delivery Expenses",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"870201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Depreciation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"870601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"870602",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"870603",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"870604",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"870605",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"870606",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"870607",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"870608",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Depreciation - ROU",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"870701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Directors Fees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"871001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Discount Allowed",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"871401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Donations",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"871801",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Educational Clients",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"872201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"872202",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Entertainment",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"872601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"872602",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"872603",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Equipment Rental",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"873001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Events & Functions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"873401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"873402",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Fines & Penalties",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"873801",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Global Technology",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"874201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Group Administration",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"874601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"874602",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"874603",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_GSC",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"875001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_GSC Finance",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"875401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Incentives",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"875801",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"875802",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Industry Fees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"876201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Insurance",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"876601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"877001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"877002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Interest Paid",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"877401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Interest Paid - ROU",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"877501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Interest Received",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"877801",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"877802",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_IT Development",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"878201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Legal Fees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"878601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"878602",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Loss on Disposal of Fixed Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"879001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Management Incentive",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"879401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Minority",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"879801",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"880201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Other costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"880601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"880602",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Other Operating Expense",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"881001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"881002",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"881003",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"881401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Postage & Telephones",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"881801",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Printing",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"882201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Profit & (Loss) on Foreign Exchange",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"882601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"882602",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"882603",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Project cost",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"883001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Property taxes",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"883401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Recruitment Fees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"883801",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Rent",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"884201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"884202",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Rent - ROU",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"884301",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"884302",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"884303",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Other Lease - ROU",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"884401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"884402",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Repairs & Maintenance",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"884601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Restructure",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"885001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Salaries & Benefits",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"885401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885402",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885403",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885404",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885405",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885406",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885407",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885408",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885409",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885410",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885411",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885412",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885413",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885414",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885415",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885416",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885417",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885418",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Salaries Contract",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"885801",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Salaries Temporary",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"886201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Software Licences",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"886601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Staff welfare",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"887001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Stationery",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"887401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Subscriptions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"887801",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"887802",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Training",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"888201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Travelling",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"888601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Utilities",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"889001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"889401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_FTE count Allocated",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L2_Statistical Accounts",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"990001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_FTE count Local",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"990101",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Transaction Count",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"992501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_TTV",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"992601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_GDS Transactions SABRE",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"992701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_GDS Transactions Amadeus",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"992801",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Workdays",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"992901",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Commission Received Point of Sale",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Professional Fees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Audit & Accountancy Fees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Other Overheads",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"ADM Revenue",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"ADM Cost",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Process Errors",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Contract & Temporary Labour",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"T&E",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Staff welfare & Training",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Incentives & Commission",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Data & Telecoms",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Printing & Stationary",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Facilities Expense",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Other Cost",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total GP %",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"ALL ACCOUNTS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Balance Sheet",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Group Overheads Shared Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Sustainable EBITDA",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Reported EBITDA",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Exceptional Items & Restructure",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Sundry Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Management Allocation Reversal",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Earnings",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"ITDA",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Depreciation & Amortisation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Right of use IFR15",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Interest Paid",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Income Tax",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"FTE Total",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Local EBITDA",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Statistics",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Office Equipment",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"GSC Allocation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Non GSC Allocation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1 Corporation Tax Payable",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Withholding",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"101106",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"101107",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"102103",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"205401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"865803",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885419",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885420",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"865601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"995001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Intra Regional Allocation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1 Guarantees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Sales Merchant Fees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Deferred Tax Asset",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Intercompany Charge Out",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"205004",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"205203",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885421",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"649602",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"101102",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Goodwill",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"428005",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"205202",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"205302",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"101105",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"101602",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"205005",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"208202",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"208203",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"315107",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"321516",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"205003",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"427507",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"427508",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"427509",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"427510",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"870801",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428007",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fixtures & Fittings",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"IT equipment",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Other Fixed Asset",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Office Equipment costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Other Intangible Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cash",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Overdraft",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_VAT Receivable",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_VAT Payable",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_General Provisions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Payroll Provisions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L0_Other Current Liabilities",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L0_Deferred Revenue",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Clearing BSP",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Clearing BSP Refunds",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Clearing Other",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_AP Unallocated Invoices",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_AP Unallocated Receipts",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Other Travel Related Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Other Long Term Liabilities",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Deferred Tax Liability LT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Accounts Payable Other",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L2 Other Debtors",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Deposits",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L2_Accruals & Prepaid expenses",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Accrued Income",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Unassigned",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"531701",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"650501",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"650502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"650503",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"757010",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"875901",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"533502",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Inventives BD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"3002090",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"315203",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"428003",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"L1_Right of USE NC",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Shareholders Loans",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Loan - Other",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"L1_Other Related Party",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Management Fees",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"642601",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PRESENTATION ONLY",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"210204",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"885422",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993101",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993102",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993103",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993201",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993203",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993301",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993001",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993204",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993202",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993402",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993407",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993409",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993410",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993403",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993408",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993411",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993412",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993413",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993406",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993405",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993404",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"993401",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"100301",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"874202",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"L1_Investments",
+			"ComponentName":"100101",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Investments",
+			"ComponentName":"100201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Investments",
+			"ComponentName":"100301",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Assets",
+			"ComponentName":"L1_Investments",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Assets",
+			"ComponentName":"L1_Investments Other",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Assets",
+			"ComponentName":"L1_Fixed Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Assets",
+			"ComponentName":"L1_Intangible Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Assets",
+			"ComponentName":"L1_Goodwill",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Assets",
+			"ComponentName":"L1_Intercompany Loan",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Assets",
+			"ComponentName":"L1_Other Intercompany AR",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Assets",
+			"ComponentName":"Deferred Tax Asset",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Assets",
+			"ComponentName":"L1_Other Non Current Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Fixed Assets",
+			"ComponentName":"Fixtures & Fittings",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Fixed Assets",
+			"ComponentName":"IT equipment",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Fixed Assets",
+			"ComponentName":"Office Equipment",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Fixed Assets",
+			"ComponentName":"Other Fixed Asset",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Right of Use Asset",
+			"ComponentName":"100701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Right of Use Asset",
+			"ComponentName":"100702",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Intangible Assets",
+			"ComponentName":"Other Intangible Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Intangible Assets",
+			"ComponentName":"L1_Right of Use Asset",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Intercompany Loan",
+			"ComponentName":"101601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Intercompany Loan",
+			"ComponentName":"101602",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Intercompany AR",
+			"ComponentName":"101701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Non Current Assets",
+			"ComponentName":"102102",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Non Current Assets",
+			"ComponentName":"102103",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Bank & Petty Cash",
+			"ComponentName":"205001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Bank & Petty Cash",
+			"ComponentName":"205002",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Bank & Petty Cash",
+			"ComponentName":"205003",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Bank & Petty Cash",
+			"ComponentName":"205004",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Bank & Petty Cash",
+			"ComponentName":"205101",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Assets",
+			"ComponentName":"Cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Assets",
+			"ComponentName":"L1_Trade AR",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Assets",
+			"ComponentName":"L1_Inter Company Trade",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Assets",
+			"ComponentName":"L1_Inter Company Non Trade",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Assets",
+			"ComponentName":"L1_Inter Company AR GDS Commissions",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Assets",
+			"ComponentName":"L1_Shared Costs Receivable",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Assets",
+			"ComponentName":"L1_Inter Company Loan Current",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Assets",
+			"ComponentName":"L2 Other Debtors",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Assets",
+			"ComponentName":"L1_Override Commissiom Provision",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Assets",
+			"ComponentName":"L2_Accruals & Prepaid expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Assets",
+			"ComponentName":"L1_Withholding",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Assets",
+			"ComponentName":"L1_VAT Receivable / Payable",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Assets",
+			"ComponentName":"L1_Corporation Tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Assets",
+			"ComponentName":"L1_Other Current Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Cash In Transit",
+			"ComponentName":"205201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Cash In Transit",
+			"ComponentName":"205202",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Credit Card Wait",
+			"ComponentName":"205301",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Credit Card Wait",
+			"ComponentName":"205302",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Credit Card Wait",
+			"ComponentName":"205203",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Trade AR",
+			"ComponentName":"205701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Trade AR",
+			"ComponentName":"205703",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Trade AR",
+			"ComponentName":"205704",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Trade AR",
+			"ComponentName":"205706",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Trade AR",
+			"ComponentName":"205707",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Inter Company Trade",
+			"ComponentName":"206201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Inter Company Trade",
+			"ComponentName":"206202",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Inter Company Non Trade",
+			"ComponentName":"206701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Inter Company Non Trade",
+			"ComponentName":"206702",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Inter Company AR GDS Commissions",
+			"ComponentName":"207201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Shared Costs Receivable",
+			"ComponentName":"207701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Inter Company Loan Current",
+			"ComponentName":"208201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Inter Company Loan Current",
+			"ComponentName":"208202",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Inter Company Loan Current",
+			"ComponentName":"208203",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Debtors",
+			"ComponentName":"208701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Debtors",
+			"ComponentName":"208703",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Debtors",
+			"ComponentName":"208704",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Debtors",
+			"ComponentName":"208705",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Override Commissiom Provision",
+			"ComponentName":"209201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Override Commissiom Provision",
+			"ComponentName":"209202",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Override Commissiom Provision",
+			"ComponentName":"209203",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Override Commissiom Provision",
+			"ComponentName":"209204",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Prepaid Expenses",
+			"ComponentName":"209701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Withholding Tax",
+			"ComponentName":"889401",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_VAT Receivable / Payable",
+			"ComponentName":"L1_VAT Receivable",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_VAT Receivable / Payable",
+			"ComponentName":"L1_VAT Payable",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Corporation Tax",
+			"ComponentName":"211201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Corporation Tax",
+			"ComponentName":"211202",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Current Assets",
+			"ComponentName":"211703",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Current Assets",
+			"ComponentName":"211704",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Current Assets",
+			"ComponentName":"211705",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Current Assets",
+			"ComponentName":"211706",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable",
+			"ComponentName":"L1_Accounts Payable/Clearing - BSP",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable",
+			"ComponentName":"L1_Accounts Payable/Clearing - Credit Cards",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable",
+			"ComponentName":"L1_Accounts Payable Other",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L1_Accounts Payable",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L1_Intercompany - AP trade",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L1_Intercompany - AP non trade",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L1_Intercompany - AP GDS/Commissions",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L1_Related Party Loans Payable",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L1_Inter Co Loans Payable",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L1_Other Intercompany AP",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L1_Shared Costs Payable",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L1_Accruals",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L0_Deferred Revenue",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L1_RHA",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L1_AR Deposits Payable",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L1 Corporation Tax Payable",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L1_Deferred Tax Liability",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Current Liabilities",
+			"ComponentName":"L1_Other Current Liabilities",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable/Clearing - BSP",
+			"ComponentName":"315101",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable/Clearing - BSP",
+			"ComponentName":"315102",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable/Clearing - BSP",
+			"ComponentName":"315103",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable/Clearing - BSP",
+			"ComponentName":"315104",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable/Clearing - BSP",
+			"ComponentName":"315105",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable/Clearing - BSP",
+			"ComponentName":"315106",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable/Clearing - BSP",
+			"ComponentName":"315107",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable/Clearing - Credit Cards",
+			"ComponentName":"315201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable/Clearing - Credit Cards",
+			"ComponentName":"315202",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable/Clearing - Credit Cards",
+			"ComponentName":"315203",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Intercompany - AP trade",
+			"ComponentName":"315501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Intercompany - AP trade",
+			"ComponentName":"315502",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Intercompany - AP non trade",
+			"ComponentName":"316001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Intercompany - AP non trade",
+			"ComponentName":"316002",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Intercompany - AP GDS/Commissions",
+			"ComponentName":"316501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Shared Costs Payable",
+			"ComponentName":"317001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Inter Co Loans Payable",
+			"ComponentName":"317501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Intercompany AP",
+			"ComponentName":"317601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Intercompany AP",
+			"ComponentName":"317602",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Intercompany AP",
+			"ComponentName":"317603",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accruals",
+			"ComponentName":"L1_Payroll Provisions",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accruals",
+			"ComponentName":"L1_General Provisions",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_RHA",
+			"ComponentName":"319001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_RHA",
+			"ComponentName":"208702",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_AR Deposits Payable",
+			"ComponentName":"319501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Current Liabilities",
+			"ComponentName":"L0_Other Current Liabilities",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Current Liabilities",
+			"ComponentName":"L1_ROU - Current Liabilities",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Current Liabilities",
+			"ComponentName":"L1_External Loans",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_External Loans",
+			"ComponentName":"321601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_External Loans",
+			"ComponentName":"321602",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_ROU - Current Liabilities",
+			"ComponentName":"321701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Liabilities",
+			"ComponentName":"L1_Loan - Other",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Liabilities",
+			"ComponentName":"L1_Shareholders Loans",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Liabilities",
+			"ComponentName":"L1_Loans Related Party",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Liabilities",
+			"ComponentName":"L1_Loans Related Party BTG",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Liabilities",
+			"ComponentName":"L1_Loan Intercompany",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Liabilities",
+			"ComponentName":"L1_Other Long Term Intercompany",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Liabilities",
+			"ComponentName":"L1_Deferred Revenue",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Liabilities",
+			"ComponentName":"L1_Deferred Tax Liability LT",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Liabilities",
+			"ComponentName":"L1_Clearing Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Non Current Liabilities",
+			"ComponentName":"L1_Other Long Term",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Loans Related Party BTG",
+			"ComponentName":"425601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Loans Related Party BTG",
+			"ComponentName":"317401",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Loans Related Party BTG",
+			"ComponentName":"208601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Loan Intercompany",
+			"ComponentName":"426002",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term Intercompany",
+			"ComponentName":"426501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing Accounts",
+			"ComponentName":"L1_AP Unallocated Invoices",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing Accounts",
+			"ComponentName":"L1_AP Unallocated Receipts",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing Accounts",
+			"ComponentName":"L1_Clearing BSP",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing Accounts",
+			"ComponentName":"L1_Clearing BSP Refunds",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing Accounts",
+			"ComponentName":"L1_Clearing Other",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing Accounts",
+			"ComponentName":"L1_Other Travel Related Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing Accounts",
+			"ComponentName":"L1_TRX-Non Current Liabilities",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term",
+			"ComponentName":"L1_Right of USE NC",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term",
+			"ComponentName":"L1_Other Long Term Liabilities",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term",
+			"ComponentName":"L1_ROU - Non Current Liabilities",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term",
+			"ComponentName":"L1_Other Related Party",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_TRX-Non Current Liabilities",
+			"ComponentName":"428201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Deferred Revenue",
+			"ComponentName":"428501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Share Capital",
+			"ComponentName":"530001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Share Capital",
+			"ComponentName":"530002",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Share Capital",
+			"ComponentName":"530003",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Share Capital",
+			"ComponentName":"530004",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Share Capital",
+			"ComponentName":"530501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Share Capital",
+			"ComponentName":"531001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Share Capital",
+			"ComponentName":"531501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Share Capital",
+			"ComponentName":"531701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Equity",
+			"ComponentName":"L1_Share Capital",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Equity",
+			"ComponentName":"L1_Retained income",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Equity",
+			"ComponentName":"L1_Dividends",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Equity",
+			"ComponentName":"L1_Current Year Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Equity",
+			"ComponentName":"L1_FX on Consolidation",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Equity",
+			"ComponentName":"L1_Non-Controlling Interest",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Retained income",
+			"ComponentName":"532001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Retained income",
+			"ComponentName":"532002",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Retained income",
+			"ComponentName":"532003",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Retained income",
+			"ComponentName":"532004",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Retained income",
+			"ComponentName":"532005",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Dividends",
+			"ComponentName":"532501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Current Year Income",
+			"ComponentName":"533501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_FX on Consolidation",
+			"ComponentName":"533601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Non-Controlling Interest",
+			"ComponentName":"533701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Non-Controlling Interest",
+			"ComponentName":"533702",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Non-Controlling Interest",
+			"ComponentName":"533703",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Sales Air",
+			"ComponentName":"635001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Air",
+			"ComponentName":"635002",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Air",
+			"ComponentName":"635003",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Air",
+			"ComponentName":"635004",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Air",
+			"ComponentName":"635005",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Air",
+			"ComponentName":"635006",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Air",
+			"ComponentName":"635007",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Air",
+			"ComponentName":"635008",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Air",
+			"ComponentName":"635009",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Gross Profit",
+			"ComponentName":"Total Gross Profit POS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Gross Profit",
+			"ComponentName":"L2_Sales",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Gross Profit POS",
+			"ComponentName":"Total Revenue",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Gross Profit POS",
+			"ComponentName":"L2_Direct Costs",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Total Revenue",
+			"ComponentName":"Management Fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Revenue",
+			"ComponentName":"Net Sales",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Revenue",
+			"ComponentName":"Commission Received Point of Sale",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Revenue",
+			"ComponentName":"L2_MSM/VCF",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Revenue",
+			"ComponentName":"Professional Fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Revenue",
+			"ComponentName":"Sales Merchant Fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Revenue",
+			"ComponentName":"L1_Wings24",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Revenue",
+			"ComponentName":"Intercompany Charge Out",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Sales",
+			"ComponentName":"L1_Sales Air",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Sales",
+			"ComponentName":"L1_Sales Hotel",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Sales",
+			"ComponentName":"L1_Sales Car",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Sales",
+			"ComponentName":"L1_Sales Land Other",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Sales",
+			"ComponentName":"L1_Sales Other",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Direct Costs",
+			"ComponentName":"L1_Direct Cost Air",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Direct Costs",
+			"ComponentName":"L1_Direct Cost Hotel",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Direct Costs",
+			"ComponentName":"L1_Direct Cost Car",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Direct Costs",
+			"ComponentName":"L1_Direct Cost Land Other",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Direct Costs",
+			"ComponentName":"L1_Direct Cost Other",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Sales",
+			"ComponentName":"L1_GDS Revenue",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Sales",
+			"ComponentName":"L1_Overrides",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Sales",
+			"ComponentName":"L1_Commission Received - Non- point of sale",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Sales",
+			"ComponentName":"L1_Other income/Incidental income",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Sales",
+			"ComponentName":"L1_F/X Margin",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Sales",
+			"ComponentName":"L1_ADM",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Sales",
+			"ComponentName":"Process Errors",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Sales",
+			"ComponentName":"L1_Merchant Fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Sales",
+			"ComponentName":"L1_GDS Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Sales",
+			"ComponentName":"L1_Share Cost Recovery",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Sales Hotel",
+			"ComponentName":"635501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Car",
+			"ComponentName":"636001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Land Other",
+			"ComponentName":"636501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Land Other",
+			"ComponentName":"636502",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Other",
+			"ComponentName":"637001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Other",
+			"ComponentName":"637002",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Other",
+			"ComponentName":"637003",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Other",
+			"ComponentName":"637004",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Other",
+			"ComponentName":"637005",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Other",
+			"ComponentName":"637006",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Other",
+			"ComponentName":"637007",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Other",
+			"ComponentName":"637008",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Other",
+			"ComponentName":"637009",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Other",
+			"ComponentName":"637010",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Other",
+			"ComponentName":"650501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Other",
+			"ComponentName":"650502",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Sales Other",
+			"ComponentName":"650503",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Air",
+			"ComponentName":"637501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Air",
+			"ComponentName":"637502",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Air",
+			"ComponentName":"637503",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Air",
+			"ComponentName":"637504",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Hotel",
+			"ComponentName":"638001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Car",
+			"ComponentName":"638501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Land Other",
+			"ComponentName":"639001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Land Other",
+			"ComponentName":"639002",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Other",
+			"ComponentName":"639501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Other",
+			"ComponentName":"639502",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Other",
+			"ComponentName":"639503",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Other",
+			"ComponentName":"639504",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Other",
+			"ComponentName":"639505",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Other",
+			"ComponentName":"639506",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Other",
+			"ComponentName":"639507",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Other",
+			"ComponentName":"639508",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Air",
+			"ComponentName":"640001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Air",
+			"ComponentName":"640002",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Air",
+			"ComponentName":"640003",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Air",
+			"ComponentName":"640004",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Hotel",
+			"ComponentName":"640501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Car",
+			"ComponentName":"641001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Land Other",
+			"ComponentName":"641501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Land Other",
+			"ComponentName":"641502",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Other",
+			"ComponentName":"642001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Other",
+			"ComponentName":"642002",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Other",
+			"ComponentName":"642003",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Other",
+			"ComponentName":"642004",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Other",
+			"ComponentName":"642005",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Other",
+			"ComponentName":"642006",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Other",
+			"ComponentName":"642007",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Other",
+			"ComponentName":"642008",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_MSM/VCF Other",
+			"ComponentName":"642009",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Wings24",
+			"ComponentName":"644001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_GDS Revenue",
+			"ComponentName":"644501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_GDS Revenue",
+			"ComponentName":"644502",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Overrides",
+			"ComponentName":"645001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Received - Non- point of sale",
+			"ComponentName":"645501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commission Received - Non- point of sale",
+			"ComponentName":"645502",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Other income/Incidental income",
+			"ComponentName":"646001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Other income/Incidental income",
+			"ComponentName":"646002",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Other income/Incidental income",
+			"ComponentName":"646003",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_ADM",
+			"ComponentName":"ADM Revenue",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_ADM",
+			"ComponentName":"ADM Cost",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Merchant Fees",
+			"ComponentName":"759501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Merchant Fees",
+			"ComponentName":"759502",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_GDS Costs",
+			"ComponentName":"760001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Share Cost Recovery",
+			"ComponentName":"649601",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Share Cost Recovery",
+			"ComponentName":"649602",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_F/X Margin",
+			"ComponentName":"650001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Direct Cost Air",
+			"ComponentName":"755001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Air",
+			"ComponentName":"755002",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Air",
+			"ComponentName":"755003",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Air",
+			"ComponentName":"755004",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Air",
+			"ComponentName":"755005",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Air",
+			"ComponentName":"757008",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Air",
+			"ComponentName":"3002090",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_MSM/VCF",
+			"ComponentName":"L1_MSM/VCF Air",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_MSM/VCF",
+			"ComponentName":"L1_MSM/VCF Hotel",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_MSM/VCF",
+			"ComponentName":"L1_MSM/VCF Car",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_MSM/VCF",
+			"ComponentName":"L1_MSM/VCF Land Other",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_MSM/VCF",
+			"ComponentName":"L1_MSM/VCF Other",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Hotel",
+			"ComponentName":"755501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Car",
+			"ComponentName":"756001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Land Other",
+			"ComponentName":"756501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Land Other",
+			"ComponentName":"756502",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Other",
+			"ComponentName":"757001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Other",
+			"ComponentName":"757002",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Other",
+			"ComponentName":"757003",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Other",
+			"ComponentName":"757004",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Other",
+			"ComponentName":"757005",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Other",
+			"ComponentName":"757006",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Other",
+			"ComponentName":"757007",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Other",
+			"ComponentName":"757009",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Direct Cost Other",
+			"ComponentName":"757010",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Staff Errors",
+			"ComponentName":"757501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Commercial Write Off",
+			"ComponentName":"758001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Intercompany Unmatched",
+			"ComponentName":"758501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Intercompany Unmatched",
+			"ComponentName":"758502",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Accounting Fees",
+			"ComponentName":"865001",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Cost before Shared Service",
+			"ComponentName":"Staff Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Cost before Shared Service",
+			"ComponentName":"Infrastructure",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Cost before Shared Service",
+			"ComponentName":"Other Cost",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Cost before Shared Service",
+			"ComponentName":"Intra Regional Allocation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff Costs",
+			"ComponentName":"L1_Salaries & Benefits",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff Costs",
+			"ComponentName":"GSC Allocation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff Costs",
+			"ComponentName":"Non GSC Allocation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff Costs",
+			"ComponentName":"Contract & Temporary Labour",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff Costs",
+			"ComponentName":"T&E",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff Costs",
+			"ComponentName":"Staff welfare & Training",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff Costs",
+			"ComponentName":"Incentives & Commission",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff Costs",
+			"ComponentName":"L1_Recruitment Fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Infrastructure",
+			"ComponentName":"Facilities Expense",
+			"Weight":1
+		},
+		{
+			"ParentName":"Infrastructure",
+			"ComponentName":"Data & Telecoms",
+			"Weight":1
+		},
+		{
+			"ParentName":"Infrastructure",
+			"ComponentName":"Office Equipment costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Infrastructure",
+			"ComponentName":"L1_Insurance",
+			"Weight":1
+		},
+		{
+			"ParentName":"Infrastructure",
+			"ComponentName":"Printing & Stationary",
+			"Weight":1
+		},
+		{
+			"ParentName":"Infrastructure",
+			"ComponentName":"L1_IT Development",
+			"Weight":1
+		},
+		{
+			"ParentName":"Infrastructure",
+			"ComponentName":"L1_Software Licences",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Advertising & Marketing",
+			"ComponentName":"865401",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Amortisation",
+			"ComponentName":"865801",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Amortisation",
+			"ComponentName":"865802",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Amortisation",
+			"ComponentName":"865803",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Profit On Sale Of Assets",
+			"ComponentName":"866201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Audit Fees",
+			"ComponentName":"866601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Audit Fees",
+			"ComponentName":"866602",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Bad Debts",
+			"ComponentName":"867001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Bad Debts",
+			"ComponentName":"867002",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Bank Charges",
+			"ComponentName":"867401",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Commission Paid",
+			"ComponentName":"867801",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Computer Expenses",
+			"ComponentName":"868201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Consultation Fees",
+			"ComponentName":"868601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Consumables",
+			"ComponentName":"869001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Data Line",
+			"ComponentName":"869801",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Data Line",
+			"ComponentName":"868202",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Delivery Expenses",
+			"ComponentName":"870201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Depreciation",
+			"ComponentName":"870601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Depreciation",
+			"ComponentName":"870602",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Depreciation",
+			"ComponentName":"870603",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Depreciation",
+			"ComponentName":"870604",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Depreciation",
+			"ComponentName":"870605",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Depreciation",
+			"ComponentName":"870606",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Depreciation",
+			"ComponentName":"870607",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Depreciation",
+			"ComponentName":"870608",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Depreciation - ROU",
+			"ComponentName":"870701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Directors Fees",
+			"ComponentName":"871001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Discount Allowed",
+			"ComponentName":"871401",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Donations",
+			"ComponentName":"871801",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Educational Clients",
+			"ComponentName":"872201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Educational Clients",
+			"ComponentName":"872202",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Entertainment",
+			"ComponentName":"872601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Entertainment",
+			"ComponentName":"872602",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Entertainment",
+			"ComponentName":"872603",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Equipment Rental",
+			"ComponentName":"873001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Events & Functions",
+			"ComponentName":"873401",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Events & Functions",
+			"ComponentName":"873402",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Fines & Penalties",
+			"ComponentName":"873801",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Global Technology",
+			"ComponentName":"874201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Group Administration",
+			"ComponentName":"874601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Group Administration",
+			"ComponentName":"874602",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Group Administration",
+			"ComponentName":"874603",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Group Administration",
+			"ComponentName":"880201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_GSC",
+			"ComponentName":"875001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_GSC Finance",
+			"ComponentName":"875401",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_GSC Finance",
+			"ComponentName":"881401",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Incentives",
+			"ComponentName":"875801",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Incentives",
+			"ComponentName":"875802",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Insurance",
+			"ComponentName":"876601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Interest Paid",
+			"ComponentName":"877401",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Interest Paid - ROU",
+			"ComponentName":"877501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Interest Received",
+			"ComponentName":"877801",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Interest Received",
+			"ComponentName":"877802",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_IT Development",
+			"ComponentName":"878201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Legal Fees",
+			"ComponentName":"878601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Legal Fees",
+			"ComponentName":"878602",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Loss on Disposal of Fixed Assets",
+			"ComponentName":"879001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Management Incentive",
+			"ComponentName":"879401",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Minority",
+			"ComponentName":"879801",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other costs",
+			"ComponentName":"880601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other costs",
+			"ComponentName":"880602",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Operating Expense",
+			"ComponentName":"881001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Operating Expense",
+			"ComponentName":"881002",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Operating Expense",
+			"ComponentName":"881003",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Operating Expense",
+			"ComponentName":"876201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Postage & Telephones",
+			"ComponentName":"881801",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Printing",
+			"ComponentName":"882201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Profit & (Loss) on Foreign Exchange",
+			"ComponentName":"882601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Profit & (Loss) on Foreign Exchange",
+			"ComponentName":"882602",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Profit & (Loss) on Foreign Exchange",
+			"ComponentName":"882603",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Project cost",
+			"ComponentName":"883001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Property taxes",
+			"ComponentName":"883401",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Recruitment Fees",
+			"ComponentName":"883801",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Rent",
+			"ComponentName":"884201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Rent",
+			"ComponentName":"884202",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Rent - ROU",
+			"ComponentName":"884301",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Rent - ROU",
+			"ComponentName":"884302",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Rent - ROU",
+			"ComponentName":"884303",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Lease - ROU",
+			"ComponentName":"884401",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Lease - ROU",
+			"ComponentName":"884402",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Repairs & Maintenance",
+			"ComponentName":"884601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Restructure",
+			"ComponentName":"885001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Restructure",
+			"ComponentName":"870801",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885401",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885402",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885403",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885404",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885405",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885406",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885407",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885408",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885409",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885410",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885411",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885412",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885413",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885414",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885415",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885416",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885417",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885418",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885419",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885420",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885421",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries & Benefits",
+			"ComponentName":"885422",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries Contract",
+			"ComponentName":"885801",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Salaries Temporary",
+			"ComponentName":"886201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Software Licences",
+			"ComponentName":"886601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Software Licences",
+			"ComponentName":"865701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Staff welfare",
+			"ComponentName":"887001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Stationery",
+			"ComponentName":"887401",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Subscriptions",
+			"ComponentName":"887801",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Subscriptions",
+			"ComponentName":"887802",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Training",
+			"ComponentName":"888201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Travelling",
+			"ComponentName":"888601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Utilities",
+			"ComponentName":"889001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_FTE count Allocated",
+			"ComponentName":"990001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Statistical Accounts",
+			"ComponentName":"L1_Transaction Count",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Statistical Accounts",
+			"ComponentName":"L1_TTV",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Statistical Accounts",
+			"ComponentName":"L1_GDS Transactions SABRE",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Statistical Accounts",
+			"ComponentName":"L1_GDS Transactions Amadeus",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Statistical Accounts",
+			"ComponentName":"L1_Workdays",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Statistical Accounts",
+			"ComponentName":"FTE Total",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_FTE count Local",
+			"ComponentName":"990101",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Transaction Count",
+			"ComponentName":"992501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_TTV",
+			"ComponentName":"992601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_GDS Transactions SABRE",
+			"ComponentName":"992701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_GDS Transactions Amadeus",
+			"ComponentName":"992801",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Workdays",
+			"ComponentName":"992901",
+			"Weight":1
+		},
+		{
+			"ParentName":"Commission Received Point of Sale",
+			"ComponentName":"L1_Commission Air",
+			"Weight":1
+		},
+		{
+			"ParentName":"Commission Received Point of Sale",
+			"ComponentName":"L1_Commission Hotel",
+			"Weight":1
+		},
+		{
+			"ParentName":"Commission Received Point of Sale",
+			"ComponentName":"L1_Commission Car",
+			"Weight":1
+		},
+		{
+			"ParentName":"Commission Received Point of Sale",
+			"ComponentName":"L1_Commission Land Other",
+			"Weight":1
+		},
+		{
+			"ParentName":"Commission Received Point of Sale",
+			"ComponentName":"L1_Commission Other",
+			"Weight":1
+		},
+		{
+			"ParentName":"Professional Fees",
+			"ComponentName":"642501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Professional Fees",
+			"ComponentName":"643501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Audit & Accountancy Fees",
+			"ComponentName":"L1_Accounting Fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Audit & Accountancy Fees",
+			"ComponentName":"L1_Audit Fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Overheads",
+			"ComponentName":"L1_Advertising & Marketing",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Overheads",
+			"ComponentName":"L1_Delivery Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Overheads",
+			"ComponentName":"L1_Discount Allowed",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Overheads",
+			"ComponentName":"L1_Donations",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Overheads",
+			"ComponentName":"L1_Fines & Penalties",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Overheads",
+			"ComponentName":"L1_Industry Fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Overheads",
+			"ComponentName":"L1_Educational Clients",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Overheads",
+			"ComponentName":"L1_Profit On Sale Of Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Overheads",
+			"ComponentName":"L1_Other Operating Expense",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADM Revenue",
+			"ComponentName":"648501",
+			"Weight":-1
+		},
+		{
+			"ParentName":"ADM Cost",
+			"ComponentName":"759001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Process Errors",
+			"ComponentName":"L1_Staff Errors",
+			"Weight":1
+		},
+		{
+			"ParentName":"Process Errors",
+			"ComponentName":"L1_Commercial Write Off",
+			"Weight":1
+		},
+		{
+			"ParentName":"Process Errors",
+			"ComponentName":"L1_Intercompany Unmatched",
+			"Weight":1
+		},
+		{
+			"ParentName":"Contract & Temporary Labour",
+			"ComponentName":"L1_Salaries Temporary",
+			"Weight":1
+		},
+		{
+			"ParentName":"Contract & Temporary Labour",
+			"ComponentName":"L1_Salaries Contract",
+			"Weight":1
+		},
+		{
+			"ParentName":"T&E",
+			"ComponentName":"L1_Travelling",
+			"Weight":1
+		},
+		{
+			"ParentName":"T&E",
+			"ComponentName":"L1_Entertainment",
+			"Weight":1
+		},
+		{
+			"ParentName":"T&E",
+			"ComponentName":"L1_Events & Functions",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff welfare & Training",
+			"ComponentName":"L1_Training",
+			"Weight":1
+		},
+		{
+			"ParentName":"Staff welfare & Training",
+			"ComponentName":"L1_Staff welfare",
+			"Weight":1
+		},
+		{
+			"ParentName":"Incentives & Commission",
+			"ComponentName":"L1_Incentives",
+			"Weight":1
+		},
+		{
+			"ParentName":"Incentives & Commission",
+			"ComponentName":"L1_Inventives BD",
+			"Weight":1
+		},
+		{
+			"ParentName":"Incentives & Commission",
+			"ComponentName":"L1_Commission Paid",
+			"Weight":1
+		},
+		{
+			"ParentName":"Incentives & Commission",
+			"ComponentName":"L1_Management Incentive",
+			"Weight":1
+		},
+		{
+			"ParentName":"Data & Telecoms",
+			"ComponentName":"L1_Data Line",
+			"Weight":1
+		},
+		{
+			"ParentName":"Data & Telecoms",
+			"ComponentName":"L1_Postage & Telephones",
+			"Weight":1
+		},
+		{
+			"ParentName":"Printing & Stationary",
+			"ComponentName":"L1_Printing",
+			"Weight":1
+		},
+		{
+			"ParentName":"Printing & Stationary",
+			"ComponentName":"L1_Stationery",
+			"Weight":1
+		},
+		{
+			"ParentName":"Printing & Stationary",
+			"ComponentName":"L1_Consumables",
+			"Weight":1
+		},
+		{
+			"ParentName":"Facilities Expense",
+			"ComponentName":"L1_Rent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Facilities Expense",
+			"ComponentName":"L1_Utilities",
+			"Weight":1
+		},
+		{
+			"ParentName":"Facilities Expense",
+			"ComponentName":"L1_Property taxes",
+			"Weight":1
+		},
+		{
+			"ParentName":"Facilities Expense",
+			"ComponentName":"L1_Repairs & Maintenance",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Cost",
+			"ComponentName":"Audit & Accountancy Fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Cost",
+			"ComponentName":"L1_Subscriptions",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Cost",
+			"ComponentName":"L1_Bank Charges",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Cost",
+			"ComponentName":"L1_Legal Fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Cost",
+			"ComponentName":"L1_Consultation Fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Cost",
+			"ComponentName":"L1_Directors Fees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Cost",
+			"ComponentName":"L1_Bad Debts",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Cost",
+			"ComponentName":"L1_Withholding Tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Cost",
+			"ComponentName":"Other Overheads",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL ACCOUNTS",
+			"ComponentName":"Balance Sheet",
+			"Weight":1
+		},
+		{
+			"ParentName":"ALL ACCOUNTS",
+			"ComponentName":"Earnings",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Balance Sheet",
+			"ComponentName":"L2_Non Current Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Balance Sheet",
+			"ComponentName":"L2_Current Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Balance Sheet",
+			"ComponentName":"L2_Current Liabilities",
+			"Weight":1
+		},
+		{
+			"ParentName":"Balance Sheet",
+			"ComponentName":"L2_Non Current Liabilities",
+			"Weight":1
+		},
+		{
+			"ParentName":"Balance Sheet",
+			"ComponentName":"L2_Equity",
+			"Weight":1
+		},
+		{
+			"ParentName":"Group Overheads Shared Costs",
+			"ComponentName":"L1_Global Technology",
+			"Weight":1
+		},
+		{
+			"ParentName":"Group Overheads Shared Costs",
+			"ComponentName":"L1_Group Administration",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Costs",
+			"ComponentName":"Group Overheads Shared Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Costs",
+			"ComponentName":"Total Cost before Shared Service",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sustainable EBITDA",
+			"ComponentName":"Total Costs",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Sustainable EBITDA",
+			"ComponentName":"Gross Profit",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reported EBITDA",
+			"ComponentName":"Sustainable EBITDA",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reported EBITDA",
+			"ComponentName":"Exceptional Items & Restructure",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Reported EBITDA",
+			"ComponentName":"L1_Minority",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Reported EBITDA",
+			"ComponentName":"Management Allocation Reversal",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Reported EBITDA",
+			"ComponentName":"L1_Profit & (Loss) on Foreign Exchange",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Exceptional Items & Restructure",
+			"ComponentName":"L1_Restructure",
+			"Weight":1
+		},
+		{
+			"ParentName":"Exceptional Items & Restructure",
+			"ComponentName":"L1_Other costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"Exceptional Items & Restructure",
+			"ComponentName":"L1_Project cost",
+			"Weight":1
+		},
+		{
+			"ParentName":"Exceptional Items & Restructure",
+			"ComponentName":"Sundry Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sundry Income",
+			"ComponentName":"649501",
+			"Weight":1
+		},
+		{
+			"ParentName":"Management Allocation Reversal",
+			"ComponentName":"995001",
+			"Weight":1
+		},
+		{
+			"ParentName":"Earnings",
+			"ComponentName":"Reported EBITDA",
+			"Weight":1
+		},
+		{
+			"ParentName":"Earnings",
+			"ComponentName":"ITDA",
+			"Weight":-1
+		},
+		{
+			"ParentName":"ITDA",
+			"ComponentName":"Depreciation & Amortisation",
+			"Weight":1
+		},
+		{
+			"ParentName":"ITDA",
+			"ComponentName":"Right of use IFR15",
+			"Weight":1
+		},
+		{
+			"ParentName":"ITDA",
+			"ComponentName":"Net Interest Paid",
+			"Weight":1
+		},
+		{
+			"ParentName":"ITDA",
+			"ComponentName":"Income Tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation & Amortisation",
+			"ComponentName":"L1_Amortisation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation & Amortisation",
+			"ComponentName":"L1_Depreciation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Depreciation & Amortisation",
+			"ComponentName":"L1_Loss on Disposal of Fixed Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Right of use IFR15",
+			"ComponentName":"L1_Rent - ROU",
+			"Weight":1
+		},
+		{
+			"ParentName":"Right of use IFR15",
+			"ComponentName":"L1_Depreciation - ROU",
+			"Weight":1
+		},
+		{
+			"ParentName":"Right of use IFR15",
+			"ComponentName":"L1_Interest Paid - ROU",
+			"Weight":1
+		},
+		{
+			"ParentName":"Right of use IFR15",
+			"ComponentName":"L1_Other Lease - ROU",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Interest Paid",
+			"ComponentName":"L1_Interest Paid",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Interest Paid",
+			"ComponentName":"L1_Interest Received",
+			"Weight":1
+		},
+		{
+			"ParentName":"Income Tax",
+			"ComponentName":"869401",
+			"Weight":1
+		},
+		{
+			"ParentName":"Income Tax",
+			"ComponentName":"869402",
+			"Weight":1
+		},
+		{
+			"ParentName":"Income Tax",
+			"ComponentName":"869403",
+			"Weight":1
+		},
+		{
+			"ParentName":"FTE Total",
+			"ComponentName":"L1_FTE count Allocated",
+			"Weight":1
+		},
+		{
+			"ParentName":"FTE Total",
+			"ComponentName":"L1_FTE count Local",
+			"Weight":1
+		},
+		{
+			"ParentName":"Local EBITDA",
+			"ComponentName":"Gross Profit",
+			"Weight":1
+		},
+		{
+			"ParentName":"Local EBITDA",
+			"ComponentName":"Total GP %",
+			"Weight":0
+		},
+		{
+			"ParentName":"Local EBITDA",
+			"ComponentName":"Total Cost before Shared Service",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Office Equipment",
+			"ComponentName":"100609",
+			"Weight":1
+		},
+		{
+			"ParentName":"Office Equipment",
+			"ComponentName":"100610",
+			"Weight":1
+		},
+		{
+			"ParentName":"GSC Allocation",
+			"ComponentName":"L1_GSC",
+			"Weight":1
+		},
+		{
+			"ParentName":"GSC Allocation",
+			"ComponentName":"L1_GSC Finance",
+			"Weight":1
+		},
+		{
+			"ParentName":"Non GSC Allocation",
+			"ComponentName":"877001",
+			"Weight":1
+		},
+		{
+			"ParentName":"Non GSC Allocation",
+			"ComponentName":"877002",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1 Corporation Tax Payable",
+			"ComponentName":"320001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Withholding",
+			"ComponentName":"210201",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Withholding",
+			"ComponentName":"210202",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Withholding",
+			"ComponentName":"210203",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Withholding",
+			"ComponentName":"210204",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intra Regional Allocation",
+			"ComponentName":"865601",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1 Guarantees",
+			"ComponentName":"205401",
+			"Weight":1
+		},
+		{
+			"ParentName":"Sales Merchant Fees",
+			"ComponentName":"649001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Deferred Tax Asset",
+			"ComponentName":"102101",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intercompany Charge Out",
+			"ComponentName":"643001",
+			"Weight":-1
+		},
+		{
+			"ParentName":"L1_Goodwill",
+			"ComponentName":"101103",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Goodwill",
+			"ComponentName":"101104",
+			"Weight":1
+		},
+		{
+			"ParentName":"Fixtures & Fittings",
+			"ComponentName":"100603",
+			"Weight":1
+		},
+		{
+			"ParentName":"Fixtures & Fittings",
+			"ComponentName":"100604",
+			"Weight":1
+		},
+		{
+			"ParentName":"Fixtures & Fittings",
+			"ComponentName":"100605",
+			"Weight":1
+		},
+		{
+			"ParentName":"Fixtures & Fittings",
+			"ComponentName":"100606",
+			"Weight":1
+		},
+		{
+			"ParentName":"Fixtures & Fittings",
+			"ComponentName":"100619",
+			"Weight":1
+		},
+		{
+			"ParentName":"Fixtures & Fittings",
+			"ComponentName":"100620",
+			"Weight":1
+		},
+		{
+			"ParentName":"Fixtures & Fittings",
+			"ComponentName":"100623",
+			"Weight":1
+		},
+		{
+			"ParentName":"Fixtures & Fittings",
+			"ComponentName":"100624",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT equipment",
+			"ComponentName":"100601",
+			"Weight":1
+		},
+		{
+			"ParentName":"IT equipment",
+			"ComponentName":"100602",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Fixed Asset",
+			"ComponentName":"100607",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Fixed Asset",
+			"ComponentName":"100608",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Fixed Asset",
+			"ComponentName":"100615",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Fixed Asset",
+			"ComponentName":"100616",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Fixed Asset",
+			"ComponentName":"100621",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Fixed Asset",
+			"ComponentName":"100622",
+			"Weight":1
+		},
+		{
+			"ParentName":"Office Equipment costs",
+			"ComponentName":"L1_Computer Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Office Equipment costs",
+			"ComponentName":"L1_Equipment Rental",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"100611",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"100612",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"100613",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"100614",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"100617",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"100618",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"101101",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"101102",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"101105",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"101106",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Intangible Assets",
+			"ComponentName":"101107",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cash",
+			"ComponentName":"L1_Bank & Petty Cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cash",
+			"ComponentName":"L1_Credit Card Wait",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cash",
+			"ComponentName":"L1_Cash In Transit",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cash",
+			"ComponentName":"L1 Guarantees",
+			"Weight":1
+		},
+		{
+			"ParentName":"Cash",
+			"ComponentName":"L1_Overdraft",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Overdraft",
+			"ComponentName":"205005",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_VAT Receivable",
+			"ComponentName":"210701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_VAT Payable",
+			"ComponentName":"210702",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_VAT Payable",
+			"ComponentName":"210703",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_General Provisions",
+			"ComponentName":"318001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_General Provisions",
+			"ComponentName":"318003",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_General Provisions",
+			"ComponentName":"318005",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_General Provisions",
+			"ComponentName":"318010",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Payroll Provisions",
+			"ComponentName":"318004",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Payroll Provisions",
+			"ComponentName":"318006",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Payroll Provisions",
+			"ComponentName":"318007",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Payroll Provisions",
+			"ComponentName":"318002",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Payroll Provisions",
+			"ComponentName":"318008",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321502",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321507",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321508",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321509",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321510",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321511",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321512",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321513",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321514",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321515",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321504",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321505",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321506",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"321516",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"322001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Other Current Liabilities",
+			"ComponentName":"318009",
+			"Weight":1
+		},
+		{
+			"ParentName":"L0_Deferred Revenue",
+			"ComponentName":"321503",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing BSP",
+			"ComponentName":"427503",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing BSP",
+			"ComponentName":"427504",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing BSP",
+			"ComponentName":"427509",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing BSP",
+			"ComponentName":"427510",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing BSP",
+			"ComponentName":"427502",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing BSP Refunds",
+			"ComponentName":"427508",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing Other",
+			"ComponentName":"427501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing Other",
+			"ComponentName":"427507",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing Other",
+			"ComponentName":"427506",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Clearing Other",
+			"ComponentName":"427505",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_AP Unallocated Invoices",
+			"ComponentName":"428008",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_AP Unallocated Invoices",
+			"ComponentName":"428015",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_AP Unallocated Receipts",
+			"ComponentName":"428009",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Travel Related Income",
+			"ComponentName":"428010",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Travel Related Income",
+			"ComponentName":"428012",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Travel Related Income",
+			"ComponentName":"428018",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term Liabilities",
+			"ComponentName":"428001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term Liabilities",
+			"ComponentName":"428002",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term Liabilities",
+			"ComponentName":"428003",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term Liabilities",
+			"ComponentName":"428004",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term Liabilities",
+			"ComponentName":"428005",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term Liabilities",
+			"ComponentName":"428007",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term Liabilities",
+			"ComponentName":"428011",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term Liabilities",
+			"ComponentName":"428013",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term Liabilities",
+			"ComponentName":"428016",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Other Long Term Liabilities",
+			"ComponentName":"428017",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Deferred Tax Liability LT",
+			"ComponentName":"428014",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Deferred Tax Liability LT",
+			"ComponentName":"321001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable Other",
+			"ComponentName":"315001",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accounts Payable Other",
+			"ComponentName":"315002",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2 Other Debtors",
+			"ComponentName":"L1_Deposits",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2 Other Debtors",
+			"ComponentName":"L1_Other Debtors",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2 Other Debtors",
+			"ComponentName":"L1_Related Party Loan Current BTG",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Deposits",
+			"ComponentName":"211702",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Accruals & Prepaid expenses",
+			"ComponentName":"L1_Prepaid Expenses",
+			"Weight":1
+		},
+		{
+			"ParentName":"L2_Accruals & Prepaid expenses",
+			"ComponentName":"L1_Accrued Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Accrued Income",
+			"ComponentName":"211701",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Inventives BD",
+			"ComponentName":"875901",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Right of USE NC",
+			"ComponentName":"428101",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Shareholders Loans",
+			"ComponentName":"425501",
+			"Weight":1
+		},
+		{
+			"ParentName":"L1_Loan - Other",
+			"ComponentName":"426001",
+			"Weight":1
+		},
+		{
+			"ParentName":"Management Fees",
+			"ComponentName":"642601",
+			"Weight":-1
+		},
+		{
+			"ParentName":"PRESENTATION ONLY",
+			"ComponentName":"Local EBITDA",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"TM1 Accounts.subsets/@Staff Costs.json",
+		"TM1 Accounts.subsets/All Leaves.json",
+		"TM1 Accounts.subsets/B-S Report Format.json",
+		"TM1 Accounts.subsets/BS.json",
+		"TM1 Accounts.subsets/BS & PL Leaves.json",
+		"TM1 Accounts.subsets/Default.json",
+		"TM1 Accounts.subsets/Local P&L Format.json",
+		"TM1 Accounts.subsets/P&L.json",
+		"TM1 Accounts.subsets/P&L by GL code.json",
+		"TM1 Accounts.subsets/P&L report summary.json",
+		"TM1 Accounts.subsets/pablo test.json",
+		"TM1 Accounts.subsets/Report Format.json",
+		"TM1 Accounts.subsets/Report Format - Stats.json",
+		"TM1 Accounts.subsets/Revenue Items.json",
+		"TM1 Accounts.subsets/Rollup test.json",
+		"TM1 Accounts.subsets/TB Summary.json"
+	]
+}

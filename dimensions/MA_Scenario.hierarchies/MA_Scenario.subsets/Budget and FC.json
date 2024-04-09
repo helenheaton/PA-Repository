@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Budget and FC",
+	"Expression":"{EXCEPT([MA_Scenario].[MA_Scenario].MEMBERS , {[MA_Scenario].[MA_Scenario].[Actual],[MA_Scenario].[MA_Scenario].[Access]})}"
+}

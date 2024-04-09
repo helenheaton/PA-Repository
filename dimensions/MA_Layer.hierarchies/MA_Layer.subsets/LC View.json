@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"LC View",
+	"Expression":"{EXCEPT([MA_Layer].[MA_Layer].MEMBERS , {[MA_Layer].[MA_Layer].[MAE Product Reclass],[MA_Layer].[MA_Layer].[MAE Allocation],[MA_Layer].[MA_Layer].[MAE Elimination],[MA_Layer].[MA_Layer].[Group MA Journal],[MA_Layer].[MA_Layer].[Group Consol Reclass],[MA_Layer].[MA_Layer].[Group Consol Caspean],[MA_Layer].[MA_Layer].[Group MA]})}"
+}

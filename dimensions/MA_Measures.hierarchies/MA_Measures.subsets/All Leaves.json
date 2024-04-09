@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"All Leaves",
+	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([MA_Measures].[MA_Measures]), 0)}}"
+}

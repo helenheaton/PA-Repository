@@ -1,0 +1,98 @@
+{
+	"@type":"NativeView",
+	"Name":"zClearforImport - Import 3b AGM TB",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('MA_FX_Calc')/Hierarchies('MA_FX_Calc')/Subsets('Values')"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('MA_Measures')/Hierarchies('MA_Measures')/Subsets('Closing')"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('MA_Scenario')/Hierarchies('MA_Scenario')/Subsets('Actual')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('MA_Scenario')/Hierarchies('MA_Scenario')/Elements('Actual')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Companies')/Hierarchies('Companies')/Subsets('zClearforImport - Import 3b AGM TB')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('SG1')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('MA_Dept')/Hierarchies('MA_Dept')/Subsets('ZZZ')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('MA_Dept')/Hierarchies('MA_Dept')/Elements('ZZZ')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('ICP')/Hierarchies('ICP')/Subsets('All Leaves')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('ICP')/Hierarchies('ICP')/Elements('SG1')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('MA_Layer')/Hierarchies('MA_Layer')/Subsets('Source System')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('MA_Layer')/Hierarchies('MA_Layer')/Elements('Source System')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Period')/Hierarchies('Period')/Subsets('zClearforImport - Import 3b AGM TB')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202402')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('TM1 Accounts')/Hierarchies('TM1 Accounts')/Subsets('All Leaves')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('TM1 Accounts')/Hierarchies('TM1 Accounts')/Elements('ALL ACCOUNTS')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.00"
+}

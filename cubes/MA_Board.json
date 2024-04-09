@@ -1,0 +1,14 @@
+{
+	"@type":"Cube",
+	"Name":"MA_Board",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Views_MA_Fact')"
+		},
+		{
+			"@id":"Dimensions('MA Account')"
+		}
+	],
+	"Views@Code.links":[]
+}

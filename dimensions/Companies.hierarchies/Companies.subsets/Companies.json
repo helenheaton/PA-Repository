@@ -1,0 +1,64 @@
+{
+	"@type":"Subset",
+	"Name":"Companies",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('WINGS')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('SINGAPORE')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('SOUTH AFRICA')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('ANGOLA')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('MOZAMBIQUE')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('NIGERIA')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('BRAZIL')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('CANADA')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('USA')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('UAE')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('SAUDI ARABIA')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('EGYPT')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('NORWAY')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('CYPRUS')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('UK')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('PHILIPPINES')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('ALCHIMEA')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('GROUP UK')"
+		},
+		{
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('MONACO')"
+		}
+	]
+}

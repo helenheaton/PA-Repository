@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Closing Local",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Journal Data')/Hierarchies('Journal Data')/Elements('Closing Balance Local Currency')"
+		}
+	]
+}

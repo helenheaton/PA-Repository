@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Source System",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('MA_Layer')/Hierarchies('MA_Layer')/Elements('Source System')"
+		}
+	]
+}

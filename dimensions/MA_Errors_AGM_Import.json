@@ -1,0 +1,13 @@
+{
+	"@type":"Dimension",
+	"Name":"MA_Errors_AGM_Import",
+	"AllLeavesHierarchyName":"",
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('MA_Errors_AGM_Import')/Hierarchies('MA_Errors_AGM_Import')"
+	},
+	"Hierarchies@Code.links":
+	[
+		"MA_Errors_AGM_Import.hierarchies/MA_Errors_AGM_Import.json"
+	]
+}

@@ -1,0 +1,17 @@
+{
+	"@type":"Cube",
+	"Name":"MA_Period_Status",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Period')"
+		},
+		{
+			"@id":"Dimensions('Period Status')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"MA_Period_Status.views/default.json"
+	]
+}

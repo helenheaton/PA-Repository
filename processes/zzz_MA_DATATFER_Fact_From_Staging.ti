@@ -1,0 +1,97 @@
+#region Prolog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+pPeriod = CellGetS( 'MA_parameters', 'Current Period', 'Value' );
+DateTime = TIMST(NOW, '\d-\m-\Y at \h:\i:\s');
+
+IF(SUBSETEXISTS('Companies','zDataTransfer_Fact from Staging')=0);
+SUBSETCREATE('Companies','zDataTransfer_Fact from Staging');
+ELSE; 
+SUBSETDELETEALLELEMENTS('Companies','zDataTransfer_Fact from Staging');
+ENDIF;
+
+SUBSETELEMENTINSERT('Companies','zDataTransfer_Fact from Staging',pCompany,1);
+
+
+IF(SUBSETEXISTS('Period','zDataTransfer_Fact from Staging')=0);
+SUBSETCREATE('Period','zDataTransfer_Fact from Staging');
+ELSE;
+SUBSETDELETEALLELEMENTS('Period','zDataTransfer_Fact from Staging');
+ENDIF;
+
+SUBSETELEMENTINSERT('Period','zDataTransfer_Fact from Staging',pPeriod,1);
+
+
+### Create the Source View
+
+IF(VIEWEXISTS('MA Fact Staging','zDataTransfer_Fact from Staging')=0);
+VIEWCREATE('MA Fact Staging','zDataTransfer_Fact from Staging');
+else;
+ViewDestroy('MA Fact Staging','zDataTransfer_Fact from Staging');
+
+VIEWCREATE('MA Fact Staging','zDataTransfer_Fact from Staging');
+ENDIF;
+
+
+VIEWEXTRACTSKIPCALCSSET('MA Fact Staging','zDataTransfer_Fact from Staging',0);
+VIEWEXTRACTSKIPRULEVALUESSET('MA Fact Staging','zDataTransfer_Fact from Staging',0);
+VIEWEXTRACTSKIPZEROESSET('MA Fact Staging','zDataTransfer_Fact from Staging',1);
+
+
+VIEWSUBSETASSIGN('MA Fact Staging','zDataTransfer_Fact from Staging','Companies','zDataTransfer_Fact from Staging');
+VIEWSUBSETASSIGN('MA Fact Staging','zDataTransfer_Fact from Staging','Data Validation','zDataTransfer_Fact from Staging');
+VIEWSUBSETASSIGN('MA Fact Staging','zDataTransfer_Fact from Staging','Period','zDataTransfer_Fact from Staging');
+VIEWSUBSETASSIGN('MA Fact Staging','zDataTransfer_Fact from Staging','TM1 Accounts','All Leaves');
+VIEWSUBSETASSIGN('MA Fact Staging','zDataTransfer_Fact from Staging','MA_Measures','zDataTransfer_Fact from Staging');
+
+
+
+### Create and Zero Out the Target View
+
+IF(VIEWEXISTS('MA_Fact','zDataTransfer_Fact from Staging')=0);
+VIEWCREATE('MA_Fact','zDataTransfer_Fact from Staging');
+Else;
+ViewDestroy('MA_Fact','zDataTransfer_Fact from Staging');
+
+VIEWCREATE('MA_Fact','zDataTransfer_Fact from Staging');
+ENDIF;
+
+VIEWEXTRACTSKIPCALCSSET('MA_Fact','zDataTransfer_Fact from Staging',1);
+VIEWEXTRACTSKIPRULEVALUESSET('MA_Fact','zDataTransfer_Fact from Staging',1);
+VIEWEXTRACTSKIPZEROESSET('MA_Fact','zDataTransfer_Fact from Staging',1);
+
+
+VIEWSUBSETASSIGN('MA_Fact','zDataTransfer_Fact from Staging','Companies','zDataTransfer_Fact from Staging');
+VIEWSUBSETASSIGN('MA_Fact','zDataTransfer_Fact from Staging','Period','zDataTransfer_Fact from Staging');
+VIEWSUBSETASSIGN('MA_Fact','zDataTransfer_Fact from Staging','MA_Scenario','zDataTransfer_Fact from Staging');
+VIEWSUBSETASSIGN('MA_Fact','zDataTransfer_Fact from Staging','MA_Layer','zDataTransfer_Fact from Staging');
+VIEWSUBSETASSIGN('MA_Fact','zDataTransfer_Fact from Staging','TM1 Accounts','All Leaves');
+VIEWSUBSETASSIGN('MA_Fact','zDataTransfer_Fact from Staging','YTD-Month','zDataTransfer_Fact from Staging');
+VIEWZEROOUT('MA_Fact','zDataTransfer_Fact from Staging');
+#endregion
+#region Metadata
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+#endregion
+#region Data
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+
+CellPutN( Value, 'MA_Fact',pCompany, pPeriod, 'Actual', 'Source System', vTm1Account , 'YTD'  );
+
+
+#endregion
+#region Epilog
+#****Begin: Generated Statements***
+#****End: Generated Statements****
+i = 1;
+while( i<= 10 );
+ submission = 'Submission '|NumberToString( i );
+ if(CellGetS('MA_Fact_Submission',pCompany, pPeriod, Submission, 'Submission Date' ) @='');
+ CellputS(DateTime, 'MA_Fact_Submission',pCompany, pPeriod, Submission, 'Submission Date');
+ i=100;
+
+ endif;
+i = i+1;
+end;
+#endregion
