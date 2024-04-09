@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Default",
-	"Expression":"{ORDER(TM1FILTERBYLEVEL(TM1SUBSETALL([Other Costs].[Other Costs]) , 0) , [Other Costs].[Other Costs].CURRENTMEMBER.PROPERTIES(\"MEMBER_CAPTION\") , ASC)}"
-}

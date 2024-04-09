@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Default",
-	"Expression":"{{[m_Resident Fees Calculation].[m_Resident Fees Calculation].Levels(0).MEMBERS}}"
-}

@@ -1,7 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Property & Building Costs",
-	"ExpandAbove":true,
-	"Alias":"Alias",
-	"Expression":"{DRILLDOWNMEMBER({[Nominal Code].[Nominal Code].[Property And Building Costs]} , {[Nominal Code].[Nominal Code].[Property And Building Costs]} , RECURSIVE)}"
-}

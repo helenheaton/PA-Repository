@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Contracts",
-	"Expression":"{FILTER(TM1FILTERBYLEVEL(TM1SUBSETALL([Contract].[Contract]) , 0) , (IIF([Contract].[Contract].CURRENTMEMBER.PROPERTIES(\"SPV\") = \"\" , 0.0 , STRTOVALUE([Contract].[Contract].CURRENTMEMBER.PROPERTIES(\"SPV\"))) = 1)),[Contract].[None]}"
-}

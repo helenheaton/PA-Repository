@@ -1,7 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Property Rental Income",
-	"ExpandAbove":true,
-	"Alias":"Alias",
-	"Expression":"{{TM1TOGGLEEXPANDMODE(DRILLDOWNMEMBER({[Nominal Code].[Nominal Code].[Property income]} , {[Nominal Code].[Nominal Code].[Property income]} , RECURSIVE) , EXPAND_ABOVE)},[Nominal Code].[Nominal Code].[R301]}"
-}

@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Domestic Waste",
-	"ExpandAbove":true,
-	"Expression":"{[m_Domestic Waste Calculation].[m_Domestic Waste Calculation].MEMBERS}"
-}
