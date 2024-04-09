@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_CQC Fees Mapping",
+	"Hierarchies@Code.links":
+	[
+		"m_CQC Fees Mapping.hierarchies/m_CQC Fees Mapping.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_CQC Fees Mapping')/Hierarchies('m_CQC Fees Mapping')"
+	}
+}

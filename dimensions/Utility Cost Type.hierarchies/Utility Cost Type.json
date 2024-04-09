@@ -1,0 +1,42 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Utility Cost Type",
+	"Elements":
+	[
+		{
+			"Name":"All Utilities",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Gas",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Electricity",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Water",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Utilities",
+			"ComponentName":"Gas",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Utilities",
+			"ComponentName":"Electricity",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Utilities",
+			"ComponentName":"Water",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

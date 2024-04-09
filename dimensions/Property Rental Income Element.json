@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Property Rental Income Element",
+	"Hierarchies@Code.links":
+	[
+		"Property Rental Income Element.hierarchies/Property Rental Income Element.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Property Rental Income Element')/Hierarchies('Property Rental Income Element')"
+	}
+}

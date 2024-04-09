@@ -1,0 +1,45 @@
+{
+	"@type":"Process",
+	"Name":"ADMIN - Lock Version",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"ADMIN - Lock Version.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"VariablesUIData":
+	[
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f"
+	],
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForClient":"Admin - Version Control",
+		"dataSourceNameForServer":"Admin - Version Control",
+		"view":"Process View"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"vVersion",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vMeasure",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vValue",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

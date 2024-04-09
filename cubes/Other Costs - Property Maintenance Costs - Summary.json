@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Other Costs - Property Maintenance Costs - Summary",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		},
+		{
+			"@id":"Dimensions('Prop. Maint. Cost Type')"
+		}
+	],
+	"Rules@Code.link":"Other Costs - Property Maintenance Costs - Summary.rules",
+	"Views@Code.links":
+	[
+		"Other Costs - Property Maintenance Costs - Summary.views/Default.json"
+	]
+}

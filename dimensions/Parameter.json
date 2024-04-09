@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Parameter",
+	"Hierarchies@Code.links":
+	[
+		"Parameter.hierarchies/Parameter.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Parameter')/Hierarchies('Parameter')"
+	}
+}

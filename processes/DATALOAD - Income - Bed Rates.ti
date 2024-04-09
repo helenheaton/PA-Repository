@@ -1,0 +1,56 @@
+#region Prolog
+
+
+sCube = 'Income - Bed Rates';
+sView = GetProcessName;
+sSubset = GetProcessName;
+nTemp = 1;
+
+
+# Define source
+
+sFileLocation = GetProcessErrorFileDirectory;
+sFileLocation = Subst(sFileLocation, 1, LONG( sFileLocation )-5)|'Data\Model_Upload';
+DatasourceNameForClient = sFileLocation|'\'|pFileName;
+DatasourceNameForServer = sFileLocation|'\'|pFileName;
+DataSourceType = 'CHARACTERDELIMITED';
+
+
+ViewDestroy( sCube, sView );
+ViewCreate( sCube, sView, nTemp ); 
+
+nDim=CubeDimensionCountGet( sCube);
+iDim = 1;
+While (iDim <= nDim);
+  sDim = TABDIM( sCube, iDim ); 
+  SubsetDestroy( sDim, sSubset );
+  SubsetCreate( sDim, sSubset, nTemp );
+  SubsetMDXSet( sDim, sSubset, 'TM1Filterbylevel(TM1SubsetAll(['| sDim |']),0)' );
+  SubsetMDXSet( sDim, sSubset, '' );
+  ViewSubsetAssign( sCube, sView, sDim, sSubset );
+iDim = iDim+1;
+End;
+
+sDim = 'Version';
+SubsetMDXSet( sDim, sSubset, '{[' | sDim | '].[ ' | pVersion | ']},{[' | sDim | '].[Projections]}' );  
+SubsetMDXSet( sDim, sSubset, '' );
+
+sDim = 't_Year';
+SubsetMDXSet( sDim, sSubset, '{[' | sDim | '].[' | pYear | ']}' );  
+SubsetMDXSet( sDim, sSubset, '' );
+
+
+ViewZeroOut( sCube, sView );
+nCubeLogging = CubeGetLogChanges( sCube );
+CubeSetLogChanges( sCube, 0 );
+
+#endregion
+#region Data
+
+CellPutN( vValue, sCube, pVersion, pYear, vID, vBedType, vFundType ); 
+
+
+#endregion
+#region Epilog
+CubeSetLogChanges( sCube, nCubeLogging );
+#endregion

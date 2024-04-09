@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"ExpandAbove":true,
+	"Alias":"Alias",
+	"Expression":"{[Nominal Code].[Nominal Code].MEMBERS}"
+}

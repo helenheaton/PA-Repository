@@ -1,0 +1,40 @@
+{
+	"@type":"Cube",
+	"Name":"Loans by Entity",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Loaning Entity')"
+		},
+		{
+			"@id":"Dimensions('Loan Source')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		},
+		{
+			"@id":"Dimensions('m_Loans')"
+		}
+	],
+	"Rules@Code.link":"Loans by Entity.rules",
+	"Views@Code.links":
+	[
+		"Loans by Entity.views/Default.json",
+		"Loans by Entity.views/Process View.json"
+	]
+}

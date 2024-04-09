@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"ExpandAbove":true,
+	"Expression":"{[m_Cashflow].[m_Cashflow].MEMBERS}"
+}

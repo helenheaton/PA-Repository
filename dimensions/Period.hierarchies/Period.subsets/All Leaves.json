@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"All Leaves",
-	"Expression":"{TM1FILTERBYLEVEL(TM1SUBSETALL([Period].[Period]) , 0)}"
-}

@@ -1,0 +1,13 @@
+{
+	"@type":"Subset",
+	"Name":"Managed Services",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('MS01')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('MS02')"
+		}
+	]
+}

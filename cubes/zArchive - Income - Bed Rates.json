@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"zArchive - Income - Bed Rates",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Bed Types')"
+		},
+		{
+			"@id":"Dimensions('Funding Types - Rates')"
+		}
+	],
+	"Views@Code.links":[]
+}

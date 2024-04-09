@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Journal Layers",
-	"Expression":"{EXCEPT(TM1FILTERBYLEVEL(TM1SUBSETALL([MA_Layer].[MA_Layer]) , 0) , {[MA_Layer].[MA_Layer].[Source System],[MA_Layer].[MA_Layer].[Group MA^Source GBP],[MA_Layer].[MA_Layer].[Year End Alignment],[MA_Layer].[MA_Layer].[Statistics]})}"
-}

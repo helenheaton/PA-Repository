@@ -1,0 +1,5 @@
+SKIPCHECK;
+
+['Budget Year','Value']=S:
+Attrs('t_Financial Year', DB('Admin - Model Parameters', 'Current Year', 'Value' ), 'Year+1' );
+

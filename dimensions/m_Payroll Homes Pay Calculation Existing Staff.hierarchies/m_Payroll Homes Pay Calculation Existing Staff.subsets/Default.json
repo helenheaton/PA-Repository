@@ -1,0 +1,119 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"ExpandAbove":true,
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Annual Salary')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Hours')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Pension Amount as at 1st April')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Pension Percentage')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Pay Increase Method - April')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Current Hourly Rate')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('April Increase Percentage')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('April Increase Value')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('April Monetary Increase')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('April Override Value')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Living Wage Increase Value')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Hourly Pay - April')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Annual Salary - April')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Bank Holiday Enhancements')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Other Enhancements')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Annual Salary - April')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Pensionable Salary - April')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Pension Amount - April')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Employers NI - April')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Annual Cost - April')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Monthly Apprentice Levy - April')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Pay Increase Method - October')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Hourly Pay - April')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('October Increase Percentage')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('October Increase Value')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('October Monetary Increase')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('October Override Value')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Hourly Pay - October')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Annual Salary - October')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Bank Holiday Enhancements')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Other Enhancements')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Annual Salary - October')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Pensionable Salary - October')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Pension Amount - October')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Employers NI - October')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Annual Cost - October')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')/Hierarchies('m_Payroll Homes Pay Calculation Existing Staff')/Elements('Monthly Apprentice Levy - October')"
+		}
+	]
+}

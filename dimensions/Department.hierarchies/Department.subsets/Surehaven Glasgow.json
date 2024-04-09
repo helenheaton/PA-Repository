@@ -1,0 +1,16 @@
+{
+	"@type":"Subset",
+	"Name":"Surehaven Glasgow",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('VC01')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('VC02')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('VC03')"
+		}
+	]
+}

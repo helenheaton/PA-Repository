@@ -1,0 +1,26 @@
+{
+	"@type":"Cube",
+	"Name":"zArchive - Payroll - Establishments",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Staff Grade')"
+		},
+		{
+			"@id":"Dimensions('m_Establishments')"
+		}
+	],
+	"Views@Code.links":[]
+}

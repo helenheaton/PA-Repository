@@ -1,0 +1,71 @@
+#region Prolog
+
+# Process which clears the Current Year values
+
+
+sView = GetProcessName;
+sSubset = GetProcessName;
+nTemp = 1;
+ntYear = 0;
+nVersion = 0;
+
+# Check t_Year exists
+IF(Dimix('t_Year', pYear)=0);
+  ProcessError; 
+Endif;
+
+
+nCubeLogging = CubeGetLogChanges( pCube );
+CubeSetLogChanges( pCube, 0 );
+
+# Create Target view and clear data
+
+ViewDestroy( pCube, sView );
+ViewCreate( pCube, sView, nTemp );
+
+nDim=CubeDimensionCountGet( pCube );
+iDim = 1;
+While (iDim <= nDim);
+  sDim = TABDIM( pCube, iDim );
+  IF(sDim@='t_Year');
+    ntYear = 1;
+  Endif;
+  IF(sDim@='Version');
+    nVersion = 1;
+  Endif;
+  IF(SubsetExists( sDim, ssubset )=0);
+    SubsetCreate( sDim, sSubset, nTemp );
+  Else;
+    SubsetDeleteAllElements( sDim, sSubset );
+  Endif;
+  SubsetMDXSet( sDim, sSubset, 'TM1Filterbylevel(TM1SubsetAll(['| sDim |']),0)' );
+  SubsetMDXSet( sDim, sSubset, '' );
+  ViewSubsetAssign( pCube, sView, sDim, sSubset );
+iDim = iDim+1;
+End;
+
+If(ntYear=0);
+  ProcessBreak;
+Endif;
+
+sDim = 't_Year';
+SubsetDeleteAllElements( sDim, sSubset );
+SubsetMDXSet( sDim, sSubset, '{[' | sDim | '].[' | pYear | ']}' );
+SubsetMDXSet( sDim, sSubset, '' );
+
+If(nVersion<>0);
+  IF(pVersion@<>'');
+    sDim = 'Version';
+    SubsetDeleteAllElements( sDim, sSubset );
+    SubsetMDXSet( sDim, sSubset, '{[' | sDim | '].[' | pVersion | ']}' );
+    SubsetMDXSet( sDim, sSubset, '' );
+  Endif;
+Endif;
+
+
+ViewZeroOut( pCube, sView );
+
+#endregion
+#region Epilog
+CubeSetLogChanges( pCube, nCubeLogging );
+#endregion

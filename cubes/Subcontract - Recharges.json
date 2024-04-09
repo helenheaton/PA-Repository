@@ -1,0 +1,36 @@
+{
+	"@type":"Cube",
+	"Name":"Subcontract - Recharges",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Contract')"
+		},
+		{
+			"@id":"Dimensions('Cost Type')"
+		},
+		{
+			"@id":"Dimensions('m_Subcontract Recharge')"
+		}
+	],
+	"Rules@Code.link":"Subcontract - Recharges.rules",
+	"Views@Code.links":
+	[
+		"Subcontract - Recharges.views/Default.json"
+	]
+}

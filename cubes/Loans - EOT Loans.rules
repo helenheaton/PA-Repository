@@ -1,0 +1,171 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+
+FEEDERS;
+
+['PL Interest']=>DB('Loans by Entity', !Version, !t_Half, !t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ), 
+!'Loaning Entity', 'EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ), 
+'PL Interest' );
+
+
+['PL Interest']=>DB('Loans by Entity', !Version, !t_Half, !t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Department' ), 
+!'Loaning Entity', 'EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Nominal Code' ), 
+'Internal PL Income' );
+
+
+# Interest repayments
+
+['Cash Interest Repayments','H1']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment H1'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ), 
+!'Loaning Entity','EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ), 
+'Cash Interest Repayments' );
+
+
+['Cash Interest Repayments','H2']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment H2'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ), 
+!'Loaning Entity', 'EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ),
+'Cash Interest Repayments' );
+
+['Cash Interest Repayments','H1']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q1'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ), 
+!'Loaning Entity', 'EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ),
+'Cash Interest Repayments' );
+
+['Cash Interest Repayments','H1']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q2'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ), 
+!'Loaning Entity', 'EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ),
+'Cash Interest Repayments' );
+
+['Cash Interest Repayments','H2']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q3'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ), 
+!'Loaning Entity', 'EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ),
+'Cash Interest Repayments' );
+
+['Cash Interest Repayments','H2']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q4'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ), 
+!'Loaning Entity', 'EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ),
+'Cash Interest Repayments' );
+
+
+# Internal Income
+
+['Cash Interest Repayments','H1']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment H1'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Department' ), 
+!'Loaning Entity','EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Nominal Code' ), 
+'Internal Cash Income' );
+
+['Cash Interest Repayments','H2']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment H2'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Department' ), 
+!'Loaning Entity', 'EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Nominal Code' ),
+'Internal Cash Income' );
+
+['Cash Interest Repayments','H1']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q1'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Department' ), 
+!'Loaning Entity','EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Nominal Code' ), 
+'Internal Cash Income' );
+
+['Cash Interest Repayments','H1']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q2'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Department' ), 
+!'Loaning Entity','EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Nominal Code' ), 
+'Internal Cash Income' );
+
+['Cash Interest Repayments','H1']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q3'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Department' ), 
+!'Loaning Entity','EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Nominal Code' ), 
+'Internal Cash Income' );
+
+['Cash Interest Repayments','H1']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Interest Payment Q4'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Department' ), 
+!'Loaning Entity','EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Internal Income Nominal Code' ), 
+'Internal Cash Income' );
+
+# Capital Repayments
+
+['Capital Repayments','H1']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment H1'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ), 
+!'Loaning Entity', 'EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ),
+'Capital Repayments' );
+
+['Capital Repayments','H2']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment H2'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ), 
+!'Loaning Entity','EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ), 
+'Capital Repayments' );
+
+['Capital Repayments','H1']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment Q1'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ), 
+!'Loaning Entity', 'EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ),
+'Capital Repayments' );
+
+['Capital Repayments','H1']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment Q2'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ), 
+!'Loaning Entity', 'EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ),
+'Capital Repayments' );
+
+['Capital Repayments','H2']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment Q3'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ), 
+!'Loaning Entity', 'EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ),
+'Capital Repayments' );
+
+['Capital Repayments','H2']=>DB('Loans by Entity', !Version, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Capital Payment Q4'), 
+!t_Financial Year, !Entity, 
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'Cost Department' ), 
+!'Loaning Entity', 'EOT',  
+DB('Loans - Lookup', !Entity, !'Loaning Entity', 'EOT Cost Nominal Code' ),
+'Capital Repayments' );

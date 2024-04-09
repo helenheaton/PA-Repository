@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"zArchive - Other Costs - Depreciation",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('m_Depreciation')"
+		}
+	],
+	"Views@Code.links":[]
+}

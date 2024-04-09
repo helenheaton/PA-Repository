@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"Payroll - Assumptions",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Assumptions')"
+		}
+	],
+	"Rules@Code.link":"Payroll - Assumptions.rules",
+	"Views@Code.links":
+	[
+		"Payroll - Assumptions.views/Default.json"
+	]
+}

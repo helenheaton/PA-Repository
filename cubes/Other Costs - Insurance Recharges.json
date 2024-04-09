@@ -1,0 +1,33 @@
+{
+	"@type":"Cube",
+	"Name":"Other Costs - Insurance Recharges",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Insurance Allocation')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		}
+	],
+	"Rules@Code.link":"Other Costs - Insurance Recharges.rules",
+	"Views@Code.links":
+	[
+		"Other Costs - Insurance Recharges.views/Default.json"
+	]
+}

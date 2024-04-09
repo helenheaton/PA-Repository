@@ -1,0 +1,88 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+#Region Opening and Closing Months
+
+[]=N:
+IF(DB('Admin - Department Control', !Department, 'Open Year')@='',
+  Continue,
+  IF(Numbr(Attrs('t_Year', !t_Year, 'Financial Year')) < Numbr(DB('Admin - Department Control', !Department, 'Open Year')),
+    0,
+    Continue));
+
+[]=N:
+IF(DB('Admin - Department Control', !Department, 'Open Year')@='',
+  Continue,
+  IF(Numbr(Attrs('t_Year', !t_Year, 'Financial Year')) = Numbr(DB('Admin - Department Control', !Department, 'Open Year')),
+    IF(AttrN('t_Period', !t_Period, 'Index') < AttrN('t_Period',DB('Admin - Department Control', !Department, 'Open Month'), 'Index'),
+      0,
+      Continue),
+    Continue));
+
+[]=N:
+IF(DB('Admin - Department Control', !Department, 'Close Year')@='',
+  Continue,
+  IF(Numbr(Attrs('t_Year', !t_Year, 'Financial Year')) > Numbr(DB('Admin - Department Control', !Department, 'Close Year')),
+    0,
+    Continue));
+
+[]=N:
+IF(DB('Admin - Department Control', !Department, 'Close Year')@='',
+  Continue,
+  IF(Numbr(Attrs('t_Year', !t_Year, 'Financial Year')) = Numbr(DB('Admin - Department Control', !Department, 'Close Year')),
+    IF(AttrN('t_Period', !t_Period, 'Index') > AttrN('t_Period',DB('Admin - Department Control', !Department, 'Close Month'), 'Index'),
+      0,
+      Continue),
+    Continue));
+
+#EndRegion
+
+
+
+
+
+# Apprentice Levy 
+
+['R145']=N:
+IF(!Contract@=Attrs('Department',!Department,'Contract'),
+DB('Payroll - Apprentice Levy', !Version, !t_Period, !t_Year, 'All Departments', !Department, 'Net Cost')
+,Continue);
+
+
+# Head Office
+
+['R100']=N:
+IF(!Contract@=Attrs('Department',!Department,'Contract'),
+DB('Payroll - Head Office Pay Calc', !Version, !t_Year, !Department, 'Current Staff', 'Payroll Cost '|!t_Period )
+,Continue);
+
+
+# Other Costs
+
+['R105']=N:
+DB('Payroll - Other Costs', !Version, !t_Period, !t_Year, !Department, 'Agency');
+
+['R114']=N:
+DB('Payroll - Other Costs', !Version, !t_Period, !t_Year, !Department, 'Sleep In Costs');
+
+['R140']=N:
+DB('Payroll - Other Costs', !Version, !t_Period, !t_Year, !Department, 'Redundancy');
+
+['R175']=N:
+DB('Payroll - Other Costs', !Version, !t_Period, !t_Year, !Department, 'On Call Allowance');
+
+# Bank Staff isn't needed. 
+
+
+
+# Care homes
+
+[]=N:
+IF(!Contract@=Attrs('Department',!Department,'Contract'),
+    DB('Payroll - Homes Summary', !Version, !t_Period, !t_Year, !Department, 'All Staff Grades', !'Nominal Code' )
+  ,Continue);
+  
+
+FEEDERS;
+
+[]=>DB('PL by Dept', !Version, !t_Period, !t_Year, !Department, !Contract, !'Nominal Code' );

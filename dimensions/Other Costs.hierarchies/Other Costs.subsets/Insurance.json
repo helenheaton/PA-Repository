@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Insurance",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Other Costs')/Hierarchies('Other Costs')/Elements('Insurance')"
+		}
+	]
+}

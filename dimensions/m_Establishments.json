@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Establishments",
+	"Hierarchies@Code.links":
+	[
+		"m_Establishments.hierarchies/m_Establishments.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Establishments')/Hierarchies('m_Establishments')"
+	}
+}

@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Values",
-	"Expression":"{EXCEPT(TM1FILTERBYLEVEL(TM1SUBSETALL([MA_Layer].[MA_Layer]) , 0) , {[MA_Layer].[MA_Layer].[Statistics]})}"
-}

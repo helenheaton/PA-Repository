@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Loans EOT",
+	"Hierarchies@Code.links":
+	[
+		"m_Loans EOT.hierarchies/m_Loans EOT.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Loans EOT')/Hierarchies('m_Loans EOT')"
+	}
+}

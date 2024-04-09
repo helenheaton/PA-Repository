@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Other Costs - Depreciation - Summary",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		},
+		{
+			"@id":"Dimensions('m_Depreciation')"
+		}
+	],
+	"Rules@Code.link":"Other Costs - Depreciation - Summary.rules",
+	"Views@Code.links":
+	[
+		"Other Costs - Depreciation - Summary.views/Default.json"
+	]
+}

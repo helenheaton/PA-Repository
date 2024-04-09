@@ -1,0 +1,36 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Payroll Data",
+	"Elements":
+	[
+		{
+			"Name":"Employee Count",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Contracted Hours",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Annual Salary",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Enhancements",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank Holiday Enhancements",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pension Amount 1st April",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pension Amount 1st October",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"All Leaves",
-	"Expression":"{[TM1 Accounts].[TM1 Accounts].[ALL ACCOUNTS],ORDER(EXCEPT({[TM1 Accounts].[TM1 Accounts].[ALL ACCOUNTS],TM1FILTERBYLEVEL(TM1SUBSETALL([TM1 Accounts].[TM1 Accounts]) , 0)} , {[TM1 Accounts].[TM1 Accounts].[ALL ACCOUNTS]}) , [TM1 Accounts].[TM1 Accounts].CURRENTMEMBER.PROPERTIES(\"MEMBER_CAPTION\") , BASC)}"
-}

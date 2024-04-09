@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Current Period",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('t_Period')/Hierarchies('t_Period')/Elements('November')"
+		}
+	]
+}

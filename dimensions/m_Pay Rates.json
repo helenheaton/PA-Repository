@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Pay Rates",
+	"Hierarchies@Code.links":
+	[
+		"m_Pay Rates.hierarchies/m_Pay Rates.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')"
+	}
+}

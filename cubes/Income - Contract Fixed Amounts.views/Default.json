@@ -1,0 +1,36 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Department].[Department]" : "Alias",
+			"[t_Financial Year].[t_Financial Year]" : "Financial Year Name"
+		},
+		"ContextSets" : 
+		{
+			"[Contract Variations].[Contract Variations]" : 
+			{
+				"Expression" : "{[Contract Variations].[Contract Variations].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			},
+			"[m_Contract Fixed Amount].[m_Contract Fixed Amount]" : 
+			{
+				"Expression" : "{TM1TOGGLEEXPANDMODE([m_Contract Fixed Amount].[m_Contract Fixed Amount].MEMBERS , EXPAND_ABOVE)}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Contract Variations].[Contract Variations]" : false,
+			"[Department].[Department]" : false,
+			"[Version].[Version]" : false,
+			"[m_Contract Fixed Amount].[m_Contract Fixed Amount]" : true,
+			"[t_Financial Year].[t_Financial Year]" : false
+		}
+	}
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Bank Holiday Enhancements",
+	"Elements":
+	[
+		{
+			"Name":"BH Enhancement Percentage",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

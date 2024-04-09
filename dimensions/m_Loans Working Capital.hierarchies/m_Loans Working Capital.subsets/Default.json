@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"ExpandAbove":true,
+	"Expression":"{[m_Loans Working Capital].[m_Loans Working Capital].MEMBERS}"
+}

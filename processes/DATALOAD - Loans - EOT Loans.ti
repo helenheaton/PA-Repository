@@ -1,0 +1,61 @@
+#region Prolog
+
+
+# Define source
+
+sFileLocation = GetProcessErrorFileDirectory;
+sFileLocation = Subst(sFileLocation, 1, LONG( sFileLocation )-5)|'Data\Model_Upload';
+DatasourceNameForClient = sFileLocation|'\'|pFileName;
+DatasourceNameForServer = sFileLocation|'\'|pFileName;
+DataSourceType = 'CHARACTERDELIMITED';
+
+sCube = 'Loans - EOT Loans';
+sView = GetProcessName;
+sSubset = GetProcessName;
+nTemp = 1;
+
+
+# Clear Target
+
+# turn off logging
+nCubeLogging = CubeGetLogChanges( sCube );
+CubeSetLogChanges( sCube, 0 );
+
+# Create target and clear any data
+ViewDestroy( sCube, sView );
+ViewCreate( sCube, sView, nTemp ); 
+
+nDim=CubeDimensionCountGet( sCube);
+iDim = 1;
+While (iDim <= nDim);
+  sDim = TABDIM( sCube, iDim ); 
+  SubsetDestroy( sDim, sSubset );
+  SubsetCreate( sDim, sSubset, nTemp );
+  SubsetMDXSet( sDim, sSubset, 'TM1Filterbylevel(TM1SubsetAll(['| sDim |']),0)' );
+  SubsetMDXSet( sDim, sSubset, '' );
+  ViewSubsetAssign( sCube, sView, sDim, sSubset );
+iDim = iDim+1;
+End;
+
+sDim = 'Version';
+SubsetMDXSet( sDim, sSubset, '{[' | sDim | '].[ ' | pVersion | ']}' );  
+SubsetMDXSet( sDim, sSubset, '' );
+
+ViewZeroOut( sCube, sView );
+
+#endregion
+#region Data
+
+CellIncrementN( vH1_PL_Interest, sCube, pVersion, 'H1', vFY, vEntity, vLoaningEntity, 'PL Interest' );
+CellIncrementN( vH2_PL_Interest, sCube, pVersion, 'H2', vFY, vEntity, vLoaningEntity, 'PL Interest' );
+
+CellIncrementN( vH1_Cash_Interest, sCube, pVersion, 'H1', vFY, vEntity, vLoaningEntity, 'Cash Interest Repayments' );
+CellIncrementN( vH2_Cash_Interest, sCube, pVersion, 'H2', vFY, vEntity, vLoaningEntity, 'Cash Interest Repayments' );
+
+CellIncrementN( vH1_Capital, sCube, pVersion, 'H1', vFY, vEntity, vLoaningEntity, 'Capital Repayments' );
+CellIncrementN( vH2_Capital, sCube, pVersion, 'H2', vFY, vEntity, vLoaningEntity, 'Capital Repayments' );
+
+#endregion
+#region Epilog
+CubeSetLogChanges( sCube, nCubeLogging );
+#endregion

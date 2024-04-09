@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Leaf members",
-	"Expression":"{EXCEPT(TM1FILTERBYLEVEL(TM1SUBSETALL([Period].[Period]) , 0) , {[Period].[Period].[Unassigned]})}"
-}

@@ -1,0 +1,78 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Insurance Allocation",
+	"Elements":
+	[
+		{
+			"Name":"Care Homes",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Admin Departments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"All Insurance Allocations",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total Insurance Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"R201 Admin (From Care Homes)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NH47 (From GP01)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NH47 (Income & Costs From Entity)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R200 Admin (From Entity)",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Insurance Allocations",
+			"ComponentName":"Total Insurance Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Insurance Allocations",
+			"ComponentName":"R201 Admin (From Care Homes)",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Insurance Allocations",
+			"ComponentName":"NH47 (From GP01)",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Insurance Allocations",
+			"ComponentName":"NH47 (Income & Costs From Entity)",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Insurance Allocations",
+			"ComponentName":"R200 Admin (From Entity)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Insurance Costs",
+			"ComponentName":"Care Homes",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Insurance Costs",
+			"ComponentName":"Admin Departments",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

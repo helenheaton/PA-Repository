@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Loans - Deferred Consideration",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Half')"
+		},
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Deferred Consideration People')"
+		},
+		{
+			"@id":"Dimensions('m_Loans Deferred Consideration')"
+		}
+	],
+	"Rules@Code.link":"Loans - Deferred Consideration.rules",
+	"Views@Code.links":[]
+}

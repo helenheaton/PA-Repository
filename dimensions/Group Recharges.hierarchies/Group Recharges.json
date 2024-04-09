@@ -1,0 +1,68 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Group Recharges",
+	"Elements":
+	[
+		{
+			"Name":"Annual Cost Assumptions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NH44 Recharges",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NH49 Recharges",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R299 (Services)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R299 (Head Office)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"All Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"R285 & R299 (Admin Depts)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GP01 Recharges",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Costs",
+			"ComponentName":"NH44 Recharges",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Costs",
+			"ComponentName":"NH49 Recharges",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Costs",
+			"ComponentName":"R299 (Services)",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Costs",
+			"ComponentName":"R285 & R299 (Admin Depts)",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Costs",
+			"ComponentName":"GP01 Recharges",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

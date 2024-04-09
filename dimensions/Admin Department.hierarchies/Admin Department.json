@@ -1,0 +1,141 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Admin Department",
+	"Elements":
+	[
+		{
+			"Name":"All Admin Departments",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"NH45",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CH01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NS01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LH01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FM01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SH01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SW01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VA01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VB01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"VC01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CC01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CK01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NH01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"None",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Admin Departments",
+			"ComponentName":"NH01",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Admin Departments",
+			"ComponentName":"NH45",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Admin Departments",
+			"ComponentName":"CH01",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Admin Departments",
+			"ComponentName":"NS01",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Admin Departments",
+			"ComponentName":"LH01",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Admin Departments",
+			"ComponentName":"FM01",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Admin Departments",
+			"ComponentName":"SH01",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Admin Departments",
+			"ComponentName":"SW01",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Admin Departments",
+			"ComponentName":"VA01",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Admin Departments",
+			"ComponentName":"VB01",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Admin Departments",
+			"ComponentName":"VC01",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Admin Departments",
+			"ComponentName":"CC01",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Admin Departments",
+			"ComponentName":"CK01",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Admin Departments",
+			"ComponentName":"None",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

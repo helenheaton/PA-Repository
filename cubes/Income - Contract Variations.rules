@@ -1,0 +1,13 @@
+  # --------------------------------------------------------------------------------------------------
+  # Contract Variations
+  # Input cube to store variation base dates which are used in Contract Fixed Amounts Cube
+  #
+  # Written by Jenny Hassett
+  # --------------------------------------------------------------------------------------------------
+ 
+SKIPCHECK;
+FEEDSTRINGS;
+
+#Get Base year from 'Contracts' dimension - base year is an attribute of contract
+['Base contract','Base Year']=S:
+  ATTRS('Contract', !'Contract', 'Base Year' );

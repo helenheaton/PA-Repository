@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Departments to which Unitary Charges apply (Fixed contract amounts)",
+	"Alias":"Alias",
+	"Expression":"{ORDER({[Department].[Department].[BA05],[Department].[Department].[FM03],[Department].[Department].[FM04],[Department].[Department].[FM05],[Department].[Department].[FM06],[Department].[Department].[FM07],[Department].[Department].[FM08],[Department].[Department].[FM09],[Department].[Department].[FM10],[Department].[Department].[LH05],[Department].[Department].[NP01],[Department].[Department].[NP02],[Department].[Department].[NP03],[Department].[Department].[NP04]} , IIF([Department].[Department].CURRENTMEMBER.PROPERTIES(\"Alias\") = \"\" , [Department].[Department].CURRENTMEMBER.PROPERTIES(\"MEMBER_CAPTION\") , [Department].[Department].CURRENTMEMBER.PROPERTIES(\"Alias\")) , BASC),[Department].[Department].[GP10],[Department].[Department].[GP14],[Department].[Department].[GP12],[Department].[Department].[GP13]}"
+}

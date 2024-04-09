@@ -1,0 +1,198 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Other Income Item",
+	"Elements":
+	[
+		{
+			"Name":"All Other Income Items",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Income Item 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 7",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 8",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 9",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 13",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 14",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 15",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 16",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 17",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 18",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 19",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Income Item 20",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 1",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 2",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 3",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 4",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 5",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 6",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 7",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 8",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 9",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 10",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 11",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 12",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 13",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 14",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 15",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 16",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 17",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 18",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 19",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Other Income Items",
+			"ComponentName":"Income Item 20",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Other Income Item.subsets/Default.json"
+	]
+}

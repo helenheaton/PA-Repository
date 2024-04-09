@@ -1,0 +1,29 @@
+{
+	"@type":"Cube",
+	"Name":"Other Costs - Annual Cost Assumptions",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Other Costs')"
+		},
+		{
+			"@id":"Dimensions('m_Annual Cost Values')"
+		}
+	],
+	"Rules@Code.link":"Other Costs - Annual Cost Assumptions.rules",
+	"Views@Code.links":
+	[
+		"Other Costs - Annual Cost Assumptions.views/Clinical Waste.json",
+		"Other Costs - Annual Cost Assumptions.views/Default.json",
+		"Other Costs - Annual Cost Assumptions.views/temp.json"
+	]
+}

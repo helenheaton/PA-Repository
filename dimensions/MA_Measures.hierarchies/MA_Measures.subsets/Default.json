@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Default",
-	"Expression":"{{[MA_Measures].[MA_Measures].MEMBERS}}"
-}

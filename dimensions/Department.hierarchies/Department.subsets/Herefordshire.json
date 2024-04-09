@@ -1,0 +1,34 @@
+{
+	"@type":"Subset",
+	"Name":"Herefordshire",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('HH01')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('HH02')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('HH03')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('HH05')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('HH07')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('HH09')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('HH11')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('HH12')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('HH13')"
+		}
+	]
+}

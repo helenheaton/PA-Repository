@@ -1,0 +1,34 @@
+{
+	"@type":"Subset",
+	"Name":"Specialist Services",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('CH01')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('CH02')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('CH11')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('CH12')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('CH13')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('CH14')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('CH16')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('CH17')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('CH18')"
+		}
+	]
+}

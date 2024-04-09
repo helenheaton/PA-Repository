@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Currencies",
-	"Expression":"{TM1FILTERBYLEVEL(TM1SUBSETALL([MA_Currencies].[MA_Currencies]) , 1),[MA_Currencies].[MA_Currencies].[GBP]}"
-}

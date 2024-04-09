@@ -1,0 +1,72 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Property Rental Income Element",
+	"Elements":
+	[
+		{
+			"Name":"All Rental Income Elements",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Rental Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Water",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Gas",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Electric",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Service Charge",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Ground Rent",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Rental Income Elements",
+			"ComponentName":"Rental Income",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Rental Income Elements",
+			"ComponentName":"Ground Rent",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Rental Income Elements",
+			"ComponentName":"Service Charge",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Rental Income Elements",
+			"ComponentName":"Water",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Rental Income Elements",
+			"ComponentName":"Gas",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Rental Income Elements",
+			"ComponentName":"Electric",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Property Rental Income Element.subsets/Default.json"
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"@type":"Cube",
+	"Name":"}ElementProperties_t_Financial Year",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('}ElementProperties')"
+		}
+	],
+	"Views@Code.links":[]
+}

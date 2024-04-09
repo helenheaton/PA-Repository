@@ -1,0 +1,59 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Loans",
+	"Elements":
+	[
+		{
+			"Name":"Repayments",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Capital Repayments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cash Interest Repayments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Interest",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"PL Interest",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Internal Cash Income",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Internal PL Income",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Repayments",
+			"ComponentName":"Capital Repayments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Repayments",
+			"ComponentName":"Cash Interest Repayments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Interest",
+			"ComponentName":"Cash Interest Repayments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Interest",
+			"ComponentName":"PL Interest",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

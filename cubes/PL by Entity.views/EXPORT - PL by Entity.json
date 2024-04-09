@@ -1,0 +1,78 @@
+{
+	"@type":"NativeView",
+	"Name":"EXPORT - PL by Entity",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')/Subsets('All leaves')"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Contract')/Hierarchies('Contract')/Subsets('All contracts')"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Subsets('EXPORT - PL by Entity')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Board Version')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('t_Period')/Hierarchies('t_Period')/Subsets('All Leaves')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('t_Period')/Hierarchies('t_Period')/Elements('April')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('t_Year')/Hierarchies('t_Year')/Subsets('Year+1')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('t_Year')/Hierarchies('t_Year')/Elements('Year+1')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Entity')/Hierarchies('Entity')/Subsets('EXPORT - PL by Entity')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Entity')/Hierarchies('Entity')/Elements('Surehaven Glasgow')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Department')/Hierarchies('Department')/Subsets('Surehaven Glasgow')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('VC01')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.00"
+}

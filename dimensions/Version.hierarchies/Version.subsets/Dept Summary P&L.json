@@ -1,0 +1,16 @@
+{
+	"@type":"Subset",
+	"Name":"Dept Summary P&L",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Board Version')"
+		},
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Actual')"
+		},
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Projections')"
+		}
+	]
+}

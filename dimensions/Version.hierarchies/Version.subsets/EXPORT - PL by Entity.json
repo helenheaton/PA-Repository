@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"EXPORT - PL by Entity",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Board Version')"
+		}
+	]
+}

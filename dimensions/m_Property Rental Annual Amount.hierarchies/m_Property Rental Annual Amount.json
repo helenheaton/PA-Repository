@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Property Rental Annual Amount",
+	"Elements":
+	[
+		{
+			"Name":"Property Rental Amount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rental Spread Basis",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

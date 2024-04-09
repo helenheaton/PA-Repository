@@ -1,0 +1,244 @@
+#region Prolog
+
+sCube = 'Income - Bed Numbers';
+sView = GetProcessName;
+sSubset = GetProcessName;
+nTemp = 1;
+
+# Define source
+
+sFileLocation = GetProcessErrorFileDirectory;
+sFileLocation = Subst(sFileLocation, 1, LONG( sFileLocation )-5)|'Data\Model_Upload';
+DatasourceNameForClient = sFileLocation|'\'|pFileName;
+DatasourceNameForServer = sFileLocation|'\'|pFileName;
+DataSourceType = 'CHARACTERDELIMITED';
+
+
+ViewDestroy( sCube, sView );
+ViewCreate( sCube, sView, nTemp ); 
+
+nDim=CubeDimensionCountGet( sCube);
+iDim = 1;
+While (iDim <= nDim);
+  sDim = TABDIM( sCube, iDim ); 
+  SubsetDestroy( sDim, sSubset );
+  SubsetCreate( sDim, sSubset, nTemp );
+  SubsetMDXSet( sDim, sSubset, 'TM1Filterbylevel(TM1SubsetAll(['| sDim |']),0)' );
+  SubsetMDXSet( sDim, sSubset, '' );
+  ViewSubsetAssign( sCube, sView, sDim, sSubset );
+iDim = iDim+1;
+End;
+
+sDim = 'Version';
+SubsetMDXSet( sDim, sSubset, '{[' | sDim | '].[ ' | pVersion | ']},{[' | sDim | '].[' | pVersion | ']}' );  
+SubsetMDXSet( sDim, sSubset, '' );
+
+sDim = 't_Year';
+SubsetMDXSet( sDim, sSubset, '{[' | sDim | '].[' | pYear | ']}' );  
+SubsetMDXSet( sDim, sSubset, '' );
+
+
+ViewZeroOut( sCube, sView );
+nCubeLogging = CubeGetLogChanges( sCube );
+CubeSetLogChanges( sCube, 0 );
+
+#endregion
+#region Data
+
+CellIncrementN( vOPRB1, sCube, pVersion, pYear, 'P01', vDept, 'OPR1', vFunding );
+CellIncrementN( vOPRB2, sCube, pVersion, pYear, 'P01', vDept, 'OPR2', vFunding ); 
+CellIncrementN( vOPRB3, sCube, pVersion, pYear, 'P01', vDept, 'OPR3', vFunding ); 
+CellIncrementN( vDem, sCube, pVersion, pYear, 'P01', vDept, 'Dementia Residential', vFunding ); 
+CellIncrementN( vNursing, sCube, pVersion, pYear, 'P01', vDept, 'Older Person Nursing', vFunding );
+CellIncrementN( vDemNurse, sCube, pVersion, pYear, 'P01', vDept, 'Dementia Nursing', vFunding ); 
+CellIncrementN( vABI, sCube, pVersion, pYear, 'P01', vDept, 'ABI Beds', vFunding ); 
+CellIncrementN( vReable, sCube, pVersion, pYear, 'P01', vDept, 'Reablement', vFunding ); 
+CellIncrementN( vSpecialist, sCube, pVersion, pYear, 'P01', vDept, 'Specialist', vFunding ); 
+CellIncrementN( vMental, sCube, pVersion, pYear, 'P01', vDept, 'Mental Health', vFunding );
+CellIncrementN( vRespite, sCube, pVersion, pYear, 'P01', vDept, 'Respite', vFunding ); 
+CellIncrementN( vSupported, sCube, pVersion, pYear, 'P01', vDept, 'Supported Living', vFunding ); 
+CellIncrementN( vDayCare, sCube, pVersion, pYear, 'P01', vDept, 'Older Person Day Care', vFunding ); 
+CellIncrementN( vDemDayCare, sCube, pVersion, pYear, 'P01', vDept, 'Dementia Day Care', vFunding );
+CellIncrementN( vFlats, sCube, pVersion, pYear, 'P01', vDept, 'Supported Living', vFunding ); 
+
+CellIncrementN( vOPRB1, sCube, pVersion, pYear, 'P02', vDept, 'OPR1', vFunding ); 
+CellIncrementN( vOPRB2, sCube, pVersion, pYear, 'P02', vDept, 'OPR2', vFunding ); 
+CellIncrementN( vOPRB3, sCube, pVersion, pYear, 'P02', vDept, 'OPR3', vFunding ); 
+CellIncrementN( vDem, sCube, pVersion, pYear, 'P02', vDept, 'Dementia Residential', vFunding );
+CellIncrementN( vNursing, sCube, pVersion, pYear, 'P02', vDept, 'Older Person Nursing', vFunding ); 
+CellIncrementN( vDemNurse, sCube, pVersion, pYear, 'P02', vDept, 'Dementia Nursing', vFunding ); 
+CellIncrementN( vABI, sCube, pVersion, pYear, 'P02', vDept, 'ABI Beds', vFunding ); 
+CellIncrementN( vReable, sCube, pVersion, pYear, 'P02', vDept, 'Reablement', vFunding ); 
+CellIncrementN( vSpecialist, sCube, pVersion, pYear, 'P02', vDept, 'Specialist', vFunding ); 
+CellIncrementN( vMental, sCube, pVersion, pYear, 'P02', vDept, 'Mental Health', vFunding ); 
+CellIncrementN( vRespite, sCube, pVersion, pYear, 'P02', vDept, 'Respite', vFunding ); 
+CellIncrementN( vSupported, sCube, pVersion, pYear, 'P02', vDept, 'Supported Living', vFunding ); 
+CellIncrementN( vDayCare, sCube, pVersion, pYear, 'P02', vDept, 'Older Person Day Care', vFunding ); 
+CellIncrementN( vDemDayCare, sCube, pVersion, pYear, 'P02', vDept, 'Dementia Day Care', vFunding ); 
+CellIncrementN( vFlats, sCube, pVersion, pYear, 'P02', vDept, 'Supported Living', vFunding ); 
+
+CellIncrementN( vOPRB1, sCube, pVersion, pYear, 'P03', vDept, 'OPR1', vFunding ); 
+CellIncrementN( vOPRB2, sCube, pVersion, pYear, 'P03', vDept, 'OPR2', vFunding ); 
+CellIncrementN( vOPRB3, sCube, pVersion, pYear, 'P03', vDept, 'OPR3', vFunding ); 
+CellIncrementN( vDem, sCube, pVersion, pYear, 'P03', vDept, 'Dementia Residential', vFunding ); 
+CellIncrementN( vNursing, sCube, pVersion, pYear, 'P03', vDept, 'Older Person Nursing', vFunding ); 
+CellIncrementN( vDemNurse, sCube, pVersion, pYear, 'P03', vDept, 'Dementia Nursing', vFunding ); 
+CellIncrementN( vABI, sCube, pVersion, pYear, 'P03', vDept, 'ABI Beds', vFunding ); 
+CellIncrementN( vReable, sCube, pVersion, pYear, 'P03', vDept, 'Reablement', vFunding ); 
+CellIncrementN( vSpecialist, sCube, pVersion, pYear, 'P03', vDept, 'Specialist', vFunding ); 
+CellIncrementN( vMental, sCube, pVersion, pYear, 'P03', vDept, 'Mental Health', vFunding ); 
+CellIncrementN( vRespite, sCube, pVersion, pYear, 'P03', vDept, 'Respite', vFunding ); 
+CellIncrementN( vSupported, sCube, pVersion, pYear, 'P03', vDept, 'Supported Living', vFunding ); 
+CellIncrementN( vDayCare, sCube, pVersion, pYear, 'P03', vDept, 'Older Person Day Care', vFunding ); 
+CellIncrementN( vDemDayCare, sCube, pVersion, pYear, 'P03', vDept, 'Dementia Day Care', vFunding ); 
+CellIncrementN( vFlats, sCube, pVersion, pYear, 'P03', vDept, 'Supported Living', vFunding ); 
+
+
+CellIncrementN( vOPRB1, sCube, pVersion, pYear, 'P04', vDept, 'OPR1', vFunding ); 
+CellIncrementN( vOPRB2, sCube, pVersion, pYear, 'P04', vDept, 'OPR2', vFunding ); 
+CellIncrementN( vOPRB3, sCube, pVersion, pYear, 'P04', vDept, 'OPR3', vFunding ); 
+CellIncrementN( vDem, sCube, pVersion, pYear, 'P04', vDept, 'Dementia Residential', vFunding ); 
+CellIncrementN( vNursing, sCube, pVersion, pYear, 'P04', vDept, 'Older Person Nursing', vFunding ); 
+CellIncrementN( vDemNurse, sCube, pVersion, pYear, 'P04', vDept, 'Dementia Nursing', vFunding ); 
+CellIncrementN( vABI, sCube, pVersion, pYear, 'P04', vDept, 'ABI Beds', vFunding ); 
+CellIncrementN( vReable, sCube, pVersion, pYear, 'P04', vDept, 'Reablement', vFunding ); 
+CellIncrementN( vSpecialist, sCube, pVersion, pYear, 'P04', vDept, 'Specialist', vFunding ); 
+CellIncrementN( vMental, sCube, pVersion, pYear, 'P04', vDept, 'Mental Health', vFunding ); 
+CellIncrementN( vRespite, sCube, pVersion, pYear, 'P04', vDept, 'Respite', vFunding ); 
+CellIncrementN( vSupported, sCube, pVersion, pYear, 'P04', vDept, 'Supported Living', vFunding ); 
+CellIncrementN( vDayCare, sCube, pVersion, pYear, 'P04', vDept, 'Older Person Day Care', vFunding ); 
+CellIncrementN( vDemDayCare, sCube, pVersion, pYear, 'P04', vDept, 'Dementia Day Care', vFunding ); 
+CellIncrementN( vFlats, sCube, pVersion, pYear, 'P04', vDept, 'Supported Living', vFunding ); 
+
+CellIncrementN( vOPRB1, sCube, pVersion, pYear, 'P05', vDept, 'OPR1', vFunding ); 
+CellIncrementN( vOPRB2, sCube, pVersion, pYear, 'P05', vDept, 'OPR2', vFunding ); 
+CellIncrementN( vOPRB3, sCube, pVersion, pYear, 'P05', vDept, 'OPR3', vFunding ); 
+CellIncrementN( vDem, sCube, pVersion, pYear, 'P05', vDept, 'Dementia Residential', vFunding ); 
+CellIncrementN( vNursing, sCube, pVersion, pYear, 'P05', vDept, 'Older Person Nursing', vFunding ); 
+CellIncrementN( vDemNurse, sCube, pVersion, pYear, 'P05', vDept, 'Dementia Nursing', vFunding ); 
+CellIncrementN( vABI, sCube, pVersion, pYear, 'P05', vDept, 'ABI Beds', vFunding ); 
+CellIncrementN( vReable, sCube, pVersion, pYear, 'P05', vDept, 'Reablement', vFunding ); 
+CellIncrementN( vSpecialist, sCube, pVersion, pYear, 'P05', vDept, 'Specialist', vFunding ); 
+CellIncrementN( vMental, sCube, pVersion, pYear, 'P05', vDept, 'Mental Health', vFunding ); 
+CellIncrementN( vRespite, sCube, pVersion, pYear, 'P05', vDept, 'Respite', vFunding ); 
+CellIncrementN( vSupported, sCube, pVersion, pYear, 'P05', vDept, 'Supported Living', vFunding ); 
+CellIncrementN( vDayCare, sCube, pVersion, pYear, 'P05', vDept, 'Older Person Day Care', vFunding ); 
+CellIncrementN( vDemDayCare, sCube, pVersion, pYear, 'P05', vDept, 'Dementia Day Care', vFunding ); 
+CellIncrementN( vFlats, sCube, pVersion, pYear, 'P05', vDept, 'Supported Living', vFunding ); 
+
+CellIncrementN( vOPRB1, sCube, pVersion, pYear, 'P06', vDept, 'OPR1', vFunding ); 
+CellIncrementN( vOPRB2, sCube, pVersion, pYear, 'P06', vDept, 'OPR2', vFunding ); 
+CellIncrementN( vOPRB3, sCube, pVersion, pYear, 'P06', vDept, 'OPR3', vFunding ); 
+CellIncrementN( vDem, sCube, pVersion, pYear, 'P06', vDept, 'Dementia Residential', vFunding ); 
+CellIncrementN( vNursing, sCube, pVersion, pYear, 'P06', vDept, 'Older Person Nursing', vFunding ); 
+CellIncrementN( vDemNurse, sCube, pVersion, pYear, 'P06', vDept, 'Dementia Nursing', vFunding ); 
+CellIncrementN( vABI, sCube, pVersion, pYear, 'P06', vDept, 'ABI Beds', vFunding ); 
+CellIncrementN( vReable, sCube, pVersion, pYear, 'P06', vDept, 'Reablement', vFunding ); 
+CellIncrementN( vSpecialist, sCube, pVersion, pYear, 'P06', vDept, 'Specialist', vFunding ); 
+CellIncrementN( vMental, sCube, pVersion, pYear, 'P06', vDept, 'Mental Health', vFunding ); 
+CellIncrementN( vRespite, sCube, pVersion, pYear, 'P06', vDept, 'Respite', vFunding ); 
+CellIncrementN( vSupported, sCube, pVersion, pYear, 'P06', vDept, 'Supported Living', vFunding ); 
+CellIncrementN( vDayCare, sCube, pVersion, pYear, 'P06', vDept, 'Older Person Day Care', vFunding ); 
+CellIncrementN( vDemDayCare, sCube, pVersion, pYear, 'P06', vDept, 'Dementia Day Care', vFunding ); 
+CellIncrementN( vFlats, sCube, pVersion, pYear, 'P06', vDept, 'Supported Living', vFunding ); 
+
+CellIncrementN( vOPRB1, sCube, pVersion, pYear, 'P07', vDept, 'OPR1', vFunding ); 
+CellIncrementN( vOPRB2, sCube, pVersion, pYear, 'P07', vDept, 'OPR2', vFunding ); 
+CellIncrementN( vOPRB3, sCube, pVersion, pYear, 'P07', vDept, 'OPR3', vFunding ); 
+CellIncrementN( vDem, sCube, pVersion, pYear, 'P07', vDept, 'Dementia Residential', vFunding ); 
+CellIncrementN( vNursing, sCube, pVersion, pYear, 'P07', vDept, 'Older Person Nursing', vFunding ); 
+CellIncrementN( vDemNurse, sCube, pVersion, pYear, 'P07', vDept, 'Dementia Nursing', vFunding ); 
+CellIncrementN( vABI, sCube, pVersion, pYear, 'P07', vDept, 'ABI Beds', vFunding ); 
+CellIncrementN( vReable, sCube, pVersion, pYear, 'P07', vDept, 'Reablement', vFunding ); 
+CellIncrementN( vSpecialist, sCube, pVersion, pYear, 'P07', vDept, 'Specialist', vFunding ); 
+CellIncrementN( vMental, sCube, pVersion, pYear, 'P07', vDept, 'Mental Health', vFunding ); 
+CellIncrementN( vRespite, sCube, pVersion, pYear, 'P07', vDept, 'Respite', vFunding ); 
+CellIncrementN( vSupported, sCube, pVersion, pYear, 'P07', vDept, 'Supported Living', vFunding ); 
+CellIncrementN( vDayCare, sCube, pVersion, pYear, 'P07', vDept, 'Older Person Day Care', vFunding ); 
+CellIncrementN( vDemDayCare, sCube, pVersion, pYear, 'P07', vDept, 'Dementia Day Care', vFunding ); 
+CellIncrementN( vFlats, sCube, pVersion, pYear, 'P07', vDept, 'Supported Living', vFunding ); 
+
+CellIncrementN( vOPRB1, sCube, pVersion, pYear, 'P08', vDept, 'OPR1', vFunding ); 
+CellIncrementN( vOPRB2, sCube, pVersion, pYear, 'P08', vDept, 'OPR2', vFunding ); 
+CellIncrementN( vOPRB3, sCube, pVersion, pYear, 'P08', vDept, 'OPR3', vFunding ); 
+CellIncrementN( vDem, sCube, pVersion, pYear, 'P08', vDept, 'Dementia Residential', vFunding ); 
+CellIncrementN( vNursing, sCube, pVersion, pYear, 'P08', vDept, 'Older Person Nursing', vFunding ); 
+CellIncrementN( vDemNurse, sCube, pVersion, pYear, 'P08', vDept, 'Dementia Nursing', vFunding ); 
+CellIncrementN( vABI, sCube, pVersion, pYear, 'P08', vDept, 'ABI Beds', vFunding ); 
+CellIncrementN( vReable, sCube, pVersion, pYear, 'P08', vDept, 'Reablement', vFunding ); 
+CellIncrementN( vSpecialist, sCube, pVersion, pYear, 'P08', vDept, 'Specialist', vFunding ); 
+CellIncrementN( vMental, sCube, pVersion, pYear, 'P08', vDept, 'Mental Health', vFunding ); 
+CellIncrementN( vRespite, sCube, pVersion, pYear, 'P08', vDept, 'Respite', vFunding ); 
+CellIncrementN( vSupported, sCube, pVersion, pYear, 'P08', vDept, 'Supported Living', vFunding ); 
+CellIncrementN( vDayCare, sCube, pVersion, pYear, 'P08', vDept, 'Older Person Day Care', vFunding ); 
+CellIncrementN( vDemDayCare, sCube, pVersion, pYear, 'P08', vDept, 'Dementia Day Care', vFunding ); 
+CellIncrementN( vFlats, sCube, pVersion, pYear, 'P08', vDept, 'Supported Living', vFunding ); 
+
+CellIncrementN( vOPRB1, sCube, pVersion, pYear, 'P09', vDept, 'OPR1', vFunding ); 
+CellIncrementN( vOPRB2, sCube, pVersion, pYear, 'P09', vDept, 'OPR2', vFunding ); 
+CellIncrementN( vOPRB3, sCube, pVersion, pYear, 'P09', vDept, 'OPR3', vFunding ); 
+CellIncrementN( vDem, sCube, pVersion, pYear, 'P09', vDept, 'Dementia Residential', vFunding ); 
+CellIncrementN( vNursing, sCube, pVersion, pYear, 'P09', vDept, 'Older Person Nursing', vFunding ); 
+CellIncrementN( vDemNurse, sCube, pVersion, pYear, 'P09', vDept, 'Dementia Nursing', vFunding ); 
+CellIncrementN( vABI, sCube, pVersion, pYear, 'P09', vDept, 'ABI Beds', vFunding ); 
+CellIncrementN( vReable, sCube, pVersion, pYear, 'P09', vDept, 'Reablement', vFunding ); 
+CellIncrementN( vSpecialist, sCube, pVersion, pYear, 'P09', vDept, 'Specialist', vFunding ); 
+CellIncrementN( vMental, sCube, pVersion, pYear, 'P09', vDept, 'Mental Health', vFunding ); 
+CellIncrementN( vRespite, sCube, pVersion, pYear, 'P09', vDept, 'Respite', vFunding ); 
+CellIncrementN( vSupported, sCube, pVersion, pYear, 'P09', vDept, 'Supported Living', vFunding ); 
+CellIncrementN( vDayCare, sCube, pVersion, pYear, 'P09', vDept, 'Older Person Day Care', vFunding ); 
+CellIncrementN( vDemDayCare, sCube, pVersion, pYear, 'P09', vDept, 'Dementia Day Care', vFunding ); 
+CellIncrementN( vFlats, sCube, pVersion, pYear, 'P09', vDept, 'Supported Living', vFunding ); 
+
+CellIncrementN( vOPRB1, sCube, pVersion, pYear, 'P10', vDept, 'OPR1', vFunding ); 
+CellIncrementN( vOPRB2, sCube, pVersion, pYear, 'P10', vDept, 'OPR2', vFunding ); 
+CellIncrementN( vOPRB3, sCube, pVersion, pYear, 'P10', vDept, 'OPR3', vFunding ); 
+CellIncrementN( vDem, sCube, pVersion, pYear, 'P10', vDept, 'Dementia Residential', vFunding ); 
+CellIncrementN( vNursing, sCube, pVersion, pYear, 'P10', vDept, 'Older Person Nursing', vFunding ); 
+CellIncrementN( vDemNurse, sCube, pVersion, pYear, 'P10', vDept, 'Dementia Nursing', vFunding ); 
+CellIncrementN( vABI, sCube, pVersion, pYear, 'P10', vDept, 'ABI Beds', vFunding ); 
+CellIncrementN( vReable, sCube, pVersion, pYear, 'P10', vDept, 'Reablement', vFunding ); 
+CellIncrementN( vSpecialist, sCube, pVersion, pYear, 'P10', vDept, 'Specialist', vFunding ); 
+CellIncrementN( vMental, sCube, pVersion, pYear, 'P10', vDept, 'Mental Health', vFunding ); 
+CellIncrementN( vRespite, sCube, pVersion, pYear, 'P10', vDept, 'Respite', vFunding ); 
+CellIncrementN( vSupported, sCube, pVersion, pYear, 'P10', vDept, 'Supported Living', vFunding ); 
+CellIncrementN( vDayCare, sCube, pVersion, pYear, 'P10', vDept, 'Older Person Day Care', vFunding ); 
+CellIncrementN( vDemDayCare, sCube, pVersion, pYear, 'P10', vDept, 'Dementia Day Care', vFunding ); 
+CellIncrementN( vFlats, sCube, pVersion, pYear, 'P10', vDept, 'Supported Living', vFunding ); 
+
+CellIncrementN( vOPRB1, sCube, pVersion, pYear, 'P11', vDept, 'OPR1', vFunding ); 
+CellIncrementN( vOPRB2, sCube, pVersion, pYear, 'P11', vDept, 'OPR2', vFunding ); 
+CellIncrementN( vOPRB3, sCube, pVersion, pYear, 'P11', vDept, 'OPR3', vFunding ); 
+CellIncrementN( vDem, sCube, pVersion, pYear, 'P11', vDept, 'Dementia Residential', vFunding ); 
+CellIncrementN( vNursing, sCube, pVersion, pYear, 'P11', vDept, 'Older Person Nursing', vFunding ); 
+CellIncrementN( vDemNurse, sCube, pVersion, pYear, 'P11', vDept, 'Dementia Nursing', vFunding ); 
+CellIncrementN( vABI, sCube, pVersion, pYear, 'P11', vDept, 'ABI Beds', vFunding ); 
+CellIncrementN( vReable, sCube, pVersion, pYear, 'P11', vDept, 'Reablement', vFunding ); 
+CellIncrementN( vSpecialist, sCube, pVersion, pYear, 'P11', vDept, 'Specialist', vFunding ); 
+CellIncrementN( vMental, sCube, pVersion, pYear, 'P11', vDept, 'Mental Health', vFunding ); 
+CellIncrementN( vRespite, sCube, pVersion, pYear, 'P11', vDept, 'Respite', vFunding ); 
+CellIncrementN( vSupported, sCube, pVersion, pYear, 'P11', vDept, 'Supported Living', vFunding ); 
+CellIncrementN( vDayCare, sCube, pVersion, pYear, 'P11', vDept, 'Older Person Day Care', vFunding ); 
+CellIncrementN( vDemDayCare, sCube, pVersion, pYear, 'P11', vDept, 'Dementia Day Care', vFunding ); 
+CellIncrementN( vFlats, sCube, pVersion, pYear, 'P11', vDept, 'Supported Living', vFunding ); 
+
+CellIncrementN( vOPRB1, sCube, pVersion, pYear, 'P12', vDept, 'OPR1', vFunding ); 
+CellIncrementN( vOPRB2, sCube, pVersion, pYear, 'P12', vDept, 'OPR2', vFunding ); 
+CellIncrementN( vOPRB3, sCube, pVersion, pYear, 'P12', vDept, 'OPR3', vFunding ); 
+CellIncrementN( vDem, sCube, pVersion, pYear, 'P12', vDept, 'Dementia Residential', vFunding ); 
+CellIncrementN( vNursing, sCube, pVersion, pYear, 'P12', vDept, 'Older Person Nursing', vFunding ); 
+CellIncrementN( vDemNurse, sCube, pVersion, pYear, 'P12', vDept, 'Dementia Nursing', vFunding ); 
+CellIncrementN( vABI, sCube, pVersion, pYear, 'P12', vDept, 'ABI Beds', vFunding ); 
+CellIncrementN( vReable, sCube, pVersion, pYear, 'P12', vDept, 'Reablement', vFunding ); 
+CellIncrementN( vSpecialist, sCube, pVersion, pYear, 'P12', vDept, 'Specialist', vFunding ); 
+CellIncrementN( vMental, sCube, pVersion, pYear, 'P12', vDept, 'Mental Health', vFunding ); 
+CellIncrementN( vRespite, sCube, pVersion, pYear, 'P12', vDept, 'Respite', vFunding ); 
+CellIncrementN( vSupported, sCube, pVersion, pYear, 'P12', vDept, 'Supported Living', vFunding ); 
+CellIncrementN( vDayCare, sCube, pVersion, pYear, 'P12', vDept, 'Older Person Day Care', vFunding ); 
+CellIncrementN( vDemDayCare, sCube, pVersion, pYear, 'P12', vDept, 'Dementia Day Care', vFunding ); 
+CellIncrementN( vFlats, sCube, pVersion, pYear, 'P12', vDept, 'Supported Living', vFunding ); 
+
+#endregion
+#region Epilog
+CubeSetLogChanges( sCube, nCubeLogging );
+#endregion

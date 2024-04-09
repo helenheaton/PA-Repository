@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Resident Related Costs Calculation",
+	"Hierarchies@Code.links":
+	[
+		"m_Resident Related Costs Calculation.hierarchies/m_Resident Related Costs Calculation.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Resident Related Costs Calculation')/Hierarchies('m_Resident Related Costs Calculation')"
+	}
+}

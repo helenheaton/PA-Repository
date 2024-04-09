@@ -1,0 +1,45 @@
+{
+	"@type":"Process",
+	"Name":"ADMIN - Unlock Financial Year",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"ADMIN - Unlock Financial Year.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"VariablesUIData":
+	[
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f"
+	],
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForClient":"Admin - Financial Year Control",
+		"dataSourceNameForServer":"Admin - Financial Year Control",
+		"view":"Process View"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"vYear",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vMeasure",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vValue",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

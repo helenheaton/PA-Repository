@@ -3,7 +3,7 @@
 	"Name":"z_Delete Persistent Feeders",
 	"HasSecurityAccess":false,
 	"Code@Code.link":"z_Delete Persistent Feeders.ti",
-	"UIData":"_ParameterConstraints=e30=€",
+	"UIData":"_ParameterConstraints=e30=\f",
 	"DataSource":
 	{
 		"Type":"None"

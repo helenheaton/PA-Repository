@@ -1,0 +1,23 @@
+{
+	"@type":"Cube",
+	"Name":"zArchive - Other Costs - Annual Cost Assumptions",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Other Costs')"
+		},
+		{
+			"@id":"Dimensions('m_Annual Cost Values')"
+		}
+	],
+	"Views@Code.links":[]
+}

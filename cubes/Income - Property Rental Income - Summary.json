@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Income - Property Rental Income - Summary",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Property Rental Income Element')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		}
+	],
+	"Rules@Code.link":"Income - Property Rental Income - Summary.rules",
+	"Views@Code.links":
+	[
+		"Income - Property Rental Income - Summary.views/Default.json"
+	]
+}

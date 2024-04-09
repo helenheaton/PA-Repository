@@ -1,0 +1,41 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Department].[Department]" : "Alias"
+		},
+		"ContextSets" : 
+		{
+			"[Department].[Department]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			},
+			"[t_Financial Year].[t_Financial Year]" : 
+			{
+				"Expression" : "{[t_Financial Year].[t_Financial Year].MEMBERS}"
+			},
+			"[t_Half].[t_Half]" : 
+			{
+				"Expression" : "{[t_Half].[t_Half].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Contract].[Contract]" : false,
+			"[Department].[Department]" : true,
+			"[Version].[Version]" : false,
+			"[m_Base Information].[m_Base Information]" : false,
+			"[t_Financial Year].[t_Financial Year]" : false,
+			"[t_Half].[t_Half]" : false
+		}
+	}
+}

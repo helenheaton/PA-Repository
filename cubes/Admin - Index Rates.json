@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"Admin - Index Rates",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Contract')"
+		},
+		{
+			"@id":"Dimensions('m_Index Rate Calculation')"
+		}
+	],
+	"Rules@Code.link":"Admin - Index Rates.rules",
+	"Views@Code.links":
+	[
+		"Admin - Index Rates.views/Default.json"
+	]
+}

@@ -1,0 +1,55 @@
+#region Prolog
+
+DatasourceNameForServer = 'model_upload/' | pFilename;
+
+TargetCubeName = 'Other Costs - Annual Cost Assumptions';
+
+sVersion = pVersion;
+
+
+#################################################################################
+### Define  and zero out Target View###
+ViewName='DATALOAD - Insurance Annual Cost';
+
+if(ViewExists(TargetCubeName,ViewName)=1);
+   ViewDestroy(TargetCubeName,ViewName);
+endif;
+ViewCreate(TargetCubeName,ViewName);
+
+# Create set for version dimension
+DimName='Version';
+SubName = ViewName;
+
+if(SubsetExists(DimName,SubName)=1);
+   SubsetDeleteAllElements(DimName,SubName);
+else;
+SubsetCreate(DimName,SubName);
+endif;
+
+SubsetElementInsert(DimName,SubName,pVersion,1);
+
+ViewSubsetAssign(TargetCubeName,ViewName,DimName,SubName);
+
+#Apply Current Year set
+ViewSubsetAssign(TargetCubeName,ViewName,'t_Year',pYear);
+
+#Apply All Leaves set to Departments
+ViewSubsetAssign(TargetCubeName,ViewName,'Department','All Leaves');
+
+#Apply Insurance set to Other Costs
+ViewSubsetAssign(TargetCubeName,ViewName,'Other Costs','Insurance');
+
+#Apply Fixed Amount set to m_Annual Cost Values
+ViewSubsetAssign(TargetCubeName,ViewName,'m_Annual Cost Values','Fixed Amount');
+
+#Zero out Cube
+ViewZeroOut(TargetCubeName,ViewName);
+#################################################################################
+#endregion
+#region Data
+cellputn(vAnnual_Amount, TargetCubeName, sVersion, pYear, vDepartment, 'Insurance', 'Fixed Amount');
+#endregion
+#region Epilog
+ViewDestroy(TargetCubeName,ViewName);
+SubsetDestroy('Version',SubName);
+#endregion

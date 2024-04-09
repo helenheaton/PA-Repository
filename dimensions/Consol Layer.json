@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Consol Layer",
+	"Hierarchies@Code.links":
+	[
+		"Consol Layer.hierarchies/Consol Layer.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Consol Layer')/Hierarchies('Consol Layer')"
+	}
+}

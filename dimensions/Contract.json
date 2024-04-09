@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Contract",
+	"Hierarchies@Code.links":
+	[
+		"Contract.hierarchies/Contract.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Contract')/Hierarchies('Contract')"
+	}
+}

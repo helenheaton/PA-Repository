@@ -1,0 +1,50 @@
+{
+	"@type":"MDXView",
+	"Name":"Budget Report View",
+	"MDX@Code.link":"Budget Report View.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Contract].[Contract]" : "MEMBER_NAME",
+			"[Department].[Department]" : "Alias",
+			"[Entity].[Entity]" : "MEMBER_NAME",
+			"[Nominal Code].[Nominal Code]" : "Alias",
+			"[Version].[Version]" : "MEMBER_NAME"
+		},
+		"ContextSets" : 
+		{
+			"[Contract].[Contract]" : 
+			{
+				"Expression" : "{[Contract].[Contract].MEMBERS}"
+			},
+			"[Department].[Department]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Entity].[Entity]" : 
+			{
+				"Expression" : "{[Entity].[Entity].MEMBERS}"
+			},
+			"[t_Period].[t_Period]" : 
+			{
+				"Expression" : "{TM1FILTERBYLEVEL([t_Period].[t_Period].MEMBERS , 0)}"
+			},
+			"[t_Year].[t_Year]" : 
+			{
+				"Expression" : "{[t_Year].[t_Year].[Year+1],[t_Year].[t_Year].[Current Year],[t_Year].[t_Year].[Year-1],[t_Year].[t_Year].[Year-2],[t_Year].[t_Year].[% Change on Prior Year]}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Contract].[Contract]" : false,
+			"[Department].[Department]" : true,
+			"[Entity].[Entity]" : false,
+			"[Nominal Code].[Nominal Code]" : true,
+			"[Version].[Version]" : false,
+			"[t_Period].[t_Period]" : false,
+			"[t_Year].[t_Year]" : false
+		}
+	}
+}

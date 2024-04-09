@@ -1,0 +1,38 @@
+{
+	"@type":"Cube",
+	"Name":"PL by Entity",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Contract')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		}
+	],
+	"Rules@Code.link":"PL by Entity.rules",
+	"Views@Code.links":
+	[
+		"PL by Entity.views/EXPORT - PL by Entity.json",
+		"PL by Entity.views/Source.json",
+		"PL by Entity.views/Budget Report View.json",
+		"PL by Entity.views/Default.json",
+		"PL by Entity.views/Summary.json",
+		"PL by Entity.views/Summary by Home.json"
+	]
+}

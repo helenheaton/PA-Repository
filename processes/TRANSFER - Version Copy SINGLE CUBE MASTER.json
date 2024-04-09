@@ -1,0 +1,33 @@
+{
+	"@type":"Process",
+	"Name":"TRANSFER - Version Copy SINGLE CUBE MASTER",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"TRANSFER - Version Copy SINGLE CUBE MASTER.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersionFrom",
+			"Prompt":"Version to Copy From",
+			"Value":"Scenario",
+			"Type":"String"
+		},
+		{
+			"Name":"pVersionTo",
+			"Prompt":"Version to Copy To",
+			"Value":"Board Version",
+			"Type":"String"
+		},
+		{
+			"Name":"pCube",
+			"Prompt":"Cube to Copy",
+			"Value":"Subcontract - Variable Base Amount",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

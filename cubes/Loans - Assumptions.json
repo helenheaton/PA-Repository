@@ -1,0 +1,14 @@
+{
+	"@type":"Cube",
+	"Name":"Loans - Assumptions",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('m_Loan Assumptions')"
+		}
+	],
+	"Views@Code.links":[]
+}

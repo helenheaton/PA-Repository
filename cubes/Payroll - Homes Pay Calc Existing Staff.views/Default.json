@@ -1,0 +1,41 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Department].[Department]" : "Alias"
+		},
+		"ContextSets" : 
+		{
+			"[Department].[Department]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Payroll Contract Type].[Payroll Contract Type]" : 
+			{
+				"Expression" : "{[Payroll Contract Type].[Payroll Contract Type].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			},
+			"[t_Year].[t_Year]" : 
+			{
+				"Expression" : "{[t_Year].[t_Year].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Department].[Department]" : true,
+			"[Payroll Contract Type].[Payroll Contract Type]" : false,
+			"[Staff Grade].[Staff Grade]" : true,
+			"[Version].[Version]" : false,
+			"[m_Payroll Homes Pay Calculation Existing Staff].[m_Payroll Homes Pay Calculation Existing Staff]" : true,
+			"[t_Year].[t_Year]" : false
+		}
+	}
+}

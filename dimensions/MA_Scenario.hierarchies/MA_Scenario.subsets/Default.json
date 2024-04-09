@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Default",
-	"Expression":"{[MA_Scenario].[MA_Scenario].MEMBERS}"
-}

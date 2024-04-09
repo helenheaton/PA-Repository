@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Depreciation and Amortisation",
+	"ExpandAbove":true,
+	"Expression":"{DRILLDOWNMEMBER({[Nominal Code].[Nominal Code].[Depreciation and amortisation]} , {[Nominal Code].[Nominal Code].[Depreciation and amortisation]} , RECURSIVE)}"
+}

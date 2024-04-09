@@ -1,0 +1,36 @@
+#region Prolog
+
+nTemp = 1;
+sVersion = 'Actual';
+sDim = 'Entity';
+sSubset = GetProcessName|'_source';
+
+
+# Create source view
+
+SubsetDestroy( sDim, sSubset );
+SubsetCreate( sDim, sSubset, nTemp );
+SubsetMDXSet( sDim, sSubset, 'TM1Filterbylevel(TM1SubsetAll(['| sDim |']),0)' );
+SubsetMDXSet( sDim, sSubset, '' );
+
+DataSourceType = 'SUBSET';
+DatasourceDimensionSubset = sSubset;
+DatasourceNameForClient = sDim;
+DatasourceNameForServer = sDim;
+
+# Cube is cleared in the second process. 
+#endregion
+#region Data
+
+vEntity = Attrs('Entity', vEntity, 'File Name');
+
+sFileLocation = GetProcessErrorFileDirectory;
+sFileLocation = Subst(sFileLocation, 1, LONG( sFileLocation )-5)|'Data\Model_Upload';
+sFileName = vEntity | sVersion | ' ' | pYear | '.csv';
+
+If(FileExists( sFileLocation | '\' | sFileName)<>0);
+  ExecuteProcess( 'DATALOAD - PL by Entity Actual', 'pEntity', vEntity, 'pYear', pYear);
+Else;
+  ItemReject( sFileName | 'File does not exist' );
+Endif;
+#endregion

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Bed Types",
+	"Hierarchies@Code.links":
+	[
+		"Bed Types.hierarchies/Bed Types.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Bed Types')/Hierarchies('Bed Types')"
+	}
+}

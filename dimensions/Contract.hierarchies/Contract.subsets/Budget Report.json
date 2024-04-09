@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Budget Report",
+	"Expression":"{[Contract].[Contract].MEMBERS}"
+}

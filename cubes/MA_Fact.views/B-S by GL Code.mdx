@@ -1,1 +1,0 @@
-SELECT {DRILLDOWNMEMBER({[Period].[Period].[2022]} , {[Period].[Period].[2022]} , RECURSIVE)} ON 0, {TM1TOGGLEEXPANDMODE({TM1SubsetToSet([TM1 Accounts].[TM1 Accounts] , "B-S Report Format" , "public")}, EXPAND_ABOVE)} ON 1 FROM [MA_Fact] WHERE ([Companies].[Companies].[BR1], [YTD-Month].[YTD-Month].[Month], [MA_Scenario].[MA_Scenario].[Actual], [MA_Layer].[MA_Layer].[Source LC])

@@ -1,0 +1,94 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Annual Cost Values",
+	"Elements":
+	[
+		{
+			"Name":"Cost Type / Frequency",
+			"Type":"String"
+		},
+		{
+			"Name":"Total Amounts",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total Variable Amounts",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Fixed Amount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variable Amount (1 - 10 Beds)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variable Amount (11 - 24 Beds)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variable Amount (25 - 39 Beds)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variable Amount (40 - 59 Beds)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variable Amount (60+ Beds)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Variable Amount (Day Care Places)",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total Amounts",
+			"ComponentName":"Fixed Amount",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Amounts",
+			"ComponentName":"Total Variable Amounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Variable Amounts",
+			"ComponentName":"Variable Amount (1 - 10 Beds)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Variable Amounts",
+			"ComponentName":"Variable Amount (11 - 24 Beds)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Variable Amounts",
+			"ComponentName":"Variable Amount (25 - 39 Beds)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Variable Amounts",
+			"ComponentName":"Variable Amount (40 - 59 Beds)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Variable Amounts",
+			"ComponentName":"Variable Amount (60+ Beds)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Variable Amounts",
+			"ComponentName":"Variable Amount (Day Care Places)",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_Annual Cost Values.subsets/Fixed Amount.json"
+	]
+}

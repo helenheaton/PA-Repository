@@ -1,0 +1,204 @@
+# --------------------------------------------------------------------------------------------------
+# PL by Dept
+# Created by Cathy # Last updated 29/11/2023
+# --------------------------------------------------------------------------------------------------
+
+SKIPCHECK;
+FEEDSTRINGS;
+
+['Scenario']=N: stet;
+
+['% Change on Prior Year']=C:  (['Year+1']-['Current Year'])\['Current Year'];
+
+
+#Region Opening and Closing Months
+
+[]=N:
+IF(DB('Admin - Department Control', !Department, 'Open Year')@='',
+  Continue,
+  IF(Numbr(Attrs('t_Year', !t_Year, 'Financial Year')) < Numbr(DB('Admin - Department Control', !Department, 'Open Year')),
+    0,
+    Continue));
+
+[]=N:
+IF(DB('Admin - Department Control', !Department, 'Open Year')@='',
+  Continue,
+  IF(Numbr(Attrs('t_Year', !t_Year, 'Financial Year')) = Numbr(DB('Admin - Department Control', !Department, 'Open Year')),
+    IF(AttrN('t_Period', !t_Period, 'Index') < AttrN('t_Period',DB('Admin - Department Control', !Department, 'Open Month'), 'Index'),
+      0,
+      Continue),
+    Continue));
+
+[]=N:
+IF(DB('Admin - Department Control', !Department, 'Close Year')@='',
+  Continue,
+  IF(Numbr(Attrs('t_Year', !t_Year, 'Financial Year')) > Numbr(DB('Admin - Department Control', !Department, 'Close Year')),
+    0,
+    Continue));
+
+[]=N:
+IF(DB('Admin - Department Control', !Department, 'Close Year')@='',
+  Continue,
+  IF(Numbr(Attrs('t_Year', !t_Year, 'Financial Year')) = Numbr(DB('Admin - Department Control', !Department, 'Close Year')),
+    IF(AttrN('t_Period', !t_Period, 'Index') > AttrN('t_Period',DB('Admin - Department Control', !Department, 'Close Month'), 'Index'),
+      0,
+      Continue),
+    Continue));
+
+#EndRegion
+
+
+
+#############
+#Region ACTUALS from PL by Entity
+
+# When bringing back actuals to PL by Dept we need to exclude P200, P201, R280 and R281 as these are internal items and net each other off.
+['Actual',{'P200','P201','R280','R281'}]=N:0;
+
+# Actuals from PL by Entity
+['Actual']=N:
+DB('PL by Entity', !Version, !t_Period, !t_Year, 'All Entities', !Department, !Contract, !'Nominal Code' );
+
+#EndRegion 
+#############
+
+
+# Forecast is Actual until current month, then it takes the version specified in the model parameter cube
+['Forecast','Current Year']=N:
+  IF(AttrN('t_Period', !t_Period, 'Index')<=AttrN('t_Period', DB('Admin - Model Parameters', 'Actual Period', 'Value'), 'Index'),
+    ['Actual'],
+    DB('PL by Dept', DB('Admin - Model Parameters', 'Version for Forecast', 'Value'), !t_Period, !t_Year, !Department, !Contract, !'Nominal Code' )
+    );
+  
+
+#Region Data from other cubes: 
+
+# Specific values from managed services
+[]=N:
+IF(!Nominal Code@=DB('Subcontract - Nominal Lookup', Attrs('Department',!Department,'Company Name'), !Contract, 'Managed', 'Cost' ) %
+!Nominal Code@=DB('Subcontract - Nominal Lookup', Attrs('Department',!Department,'Company Name'), !Contract, 'Managed', 'Income' ),
+  IF( DB('Subcontract - Recharges', !Version, !t_Period, !t_Year, Attrs('Department',!Department,'Company Name'), !Department, !Contract, 'Managed', 'Credit' ) <>0
+   % DB('Subcontract - Recharges', !Version, !t_Period, !t_Year, Attrs('Department',!Department,'Company Name'), !Department, !Contract, 'Managed', 'MS Credit' )<>0
+   % DB('Subcontract - Recharges', !Version, !t_Period, !t_Year, Attrs('Department',!Department,'Company Name'), !Department, !Contract, 'Managed', 'MS Recharge' )<>0
+   % DB('Subcontract - Recharges', !Version, !t_Period, !t_Year, Attrs('Department',!Department,'Company Name'), !Department, !Contract, 'Managed', 'Recharge' )<>0,
+    DB('Subcontract - Recharges', !Version, !t_Period, !t_Year, Attrs('Department',!Department,'Company Name'), !Department, !Contract, 'Managed', 'Credit' )
+    + DB('Subcontract - Recharges', !Version, !t_Period, !t_Year, Attrs('Department',!Department,'Company Name'), !Department, !Contract, 'Managed', 'MS Credit' )
+    + DB('Subcontract - Recharges', !Version, !t_Period, !t_Year, Attrs('Department',!Department,'Company Name'), !Department, !Contract, 'Managed', 'MS Recharge' )
+    + DB('Subcontract - Recharges', !Version, !t_Period, !t_Year, Attrs('Department',!Department,'Company Name'), !Department, !Contract, 'Managed', 'Recharge' )
+    ,continue)
+  ,continue);
+
+# Income by Home
+[]=N:
+If(!Contract@= Attrs('Department', !Department, 'Contract'),
+  IF(DB('Income by Home', !Version, !t_Period, !t_Year, !Department, !'Nominal Code', 'Value' )<>0, 
+    DB('Income by Home', !Version, !t_Period, !t_Year, !Department, !'Nominal Code', 'Value' ), 
+    continue),
+  continue);
+  
+  
+# Payroll cube
+[]=N:
+IF(DB('Payroll Costs by Dept', !Version, !t_Period, !t_Year, !Department, !Contract, !'Nominal Code' )<>0,
+  DB('Payroll Costs by Dept', !Version, !t_Period, !t_Year, !Department, !Contract, !'Nominal Code' ),
+  Continue);
+
+
+
+
+# Loans cube
+[]=N:
+IF(!Contract@=Attrs('Department',!Department,'Contract'),
+  IF(DB('Loans by Entity', !Version, !t_Period, !t_Year, 'Entity':'All Entities', !Department, 'All Loaning Entities', 'All Sources', !'Nominal Code', 'PL Interest' )<>0,
+    DB('Loans by Entity', !Version, !t_Period, !t_Year, 'Entity':'All Entities', !Department, 'All Loaning Entities', 'All Sources', !'Nominal Code', 'PL Interest' ),
+    Continue),
+  continue);
+  
+[]=N:
+IF(!Contract@=Attrs('Department',!Department,'Contract'),
+  IF(DB('Loans by Entity', !Version, !t_Period, !t_Year, 'Entity':'All Entities', !Department, 'All Loaning Entities', 'All Sources', !'Nominal Code', 'Internal PL Income' )<>0,
+    DB('Loans by Entity', !Version, !t_Period, !t_Year, 'Entity':'All Entities', !Department, 'All Loaning Entities', 'All Sources', !'Nominal Code', 'Internal PL Income' ),
+    Continue),
+  continue);
+
+# Group Recharges
+['NH44']=N:
+IF(!Contract@=Attrs('Department', !Department, 'Contract'),
+  IF(DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, !Department, 'All Admin Departments', 'NH44 Recharges', !'Nominal Code' )<>0,
+    DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, !Department, 'All Admin Departments', 'NH44 Recharges', !'Nominal Code' ),
+    Continue),
+  Continue);
+
+['NH49']=N:
+IF(!Contract@=Attrs('Department', !Department, 'Contract'),
+  IF(DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, !Department, 'All Admin Departments', 'NH49 Recharges', !'Nominal Code' )<>0,
+    DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, !Department, 'All Admin Departments', 'NH49 Recharges', !'Nominal Code' ),
+    Continue),
+  Continue);
+
+[]=N:
+IF(!Contract@=Attrs('Department', !Department, 'Contract'),
+  IF(DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, !Department, 'All Admin Departments', 'R299 (Services)', !'Nominal Code' )<>0,
+    DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, !Department, 'All Admin Departments', 'R299 (Services)', !'Nominal Code' ),
+    Continue),
+  Continue);
+
+[]=N:
+IF(!Contract@=Attrs('Department', !Department, 'Contract'),
+  IF(
+  #DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, !Department, 'All Admin Departments', 'R285 & R299 (Admin Depts)', !'Nominal Code' )<>0 % 
+  DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, 'All Departments', !Department, 'R285 & R299 (Admin Depts)', !'Nominal Code' )<>0,
+    DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, 'All Departments', !Department, 'R285 & R299 (Admin Depts)', !'Nominal Code' )
+    #+DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, !Department, 'All Admin Departments', 'R285 & R299 (Admin Depts)', !'Nominal Code' )
+    ,Continue),
+  Continue);
+
+['GP01']=N:
+IF(!Contract@=Attrs('Department', !Department, 'Contract'),
+  IF(DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, 'GP01', 'All Admin Departments', 'GP01 Recharges', !'Nominal Code' )<>0,
+    DB('Other Costs - Group Recharges', !Version, !t_Period, !t_Year, 'GP01',  'All Admin Departments' ,'GP01 Recharges', !'Nominal Code' ),
+    Continue),
+  Continue);
+
+# Insurance Recharges
+[]=N:
+IF(!Contract@=Attrs('Department', !Department, 'Contract'),
+  IF(DB('Other Costs - Insurance Recharges', !Version, !t_Period, !t_Year, !Department, 'All Entities', 'All Insurance Allocations', !'Nominal Code' )<>0
+  % DB('Other Costs - Insurance Recharges', !Version, !t_Period, !t_Year, !Department, 'All Entities', 'Total Insurance Costs', !'Nominal Code' )<>0,
+    DB('Other Costs - Insurance Recharges', !Version, !t_Period, !t_Year, !Department, 'All Entities', 'All Insurance Allocations', !'Nominal Code' ),
+    Continue),
+  Continue);
+
+# Other Costs by Dept cube
+[]=N:
+IF(!Contract@=Attrs('Department', !Department, 'Contract'),
+  IF(Attrs('Department', !Department, 'Not Recharged')@='Y',
+  IF(DB('Other Costs - Costs by Dept', !Version, !t_Period, !t_Year, !Department, !'Nominal Code' )<>0,
+    DB('Other Costs - Costs by Dept', !Version, !t_Period, !t_Year, !Department, !'Nominal Code' ),
+    Continue),
+    Continue),
+  Continue);
+
+[]=N:
+IF(!Contract@=Attrs('Department', !Department, 'Contract'),
+# These codes are excluded from coming to the PL by Dept cube
+  IF(!Nominal Code@<>'R203' & !Nominal Code@<>'S230' & !Nominal Code@<>'S258',
+    IF(DB('Other Costs - Costs by Dept', !Version, !t_Period, !t_Year, !Department, !'Nominal Code' )<>0,
+      DB('Other Costs - Costs by Dept', !Version, !t_Period, !t_Year, !Department, !'Nominal Code' ),
+      Continue),
+    Continue),
+  Continue);
+
+FEEDERS;
+
+['Actual','Current Year']              =>['Forecast'];
+['Board Version','Current Year']       =>['Forecast'];
+['Operational  Budget','Current Year'] =>['Forecast'];
+['Steady State','Current Year']        =>['Forecast'];
+
+# Conditional feeder - this is necessary
+[]=>DB('PL by Entity', !Version, !t_Period, !t_Year, 
+  IF(DB('Admin - Nominal Mapping', !Nominal Code, Attrs('Department', !Department, 'Mapping'))@='Standard', 
+    ATTRS('Department', !Department, 'Company Code'), 
+    DB('Admin - Nominal Mapping', !Nominal Code, Attrs('Department', !Department, 'Mapping'))),
+  !Department, !Contract, !'Nominal Code' );

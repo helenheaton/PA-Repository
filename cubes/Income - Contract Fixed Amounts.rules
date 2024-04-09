@@ -1,0 +1,126 @@
+  # --------------------------------------------------------------------------------------------------
+  # Contract Fixed Amounts
+  # Calculates the indexed annual amount for the fixed part of the major contracts
+  #
+  # Written by Jenny Hassett
+  # --------------------------------------------------------------------------------------------------
+ 
+SKIPCHECK;
+FEEDSTRINGS;
+
+#Base Contract Rate - Labour Element and Non Labour Element are manual entry into the base year and then rule will bring it forward into subsequent years
+#If year > base year, copy 'Base Contract Rate' from the prior year
+['Base Contract Rate - Labour element']=N:
+If((!t_Financial Year)@>db('Income - Contract Variations', !Version, ATTRS('Department',!Department,'Contract'), !'Contract Variations', 'Base Year' ),
+DB('Income - Contract Fixed Amounts', !Version, ATTRS('t_Financial Year', !t_Financial Year, 'Year-1'), !Department, !'Contract Variations', 'Base Contract Rate - Labour element' )
+,STET);
+
+['Base Contract Rate - Non Labour element']=N:
+If((!t_Financial Year)@>db('Income - Contract Variations', !Version, ATTRS('Department',!Department,'Contract'), !'Contract Variations', 'Base Year' ),
+DB('Income - Contract Fixed Amounts', !Version, ATTRS('t_Financial Year', !t_Financial Year, 'Year-1'), !Department, !'Contract Variations', 'Base Contract Rate - Non Labour element' )
+,STET);
+
+#Get the Prior Year Rate
+['Prior Year Rate - Labour element']=N:
+If((!t_financial year)@>db('Income - Contract Variations', !Version, ATTRS('Department',!Department,'Contract'), !'Contract Variations', 'Base Year' ),
+DB('Income - Contract Fixed Amounts', !Version, ATTRS('t_Financial Year', !t_Financial Year, 'Year-1'), !Department, !'Contract Variations', 'Uplifted Contract Rate - Labour element' )
+,STET);
+
+['Prior Year Rate - Non Labour element']=N:
+If((!t_financial year)@>db('Income - Contract Variations', !Version, ATTRS('Department',!Department,'Contract'), !'Contract Variations', 'Base Year' ),
+DB('Income - Contract Fixed Amounts', !Version, ATTRS('t_Financial Year', !t_Financial Year, 'Year-1'), !Department, !'Contract Variations', 'Uplifted Contract Rate - Non Labour element' )
+,STET);
+
+#If year > base year, copy 'Uplift Type' from the prior year
+['Uplift Type - Labour element']=S:
+If((!t_Financial Year)@>db('Income - Contract Variations', !Version, ATTRS('Department',!Department,'Contract'), !Contract Variations, 'Base Year' ),
+DB('Income - Contract Fixed Amounts', !Version, ATTRS('t_Financial Year', !t_Financial Year, 'Year-1'), !Department, !Contract Variations, 'Uplift Type - Labour element' )
+,STET);
+
+['Uplift Type - Non Labour element']=S:
+If((!t_Financial Year)@>db('Income - Contract Variations', !Version, ATTRS('Department',!Department,'Contract'), !Contract Variations, 'Base Year' ),
+DB('Income - Contract Fixed Amounts', !Version, ATTRS('t_Financial Year', !t_Financial Year, 'Year-1'), !Department, !Contract Variations, 'Uplift Type - Non Labour element' )
+,STET);
+
+#Get the relevant uplift % dependant on uplift type
+['Uplift % - Labour element']=N:
+  DB('Admin - Index Rates', !'t_Financial Year', ATTRS('Department',!Department,'Contract'), 
+  (DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Uplift Type - Labour element' )));
+  
+['Uplift % - Non Labour element']=N:
+  DB('Admin - Index Rates', !'t_Financial Year', ATTRS('Department',!Department,'Contract'), 
+  (DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Uplift Type - Non Labour element' )));  
+ 
+#Over-ride Uplift % is manual entry if relevant
+   
+
+#Calculate Uplifted Contract Rate based on the contract uplift
+#If Uplift type is Year on year, then use 'Prior Year Rate' & If there is an override uplift then use it, if not use original uplift %
+['Uplifted Contract Rate - Labour element']=N:
+    IF( ( DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Uplift Type - Labour element' )@='AWE / NLW to Use Year on Year' 
+        %DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Uplift Type - Labour element' )@='Mixed Year on Year')
+        &DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Override Uplift % - Labour element' )<>0
+       , (['Prior Year Rate - Labour element']*['Override Uplift % - Labour element'])+['Adjustment - Labour element']
+       , CONTINUE);
+    
+['Uplifted Contract Rate - Labour element']=N:
+    IF(  (DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Uplift Type - Labour element' )@='AWE / NLW to Use Year on Year' 
+        %DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Uplift Type - Labour element' )@='Mixed Year on Year')
+        &DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Override Uplift % - Labour element' )=0
+      ,  ['Prior Year Rate - Labour element']*['Uplift % - Labour element']
+      ,  CONTINUE);
+      
+['Uplifted Contract Rate - Labour element']=N:
+    IF( ( DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Uplift Type - Labour element' )@='AWE / NLW to Use' 
+        %DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Uplift Type - Labour element' )@='Override Mixed')
+        &DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Override Uplift % - Labour element' )<>0
+       , (['Prior Year Rate - Labour element']*['Override Uplift % - Labour element'])+['Adjustment - Labour element']
+       , CONTINUE);
+        
+['Uplifted Contract Rate - Labour element']=N:
+        (['Base Contract Rate - Labour element']*['Uplift % - Labour element'])+['Adjustment - Labour element'];
+
+#Repeat for Non Labour Element
+['Uplifted Contract Rate - Non Labour element']=N:
+    IF(  (DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Uplift Type - Non Labour element' )@='RPI / CPI to Use Year on Year' 
+        %DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Uplift Type - Non Labour element' )@='Mixed Year on Year')
+        &(DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Override Uplift % - Non Labour element' )<>0)
+      ,  (['Prior Year Rate - Non Labour element']*['Override Uplift % - Non Labour element']+['Adjustment - Non Labour element'])
+      ,  CONTINUE);
+    
+['Uplifted Contract Rate - Non Labour element']=N:
+    IF(  (DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Uplift Type - Non Labour element' )@='RPI / CPI to Use Year on Year'
+        %DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Uplift Type - Non Labour element' )@='Mixed Year on Year')
+        &(DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Override Uplift % - Non Labour element' )=0)
+     ,   (['Prior Year Rate - Non Labour element']*['Uplift % - Non Labour element'])+['Adjustment - Non Labour element']
+     ,   CONTINUE);
+     
+ ['Uplifted Contract Rate - Non Labour element']=N:
+    IF(  (DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Uplift Type - Non Labour element' )@='RPI / CPI to Use' 
+        %DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Uplift Type - Non Labour element' )@='Override Mixed')
+        &(DB('Income - Contract Fixed Amounts', !Version, !'t_Financial Year', !Department, !'Contract Variations', 'Override Uplift % - Non Labour element' )<>0)
+      ,  (['Prior Year Rate - Non Labour element']*['Override Uplift % - Non Labour element'])+['Adjustment - Non Labour element']
+      ,  CONTINUE);
+    
+['Uplifted Contract Rate - Non Labour element']=N:
+        (['Base Contract Rate - Non Labour element']*['Uplift % - Non Labour element'])+['Adjustment - Non Labour element'];
+
+
+FEEDERS;
+#Internal Feeders
+['Base Contract Rate']=>db('Income - Contract Fixed Amounts', !Version, ATTRS('t_Financial Year', !'t_Financial Year', 'Year+1'), !Department, !Contract Variations, 'Base Contract Rate - Labour element');
+['Base Contract Rate']=>db('Income - Contract Fixed Amounts', !Version, ATTRS('t_Financial Year', !'t_Financial Year', 'Year+1'), !Department, !Contract Variations, 'Base Contract Rate - Non Labour element'); 
+['Base Contract Rate - Labour element']=>['Uplifted Contract Rate - Labour element'];
+['Base Contract Rate - Non Labour element']=>['Uplifted Contract Rate - Non Labour element'];
+['Prior Year Rate - Labour element']=>['Uplifted Contract Rate - Labour element'];
+['Prior Year Rate - Non Labour element']=>['Uplifted Contract Rate - Non Labour element']; 
+['Prior Year Rate - Labour element']=>db('Income - Contract Fixed Amounts', !Version, ATTRS('t_Financial Year', !'t_Financial Year', 'Year+1'), !Department, !Contract Variations, 'Prior Year Rate - Labour element');
+['Prior Year Rate - Non Labour element']=>db('Income - Contract Fixed Amounts', !Version, ATTRS('t_Financial Year', !'t_Financial Year', 'Year+1'), !Department, !Contract Variations, 'Prior Year Rate - Non Labour element');  
+
+#External Feeders
+['Uplifted Contract Rate']=>db('Income - Unitary Charge Income', !Version, 'Year+1', 'FY', !Department, 'All Bed Types','Unitary Charge based on contract fixed amount');
+['Uplifted Contract Rate']=>db('Income - Unitary Charge Income', !Version, 'Year+1', 'FY', !Department, 'All Bed Types','FM External Income');
+
+['Uplifted Contract Rate']=>db('Income - Unitary Charge Income', !Version, 'Current Year', 'FY', !Department, 'All Bed Types','Unitary Charge based on contract fixed amount');
+['Uplifted Contract Rate']=>db('Income - Unitary Charge Income', !Version, 'Current Year', 'FY', !Department, 'All Bed Types','FM External Income');
+

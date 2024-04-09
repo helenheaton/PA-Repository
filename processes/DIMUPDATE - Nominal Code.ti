@@ -1,0 +1,32 @@
+#region Prolog
+
+sDim = 'Nominal Code';
+
+#endregion
+#region Metadata
+
+IF(Dimix(sDim, vCode)=0);
+  DimensionElementInsert( sDim, '',vCode, 'N' );
+Endif;
+
+#endregion
+#region Data
+
+AttrPutS( vDesc, sDim, vCode, 'Description');
+AttrPutS( vAlias, sDim, vCode, 'Alias');
+AttrPutS( vPL, sDim, vCode, 'PL Summary Allocation');
+
+IF(vHistoric@<>'');
+  AttrPutN( 1, sDim, vCode, 'Historic Only');
+Endif;
+
+IF(vWeight@='');
+  AttrPutN( 1, sDim, vCode, 'Weight');
+Else;
+  AttrPutN( numbr(vWeight), sDim, vCode, 'Weight');
+Endif;
+#endregion
+#region Epilog
+
+ExecuteProcess( 'DIMUPDATE - Nominal Code - Consolidations' );
+#endregion

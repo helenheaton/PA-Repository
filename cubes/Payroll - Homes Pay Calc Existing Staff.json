@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Payroll - Homes Pay Calc Existing Staff",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Payroll Contract Type')"
+		},
+		{
+			"@id":"Dimensions('Staff Grade')"
+		},
+		{
+			"@id":"Dimensions('m_Payroll Homes Pay Calculation Existing Staff')"
+		}
+	],
+	"Rules@Code.link":"Payroll - Homes Pay Calc Existing Staff.rules",
+	"Views@Code.links":
+	[
+		"Payroll - Homes Pay Calc Existing Staff.views/Default.json"
+	]
+}

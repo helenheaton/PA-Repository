@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"P&L",
-	"Expression":"{[TM1 Accounts].[TM1 Accounts].[Earnings],FILTER(TM1SUBSETALL([TM1 Accounts]) , [TM1 Accounts].[Account Type] = \"P&L\")}"
-}

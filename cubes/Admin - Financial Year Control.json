@@ -1,0 +1,14 @@
+{
+	"@type":"Cube",
+	"Name":"Admin - Financial Year Control",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('m_Control')"
+		}
+	],
+	"Views@Code.links":[]
+}

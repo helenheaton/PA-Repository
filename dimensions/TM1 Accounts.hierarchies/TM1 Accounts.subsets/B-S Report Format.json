@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"B-S Report Format",
-	"Expression":"{DRILLDOWNMEMBER({[TM1 Accounts].[TM1 Accounts].[Balance Sheet]} , {[TM1 Accounts].[TM1 Accounts].[Balance Sheet],[TM1 Accounts].[TM1 Accounts].[L2_Equity],[TM1 Accounts].[TM1 Accounts].[L2_Non Current Liabilities],[TM1 Accounts].[TM1 Accounts].[L2_Current Liabilities],[TM1 Accounts].[TM1 Accounts].[L2_Current Assets],[TM1 Accounts].[TM1 Accounts].[L2_Non Current Assets]} , RECURSIVE)}"
-}

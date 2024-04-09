@@ -1,0 +1,37 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+# If the recharge flag is not set, then set the value to 0 to stop any values being entered in the wrong place. No feeder needed. 
+['Value']=N:
+IF(AttrN('Contract',!Contract, 'Utility Recharge Flag')=0 & AttrN('Contract',!Contract, 'Supplementary Care Income Recharge Flag')=0,
+  0,
+  Continue);
+  
+['Value','Care AEI','De Montfort']=N:
+IF(Attrs('Department',!Department,'Contract')@='De Montfort',
+  DB('Income by Home', !Version, !t_Period, !t_Year, !Department, 'P111', 'Value' ),
+  Continue);
+
+['Value','FM AEI','BA07','Barton']=N:
+DB('Income by Home', !Version, !t_Period, !t_Year, !Department, 'P123', 'Value' );
+
+['Value','FM AEI','HH12','Herefordshire']=N:
+DB('Income by Home', !Version, !t_Period, !t_Year, !Department, 'P123', 'Value' );
+
+['Value','Care RPI','HH03','Herefordshire']=N:
+DB('Income by Home', !Version, !t_Period, !t_Year, !Department, 'P115', 'Value' );
+
+['Irrecoverable VAT calc','Current Year']=N:
+['Total for Irrecoverable VAT']*DB('Admin - Model Parameters', 'Current Year', 'VAT Rate'  );
+
+['Irrecoverable VAT calc', 'Year+1']=N:
+['Total for Irrecoverable VAT']*DB('Admin - Model Parameters', 'Budget Year', 'VAT Rate'  );
+
+FEEDERS;
+
+['Value']=>DB('Subcontract - Calculation', !Version, !t_Period, !t_Year, !Department, !Contract, !'Cost Type', 'Value' );
+['Total for Irrecoverable VAT']=>['Irrecoverable VAT calc'];
+
+
+#p111 demont income by home
+#kent and shrop FM contracts - needs to be linked to FM codes

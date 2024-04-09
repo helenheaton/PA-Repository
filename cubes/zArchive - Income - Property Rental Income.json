@@ -1,0 +1,29 @@
+{
+	"@type":"Cube",
+	"Name":"zArchive - Income - Property Rental Income",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Property Type')"
+		},
+		{
+			"@id":"Dimensions('Property Rental Income Element')"
+		},
+		{
+			"@id":"Dimensions('m_Property Rental Income Calculation')"
+		}
+	],
+	"Views@Code.links":[]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Cash Non PL Items",
+	"Hierarchies@Code.links":
+	[
+		"m_Cash Non PL Items.hierarchies/m_Cash Non PL Items.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Cash Non PL Items')/Hierarchies('m_Cash Non PL Items')"
+	}
+}

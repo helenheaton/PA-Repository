@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Loans - Working Capital Loans",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Loaning Entity')"
+		},
+		{
+			"@id":"Dimensions('m_Loans Working Capital')"
+		}
+	],
+	"Rules@Code.link":"Loans - Working Capital Loans.rules",
+	"Views@Code.links":
+	[
+		"Loans - Working Capital Loans.views/Default.json"
+	]
+}

@@ -1,0 +1,13 @@
+#region Prolog
+
+ncubes = dimsiz('}Cubes');
+
+n = 1; 
+
+While (n<=ncubes);
+scube = Dimnm('}Cubes', n);
+CubeProcessFeeders( sCube );
+n=n+1;
+End;
+
+#endregion

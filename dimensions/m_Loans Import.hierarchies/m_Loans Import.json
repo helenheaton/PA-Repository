@@ -1,0 +1,37 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Loans Import",
+	"Elements":
+	[
+		{
+			"Name":"Repayments",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Capital Repayments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cash Interest Repayments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"PL Interest",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Repayments",
+			"ComponentName":"Capital Repayments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Repayments",
+			"ComponentName":"Cash Interest Repayments",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

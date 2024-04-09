@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Payroll Other Costs",
+	"Elements":
+	[
+		{
+			"Name":"Agency",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Sleep In Costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Redundancy",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"On Call Allowance",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

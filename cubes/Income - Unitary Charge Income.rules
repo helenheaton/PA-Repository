@@ -1,0 +1,187 @@
+# --------------------------------------------------------------------------------------------------
+# Unitary Charge Income
+# Calculates total income from Unitary Charges for all major contracts
+#
+# Created by Jenny Hassett 
+# --------------------------------------------------------------------------------------------------
+
+SKIPCHECK;
+FEEDSTRINGS;
+
+# Get the number of days in the period
+  # If year is a leap year get 'Number of days leap'  
+  ['Number of Days']=
+      IF(MOD(NUMBR(ATTRS('t_Year', !t_Year, 'Financial Year'))+1,4)=0,
+           ATTRN('t_Period', !t_Period, 'Number of Days Leap'),
+           CONTINUE);
+   
+# Otherwise just get 'Number of days'
+  ['Number of Days']=  
+      ATTRN('t_Period', !t_Period, 'Number of Days');      
+      
+# Get the number of beds from the Income - Bed Numbers cube
+['Number of Beds','FY']=C:
+  ((['April']+['May']+['June']+['July']+['August']+['September']+['October']+['November']+['December']+['January']+['February']+['March'])/12);
+   
+  ['Number of Beds']=N:
+      DB('Income - Bed Numbers', !Version, !t_Year, !t_Period, !Department, !'Bed Types', 'Contract' );
+    
+# Get the number of Hours Care per Week from the Income - Bed Numbers cube
+  #['Number of Hours care per week']=N:
+     # DB('Income - Bed Numbers', !Version, !t_Year, !t_Period, !Department, '1:1 Hours', 'Contract' );
+      
+# Get the bed rate excl FNC from the Contract Bed Rates Cube
+  ['Bed Rate excl FNC','FY']=C: 
+((['April']+['May']+['June']+['July']+['August']+['September']+['October']+['November']+['December']+['January']+['February']+['March'])/12);
+ 
+   ['Bed Rate excl FNC']=N:
+        DB('Income - Contract Bed Rates', !Version, Attrs('t_Year',!t_Year,'Financial Year'), ATTRS('Department',!Department,'Contract'), !'Bed Types', 'Uplifted Bed Rate' );
+  
+      
+ # Get the FNC Rate from Model Parameters cube but only if Bed Type attribute is "Nursing Bed" and if FNC Calculated Separately flag = Yes
+   ['FNC','Current Year','FY']=C: 
+((['April']+['May']+['June']+['July']+['August']+['September']+['October']+['November']+['December']+['January']+['February']+['March'])/12);
+
+   ['FNC','Year+1','FY']=C: 
+((['April']+['May']+['June']+['July']+['August']+['September']+['October']+['November']+['December']+['January']+['February']+['March'])/12);
+
+  ['FNC','Current Year']=N:
+      IF(ATTRS('Bed Types', !Bed Types, 'Care Type' )@='Nursing Bed' & DB('Income - Unitary Charge Income', !Version, !t_Year, !t_Period, !Department, !'Bed Types', 'Calculate FNC Income Separately?' )@='Yes',
+      DB('Admin - Model Parameters', 'Current Year', 'FNC Rate'),
+      CONTINUE);
+     
+    ['FNC','Year+1']=N:
+      IF(ATTRS('Bed Types', !Bed Types, 'Care Type' )@='Nursing Bed' & DB('Income - Unitary Charge Income', !Version, !t_Year, !t_Period, !Department, !'Bed Types', 'Calculate FNC Income Separately?' )@='Yes',
+      DB('Admin - Model Parameters', 'Budget Year', 'FNC Rate'),
+      CONTINUE);
+
+# Bed Rate incl FNC is a consolidated element
+  ['Bed Rate incl FNC','FY']=C: 
+((['April']+['May']+['June']+['July']+['August']+['September']+['October']+['November']+['December']+['January']+['February']+['March'])/12);
+  
+# Calculate Total Unitary Charged based on bed numbers and bed rates
+#  For de Montfort contract, Monthly UC is annual amount split by 12
+['Unitary Charge based on bed numbers']=N:
+IF(ATTRS('Department',!Department,'Contract')@='De Montfort',
+(['Number of Beds']*(['Bed Rate excl FNC']/7)*365/12),
+CONTINUE);
+
+#  Day care is only for 5 days a week not 7 (entered into Day Care Days Cube):
+['Day Care Income','Dementia Day Care']=N:
+    (['Number of Beds']*(['Bed Rate excl FNC']/7*(DB('Day Care Days', !t_Year, !t_Period, 'Number of Day Care Days' ))));
+
+#    (['Number of Beds']*(['Bed Rate excl FNC']/7*['Number of Days']))/7*5;
+
+['Day Care Income','Older Person Day Care']=N:
+      (['Number of Beds']*(['Bed Rate excl FNC']/7*(DB('Day Care Days', !t_Year, !t_Period, 'Number of Day Care Days' ))));
+
+#     (['Number of Beds']*(['Bed Rate excl FNC']/7*['Number of Days']))/7*5;
+      
+#  Based on number of days
+['Unitary Charge based on bed numbers','Dementia Day Care']=N:
+0;
+
+['Unitary Charge based on bed numbers','Older Person Day Care']=N:
+0;
+
+['Unitary Charge based on bed numbers']=N:
+(['Number of Beds']*(['Bed Rate excl FNC']/7*['Number of Days']));
+
+# Get indexed annual fixed contract amount from Income - Contract Fixed Amounts'
+# Some of the annual contracts will be spread based on number of days in the month (Hereford / Nailsea / West Sussex)
+['Unitary Charge based on contract fixed amount', 'Current Year' , 'Other']=N:
+If(ATTRS('Contract',ATTRS('Department',!Department,'Contract'),'Spread Basis')@='No. of days',
+  DB('Income - Contract Fixed Amounts', !Version, (DB('Admin - Model Parameters', 'Current Year', 'Value' )), !Department, 'Total Contract incl variations','Uplifted Contract Rate' )
+  \IF(MOD(NUMBR(ATTRS('t_Year', !t_Year, 'Financial Year'))+1,4)=0           
+  ,ATTRN('t_Period', 'FY', 'Number of Days Leap')
+           ,ATTRN('t_Period', 'FY', 'Number of Days'))
+          *IF(MOD(NUMBR(ATTRS('t_Year', !t_Year, 'Financial Year'))+1,4)=0           
+  ,ATTRN('t_Period', !t_Period, 'Number of Days Leap')
+           ,ATTRN('t_Period', !t_Period, 'Number of Days')),+
+
+# Some of the annual contracts will be spread evenly across 12 months
+# (Camden / de Montfort / Barton / FM / Ledbury / Northants)
+
+ If(ATTRS('Contract',ATTRS('Department',!Department,'Contract'),'Spread Basis')@='Spread evenly',
+  DB('Income - Contract Fixed Amounts', !Version, (DB('Admin - Model Parameters', 'Current Year', 'Value' )), !Department, 'Total Contract incl variations','Uplifted Contract Rate' )/12,
+  CONTINUE));
+  
+['Unitary Charge based on contract fixed amount', 'Year+1' , 'Other']=N:
+If(ATTRS('Contract',ATTRS('Department',!Department,'Contract'),'Spread Basis')@='No. of days',
+  DB('Income - Contract Fixed Amounts', !Version, (DB('Admin - Model Parameters', 'Budget Year', 'Value' )), !Department, 'Total Contract incl variations','Uplifted Contract Rate' )
+  \IF(MOD(NUMBR(ATTRS('t_Year', !t_Year, 'Financial Year'))+1,4)=0           
+  ,ATTRN('t_Period', 'FY', 'Number of Days Leap')
+           ,ATTRN('t_Period', 'FY', 'Number of Days'))
+          *IF(MOD(NUMBR(ATTRS('t_Year', !t_Year, 'Financial Year'))+1,4)=0           
+  ,ATTRN('t_Period', !t_Period, 'Number of Days Leap')
+           ,ATTRN('t_Period', !t_Period, 'Number of Days')),+
+
+# Some of the annual contracts will be spread evenly across 12 months
+# (Camden / de Montfort / Barton / FM / Ledbury / Northants)
+
+ If(ATTRS('Contract',ATTRS('Department',!Department,'Contract'),'Spread Basis')@='Spread evenly',
+  DB('Income - Contract Fixed Amounts', !Version, (DB('Admin - Model Parameters', 'Budget Year', 'Value' )), !Department, 'Total Contract incl variations','Uplifted Contract Rate' )/12,
+  CONTINUE));
+  
+
+#FNC Income needs to be coded to FNC Income
+['FNC Income']=N:
+IF(ATTRS('Bed Types', !Bed Types, 'Care Type' )@='Nursing Bed' & DB('Income - Unitary Charge Income', !Version, !t_Year, !t_Period, !Department, !'Bed Types', 'Calculate FNC Income Separately?' )@='Yes',
+      ((['FNC']/7)*['Number of Days']*(['Number of Beds']-(['Number of Beds']*['FNC Void Assumption']))),
+      CONTINUE);
+
+# FM UC needs to be coded to FM External Income
+['FM External Income','Current Year','Other']=N:
+IF(ATTRS('Department',!Department,'Contract')@='Kent FM' % ATTRS('Department',!Department,'Contract')@='Shropshire FM',
+DB('Income - Contract Fixed Amounts', !Version, (DB('Admin - Model Parameters', 'Current Year', 'Value' )), !Department, 'Total Contract incl variations', 'Uplifted Contract Rate' )/12,
+CONTINUE);
+
+['FM External Income','Year+1','Other']=N:
+IF(ATTRS('Department',!Department,'Contract')@='Kent FM' % ATTRS('Department',!Department,'Contract')@='Shropshire FM',
+DB('Income - Contract Fixed Amounts', !Version, (DB('Admin - Model Parameters', 'Budget Year', 'Value' )), !Department, 'Total Contract incl variations', 'Uplifted Contract Rate' )/12,
+CONTINUE);
+ 
+# Adjustments are manual entry
+
+# Calculate Supplementary Income
+# de Montfort Contract
+['Supplementary Income','Current Year','Older Person Residential Band 2']=N:
+IF(ATTRS('Department',!Department,'Contract')@='De Montfort',
+['Number of Beds']*2*(DB('Income - Contract Bed Rates', !Version, (DB('Admin - Model Parameters', 'Current Year', 'Value' )), ATTRS('Department',!Department,'Contract'), 'Supplementary Hours', 'Uplifted Bed Rate' )/7*['Number of Days']),
+CONTINUE);
+
+['Supplementary Income','Current Year','Older Person Residential Band 3']=N:
+IF(ATTRS('Department',!Department,'Contract')@='De Montfort',
+['Number of Beds']*4*(DB('Income - Contract Bed Rates', !Version, (DB('Admin - Model Parameters', 'Current Year', 'Value' )), ATTRS('Department',!Department,'Contract'), 'Supplementary Hours', 'Uplifted Bed Rate' )/7*['Number of Days']),
+CONTINUE);
+
+['Supplementary Income','Year+1','Older Person Residential Band 2']=N:
+IF(ATTRS('Department',!Department,'Contract')@='De Montfort',
+['Number of Beds']*2*(DB('Income - Contract Bed Rates', !Version, (DB('Admin - Model Parameters', 'Budget Year', 'Value' )), ATTRS('Department',!Department,'Contract'), 'Supplementary Hours', 'Uplifted Bed Rate' )/7*['Number of Days']),
+CONTINUE);
+
+['Supplementary Income','Year+1','Older Person Residential Band 3']=N:
+IF(ATTRS('Department',!Department,'Contract')@='De Montfort',
+['Number of Beds']*4*(DB('Income - Contract Bed Rates', !Version, (DB('Admin - Model Parameters', 'Budget Year', 'Value' )), ATTRS('Department',!Department,'Contract'), 'Supplementary Hours', 'Uplifted Bed Rate' )/7*['Number of Days']),
+CONTINUE);
+
+# Total Contract Sum
+['Total Contract Sum','All Bed Types']=C:
+  ['Unitary Charge based on bed numbers']+['Unitary Charge based on contract fixed amount']+['FM External Income']+['Adjustments to Unitary Charges']+['Supplementary Income'];
+  
+#################################################################################################################
+FEEDERS;
+#################################################################################################################
+
+### Internal Feeders ###
+['Bed Rate excl FNC']=>['Unitary Charge based on bed numbers'];
+['Number of Beds']=>['Supplementary Income'];
+['Number of Beds']=>['Number of Days'];
+['Number of Beds']=>['FNC'];
+['Number of Beds']=>['Total Contract Sum','All Bed Types'];
+
+
+### External Feeders ###
+# Added by Helen 07/12/2023
+['All Bed Types'] => DB('Income - Unitary Charge Income - Summary', !Version, !t_Year, !t_Period, !Department, !m_Unitary Charge Calculation, ATTRS( 'm_Unitary Charge Calculation', !m_Unitary Charge Calculation, 'Nominal Code'));
+

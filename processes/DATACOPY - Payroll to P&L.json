@@ -1,0 +1,85 @@
+{
+	"@type":"Process",
+	"Name":"DATACOPY - Payroll to P&L",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"DATACOPY - Payroll to P&L.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"VariablesUIData":
+	[
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f",
+		"VarType=33\fColType=827\f"
+	],
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForClient":"Payroll Costs by Dept",
+		"dataSourceNameForServer":"Payroll Costs by Dept",
+		"view":"Source"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pVersion",
+			"Prompt":"Which Version",
+			"Value":"Board Version",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"Version",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"t_Period",
+			"Type":"String",
+			"Position":2,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"t_Year",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Department",
+			"Type":"String",
+			"Position":4,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Contract",
+			"Type":"String",
+			"Position":5,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"NominalCode",
+			"Type":"String",
+			"Position":6,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Value",
+			"Type":"Numeric",
+			"Position":7,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

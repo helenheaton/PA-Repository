@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Prop. Maint. Cost Type",
+	"Hierarchies@Code.links":
+	[
+		"Prop. Maint. Cost Type.hierarchies/Prop. Maint. Cost Type.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Prop. Maint. Cost Type')/Hierarchies('Prop. Maint. Cost Type')"
+	}
+}

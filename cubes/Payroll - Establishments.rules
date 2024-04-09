@@ -1,0 +1,9 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+FEEDERS;
+
+['Hours']=>DB('Payroll - Homes Pay Calc inc Vacancies', !Version, !t_Period, !t_Year, !Department, !'Staff Grade', 'Full Establishment Hours');
+
+# This is overfeeding on Other Costs but should not have a performance issue
+['Hours']=>DB('Other Costs - Resident & Staff Related & Other Costs', !Version, !t_Year, !t_Period, !Department, 'All Other Costs', 'Number of WTEs' );

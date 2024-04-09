@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"EXPORT - PL by Entity",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Entity')/Hierarchies('Entity')/Elements('Surehaven Glasgow')"
+		}
+	]
+}

@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"ExpandAbove":true,
+	"Expression":"{[m_Contract Fixed Amount].[m_Contract Fixed Amount].MEMBERS}"
+}

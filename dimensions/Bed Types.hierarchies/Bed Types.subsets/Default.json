@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Bed Types')/Hierarchies('Bed Types')/Elements('All Bed Types')"
+		}
+	]
+}

@@ -1,0 +1,26 @@
+{
+	"@type":"Cube",
+	"Name":"zArchive - Loans - Working Capital Loans",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Loaning Entity')"
+		},
+		{
+			"@id":"Dimensions('m_Loans Working Capital')"
+		}
+	],
+	"Views@Code.links":[]
+}

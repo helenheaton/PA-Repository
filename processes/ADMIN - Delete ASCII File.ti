@@ -1,0 +1,25 @@
+#region Prolog
+
+
+sFileLocation = GetProcessErrorFileDirectory;
+sFileLocation = Subst(sFileLocation, 1, LONG( sFileLocation )-5)|'Data\Model_Upload';
+
+sFileName = pCube | ' Extract.csv';
+
+IF(FileExists( sFileLocation |'\'| sFileName  )<>0);
+	ASCIIDelete( sFileLocation |'\'| sFileName );
+Endif;
+
+sFileName = pCube | ' Roll Forward Extract.csv';
+
+IF(FileExists( sFileLocation |'\'| sFileName  )<>0);
+	ASCIIDelete( sFileLocation |'\'| sFileName );
+Endif;
+
+
+sFileName = pCube | ' t_Year Extract.csv';
+
+IF(FileExists( sFileLocation |'\'| sFileName  )<>0);
+	ASCIIDelete( sFileLocation |'\'| sFileName );
+Endif;
+#endregion

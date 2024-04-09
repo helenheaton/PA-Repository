@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"zUserSelection",
-	"Expression":"{{STRTOMEMBER(\"[MA_Scenario].[\" + [User Parameters].(STRTOMEMBER(\"[}Clients].[\" + USERNAME + \"]\"),[zUser Model Parameter].[Compare to]) + \"]\")} + EXCEPT([MA_Scenario].[MA_Scenario].MEMBERS , {[MA_Scenario].[MA_Scenario].[Actual],[MA_Scenario].[MA_Scenario].[Access]})}"
-}

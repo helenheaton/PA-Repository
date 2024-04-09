@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"viewable",
+	"Expression":"{ORDER(FILTER(TM1SUBSETALL([Staff Member].[Staff Member]) , ([Staff Member].[Staff Member].CURRENTMEMBER.PROPERTIES(\"Suppress\") <> \"y\")) , [Staff Member].[Staff Member].CURRENTMEMBER.PROPERTIES(\"MEMBER_NAME\") , ASC)}"
+}

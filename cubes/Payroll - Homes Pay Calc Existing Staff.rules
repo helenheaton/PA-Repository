@@ -1,0 +1,282 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+
+#Region Imported Data
+
+['Hours']=N:
+DB('Payroll - Import', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Contracted Hours' );
+
+['Annual Salary']=N:
+DB('Payroll - Import', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Annual Salary' );
+
+['Bank Holiday Enhancements']=N:
+DB('Payroll - Import', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Bank Holiday Enhancements' );
+
+['Other Enhancements']=N:
+DB('Payroll - Import', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Enhancements' );
+
+['Pension Amount as at 1st April']=N:
+DB('Payroll - Import', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pension Amount 1st April' );
+
+#EndRegion
+
+
+
+#Region Internal Calcs
+
+# Should apply at all levels
+['Pension Percentage']=
+['Pension Amount as at 1st April']\['Annual Salary'];
+
+# Should apply at all levels
+['Current Hourly Rate']=
+['Annual Salary']\ (['Hours']*52.143);
+
+#EndRegion
+
+
+
+#Region April
+
+# Override is a true override
+
+['April Override Value']=N:
+ IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - April')@='Override',
+  stet,
+  0);
+
+['Hourly Pay - April']=
+IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - April')@='Override',
+    ['April Override Value'],
+  Continue);
+
+# Monetary Increase
+
+['April Monetary Increase']=N:
+ IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - April')@='Monetary Amount',
+  stet,
+  0);
+  
+['Hourly Pay - April']=
+IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - April')@='Monetary Amount',
+  ['Current Hourly Rate']+['April Monetary Increase'],
+  CONTINUE);
+  
+# Pecentage Increase
+
+['April Increase Percentage']=N:
+  DB('Payroll - Assumptions', !Version, !t_Year, 'Care Staff April Increase' );
+
+['April Increase Value']=N:
+IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - April')@='Percentage Increase',
+  ['Current Hourly Rate'] * DB('Payroll - Assumptions', !Version, !t_Year, 'Care Staff April Increase' ),
+  0);
+
+['Hourly Pay - April']=
+IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - April')@='Percentage Increase',
+  ['Current Hourly Rate']+['April Increase Value'],
+  CONTINUE);
+
+# Living Wage Increase
+
+['Living Wage Increase Value']=N:
+IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - April')@='Living Wage Increase',
+  DB('Payroll - Assumptions', !Version, !t_Year, 'Living Wage Increase on Prior Year' ),
+  0);
+
+['Hourly Pay - April']=
+IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - April')@='Living Wage Increase',
+  ['Current Hourly Rate']+['Living Wage Increase Value'],
+  CONTINUE);
+
+# If blank
+
+['Hourly Pay - April']=
+IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - April')@='',
+  ['Current Hourly Rate'],
+  CONTINUE);
+
+# Other Costs
+
+['Annual Salary - April']=N:
+['Hourly Pay - April']*['Hours']*52.143;
+
+['Pension Amount - April']=N:
+['Pensionable Salary - April']*['Pension Percentage'];
+
+['Employers NI - April']= N:
+IF( ['Pensionable Salary - April']\
+  (['Hours']\  DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Whole Hours Assumption' )
+  )>DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Allowance' ),
+  (['Pensionable Salary - April']-(DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Allowance' )
+    *(['Hours']\DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Whole Hours Assumption' ))))
+    *DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Percentage' ),
+  0);
+
+['Monthly Apprentice Levy - April']=N:
+['Annual Salary - April']\12
+*DB('Payroll - Assumptions', !Version, !t_Year, 'Apprentice Levy Percentage' );
+
+#EndRegion
+
+
+
+#Region October
+
+# Override is a true override
+
+['October Override Value']=
+IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - October')@='Override',
+  stet,
+  0);
+
+['Hourly Pay - October']=
+IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - October')@='Override',
+    ['October Override Value'],
+  Continue);
+  
+# Monetary Increase
+
+['October Monetary Increase']=N:
+ IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - October')@='Monetary Amount',
+  stet,
+  0);
+
+['Hourly Pay - October']=
+IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - October')@='Monetary Amount',
+  ['Hourly Pay - April']+['October Monetary Increase'],
+  CONTINUE);
+  
+# Pecentage Increase
+
+['October Increase Percentage']=N:
+  DB('Payroll - Assumptions', !Version, !t_Year, 'Care Staff October Increase' );
+
+['October Increase Value']=N:
+IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - October')@='Percentage Increase',
+  ['Hourly Pay - April'] * DB('Payroll - Assumptions', !Version, !t_Year, 'Care Staff October Increase' ),
+  0);
+
+['Hourly Pay - October']=
+IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - October')@='Percentage Increase',
+  ['Hourly Pay - April']+['October Increase Value'],
+  CONTINUE);
+
+# If blank
+
+['Hourly Pay - October']=
+IF(DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, !'Payroll Contract Type', !'Staff Grade', 'Pay Increase Method - October')@='',
+  ['Hourly Pay - April'],
+  CONTINUE);
+
+# Other Costs
+
+['Annual Salary - October']=N:
+['Hourly Pay - October']*['Hours']*52.143;
+
+['Pension Amount - October']=N:
+['Pensionable Salary - October']*['Pension Percentage'];
+
+['Employers NI - October']= N:
+IF( ['Pensionable Salary - October']\
+  (['Hours']\DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Whole Hours Assumption' )
+  )>DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Allowance' ),
+  (['Pensionable Salary - October']-(DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Allowance' )
+    *(['Hours']\DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Whole Hours Assumption' ))))
+    *DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Percentage' ),
+  0);
+
+['Monthly Apprentice Levy - October']=N:
+['Annual Salary - October']\12
+*DB('Payroll - Assumptions', !Version, !t_Year, 'Apprentice Levy Percentage' );
+
+#EndRegion
+
+
+
+
+FEEDERS;
+
+# Internal Feeders
+
+#Region Internal Calcs
+
+['Pension Amount as at 1st April']=>['Pension Percentage'];
+
+['Hours']=>['Current Hourly Rate'];
+
+#EndRegion
+
+
+#Region April
+
+['April Override Value']=>['Hourly Pay - April'];
+
+['Current Hourly Rate']=>['Hourly Pay - April'];
+
+['April Monetary Increase']=>['Hourly Pay - April'];
+
+['Hours']=>['April Increase Percentage'];
+
+['Current Hourly Rate']=>['April Increase Value'];
+
+['April Increase Value']=>['Hourly Pay - April'];
+
+['Hours']=>['Living Wage Increase Value'];
+
+['Living Wage Increase Value']=>['Hourly Pay - April'];
+
+['Hours']=>['Annual Salary - April'];
+
+['Pension Percentage']=>['Pension Amount - April'];
+
+['Hours']=>['Employers NI - April'];
+
+['Annual Salary - April']=>['Monthly Apprentice Levy - April'];
+
+#EndRegion
+
+
+#Region April
+
+['October Override Value']=>['Hourly Pay - October'];
+
+['Hourly Pay - April']=>['Hourly Pay - October'];
+
+['October Monetary Increase']=>['Hourly Pay - October'];
+
+['Hours']=>['October Increase Percentage'];
+
+['Hourly Pay - April']=>['October Increase Value'];
+
+['October Increase Value']=>['Hourly Pay - October'];
+
+['Hours']=>['Annual Salary - October'];
+
+['Pension Percentage']=>['Pension Amount - October'];
+
+['Hours']=>['Employers NI - October'];
+
+['Annual Salary - October']=>['Monthly Apprentice Levy - October'];
+
+#EndRegion
+
+
+# External Feeders
+
+['Annual Cost - April']=>DB('Payroll - Homes Pay Calc inc Vacancies', !Version, 'H1', !t_Year, !Department, !'Staff Grade', 'Annual Cost of Existing Staff' );
+
+['Annual Cost - October']=>DB('Payroll - Homes Pay Calc inc Vacancies', !Version, 'H2', !t_Year, !Department, !'Staff Grade', 'Annual Cost of Existing Staff' );
+
+['Hours']=>DB('Payroll - Homes Pay Calc inc Vacancies', !Version, 'FY', !t_Year, !Department, !'Staff Grade', 'Hours in Post' );
+
+['Other Enhancements']=>DB('Payroll - Homes Pay Calc inc Vacancies', !Version, 'FY', !t_Year, !Department, !'Staff Grade', 'Other Enhancements' );
+
+['Bank Holiday Enhancements']=> DB('Payroll - Homes Pay Calc inc Vacancies', !Version, 'FY', !t_Year, !Department, !'Staff Grade', 'Bank Holiday Enhancements' );
+
+
+['Monthly Apprentice Levy - April']=>DB('Payroll - Apprentice Levy', !Version, 'H1', !t_Year, !Department, ATTRS( 'Department', !Department, 'Admin Dept' ), 'Gross Cost' );
+
+['Monthly Apprentice Levy - October']=>DB('Payroll - Apprentice Levy', !Version, 'H2', !t_Year, !Department, ATTRS( 'Department', !Department, 'Admin Dept' ), 'Gross Cost' );
+

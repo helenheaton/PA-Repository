@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Picklist t_Year",
+	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([t_Year].[t_Year]) , 0)}}"
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Cashflow Consol Layer",
+	"Hierarchies@Code.links":
+	[
+		"Cashflow Consol Layer.hierarchies/Cashflow Consol Layer.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Cashflow Consol Layer')/Hierarchies('Cashflow Consol Layer')"
+	}
+}

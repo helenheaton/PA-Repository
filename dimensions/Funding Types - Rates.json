@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Funding Types - Rates",
+	"Hierarchies@Code.links":
+	[
+		"Funding Types - Rates.hierarchies/Funding Types - Rates.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Funding Types - Rates')/Hierarchies('Funding Types - Rates')"
+	}
+}

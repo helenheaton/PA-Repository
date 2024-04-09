@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"zUserSelection",
-	"Expression":"{{STRTOMEMBER(\"[Companies].[\" + [User Parameters].(STRTOMEMBER(\"[}Clients].[\" + USERNAME + \"]\"),[zUser Model Parameter].[Company]) + \"]\")} + TM1SubsetToSet([Companies].[Companies] , \"Companies\" , \"public\")}"
-}

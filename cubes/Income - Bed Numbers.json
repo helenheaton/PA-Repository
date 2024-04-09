@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"Income - Bed Numbers",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Bed Types')"
+		},
+		{
+			"@id":"Dimensions('Funding Types - Beds')"
+		}
+	],
+	"Rules@Code.link":"Income - Bed Numbers.rules",
+	"Views@Code.links":
+	[
+		"Income - Bed Numbers.views/Default.json"
+	]
+}

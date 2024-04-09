@@ -1,0 +1,79 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Payroll Assumptions",
+	"Elements":
+	[
+		{
+			"Name":"Employers NI Percentage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Employers NI Allowance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Employers NI Whole Hours Assumption",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Apprentice Levy Percentage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NEST Pension Percentage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Living Wage Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Living Wage Increase on Prior Year",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pay Increases",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Care Staff April Increase",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Care Staff October Increase",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Head Office Staff April Increase",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Head Office Staff October Increase",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Pay Increases",
+			"ComponentName":"Care Staff April Increase",
+			"Weight":1
+		},
+		{
+			"ParentName":"Pay Increases",
+			"ComponentName":"Care Staff October Increase",
+			"Weight":1
+		},
+		{
+			"ParentName":"Pay Increases",
+			"ComponentName":"Head Office Staff April Increase",
+			"Weight":1
+		},
+		{
+			"ParentName":"Pay Increases",
+			"ComponentName":"Head Office Staff October Increase",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

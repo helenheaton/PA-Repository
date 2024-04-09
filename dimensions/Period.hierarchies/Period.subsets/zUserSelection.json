@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"zUserSelection",
-	"Expression":"{{STRTOMEMBER(\"[Period].[\" + [User Parameters].(STRTOMEMBER(\"[}Clients].[\" + USERNAME + \"]\"),[zUser Model Parameter].[Period]) + \"]\")} + TM1FILTERBYLEVEL(TM1SUBSETALL([Period].[Period]) , 0)}"
-}

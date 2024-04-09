@@ -1,0 +1,35 @@
+{
+	"@type":"Cube",
+	"Name":"zArchive - Loans by Entity",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('t_Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Entity')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Loaning Entity')"
+		},
+		{
+			"@id":"Dimensions('Loan Source')"
+		},
+		{
+			"@id":"Dimensions('Nominal Code')"
+		},
+		{
+			"@id":"Dimensions('m_Loans')"
+		}
+	],
+	"Views@Code.links":[]
+}

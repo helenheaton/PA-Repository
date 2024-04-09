@@ -1,0 +1,52 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('Pay Increase Method - April')"
+		},
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('Current Hourly Rate')"
+		},
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('Living Wage Increase Value')"
+		},
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('April Increase Percentage')"
+		},
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('April Increase Value')"
+		},
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('April Monetary Increase')"
+		},
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('April Override Value')"
+		},
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('Hourly Pay - April')"
+		},
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('Pay Increase Method - October')"
+		},
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('Hourly Pay - April')"
+		},
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('October Increase Percentage')"
+		},
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('October Increase Value')"
+		},
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('October Monetary Increase')"
+		},
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('October Override Value')"
+		},
+		{
+			"@id":"Dimensions('m_Pay Rates')/Hierarchies('m_Pay Rates')/Elements('Hourly Pay - October')"
+		}
+	]
+}

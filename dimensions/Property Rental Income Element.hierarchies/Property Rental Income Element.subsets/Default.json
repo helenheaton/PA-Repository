@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"ExpandAbove":true,
+	"Expression":"{[Property Rental Income Element].[Property Rental Income Element].MEMBERS}"
+}

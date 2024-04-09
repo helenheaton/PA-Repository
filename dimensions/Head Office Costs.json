@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Head Office Costs",
+	"Hierarchies@Code.links":
+	[
+		"Head Office Costs.hierarchies/Head Office Costs.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Head Office Costs')/Hierarchies('Head Office Costs')"
+	}
+}

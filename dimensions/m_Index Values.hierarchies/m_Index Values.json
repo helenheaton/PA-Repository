@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Index Values",
+	"Elements":
+	[
+		{
+			"Name":"Index Amount",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"% Change",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

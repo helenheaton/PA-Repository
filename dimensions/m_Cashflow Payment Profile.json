@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Cashflow Payment Profile",
+	"Hierarchies@Code.links":
+	[
+		"m_Cashflow Payment Profile.hierarchies/m_Cashflow Payment Profile.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Cashflow Payment Profile')/Hierarchies('m_Cashflow Payment Profile')"
+	}
+}

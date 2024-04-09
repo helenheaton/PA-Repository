@@ -1,0 +1,22 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[t_Financial Year].[t_Financial Year]" : 
+			{
+				"Expression" : "{TM1SubsetAll([t_Financial Year])}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Contract].[Contract]" : false,
+			"[m_Index Rate Calculation].[m_Index Rate Calculation]" : false,
+			"[t_Financial Year].[t_Financial Year]" : false
+		}
+	}
+}

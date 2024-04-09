@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Previous Year",
-	"Expression":"{DRILLDOWNMEMBER({[Period].[Period].[2024]} , {[Period].[Period].[2024]} , RECURSIVE)}"
-}

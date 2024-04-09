@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Other Charges",
+	"Hierarchies@Code.links":
+	[
+		"m_Other Charges.hierarchies/m_Other Charges.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Other Charges')/Hierarchies('m_Other Charges')"
+	}
+}

@@ -1,0 +1,145 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Payroll Homes Pay Calculation",
+	"Elements":
+	[
+		{
+			"Name":"Full Establishment Hours",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Hours in Post",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vacancy Hours",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vacancy Hours Pay Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vacancy Hours Annual Cost",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vacancy Pension Cost",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adjustment Percentage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Employers NI for Vacancies",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Annual Cost of Vacancies",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Revised Annual Amount",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Adjustment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Annual Cost",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Other Enhancements",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Annual Cost of Existing Staff",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly Cost",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Bank Holiday Enhancements",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Additional Monthly Adjustments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Monthly Cost by Days",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Vacancies Monthly Apprentice Levy",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Annual Cost of Vacancies",
+			"ComponentName":"Vacancy Hours Annual Cost",
+			"Weight":1
+		},
+		{
+			"ParentName":"Annual Cost of Vacancies",
+			"ComponentName":"Vacancy Pension Cost",
+			"Weight":1
+		},
+		{
+			"ParentName":"Annual Cost of Vacancies",
+			"ComponentName":"Employers NI for Vacancies",
+			"Weight":1
+		},
+		{
+			"ParentName":"Revised Annual Amount",
+			"ComponentName":"Adjustment",
+			"Weight":1
+		},
+		{
+			"ParentName":"Revised Annual Amount",
+			"ComponentName":"Total Annual Cost",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Annual Cost",
+			"ComponentName":"Annual Cost of Vacancies",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Annual Cost",
+			"ComponentName":"Other Enhancements",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Annual Cost",
+			"ComponentName":"Annual Cost of Existing Staff",
+			"Weight":1
+		},
+		{
+			"ParentName":"Monthly Cost",
+			"ComponentName":"Monthly Cost by Days",
+			"Weight":1
+		},
+		{
+			"ParentName":"Monthly Cost",
+			"ComponentName":"Bank Holiday Enhancements",
+			"Weight":1
+		},
+		{
+			"ParentName":"Monthly Cost",
+			"ComponentName":"Additional Monthly Adjustments",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_Payroll Homes Pay Calculation.subsets/Default.json"
+	]
+}

@@ -1,0 +1,28 @@
+{
+	"@type":"Subset",
+	"Name":"Shaw Foundation",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NH01')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NH11 (F)')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NH12 (F)')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NH15')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NH25')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NH31')"
+		},
+		{
+			"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NH60')"
+		}
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Payroll Other Costs",
+	"Hierarchies@Code.links":
+	[
+		"m_Payroll Other Costs.hierarchies/m_Payroll Other Costs.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Payroll Other Costs')/Hierarchies('m_Payroll Other Costs')"
+	}
+}

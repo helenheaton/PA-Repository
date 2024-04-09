@@ -1,0 +1,42 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Payroll Apprentice Levy",
+	"Elements":
+	[
+		{
+			"Name":"Gross Cost",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adjustment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Allowance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Cost",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Net Cost",
+			"ComponentName":"Gross Cost",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Cost",
+			"ComponentName":"Adjustment",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Cost",
+			"ComponentName":"Allowance",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

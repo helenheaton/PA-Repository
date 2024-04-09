@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"zDataTransfer_Fact from Staging",
-	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([MA_Layer].[MA_Layer]) , 0)}}"
-}

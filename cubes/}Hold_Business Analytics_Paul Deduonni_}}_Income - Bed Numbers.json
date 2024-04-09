@@ -1,0 +1,29 @@
+{
+	"@type":"Cube",
+	"Name":"}Hold_Business Analytics_Paul Deduonni_}}_Income - Bed Numbers",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('t_Year')"
+		},
+		{
+			"@id":"Dimensions('t_Period')"
+		},
+		{
+			"@id":"Dimensions('Department')"
+		},
+		{
+			"@id":"Dimensions('Bed Types')"
+		},
+		{
+			"@id":"Dimensions('Funding Types - Beds')"
+		},
+		{
+			"@id":"Dimensions('}Hold')"
+		}
+	],
+	"Views@Code.links":[]
+}

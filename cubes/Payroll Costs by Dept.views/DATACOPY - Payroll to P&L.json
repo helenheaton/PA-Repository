@@ -1,0 +1,84 @@
+{
+	"@type":"NativeView",
+	"Name":"DATACOPY - Payroll to P&L",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Nominal Code')/Hierarchies('Nominal Code')"
+				},
+				"Expression":"TM1SubsetAll([Nominal Code])"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Contract')/Hierarchies('Contract')"
+				},
+				"Expression":"TM1SubsetAll([Contract])"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Subsets('DATACOPY - Payroll to P&L')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Board Version')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('t_Period')/Hierarchies('t_Period')"
+				},
+				"Expression":"TM1SubsetAll([t_Period])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('t_Period')/Hierarchies('t_Period')/Elements('FY')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('t_Year')/Hierarchies('t_Year')/Subsets('Current Year')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('t_Year')/Hierarchies('t_Year')/Elements('Current Year')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Department')/Hierarchies('Department')"
+				},
+				"Expression":"TM1SubsetAll([Department])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Department')/Hierarchies('Department')/Elements('NH04')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.00"
+}

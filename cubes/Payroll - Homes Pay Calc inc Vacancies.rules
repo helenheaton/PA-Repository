@@ -1,0 +1,113 @@
+SKIPCHECK;
+FEEDSTRINGS;
+
+#Region Vacancies
+
+['Vacancy Hours']=N:
+['Full Establishment Hours'] - ['Hours in Post'];
+
+['Vacancy Hours Pay Rate',{'April','May','June','July','August','September'}]=N:
+DB('Payroll - Pay Rates', !Version, !t_Year, !Department, !'Staff Grade', 'Hourly Pay - April' );
+
+['Vacancy Hours Pay Rate',{'October','November','December','January','February','March'}]=N:
+DB('Payroll - Pay Rates', !Version, !t_Year, !Department, !'Staff Grade', 'Hourly Pay - October' );
+
+['Vacancy Hours Annual Cost']=N:
+['Vacancy Hours']*['Vacancy Hours Pay Rate']*52.143;
+
+['Vacancy Pension Cost']=N:
+['Vacancy Hours Annual Cost']*DB('Payroll - Assumptions', !Version, !t_Year, 'NEST Pension Percentage');
+
+['Employers NI for Vacancies']= N:
+IF( ['Vacancy Hours Annual Cost']\
+  (['Vacancy Hours']\DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Whole Hours Assumption' )
+  )>DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Allowance' ),
+  (['Vacancy Hours Annual Cost']-(DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Allowance' )
+    *(['Vacancy Hours']\DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Whole Hours Assumption' ))))
+    *DB('Payroll - Assumptions', !Version, !t_Year, 'Employers NI Percentage' ),
+  0);
+
+['Vacancies Monthly Apprentice Levy']=N:
+['Vacancy Hours Annual Cost']\12
+*DB('Payroll - Assumptions', !Version, !t_Year, 'Apprentice Levy Percentage' );
+
+#EndRegion
+
+
+
+#Region Existing Staff
+
+['Annual Cost of Existing Staff', {'April','May','June','July','August','September'}]=N:
+DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, 'All Contract Types', !'Staff Grade', 'Annual Cost - April' );
+
+['Annual Cost of Existing Staff', {'October','November','December','January','February','March'}]=N:
+DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, 'All Contract Types', !'Staff Grade', 'Annual Cost - October' );
+
+['Hours in Post']=N:
+DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, 'All Contract Types', !'Staff Grade', 'Hours' );
+
+#EndRegion
+
+
+
+#Region Other
+
+['Full Establishment Hours']=N:
+DB('Payroll - Establishments', !Version, !t_Period, !t_Year, !Department, !'Staff Grade', 'Hours' );
+
+['Other Enhancements']=N:
+DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, 'All Contract Types', !'Staff Grade', 'Other Enhancements' );
+
+#['Adjustment']=N:
+#['Total Annual Cost']*DB('Payroll - Assumptions', !Version, !t_Year, 'Adjustment Percentage' );
+
+['Monthly Cost by Days']=N:
+['Revised Annual Amount']
+*
+IF(MOD( Numbr(ATTRS( 't_Year', !t_Year, 'Financial Year'))+1,  4 )=0,
+  Attrn('t_Period',!t_Period,'Number of Days Leap') \ Attrn('t_Period','FY','Number of Days'),
+  Attrn('t_Period',!t_Period,'Number of Days') \ Attrn('t_Period','FY','Number of Days'));
+
+['Bank Holiday Enhancements']=N:
+DB('Payroll - Homes Pay Calc Existing Staff', !Version, !t_Year, !Department, 'All Contract Types', !'Staff Grade', 'Bank Holiday Enhancements')
+*DB('Payroll - Bank Holiday Enhancements', !t_Period, !t_Year, 'BH Enhancement Percentage');
+
+['Adjustment']=N:
+['Adjustment Percentage']*['Total Annual Cost'];
+
+#EndRegion
+
+
+FEEDERS;
+['Full Establishment Hours'] => ['Vacancy Hours'];
+
+['Hours in Post'] => ['Vacancy Hours'];
+
+['Vacancy Hours']=>['Vacancy Hours Annual Cost'];
+
+['Vacancy Hours']=>['Vacancy Pension Cost'];
+
+['Vacancy Hours']=>['Employers NI for Vacancies'];
+
+['Vacancy Hours']=>['Vacancies Monthly Apprentice Levy'];
+
+['Total Annual Cost']=>['Adjustment'];
+
+['Revised Annual Amount']=>['Monthly Cost by Days'];
+
+
+
+['Total Annual Cost']=>['Bank Holiday Enhancements'];
+
+['Adjustment Percentage']=>['Adjustment']; 
+
+#External Feeders
+
+['Vacancies Monthly Apprentice Levy']=>DB('Payroll - Apprentice Levy', !Version, !t_Period, !t_Year, !Department, ATTRS( 'Department', !Department, 'Admin Dept' ), 'Gross Cost' );
+
+['Monthly Cost','Senior Support Worker']=>DB('Payroll - Homes Summary', !Version, !t_Period, !t_Year, !Department, !Staff Grade, 'R106' );
+
+['Monthly Cost','Senior Support Worker']=>DB('Payroll - Homes Summary', !Version, !t_Period, !t_Year, !Department, !Staff Grade, 'R104' );
+
+['Monthly Cost']=>DB('Payroll - Homes Summary', !Version, !t_Period, !t_Year, !Department,!Staff Grade, ATTRS( 'Staff Grade', !Staff Grade, 'Nominal Code' ) );
+

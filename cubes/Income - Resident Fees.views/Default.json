@@ -1,0 +1,41 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Department].[Department]" : "Alias"
+		},
+		"ContextSets" : 
+		{
+			"[Bed Types].[Bed Types]" : 
+			{
+				"Expression" : "{[Bed Types].[Bed Types].MEMBERS}"
+			},
+			"[Department].[Department]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{TM1SubsetAll([Version])}"
+			},
+			"[t_Year].[t_Year]" : 
+			{
+				"Expression" : "{{[t_Year].[t_Year].MEMBERS}}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Bed Types].[Bed Types]" : false,
+			"[Department].[Department]" : false,
+			"[Version].[Version]" : false,
+			"[m_Resident Fees Calculation].[m_Resident Fees Calculation]" : false,
+			"[t_Period].[t_Period]" : false,
+			"[t_Year].[t_Year]" : false
+		}
+	}
+}
