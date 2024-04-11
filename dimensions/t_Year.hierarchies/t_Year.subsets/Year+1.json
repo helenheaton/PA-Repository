@@ -1,7 +1,6 @@
 {
 	"@type":"Subset",
 	"Name":"Year+1",
-	"Alias":"MEMBER_NAME",
 	"Elements":
 	[
 		{
