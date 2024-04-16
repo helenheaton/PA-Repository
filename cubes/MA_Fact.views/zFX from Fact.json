@@ -24,11 +24,11 @@
 		{
 			"Subset":
 			{
-				"@id":"Dimensions('Companies')/Hierarchies('Companies')/Subsets('All Leaves')"
+				"@id":"Dimensions('Companies')/Hierarchies('Companies')/Subsets('zFX from Fact')"
 			},
 			"Selected":
 			{
-				"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('AC1')"
+				"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('UK1')"
 			}
 		},
 		{
@@ -38,7 +38,7 @@
 			},
 			"Selected":
 			{
-				"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('201703')"
+				"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202403')"
 			}
 		},
 		{
