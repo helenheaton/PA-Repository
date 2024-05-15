@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"ExpandAbove":true,
+	"Alias":"Short Name",
+	"Expression":"{DRILLDOWNMEMBER({[Company].[Company].[Division Total]} , {[Company].[Company].[CTP]} , RECURSIVE),DRILLDOWNMEMBER({[Company].[Company].[CTP]} , {[Company].[Company].[CTP]} , RECURSIVE),DRILLDOWNMEMBER({[Company].[Company].[Aero]} , {[Company].[Company].[Aero]} , RECURSIVE),DRILLDOWNMEMBER({[Company].[Company].[Central Costs]} , {[Company].[Company].[Central Costs]} , RECURSIVE)}"
+}

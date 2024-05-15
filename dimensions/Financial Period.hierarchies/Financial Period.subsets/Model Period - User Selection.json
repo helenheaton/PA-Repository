@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Model Period - User Selection",
+	"Expression":"{TM1FILTERBYPATTERN(TM1SUBSETALL([Financial Period]) , [Model Settings].([m_Model Settings].[Model Fin Period],[Value].[Value])),EXCEPT(TM1FILTERBYLEVEL(TM1SUBSETALL([Financial Period].[Financial Period]) , 0) , {[Financial Period].[Financial Period].[Current Period]})}"
+}

@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"ADM Dim Control",
+	"Expression":"{TM1DRILLDOWNMEMBER(DRILLUPMEMBER({[Company].[Company].[Division Total]} , {[Company].[Company].[Division Total]}), {[Company].[Company].[Division Total]}, RECURSIVE)}"
+}

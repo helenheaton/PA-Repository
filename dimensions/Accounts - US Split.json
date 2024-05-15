@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Accounts - US Split",
+	"Hierarchies@Code.links":
+	[
+		"Accounts - US Split.hierarchies/Accounts - US Split.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Accounts - US Split')/Hierarchies('Accounts - US Split')"
+	}
+}

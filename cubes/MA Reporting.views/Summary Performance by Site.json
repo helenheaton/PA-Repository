@@ -1,0 +1,57 @@
+{
+	"@type":"MDXView",
+	"Name":"Summary Performance by Site",
+	"MDX@Code.link":"Summary Performance by Site.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Accounts - MA].[Accounts - MA]" : "Display Name",
+			"[Company].[Company]" : "Short Name",
+			"[Financial Period].[Financial Period]" : "MEMBER_NAME",
+			"[Financial Year].[Financial Year]" : "MEMBER_NAME",
+			"[Version].[Version]" : "MEMBER_NAME"
+		},
+		"ContextSets" : 
+		{
+			"[Accounts - MA].[Accounts - MA]" : 
+			{
+				"Expression" : "{TM1TOGGLEEXPANDMODE(TM1SubsetToSet([Accounts - MA].[Accounts - MA] , \"P&L Reporting Subset\" , \"public\") , EXPAND_ABOVE)}"
+			},
+			"[Consolidation Layer].[Consolidation Layer]" : 
+			{
+				"Expression" : "{[Consolidation Layer].[Consolidation Layer].MEMBERS}"
+			},
+			"[FX Calculation].[FX Calculation]" : 
+			{
+				"Expression" : "{[FX Calculation].[FX Calculation].MEMBERS}"
+			},
+			"[Financial Period].[Financial Period]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Reporting Period - User Selection"
+			},
+			"[Financial Year].[Financial Year]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Reporting Year - User Selection"
+			},
+			"[m_MA Reporting].[m_MA Reporting]" : 
+			{
+				"Expression" : "{[m_MA Reporting].[m_MA Reporting].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Accounts - MA].[Accounts - MA]" : true,
+			"[Company].[Company]" : false,
+			"[Consolidation Layer].[Consolidation Layer]" : false,
+			"[FX Calculation].[FX Calculation]" : false,
+			"[Financial Period].[Financial Period]" : false,
+			"[Financial Year].[Financial Year]" : false,
+			"[Period YTD].[Period YTD]" : false,
+			"[Version].[Version]" : false,
+			"[m_MA Reporting].[m_MA Reporting]" : false
+		}
+	}
+}

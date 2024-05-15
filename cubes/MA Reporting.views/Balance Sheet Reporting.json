@@ -1,0 +1,57 @@
+{
+	"@type":"MDXView",
+	"Name":"Balance Sheet Reporting",
+	"MDX@Code.link":"Balance Sheet Reporting.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Accounts - MA].[Accounts - MA]" : "Display Name",
+			"[Company].[Company]" : "Short Name"
+		},
+		"ContextSets" : 
+		{
+			"[Company].[Company]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Consolidation Layer].[Consolidation Layer]" : 
+			{
+				"Expression" : "{[Consolidation Layer].[Consolidation Layer].MEMBERS}"
+			},
+			"[FX Calculation].[FX Calculation]" : 
+			{
+				"Expression" : "{[FX Calculation].[FX Calculation].MEMBERS}"
+			},
+			"[Financial Period].[Financial Period]" : 
+			{
+				"Expression" : "{[Financial Period].[Financial Period].MEMBERS}"
+			},
+			"[Financial Year].[Financial Year]" : 
+			{
+				"Expression" : "{[Financial Year].[Financial Year].MEMBERS}"
+			},
+			"[Period YTD].[Period YTD]" : 
+			{
+				"Expression" : "{[Period YTD].[Period YTD].MEMBERS}"
+			},
+			"[m_MA Reporting].[m_MA Reporting]" : 
+			{
+				"Expression" : "{[m_MA Reporting].[m_MA Reporting].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Accounts - MA].[Accounts - MA]" : true,
+			"[Company].[Company]" : true,
+			"[Consolidation Layer].[Consolidation Layer]" : false,
+			"[FX Calculation].[FX Calculation]" : false,
+			"[Financial Period].[Financial Period]" : false,
+			"[Financial Year].[Financial Year]" : false,
+			"[Period YTD].[Period YTD]" : false,
+			"[Version].[Version]" : false,
+			"[m_MA Reporting].[m_MA Reporting]" : false
+		}
+	}
+}

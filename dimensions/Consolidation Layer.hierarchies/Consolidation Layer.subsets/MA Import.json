@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"MA Import",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Consolidation Layer')/Hierarchies('Consolidation Layer')/Elements('MA Import')"
+		}
+	]
+}

@@ -1,0 +1,33 @@
+{
+	"@type":"Process",
+	"Name":"Admin - Year Period Version Locking",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Admin - Year Period Version Locking.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pYear",
+			"Prompt":"Year",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pPeriod",
+			"Prompt":"Period",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pVersion",
+			"Prompt":"Version",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

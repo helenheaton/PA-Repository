@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Derived Forecast Selection",
+	"Expression":"{EXCEPT(EXCEPT(TM1FILTERBYLEVEL(TM1SUBSETALL([Version].[Version]) , 0) , TM1FILTERBYPATTERN(TM1FILTERBYLEVEL(TM1SUBSETALL([Version].[Version]) , 0) , \"Actual\" , \"MEMBER_NAME\")) , {TM1FILTERBYPATTERN(EXCEPT(TM1FILTERBYLEVEL(TM1SUBSETALL([Version].[Version]) , 0) , TM1FILTERBYPATTERN(TM1FILTERBYLEVEL(TM1SUBSETALL([Version].[Version]) , 0) , \"Actual\" , \"MEMBER_NAME\")) , \"Derived Forecast\" , \"MEMBER_NAME\"),[Version].[Version].[Forecast]})}"
+}

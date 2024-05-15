@@ -1,0 +1,28 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			},
+			"[m_Exchange Rates].[m_Exchange Rates]" : 
+			{
+				"Expression" : "{[m_Exchange Rates].[m_Exchange Rates].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Currency].[Currency]" : false,
+			"[Financial Period].[Financial Period]" : false,
+			"[Financial Year].[Financial Year]" : false,
+			"[Version].[Version]" : false,
+			"[m_Exchange Rates].[m_Exchange Rates]" : false
+		}
+	}
+}

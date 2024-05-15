@@ -1,0 +1,87 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Accounts - Net Debt",
+	"Elements":
+	[
+		{
+			"Name":"Balance b/f",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Trading Cashflow less Debt Movement",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Drawings/New Debt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Capital Repayment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Capitalisation of Bank Arrangement Fee",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Amortisation of Bank Arrangement Fee",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FX on Bank Term Loans (Hedging)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FX Retranslation of Overseas Net Debt Balances",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Balance c/f",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"FX Retranslation of Overseas Net Debt Balances",
+			"ComponentName":"Balance b/f",
+			"Weight":-1
+		},
+		{
+			"ParentName":"FX Retranslation of Overseas Net Debt Balances",
+			"ComponentName":"Drawings/New Debt",
+			"Weight":-1
+		},
+		{
+			"ParentName":"FX Retranslation of Overseas Net Debt Balances",
+			"ComponentName":"Capital Repayment",
+			"Weight":-1
+		},
+		{
+			"ParentName":"FX Retranslation of Overseas Net Debt Balances",
+			"ComponentName":"Capitalisation of Bank Arrangement Fee",
+			"Weight":-1
+		},
+		{
+			"ParentName":"FX Retranslation of Overseas Net Debt Balances",
+			"ComponentName":"Amortisation of Bank Arrangement Fee",
+			"Weight":-1
+		},
+		{
+			"ParentName":"FX Retranslation of Overseas Net Debt Balances",
+			"ComponentName":"FX on Bank Term Loans (Hedging)",
+			"Weight":-1
+		},
+		{
+			"ParentName":"FX Retranslation of Overseas Net Debt Balances",
+			"ComponentName":"Net Trading Cashflow less Debt Movement",
+			"Weight":-1
+		},
+		{
+			"ParentName":"FX Retranslation of Overseas Net Debt Balances",
+			"ComponentName":"Balance c/f",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

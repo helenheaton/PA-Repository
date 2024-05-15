@@ -1,0 +1,5 @@
+#region Prolog
+CubeProcessFeeders( 'Consol Engine' );
+#CubeProcessFeeders( 'MA Reporting' );
+#CubeProcessFeeders( 'MA Cashflow' );
+#endregion

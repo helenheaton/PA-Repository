@@ -1,0 +1,55 @@
+{
+	"@type":"MDXView",
+	"Name":"Summary View",
+	"MDX@Code.link":"Summary View.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Company].[Company]" : "Short Name",
+			"[Consolidation Layer].[Consolidation Layer]" : "MEMBER_NAME",
+			"[Period YTD].[Period YTD]" : "MEMBER_NAME",
+			"[m_Covenants Summary].[m_Covenants Summary]" : "MEMBER_NAME"
+		},
+		"ContextSets" : 
+		{
+			"[Company].[Company]" : 
+			{
+				"Expression" : "{[Company].[Company].[Division Total]}"
+			},
+			"[Consolidation Layer].[Consolidation Layer]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[FX Calculation].[FX Calculation]" : 
+			{
+				"Expression" : "{[FX Calculation].[FX Calculation].MEMBERS}"
+			},
+			"[Financial Period].[Financial Period]" : 
+			{
+				"Expression" : "{[Financial Period].[Financial Period].MEMBERS}"
+			},
+			"[Financial Year].[Financial Year]" : 
+			{
+				"Expression" : "{[Financial Year].[Financial Year].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Company].[Company]" : true,
+			"[Consolidation Layer].[Consolidation Layer]" : true,
+			"[Covenant].[Covenant]" : false,
+			"[FX Calculation].[FX Calculation]" : false,
+			"[Financial Period].[Financial Period]" : false,
+			"[Financial Year].[Financial Year]" : false,
+			"[Period YTD].[Period YTD]" : false,
+			"[Version].[Version]" : false,
+			"[m_Covenants Summary].[m_Covenants Summary]" : true
+		}
+	}
+}

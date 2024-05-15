@@ -1,0 +1,122 @@
+## Rule created by Steven Hutchison 05/03/2024
+SKIPCHECK;
+
+## Calculate Derived Forecast
+## This will reference the Reporting Period from the model settings cube
+## Periods up to and including the reporting period will be pulled from actuals, subsequent periods will be pulled from the selected version (also in model settings cube)
+
+## SH amendment 18/04/2024 - future years in the derived forecast will pull from the budget
+['Derived Forecast','Period'] =N: 
+IF(NUMBR(SUBST(!Financial Year,3,2))  > NUMBR(SUBST(DB('Model Settings', 'Value', 'Reporting Year' ),3,2))
+,
+  DB('US Site Split','Budget',!Financial Year,!Financial Period,!Period YTD,!US Departments,!Accounts - US Split,!FX Calculation,!m_US Site Split) 
+,
+  CONTINUE
+);
+
+
+['Derived Forecast','Period'] =N: 
+IF(NUMBR(SUBST(!Financial Year,3,2) | SUBST(!Financial Period,2,2)) <= NUMBR(DB('Model Settings', 'Value', 'Reporting Period' ))
+,
+  DB('US Site Split','Actual',!Financial Year,!Financial Period,!Period YTD,!US Departments,!Accounts - US Split,!FX Calculation,!m_US Site Split) 
+,
+  DB('US Site Split',DB('Model Settings', 'Value', 'Source Version for Derived Forecast' ),!Financial Year,!Financial Period,!Period YTD,!US Departments,!Accounts - US Split,!FX Calculation,!m_US Site Split)
+);
+
+## Bring in the sales and uEBIT numbers for CTP-US
+['Sales',{'Derived Forecast','Actual','Budget','6+6 Forecast','3+9 Forecast','9+3 Forecast'},'CTP-US','Period','Value'] =N: DB('MA Reporting', !Version, 'CTP-US', !'Financial Year', !'Financial Period', !'Period YTD', 'TOTAL SALES', !'FX Calculation', 'Financial Accounts', 'Value' );
+
+['uEBIT',{'Derived Forecast','Actual','Budget','6+6 Forecast','3+9 Forecast','9+3 Forecast'},'CTP-US','Period','Value'] =N: DB('MA Reporting', !Version, 'CTP-US', !'Financial Year', !'Financial Period', !'Period YTD', 'Total uEBIT', !'FX Calculation', 'Financial Accounts', 'Value' );
+
+## Calculate YTD
+##Enter an opening YTD due to data availability
+# ['YTD','P09','FY24'] =N: STET;
+['YTD'] =N: DB('US Site Split',!Version,!Financial Year,!Financial Period | 'YTD','Period',!US Departments,!Accounts - US Split,!FX Calculation,!m_US Site Split); 
+
+## Calculate GBP
+## Budget using a user defined exchange rate
+['GBP MA','Budget'] =N: ['Local'] \ DB('Exchange Rates', DB('Model Settings', 'Value', 'Budget FX Source'), DB('Model Settings', 'Value', 'Budget FX Year'), DB('Model Settings', 'Value', 'Budget FX Fin Period'), 'USD', 'MA Rate' );
+
+## 6+6 always uses september exchange rate
+['GBP MA','6+6 Forecast'] =N: 
+['Local'] 
+\
+## use current month in the actuals and sep in the forecast
+IF(!Financial Period @='P01' % !Financial Period @='P02' % !Financial Period @='P03' % !Financial Period @='P04' % !Financial Period @='P05' % !Financial Period @='P06'
+,
+  DB('Exchange Rates', 'Actual', !'Financial Year', !Financial Period, 'USD', 'MA Rate' )
+,
+ 
+  DB('Exchange Rates', 'Actual', !'Financial Year', 'Sep', 'USD', 'MA Rate' )
+);
+
+## 3+9 always uses June exchange rate
+['GBP MA','3+9 Forecast'] =N: 
+['Local'] 
+\
+## for periods 4 - 9 use sep current year and for periods 10 - 12 look to the previous year
+IF(!Financial Period @='P01' % !Financial Period @='P02' % !Financial Period @='P03' 
+,
+  DB('Exchange Rates', 'Actual', !'Financial Year', !Financial Period, 'USD', 'MA Rate' )
+,
+
+  DB('Exchange Rates', 'Actual', !'Financial Year', 'Jun', 'USD', 'MA Rate' )
+);
+
+## 9+3 always uses december exchange rate
+['GBP MA','9+3 Forecast'] =N: 
+['Local'] 
+\
+IF(!Financial Period @='P01' % !Financial Period @='P02' % !Financial Period @='P03' % !Financial Period @='P04' % !Financial Period @='P05' % !Financial Period @='P06'% !Financial Period @='P07'% !Financial Period @='P08'% !Financial Period @='P09'
+,
+  DB('Exchange Rates', 'Actual', !'Financial Year', !Financial Period, 'USD', 'MA Rate' )
+,
+  DB('Exchange Rates', 'Actual', !'Financial Year', 'Dec', 'USD', 'MA Rate' )
+)
+;
+
+## Actual uses current month exchange rates
+
+['GBP MA'] =N: 
+['Local'] 
+\
+DB('Exchange Rates', 'Actual', !'Financial Year', !Financial Period, 'USD', 'MA Rate' )
+;
+# Actualise Imported Forecasts 
+
+# Periods up to and including the reporting period will be pulled from actuals, subsequent periods will be pulled from the selected version (also in model settings cube)
+['Period'] =N: 
+IF(ATTRN( 'Version', !Version, 'Actual Periods' )>0
+   ,continue
+   ,stet
+   );
+
+['Period'] =N: 
+IF(NUMBR(SUBST(!Financial Period,2,2)) <= ATTRN( 'Version', !Version, 'Actual Periods' )
+,
+  DB('US Site Split','Actual',!Financial Year,!Financial Period,!Period YTD,!US Departments,!Accounts - US Split,!FX Calculation,!m_US Site Split) 
+,
+  Stet
+);
+
+
+
+## Subsequent YTD will be previous period YTD plus period value for current period
+# ['YTD'] =N: 
+# IF(!Financial Period@='P12'
+# ,
+#   DB('US Site Split',!Version,ATTRS('Financial Year',!Financial Year,'Previous Year'),ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD',!US Departments,!Accounts - US Split,!FX Calculation,!m_US Site Split)
+#   +
+#   DB('US Site Split',!Version,!Financial Year,!Financial Period,'Period',!US Departments,!Accounts - US Split,!FX Calculation,!m_US Site Split)
+# ,  
+#   DB('US Site Split',!Version,!Financial Year,ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD',!US Departments,!Accounts - US Split,!FX Calculation,!m_US Site Split)
+#   +
+#   DB('US Site Split',!Version,!Financial Year,!Financial Period,'Period',!US Departments,!Accounts - US Split,!FX Calculation,!m_US Site Split)
+# );
+
+FEEDERS;
+
+['Period','Total US'] => ['YTD','Total US'];
+['Local'] => ['GBP MA'];
+['Actual'] => ['6+6 Forecast'],['3+9 FOrecast'],['9+3 Forecast'];
+[{'6+6 Forecast','3+9 Forecast','9+3 Forecast','Actual','Budget'}] => ['Derived Forecast'];

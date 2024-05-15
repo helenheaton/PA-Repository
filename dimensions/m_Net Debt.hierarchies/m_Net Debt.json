@@ -1,0 +1,51 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Net Debt",
+	"Elements":
+	[
+		{
+			"Name":"Leases",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Bank and Other Debt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Gross Debt",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Debt",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Gross Debt",
+			"ComponentName":"Leases",
+			"Weight":1
+		},
+		{
+			"ParentName":"Gross Debt",
+			"ComponentName":"Bank and Other Debt",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Debt",
+			"ComponentName":"Gross Debt",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Debt",
+			"ComponentName":"Cash",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,54 @@
+#---------------------------------------------------------------------------------------------------
+# Model settings
+# This cube holds parameters that are to be used throughout the model
+# 
+# Created by Helen Heaton | Budgeting Solutions | 31/01/2024
+#
+#---------------------------------------------------------------------------------------------------
+
+['Reporting Year'] =S: ATTRS('Year Period', db('Model Settings', 'Value', 'Reporting Period'), 'Year');  
+['Reporting Fin Period'] =S: ATTRS('Year Period', db('Model Settings', 'Value', 'Reporting Period'), 'Period'); 
+
+['Model Year'] =S: ATTRS('Year Period', db('Model Settings', 'Value', 'Model Period'), 'Year');  
+['Model Fin Period'] =S: ATTRS('Year Period', db('Model Settings', 'Value', 'Model Period'), 'Period');  
+
+['History Year'] =S: ATTRS('Year Period', db('Model Settings', 'Value', 'History Imported to Period'), 'Year');  
+['History Period'] =S: ATTRS('Year Period', db('Model Settings', 'Value', 'History Imported toPeriod'), 'Period');
+
+['Budget FX Year'] =S: ATTRS('Year Period', db('Model Settings', 'Value', 'Budget FX Period'), 'Year');  
+['Budget FX Fin Period'] =S: ATTRS('Year Period', db('Model Settings', 'Value', 'Budget FX Period'), 'Period');
+
+['Default Covenants Period'] =S: 
+IF(SUBST(DB('Model Settings', !Value, 'Reporting Period' ),3,2) @='09' % SUBST(DB('Model Settings', !Value, 'Reporting Period' ),3,2) @='10' % SUBST(DB('Model Settings', !Value, 'Reporting Period' ),3,2) @='11'
+,
+  'P09'
+,
+  CONTINUE
+);
+
+['Default Covenants Period'] =S: 
+  IF(SUBST(DB('Model Settings', !Value, 'Reporting Period' ),3,2) @='12' % SUBST(DB('Model Settings', !Value, 'Reporting Period' ),3,2) @='01' % SUBST(DB('Model Settings', !Value, 'Reporting Period' ),3,2) @='02'
+  ,
+    'P12'
+  ,
+    CONTINUE
+  );
+    
+    
+['Default Covenants Period'] =S: 
+  IF(SUBST(DB('Model Settings', !Value, 'Reporting Period' ),3,2) @='03' % SUBST(DB('Model Settings', !Value, 'Reporting Period' ),3,2) @='04' % SUBST(DB('Model Settings', !Value, 'Reporting Period' ),3,2) @='05'
+  ,
+    'P03'
+  ,
+    CONTINUE
+  );
+  
+['Default Covenants Period'] =S: 
+  IF(SUBST(DB('Model Settings', !Value, 'Reporting Period' ),3,2) @='06' % SUBST(DB('Model Settings', !Value, 'Reporting Period' ),3,2) @='07' % SUBST(DB('Model Settings', !Value, 'Reporting Period' ),3,2) @='08'
+  ,
+    'P06'
+  ,
+    CONTINUE
+  );
+  
+['Default Covenants Year'] =S: 'FY' | SUBST(DB('Model Settings', !Value, 'Reporting Period' ),1,2);

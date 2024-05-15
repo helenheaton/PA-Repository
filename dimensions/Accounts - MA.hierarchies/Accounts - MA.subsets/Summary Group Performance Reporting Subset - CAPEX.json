@@ -1,0 +1,19 @@
+{
+	"@type":"Subset",
+	"Name":"Summary Group Performance Reporting Subset - CAPEX",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('NCA_tangNL_add')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('NCA_tangLE_add')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Intangible Fixed Assets - Additions')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Total CAPEX Additions - Monthly')"
+		}
+	]
+}

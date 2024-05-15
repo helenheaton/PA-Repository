@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Covenants Periods",
+	"Alias":"MEMBER_NAME",
+	"Expression":"{STRTOMEMBER(\"[Financial Period].[Financial Period].[\" + [Model Settings].([Value].[Value],[m_Model Settings].[Default Covenants Period]) + \"]\"),[Financial Period].[P03],[Financial Period].[P06],[Financial Period].[P09],[Financial Period].[P12]}"
+}

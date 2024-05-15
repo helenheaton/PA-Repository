@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"zTI Period Counter",
+	"Hierarchies@Code.links":
+	[
+		"zTI Period Counter.hierarchies/zTI Period Counter.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('zTI Period Counter')/Hierarchies('zTI Period Counter')"
+	}
+}

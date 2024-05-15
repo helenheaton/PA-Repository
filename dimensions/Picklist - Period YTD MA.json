@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Picklist - Period YTD MA",
+	"Hierarchies@Code.links":
+	[
+		"Picklist - Period YTD MA.hierarchies/Picklist - Period YTD MA.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Picklist - Period YTD MA')/Hierarchies('Picklist - Period YTD MA')"
+	}
+}

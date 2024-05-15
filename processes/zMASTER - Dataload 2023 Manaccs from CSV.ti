@@ -1,0 +1,21 @@
+#region Prolog
+
+## 01/02/2024 process created by Steven Hutchison BSL
+## This process will load all of the dec 2023 manaccs csv files
+## it is intended that this will be a "one off" process to load history in to the model
+
+ExecuteProcess( 'DATALOAD - Consol Engine - Dec 2023 H01 Manaccs Upload from CSV' );
+ExecuteProcess('DATALOAD - Consol Engine - Dec 2023 H02 Manaccs Upload from CSV');
+ExecuteProcess( 'DATALOAD - Consol Engine - Dec 2023 H03 Manaccs Upload from CSV' );
+ExecuteProcess('DATALOAD - Consol Engine - Dec 2023 China Manaccs Upload from CSV');
+ExecuteProcess('DATALOAD - Consol Engine - Dec 2023 Czech Manaccs Upload from CSV');
+ExecuteProcess('DATALOAD - Consol Engine - Dec 2023 India Manaccs Upload from CSV');
+ExecuteProcess('DATALOAD - Consol Engine - Dec 2023 CTP-UK Manaccs Upload from CSV');
+ExecuteProcess('DATALOAD - Consol Engine - Dec 2023 CTP-US Manaccs Upload from CSV');
+ExecuteProcess('DATALOAD - Consol Engine - Dec 2023 Bruntons Manaccs Upload from CSV');
+ExecuteProcess('DATALOAD - Consol Engine - Dec 2023 Jacottet Manaccs Upload from CSV');
+
+
+
+
+#endregion

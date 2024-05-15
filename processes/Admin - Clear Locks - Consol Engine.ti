@@ -1,0 +1,9 @@
+#region Prolog
+
+if(CubeExists( '}SecurityOverlayGlobal_Consol Engine' )=1);
+    SecurityOverlayDestroyGlobalDefault( 'Consol Engine' );
+endif;
+
+SecurityOverlayCreateGlobalDefault( 'Consol Engine', '1:1:1:0:1:0:0:1:0' );
+
+#endregion

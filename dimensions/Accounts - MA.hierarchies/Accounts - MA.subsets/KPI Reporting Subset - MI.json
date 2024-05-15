@@ -1,0 +1,29 @@
+{
+	"@type":"Subset",
+	"Name":"KPI Reporting Subset - MI",
+	"Alias":"Display Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('OTH_wdays')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('OTH_FTEdirectCOS')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('OTH_FTEindirectCOS')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('OTH_FTEfactoryOVH')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('OTH_FTEadminOVH')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('OTH_ordersprod')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('OTH_orderstool')"
+		}
+	]
+}

@@ -1,0 +1,36 @@
+{
+	"@type":"Cube",
+	"Name":"Interco Data",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Financial Period')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('FX Calculation')"
+		},
+		{
+			"@id":"Dimensions('Consolidation Layer')"
+		},
+		{
+			"@id":"Dimensions('Entry ID')"
+		},
+		{
+			"@id":"Dimensions('m_Interco Data')"
+		}
+	],
+	"Rules@Code.link":"Interco Data.rules",
+	"Views@Code.links":
+	[
+		"Interco Data.views/Default.json"
+	]
+}

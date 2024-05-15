@@ -1,0 +1,143 @@
+{
+	"@type":"Subset",
+	"Name":"Cashflow Reporting Subset - MI Detail",
+	"Alias":"Display Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_openbal')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_openbalFX')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_openbalretranslated')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_uEBIT')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_depnnb')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_depnb')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_amort')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF Underlying EBITDA')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_WCinventory')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_WCtraderec')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_WCtraderec_Interco')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_WCtradepay')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_WCtradepay_Interco')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_WCother')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('Working Capital Movements')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('Operating Cashflows')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_TFAcapex')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_IFAcapex')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_TFAcapexproceed')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_IFAcapexproceed')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_LeaseCapital')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_interest')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_tax')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_forex')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_exceptionals')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_NCLloansRepay')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_PensionCont')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_other3')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('Trading Cashflows')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('Total Cash Movement')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_closebal')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('Cash')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('Leases')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('Loans')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('Net Debt')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_interco_Bruntons')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_interco_Jacottet')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_interco_CTPUS')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_interco_CTPUK')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_interco_CTPCzech')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_interco_CTPIndia')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_interco_CTPChina')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_interco_HO')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_interco_otherHO')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('Non-Trade Intragroup Cash Inflows / (Outflows)')"
+		}
+	]
+}

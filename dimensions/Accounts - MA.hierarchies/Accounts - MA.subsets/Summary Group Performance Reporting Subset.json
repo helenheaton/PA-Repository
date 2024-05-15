@@ -1,0 +1,113 @@
+{
+	"@type":"Subset",
+	"Name":"Summary Group Performance Reporting Subset",
+	"Alias":"Display Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('TOOLING SALES')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('TOOLING GROSS MARGIN')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Design & Eng Margin Percent')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('OVH_fact_tooling_sal')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('OVH_fact_tooling_other')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('OVH_fact_tooling_depn')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('uEBIT D&E')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Design & Eng ROS Percent')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('PRODUCT SALES')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('COS_prod_mat')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('MS Added Value')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('MS Added Value Percent')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('COS_prod_dohconsum')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('COS_prod_dohenergy')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('COS_prod_dist')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('COS_prod_lab')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('COS_prod_dohlabour')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('MS Direct Labour')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('COS_prod_dohother')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('MS COS')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('PRODUCT GROSS MARGIN')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Manufacturing Margin Percent')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('MS Throughput Percent')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('OVH_fact_sal')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('OVH_fact_machmain')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('MS Other Factory Overheads')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('MS Total Factory Overheads')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('MS SG&A Labour Costs')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('MS Other Admin Overheads')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('MS Total Admin Overheads')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('MS Depreciation & Amortisation')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('MS uEBIT')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('MS ROS Percent')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Total uEBIT')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Total ROS Percent')"
+		}
+	]
+}

@@ -1,0 +1,29 @@
+{
+	"@type":"Process",
+	"Name":"DIMUPDATE Cashflow Mapping Unwind Dimension",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"DIMUPDATE Cashflow Mapping Unwind Dimension.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"VariablesUIData":
+	[
+		"VarType=32\fColType=827\f"
+	],
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForClient":"Accounts - Cashflow:Accounts - Cashflow",
+		"dataSourceNameForServer":"Accounts - Cashflow:Accounts - Cashflow",
+		"subset":"Cashflow Remap"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"vEl",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

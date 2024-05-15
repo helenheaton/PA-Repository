@@ -1,0 +1,59 @@
+{
+	"@type":"MDXView",
+	"Name":"Manual Items",
+	"MDX@Code.link":"Manual Items.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Accounts - Cashflow].[Accounts - Cashflow]" : "MEMBER_NAME",
+			"[Company].[Company]" : "Short Name",
+			"[Financial Period].[Financial Period]" : "MEMBER_NAME"
+		},
+		"ContextSets" : 
+		{
+			"[Company].[Company]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Consolidation Layer].[Consolidation Layer]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[FX Calculation].[FX Calculation]" : 
+			{
+				"Expression" : "{[FX Calculation].[FX Calculation].MEMBERS}"
+			},
+			"[Financial Year].[Financial Year]" : 
+			{
+				"Expression" : "{[Financial Year].[Financial Year].MEMBERS}"
+			},
+			"[Period YTD].[Period YTD]" : 
+			{
+				"Expression" : "{[Period YTD].[Period YTD].[Period],[Period YTD].[Period YTD].[YTD]}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			},
+			"[m_MA Cashflow].[m_MA Cashflow]" : 
+			{
+				"Expression" : "{[m_MA Cashflow].[m_MA Cashflow].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Accounts - Cashflow].[Accounts - Cashflow]" : false,
+			"[Company].[Company]" : true,
+			"[Consolidation Layer].[Consolidation Layer]" : true,
+			"[FX Calculation].[FX Calculation]" : false,
+			"[Financial Period].[Financial Period]" : false,
+			"[Financial Year].[Financial Year]" : false,
+			"[Period YTD].[Period YTD]" : false,
+			"[Version].[Version]" : false,
+			"[m_MA Cashflow].[m_MA Cashflow]" : false
+		}
+	}
+}

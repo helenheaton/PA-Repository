@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Cashflow Calculation Types",
+	"Hierarchies@Code.links":
+	[
+		"Cashflow Calculation Types.hierarchies/Cashflow Calculation Types.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Cashflow Calculation Types')/Hierarchies('Cashflow Calculation Types')"
+	}
+}

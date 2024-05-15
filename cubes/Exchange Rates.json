@@ -1,0 +1,26 @@
+{
+	"@type":"Cube",
+	"Name":"Exchange Rates",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Financial Period')"
+		},
+		{
+			"@id":"Dimensions('Currency')"
+		},
+		{
+			"@id":"Dimensions('m_Exchange Rates')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"Exchange Rates.views/Default.json"
+	]
+}

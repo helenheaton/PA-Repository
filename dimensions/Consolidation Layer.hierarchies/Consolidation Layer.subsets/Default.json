@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"ExpandAbove":true,
+	"Expression":"{DRILLDOWNMEMBER({[Consolidation Layer].[Consolidation Layer].[Local Submission]} , {[Consolidation Layer].[Consolidation Layer].[Local Submission]} , RECURSIVE),EXCEPT(DRILLDOWNMEMBER({[Consolidation Layer].[Consolidation Layer].[Management Accounts]} , {[Consolidation Layer].[Consolidation Layer].[Management Accounts]} , RECURSIVE) , {[Consolidation Layer].[Consolidation Layer].[Local Submission]}),EXCEPT(DRILLDOWNMEMBER({[Consolidation Layer].[Consolidation Layer].[Financial Accounts]} , {[Consolidation Layer].[Consolidation Layer].[Financial Accounts]} , RECURSIVE) , {[Consolidation Layer].[Consolidation Layer].[Management Accounts]})}"
+}

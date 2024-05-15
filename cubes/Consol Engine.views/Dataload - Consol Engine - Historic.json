@@ -1,0 +1,114 @@
+{
+	"@type":"NativeView",
+	"Name":"Dataload - Consol Engine - Historic",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_Consol Engine')/Hierarchies('m_Consol Engine')"
+				},
+				"Expression":"TM1SubsetAll([m_Consol Engine])"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Consolidation Layer')/Hierarchies('Consolidation Layer')/Subsets('MA Import')"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Subsets('Actuals Clear2')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Actual')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')/Subsets('History Year')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')/Elements('FY24')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Financial Period')/Hierarchies('Financial Period')/Subsets('History to Import')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Financial Period')/Hierarchies('Financial Period')/Elements('P01')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Period YTD')/Hierarchies('Period YTD')"
+				},
+				"Expression":"TM1SubsetAll([Period YTD])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Period YTD')/Hierarchies('Period YTD')/Elements('Period')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Company')/Hierarchies('Company')/Subsets('Actuals Clear')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('03088344')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Accounts - Group')/Hierarchies('Accounts - Group')"
+				},
+				"Expression":"TM1SubsetAll([Accounts - Group])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Accounts - Group')/Hierarchies('Accounts - Group')/Elements('SAL_prod_ext')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('FX Calculation')/Hierarchies('FX Calculation')"
+				},
+				"Expression":"TM1SubsetAll([FX Calculation])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('FX Calculation')/Hierarchies('FX Calculation')/Elements('Local')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.00"
+}

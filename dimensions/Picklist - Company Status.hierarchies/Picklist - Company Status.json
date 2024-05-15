@@ -1,0 +1,24 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Picklist - Company Status",
+	"Elements":
+	[
+		{
+			"Name":"Holding",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Trading",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Dormant",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Closed",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

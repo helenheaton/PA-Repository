@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_US Site Split",
+	"Hierarchies@Code.links":
+	[
+		"m_US Site Split.hierarchies/m_US Site Split.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_US Site Split')/Hierarchies('m_US Site Split')"
+	}
+}

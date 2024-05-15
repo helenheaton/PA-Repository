@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Entity Performance CF",
+	"Alias":"Display Name",
+	"Expression":"{EXCEPT(TM1TOGGLEEXPANDMODE(TM1SubsetToSet([Accounts - Cashflow].[Accounts - Cashflow] , \"Summary Group Performance - Cashflow\") , EXPAND_ABOVE) , {[Accounts - Cashflow].[Accounts - Cashflow].[CF_WCtraderec_Interco],[Accounts - Cashflow].[Accounts - Cashflow].[CF_WCtradepay_Interco]})}"
+}

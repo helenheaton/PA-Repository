@@ -1,0 +1,27 @@
+{
+	"@type":"Process",
+	"Name":"zLive_to_Dev_Tool",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zLive_to_Dev_Tool.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"P1",
+			"Prompt":"Have you stopped the destination instance?",
+			"Value":"Y/N",
+			"Type":"String"
+		},
+		{
+			"Name":"P2",
+			"Prompt":"I understand this will copy the whole data folder and overwrite duplicate objects.",
+			"Value":"Y/N",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

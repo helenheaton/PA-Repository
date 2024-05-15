@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Actuals Clear",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Actual')"
+		}
+	]
+}

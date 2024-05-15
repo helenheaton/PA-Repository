@@ -1,0 +1,59 @@
+{
+	"@type":"Hierarchy",
+	"Name":"FX Calculation",
+	"Elements":
+	[
+		{
+			"Name":"Local",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rate MA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GBP MA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rate Budget",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GBP MA at Budget rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GBP FIN",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rate FIN BS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rate FIN PL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OpBal @ OpRate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OpBal @ Clos Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FX mvt",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"FX Calculation.subsets/All Leaf Level.json",
+		"FX Calculation.subsets/Consol Adjustment Selections.json",
+		"FX Calculation.subsets/GBP and Local.json",
+		"FX Calculation.subsets/MA Reporting Selections.json",
+		"FX Calculation.subsets/Reporting Selections.json"
+	]
+}

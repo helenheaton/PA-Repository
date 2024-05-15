@@ -1,0 +1,19 @@
+{
+	"@type":"Subset",
+	"Name":"MA Reporting Selections",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('FX Calculation')/Hierarchies('FX Calculation')/Elements('GBP MA')"
+		},
+		{
+			"@id":"Dimensions('FX Calculation')/Hierarchies('FX Calculation')/Elements('Local')"
+		},
+		{
+			"@id":"Dimensions('FX Calculation')/Hierarchies('FX Calculation')/Elements('Rate MA')"
+		},
+		{
+			"@id":"Dimensions('FX Calculation')/Hierarchies('FX Calculation')/Elements('GBP MA at Budget rate')"
+		}
+	]
+}

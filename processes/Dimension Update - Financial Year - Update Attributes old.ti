@@ -1,0 +1,55 @@
+#region Prolog
+
+## This process will loop through and update next/prev attributes for the financial year dimension
+sDim = 'Financial Year';
+
+sSubsource = GetProcessName();
+nTmp = 1;
+sMDX = '{TM1FILTERBYLEVEL(TM1SUBSETALL([Financial Year].[Financial Year]) , 0)}';
+
+SubsetCreatebyMDX( sSubsource, sMDX, nTmp );
+
+DataSourceType = 'Subset';
+DatasourceDimensionSubset = sSubsource;
+DatasourceNameForServer = sDim;
+
+
+#endregion
+#region Metadata
+
+## Break the year into parts so we can derive next/previous years
+
+## Previous Year ####
+sStartYear = SUBST(vYear,1,4);
+sEndYear = SUBST(vYear,6,2);
+
+nStartYear = StringToNumber( sStartYear );
+nEndYear = StringToNumber( sEndYear );
+
+nPrevStartYear = nStartYear - 1;
+nPrevEndYear = nEndYear - 1;
+
+sPrevStartYear = NumberToString( nPrevStartYear );
+sPrevEndYear = NumberToString( nPrevEndYear );
+
+sPrevYear = sPrevStartYear | '/' | sPrevEndYear;
+
+## Only populate if the next year exists in the system
+IF(DimensionElementExists( sDim, sPrevYear ) = 1);
+	AttrPutS( sPrevYear, sDim, vYear, 'Previous Year' );
+ENDIF;
+## Next Year #########
+
+nNextStartYear = nStartYear + 1;
+nNextEndYear = nEndYear + 1;
+
+sNextStartYear = NumberToString( nNextStartYear );
+sNextEndYear = NumberToString( nNextEndYear );
+
+sNextYear = sNextStartYear | '/' | sNextEndYear;
+
+## Only populate if the next year exists in the system
+IF(DimensionElementExists( sDim, sNextYear ) = 1);
+	AttrPutS( sNextYear, sDim, vYear, 'Next Year' );
+ENDIF;
+#endregion

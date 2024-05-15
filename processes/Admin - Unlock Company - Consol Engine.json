@@ -1,0 +1,21 @@
+{
+	"@type":"Process",
+	"Name":"Admin - Unlock Company - Consol Engine",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"Admin - Unlock Company - Consol Engine.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pCompany",
+			"Prompt":"Company to unlock:",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

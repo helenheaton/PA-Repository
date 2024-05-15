@@ -1,9 +1,0 @@
-  SKIPCHECK;
-FEEDSTRINGS;
-
-
-
-FEEDERS;
-['Capital']=>DB('Cashflow', !Version, 'FY', !t_Financial Year, 'Group', 'GP02', 'Source', 'Other Loan Capital Payable');
-
-['Interest']=>DB('Cashflow', !Version, !t_Half, !t_Financial Year, 'Group', 'GP02', 'Source', 'S216');

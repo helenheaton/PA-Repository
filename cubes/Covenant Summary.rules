@@ -1,0 +1,125 @@
+SKIPCHECK;
+
+## Rule created by STeven Hutchison 20/02/2024
+
+## Specific rules for rolling 12 periods on manual input lines
+
+['Derived Forecast',{'Pensions Admin Costs','Other Interest'}] =N: 
+IF(NUMBR(SUBST(!Financial Year,3,2))  > NUMBR(SUBST(DB('Model Settings', 'Value', 'Reporting Year' ),3,2))
+,
+  DB('Covenant Summary', 'Budget', !'Financial Year', !'Financial Period', !Company, !'Period YTD', !'FX Calculation', !'Consolidation Layer', !Covenant, !'m_Covenants Summary' )
+,
+  CONTINUE
+);
+
+['Derived Forecast',{'Pensions Admin Costs','Other Interest'}] =N: 
+IF(NUMBR(SUBST(!Financial Year,3,2) | SUBST(!Financial Period,2,2)) <= NUMBR(DB('Model Settings', 'Value', 'Reporting Period' ))
+,
+  DB('Covenant Summary', 'Actual', !'Financial Year', !'Financial Period', !Company, !'Period YTD', !'FX Calculation', !'Consolidation Layer', !Covenant, !'m_Covenants Summary' )
+,
+  DB('Covenant Summary',DB('Model Settings', 'Value', 'Source Version for Derived Forecast' ),!Financial Year,!Financial Period,!Company,!Period YTD,!FX Calculation,!Consolidation Layer,!Covenant, !'m_Covenants Summary') 
+);
+
+['YTD',{'Pensions Admin Costs','Other Interest'}] =N:DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period' | ' YTD', !Company,'Period', !'FX Calculation', !'Consolidation Layer', !Covenant, !'m_Covenants Summary' );
+
+['Prior Year YTD',{'Pensions Admin Costs','Other Interest'}] =N: DB('Covenant Summary', !Version, ATTRS('Financial Year',!'Financial Year','Previous Year'), !'Financial Period',!Company, 'YTD', !'FX Calculation', !'Consolidation Layer', !Covenant, !'m_Covenants Summary' );
+
+
+ ['Rolling 12 Periods',{'Pensions Admin Costs','Other Interest'}] =N: 
+ DB('Covenant Summary', !Version,!'Financial Year', !'Financial Period',  !Company,'YTD', !'FX Calculation', !'Consolidation Layer', !Covenant, !'m_Covenants Summary' )
+ +
+ DB('Covenant Summary', !Version,ATTRS('Financial Year',!'Financial Year','Previous Year'), 'All Financial Periods',  !Company,'Period', !'FX Calculation', !'Consolidation Layer',!Covenant, !'m_Covenants Summary' )
+ -
+ DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period',  !Company,'Prior Year YTD', !'FX Calculation', !'Consolidation Layer', !Covenant, !'m_Covenants Summary' );
+
+
+## Combined Covenants rules
+
+['Underlying Operating Profit',{'Covenant 1','Covenant 2','Covenant 4'}] =N: 
+DB('MA Reporting',!Version,!Company,!Financial Year,!Financial Period,!Period YTD,'UNDERLYING EBIT',!FX Calculation,!Consolidation Layer,'Value');
+ 
+['Amortisation of Intangibles',{'Covenant 1','Covenant 2','Covenant 4'}] =N: 
+DB('MA Reporting',!Version,!Company,!Financial Year,!Financial Period,!Period YTD,'OVH_Fact_amort',!FX Calculation,!Consolidation Layer,'Value') * -1;
+
+## Covenant 1 rules
+
+['Net Bank Interest Paid / (Received)','Covenant 1'] =N: DB('MA Reporting',!Version,!Company,!Financial Year,!Financial Period,!Period YTD,'OVH_corp_bankint',!FX Calculation,!Consolidation Layer,'Value') * -1;
+
+['Lease Interest','Covenant 1'] =N: DB('MA Reporting',!Version,!Company,!Financial Year,!Financial Period,!Period YTD,'OVH_corp_leaseint',!FX Calculation,!Consolidation Layer,'Value') * -1;
+
+
+['Interest Cover','Covenant 1'] = ['EBITA Per Agreement'] \ ['Finance Costs'];
+
+['Required EBITA','Covenant 1'] = ['Finance Costs'] * DB('Covenants Assumptions',!Financial Year,!Financial Period,'Covenant 1','Compliance Level' );
+
+#['Derived Forecast','EBITDA Headroom','Covenant 1'] = ['EBITDA Per Agreement'] - ['Required EBITDA'];
+
+#['Derived Forecast','EBITDA Per Agreement','Covenant 1'] =N: ['Underlying Operating Profit'] + ['Amortisation of Intangibles'] + ['Pensions Admin Costs'];
+# ['Derived Forecast','Interest Cover','Covenant 1'] = ['EBITDA Per Agreement'] \ ['Finance Costs'];
+# ['Derived Forecast','Required EBITDA','Covenant 1'] = ['Finance Costs'] * DB('Covenants Assumptions',!Financial Year,!Financial Period,'Covenant 1','Compliance Level' );
+########################################################################################################
+
+## Covenant 2 rules
+
+['Depreciation','Covenant 2'] =N: 
+(DB('MA Reporting',!Version,!Company,!Financial Year,!Financial Period,!Period YTD,'OVH_fact_depnbuild',!FX Calculation,!Consolidation Layer,'Value') 
++
+DB('MA Reporting',!Version,!Company,!Financial Year,!Financial Period,!Period YTD,'OVH_fact_depnother',!FX Calculation,!Consolidation Layer,'Value') )
+* -1;
+
+['Net Debt','Covenant 2'] =N: DB('MA Reporting',!Version,!Company,!Financial Year,!Financial Period,!Period YTD,'NET DEBT',!FX Calculation,!Consolidation Layer,'Value') * -1;
+
+['Required Net Debt','Covenant 2'] =N: (['EBITDA Per Agreement'] * -1) * DB('Covenants Assumptions',!Financial Year,!Financial Period,'Covenant 2','Compliance Level' );
+
+['Net Leverage','Covenant 2'] = (['Net Debt','YTD'] ) \ ['EBITDA Per Agreement','Rolling 12 Periods'];
+
+['Required EBITDA','Covenant 2'] =N:(['Net Debt','YTD']) \ DB('Covenants Assumptions',!Financial Year,!Financial Period,'Covenant 2','Compliance Level' );
+
+#['Derived Forecast','EBITDA Headroom', 'Covenant 2'] =N: ['EBITDA Per Agreement'] - ['Required EBITDA'];
+#['Derived Forecast','EBITDA Per Agreement','Covenant 2'] =N: ['Underlying Operating Profit'] + ['Amortisation of Intangibles'] + ['Pensions Admin Costs'] + ['Depreciation'];
+
+############################################################################################################
+
+## Covenant 3 rules
+
+['External Revenue','Covenant 3'] =N:
+DB('MA Reporting',!Version,!Company,!Financial Year,!Financial Period,!Period YTD,'SAL_prod_ext',!FX Calculation,!Consolidation Layer,'Value')
++
+DB('MA Reporting',!Version,!Company,!Financial Year,!Financial Period,!Period YTD,'SAL_tool_ext',!FX Calculation,!Consolidation Layer,'Value');
+
+['Actual / Forecast Core Subsidiary Revenue / Group Revenue','Covenant 3'] = 
+
+['External Revenue', 'Guarantor Group'] \ ['External Revenue', 'Group Total'];
+
+['Required Core Subsidiary Revenue','Covenant 3'] =N: DB('Covenants Assumptions',!Financial Year,!Financial Period,'Covenant 3','Compliance Level' ) * ['External Revenue'];
+
+['Group Revenue Headroom','Covenant 3'] = ['External Revenue', 'Guarantor Group'] - ['Required Core Subsidiary Revenue'];
+
+## COvenant 4 rules
+['Actual / Forecast Core subsidiary EBITA / Group EBITA','Covenant 4'] = 
+DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period', 'Guarantor Group', !'Period YTD', !'FX Calculation', !'Consolidation Layer', 'Covenant 4', 'EBITA Per Agreement' )
+\
+DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period', 'Group Total', !'Period YTD', !'FX Calculation', !'Consolidation Layer', 'Covenant 4', 'EBITA Per Agreement' );
+
+['Required Core Subsidiary EBITA','Covenant 4'] = ['EBITA Per Agreement'] * DB('Covenants Assumptions',!Financial Year,!Financial Period,'Covenant 4','Compliance Level' );
+
+['Group EBITA Headroom','Covenant 4'] = ['Guarantor Group','EBITA Per Agreement'] - ['Required Core Subsidiary EBITA','Group Total'];
+
+###############################################################################################################
+FEEDERS;
+# Internal
+['Period'] => ['YTD'];
+['YTD'] => ['Prior Year YTD'],['Rolling 12 Periods'];
+
+['Period YTD':'YTD'] => DB('Covenant Summary', !Version, !'Financial Year', ATTRS('Financial Period', !'Financial Period', 'Next Period') ,  !Company, 'Period',!'FX Calculation', !'Consolidation Layer', !Covenant, !'m_Covenants Summary'  );
+['Period YTD':'YTD','P12'] => DB('Covenant Summary', !Version, ATTRS('Financial Year', !'Financial Year', 'Next Year'), 'P01', !Company,'Period', !'FX Calculation', !'Consolidation Layer', !Covenant, !'m_Covenants Summary'  );
+
+[{'Pensions Admin Costs','Other Interest'},'Actual'] => ['Pensions Admin Costs','Derived Forecast'],['Other Interest','Derived Forecast'];
+['Underlying Operating Profit','Covenant 2'] => ['EBITDA Per Agreement'],['Interest Cover'];
+['Finance Costs','Covenant 1'] => ['Required EBITA'];
+#['Derived Forecast','EBITDA Per Agreement','Covenant 1'] => ['EBITDA Headroom'];
+['EBITDA Per Agreement','Covenant 2'] => ['Net Leverage'],['EBITDA Headroom'],['Required Net Debt'];
+['External Revenue', 'Group Total','Covenant 3'] => ['Actual / Forecast Core Subsidiary Revenue / Group Revenue'],['Required Core Subsidiary Revenue'];
+['External Revenue', 'Guarantor Group','Covenant 3'] => ['Group Revenue Headroom'];
+['Net Debt','Covenant 2'] => ['Required EBITDA'];
+['Covenant 4','EBITA Per Agreement'] => ['Actual / Forecast Core subsidiary EBITA / Group EBITA'],['Required Core Subsidiary EBITA'],['Group EBITA Headroom'];

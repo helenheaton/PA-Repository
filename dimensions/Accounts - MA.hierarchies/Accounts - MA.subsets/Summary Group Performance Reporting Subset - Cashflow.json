@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"Summary Group Performance Reporting Subset - Cashflow",
+	"ExpandAbove":true,
+	"Alias":"Display Name",
+	"Expression":"{[Accounts - MA].[Accounts - MA].[CF_uEBIT],[Accounts - MA].[Accounts - MA].[CF Depreciation and Amortisation],[Accounts - MA].[Accounts - MA].[CF Underlying EBITDA],DRILLDOWNMEMBER({[Accounts - MA].[Accounts - MA].[Working Capital Movements]} , {[Accounts - MA].[Accounts - MA].[Working Capital Movements]} , RECURSIVE),[Accounts - MA].[Accounts - MA].[Operating Cashflows]}"
+}

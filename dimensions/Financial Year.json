@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Financial Year",
+	"Hierarchies@Code.links":
+	[
+		"Financial Year.hierarchies/Financial Year.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')"
+	}
+}

@@ -1,0 +1,29 @@
+{
+	"@type":"Cube",
+	"Name":"Interco Matrix",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Financial Period')"
+		},
+		{
+			"@id":"Dimensions('Period YTD')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Intercompany Partner')"
+		}
+	],
+	"Views@Code.links":
+	[
+		"Interco Matrix.views/Default.json"
+	]
+}

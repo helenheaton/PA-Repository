@@ -1,0 +1,120 @@
+{
+	"@type":"NativeView",
+	"Name":"Default",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_US Site Split')/Hierarchies('m_US Site Split')"
+				},
+				"Expression":"TM1SubsetAll([m_US Site Split])"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('FX Calculation')/Hierarchies('FX Calculation')"
+				},
+				"Expression":"TM1SubsetAll([FX Calculation])"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Version')/Hierarchies('Version')"
+				},
+				"Expression":"TM1SubsetAll([Version])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Budget')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')"
+				},
+				"Expression":"TM1SubsetAll([Financial Year])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')/Elements('All Financial Years')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Financial Period')/Hierarchies('Financial Period')"
+				},
+				"Expression":"TM1SubsetAll([Financial Period])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Financial Period')/Hierarchies('Financial Period')/Elements('All Financial Periods')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Period YTD')/Hierarchies('Period YTD')"
+				},
+				"Expression":"TM1SubsetAll([Period YTD])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Period YTD')/Hierarchies('Period YTD')/Elements('Period')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('US Departments')/Hierarchies('US Departments')"
+				},
+				"Expression":"TM1SubsetAll([US Departments])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('US Departments')/Hierarchies('US Departments')/Elements('Total US')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Accounts - US Split')/Hierarchies('Accounts - US Split')"
+				},
+				"Expression":"TM1SubsetAll([Accounts - US Split])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Accounts - US Split')/Hierarchies('Accounts - US Split')/Elements('Sales')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.00"
+}

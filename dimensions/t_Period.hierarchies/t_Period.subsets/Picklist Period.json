@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Picklist Period",
-	"Expression":"{TM1FILTERBYLEVEL([t_Period].[t_Period].MEMBERS , 0)}"
-}

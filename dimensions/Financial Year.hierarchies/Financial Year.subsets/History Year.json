@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"History Year",
+	"Expression":"{TM1FILTERBYPATTERN(TM1SUBSETALL([Financial Year]) , [Model Settings].([m_Model Settings].[History Year],[Value].[Value]))}"
+}

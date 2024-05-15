@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Exchange Rates",
+	"Elements":
+	[
+		{
+			"Name":"MA Rate",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FIN Rate",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

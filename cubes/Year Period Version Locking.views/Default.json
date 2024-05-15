@@ -1,0 +1,26 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Financial Period].[Financial Period]" : "MEMBER_NAME"
+		},
+		"ContextSets" : 
+		{
+			"[}SecurityOverlay].[}SecurityOverlay]" : 
+			{
+				"Expression" : "{[}SecurityOverlay].[}SecurityOverlay].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Financial Period].[Financial Period]" : false,
+			"[Financial Year].[Financial Year]" : false,
+			"[Version].[Version]" : false,
+			"[}SecurityOverlay].[}SecurityOverlay]" : false
+		}
+	}
+}

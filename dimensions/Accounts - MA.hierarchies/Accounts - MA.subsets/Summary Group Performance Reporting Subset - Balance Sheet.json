@@ -1,0 +1,51 @@
+{
+	"@type":"Subset",
+	"Name":"Summary Group Performance Reporting Subset - Balance Sheet",
+	"ExpandAbove":true,
+	"Alias":"Display Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Tangible Fixed Assets (incl Leased Assets) - BS NBV')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Annualised MS Net Sales')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Inventories')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('CAS_tradereceivables')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('CAS_intergreceiveNONDIV')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('CAS_intergreceiveDIV')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('CLI_tradepayables')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('CLI_intergpayablesNONDIV')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('CLI_intergpayablesDIV')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Other Working Capital')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('BS Working Capital excl Cash')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Working Capital Percent')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Monthly Change in BS WC')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('CAS_cash')"
+		}
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Latest Submission Upload - Core Group Admin",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')/Elements('FY24')"
+		}
+	]
+}

@@ -1,0 +1,47 @@
+{
+	"@type":"Cube",
+	"Name":"Consol Engine",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Financial Period')"
+		},
+		{
+			"@id":"Dimensions('Period YTD')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Group')"
+		},
+		{
+			"@id":"Dimensions('FX Calculation')"
+		},
+		{
+			"@id":"Dimensions('Consolidation Layer')"
+		},
+		{
+			"@id":"Dimensions('m_Consol Engine')"
+		}
+	],
+	"Rules@Code.link":"Consol Engine.rules",
+	"Views@Code.links":
+	[
+		"Consol Engine.views/Dataload - Consol Engine - Historic.json",
+		"Consol Engine.views/Dataload - Consol Engine - Historic Forecast.json",
+		"Consol Engine.views/Source.json",
+		"Consol Engine.views/zData Source.json",
+		"Consol Engine.views/Cashflow.json",
+		"Consol Engine.views/Default.json",
+		"Consol Engine.views/Group Consol Split Mth.json",
+		"Consol Engine.views/Group Detail Split Mth.json",
+		"Consol Engine.views/Intercompany accounts.json"
+	]
+}

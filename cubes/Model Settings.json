@@ -1,0 +1,18 @@
+{
+	"@type":"Cube",
+	"Name":"Model Settings",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Value')"
+		},
+		{
+			"@id":"Dimensions('m_Model Settings')"
+		}
+	],
+	"Rules@Code.link":"Model Settings.rules",
+	"Views@Code.links":
+	[
+		"Model Settings.views/Default.json"
+	]
+}

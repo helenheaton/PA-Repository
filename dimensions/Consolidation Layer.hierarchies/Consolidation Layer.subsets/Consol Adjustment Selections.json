@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Consol Adjustment Selections",
+	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([Consolidation Layer].[Consolidation Layer]) , 0)}}"
+}

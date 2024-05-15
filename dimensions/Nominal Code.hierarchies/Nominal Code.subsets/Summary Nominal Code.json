@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Summary Nominal Code",
-	"Expression":"{DRILLUPMEMBER(EXCEPT([Nominal Code].[Nominal Code].MEMBERS , TM1FILTERBYLEVEL([Nominal Code].[Nominal Code].MEMBERS , 0)) , {[Nominal Code].[Nominal Code].[INCOME],[Nominal Code].[Nominal Code].[Overheads],[Nominal Code].[Nominal Code].[Operating Costs],[Nominal Code].[Nominal Code].[Investment Costs],[Nominal Code].[Nominal Code].[Investment Incomes],[Nominal Code].[Nominal Code].[Net Investment Income/Costs]})}"
-}

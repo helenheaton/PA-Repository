@@ -1,0 +1,47 @@
+{
+	"@type":"Subset",
+	"Name":"Performance by Site",
+	"Alias":"Short Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('Total EMEA')"
+		},
+		{
+			"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('03088344')"
+		},
+		{
+			"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('Mitcham')"
+		},
+		{
+			"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('26260026')"
+		},
+		{
+			"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('U31409KA2007PTC042481')"
+		},
+		{
+			"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('CTP-consol')"
+		},
+		{
+			"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('91320585329570420P')"
+		},
+		{
+			"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('Aero')"
+		},
+		{
+			"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('00045894')"
+		},
+		{
+			"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('419234851')"
+		},
+		{
+			"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('Aero-consol')"
+		},
+		{
+			"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('Aylesbury')"
+		},
+		{
+			"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('Division Total')"
+		}
+	]
+}

@@ -1,0 +1,112 @@
+#region Prolog
+
+## Process created by STeven Hutchison Budgeting Solutions Ltd 13/03/2024
+## This process will copy actual into budget (for YTD accounts) in prior year P12
+
+
+## Define Variables
+sCubeSource = 'Consol Engine';
+sCubeTarget = 'Consol Engine';
+
+sViewSource = GetProcessName();
+sViewTarget = sViewSource | ' Target';
+sMsg = '';
+nTmp = 1;
+sYear = CellGetS( 'Model Settings', 'Value', 'Model Year' );
+sPriorYear = ATTRS('Financial Year',sYear,'Previous Year');
+
+
+## Turn off logging on destination cube
+nOldLog = CubeGetLogChanges( sCubeTarget );
+CubeSetLogChanges( sCubeTarget, 0 );
+
+## Create Source view
+ViewCreate( sCubeSource, sViewSource, nTmp );
+
+## Create subsets to be used in the view
+
+## Year
+sDim = 'Financial Year';
+SubsetCreate( sDim, sViewSource, nTmp );
+SubsetElementInsert( sDim, sViewSource, sPriorYear, 1 );
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sViewSource );
+
+sDim = 'Financial Period';
+SubsetCreate( sDim, sViewSource, nTmp );
+SubsetElementInsert( sDim, sViewSource, 'P12', 1 );
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sViewSource );
+
+sDim = 'Version';
+SubsetCreate( sDim, sViewSource, nTmp );
+SubsetElementInsert( sDim, sViewSource, 'Actual', 1 );
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sViewSource );
+
+sDim = 'Accounts - Group';
+sMDX = '{FILTER(TM1FILTERBYLEVEL(TM1SUBSETALL([Accounts - Group].[Accounts - Group]) , 0), ([Accounts - Group].[Accounts - Group].CURRENTMEMBER.PROPERTIES("Period YTD") = "YTD"))}';
+SubsetCreatebyMDX( sViewSource, sMDX, nTmp );
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sViewSource );
+
+
+## Set view properties
+ViewExtractSkipCalcsSet( sCubeSource, sViewSource, 1 );
+ViewExtractSkipRuleValuesSet( sCubeSource, sViewSource, 1 );
+ViewExtractSkipZeroesSet( sCubeSource, sViewSource, 1 );
+
+## Data Source Information
+DataSourceType = 'View';
+DatasourceNameForServer = sCubeSource;
+DatasourceCubeview = sViewSource;
+
+
+ViewCreate( sCubeTarget, sViewTarget, nTmp );
+
+## Create subsets to be used in the view
+
+## Year
+sDim = 'Financial Year';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sPriorYear, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+sDim = 'Financial Period';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'P12', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+sDim = 'Version';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'Budget', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+sDim = 'Accounts - Group';
+sMDX = '{FILTER(TM1FILTERBYLEVEL(TM1SUBSETALL([Accounts - Group].[Accounts - Group]) , 0), ([Accounts - Group].[Accounts - Group].CURRENTMEMBER.PROPERTIES("Period YTD") = "YTD"))}';
+SubsetCreatebyMDX( sViewTarget, sMDX, nTmp );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+ViewZeroOut( sCubeTarget, sViewTarget );
+
+#endregion
+#region Data
+
+
+CellPutN( vValue, sCubeTarget, vVersion, sPriorYear, 'P12', vPerYTD, vCompany, vAccount, vFX, vLayer, 'Value' );
+
+
+#endregion
+#region Epilog
+
+## Turn logging back to original state
+CubeSetLogChanges( sCubeTarget, nOldLog );
+
+
+
+
+
+
+#
+
+
+
+
+
+#endregion

@@ -1,0 +1,19 @@
+{
+	"@type":"Subset",
+	"Name":"Summary",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_openbalretranslated')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('Total Cash Movement')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_closebal')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')/Hierarchies('Accounts - Cashflow')/Elements('CF_checksum')"
+		}
+	]
+}

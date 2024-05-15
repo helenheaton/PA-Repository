@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Exclude leaves",
+	"Expression":"{FILTER(TM1SubsetToSet([Accounts - Group].[Accounts - Group] , \"Default\" , \"public\") , (STRTOVALUE([Accounts - Group].[Accounts - Group].CURRENTMEMBER.PROPERTIES(\"ELEMENT_LEVEL\")) <> 0))}"
+}

@@ -4,135 +4,72 @@
 	"Elements":
 	[
 		{
-			"Name":"All Versions",
+			"Name":"Budget",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Actual vs Budget",
 			"Type":"Consolidated"
 		},
 		{
-			"Name":"Board Version",
-			"Type":"Numeric"
+			"Name":"Actual vs Forecast",
+			"Type":"Consolidated"
 		},
 		{
 			"Name":"Actual",
 			"Type":"Numeric"
 		},
 		{
-			"Name":"Projections",
+			"Name":"Derived Forecast",
 			"Type":"Numeric"
 		},
 		{
-			"Name":"Steady State",
+			"Name":"3+9 Forecast",
 			"Type":"Numeric"
 		},
 		{
-			"Name":"Sandbox",
+			"Name":"6+6 Forecast",
 			"Type":"Numeric"
 		},
 		{
-			"Name":"Scenario",
-			"Type":"Numeric"
-		},
-		{
-			"Name":"Operational vs Board",
-			"Type":"Consolidated"
-		},
-		{
-			"Name":"Operational  Budget",
-			"Type":"Numeric"
-		},
-		{
-			"Name":"Board vs Actual",
-			"Type":"Consolidated"
-		},
-		{
-			"Name":"Operational vs Scenario",
-			"Type":"Consolidated"
-		},
-		{
-			"Name":"Forecast",
+			"Name":"9+3 Forecast",
 			"Type":"Numeric"
 		}
 	],
 	"Edges":
 	[
 		{
-			"ParentName":"All Versions",
+			"ParentName":"Actual vs Budget",
 			"ComponentName":"Actual",
 			"Weight":1
 		},
 		{
-			"ParentName":"All Versions",
-			"ComponentName":"Board Version",
-			"Weight":1
-		},
-		{
-			"ParentName":"All Versions",
-			"ComponentName":"Forecast",
-			"Weight":1
-		},
-		{
-			"ParentName":"All Versions",
-			"ComponentName":"Operational  Budget",
-			"Weight":1
-		},
-		{
-			"ParentName":"All Versions",
-			"ComponentName":"Projections",
-			"Weight":1
-		},
-		{
-			"ParentName":"All Versions",
-			"ComponentName":"Sandbox",
-			"Weight":1
-		},
-		{
-			"ParentName":"All Versions",
-			"ComponentName":"Scenario",
-			"Weight":1
-		},
-		{
-			"ParentName":"All Versions",
-			"ComponentName":"Steady State",
-			"Weight":1
-		},
-		{
-			"ParentName":"Operational vs Board",
-			"ComponentName":"Operational  Budget",
-			"Weight":1
-		},
-		{
-			"ParentName":"Operational vs Board",
-			"ComponentName":"Board Version",
+			"ParentName":"Actual vs Budget",
+			"ComponentName":"Budget",
 			"Weight":-1
 		},
 		{
-			"ParentName":"Board vs Actual",
-			"ComponentName":"Board Version",
-			"Weight":1
-		},
-		{
-			"ParentName":"Board vs Actual",
+			"ParentName":"Actual vs Forecast",
 			"ComponentName":"Actual",
-			"Weight":-1
-		},
-		{
-			"ParentName":"Operational vs Scenario",
-			"ComponentName":"Operational  Budget",
 			"Weight":1
 		},
 		{
-			"ParentName":"Operational vs Scenario",
-			"ComponentName":"Scenario",
+			"ParentName":"Actual vs Forecast",
+			"ComponentName":"Derived Forecast",
 			"Weight":-1
 		}
 	],
 	"Subsets@Code.links":
 	[
-		"Version.subsets/DATACOPY - Payroll to P&L.json",
-		"Version.subsets/Dept Summary P&L.json",
-		"Version.subsets/EXPORT - PL by Entity.json",
-		"Version.subsets/Picklist Version.json",
-		"Version.subsets/Picklist Version for Forecast Version.json",
-		"Version.subsets/Picklist Version to Copy to.json",
-		"Version.subsets/Version for Forecast.json"
+		"Version.subsets/Actual.json",
+		"Version.subsets/Actual Budget.json",
+		"Version.subsets/Actuals Clear.json",
+		"Version.subsets/Actuals Clear2.json",
+		"Version.subsets/Dataload - Consol Engine - Historic.json",
+		"Version.subsets/Dataload - Consol Engine - Historic Forecast.json",
+		"Version.subsets/Derived Forecast Selection.json",
+		"Version.subsets/Forecast Upload Selections.json",
+		"Version.subsets/Picklist.json",
+		"Version.subsets/Reporting Forecast Version.json"
 	]
 }

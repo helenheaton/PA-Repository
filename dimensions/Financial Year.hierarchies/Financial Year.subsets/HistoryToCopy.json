@@ -1,0 +1,19 @@
+{
+	"@type":"Subset",
+	"Name":"HistoryToCopy",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')/Elements('FY20')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')/Elements('FY21')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')/Elements('FY22')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')/Elements('FY23')"
+		}
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Consol Engine",
+	"Hierarchies@Code.links":
+	[
+		"m_Consol Engine.hierarchies/m_Consol Engine.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Consol Engine')/Hierarchies('m_Consol Engine')"
+	}
+}

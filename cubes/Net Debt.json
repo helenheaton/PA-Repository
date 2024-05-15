@@ -1,0 +1,27 @@
+{
+	"@type":"Cube",
+	"Name":"Net Debt",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Financial Period')"
+		},
+		{
+			"@id":"Dimensions('Period YTD')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Net Debt')"
+		},
+		{
+			"@id":"Dimensions('m_Net Debt')"
+		}
+	],
+	"Rules@Code.link":"Net Debt.rules",
+	"Views@Code.links":[]
+}

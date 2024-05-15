@@ -1,0 +1,380 @@
+#region Prolog
+# ===========================================================================================
+## Created by Steven Hutchison 26/01/2024
+## Updated by Helen Heaton 31/01/2024
+## This process will load historic data from a csv file
+# ===========================================================================================
+
+### set the path for the source file
+sLogDirectory = GetProcessErrorFileDirectory;
+datasourcenameforserver='Model_Upload\' | pFileName;
+
+
+### Define variables
+sCubeTarget = 'Consol Engine';
+sLayer = pLayer;
+sMeas = 'Value';
+nCount = 1;
+
+ViewName='Dataload - Consol Engine - Historic';
+SubName = ViewName;
+
+
+
+###======================================================== Clear MA Import Layer - Previous Years - actuals only ========================================================
+CubeSetLogChanges(sCubeTarget,0);
+
+if(ViewExists(sCubeTarget,ViewName)=1);
+  ViewDestroy(sCubeTarget,ViewName);
+endif;
+ViewCreate(sCubeTarget,ViewName);
+ViewSubsetAssign(sCubeTarget,ViewName,'Consolidation Layer','MA Import');
+ViewSubsetAssign(sCubeTarget,ViewName,'Financial Year','History to import');
+
+if(SubsetExists('Version','Actuals Clear')=1);
+  SubsetDestroy('Version','Actuals Clear');
+endif;
+SubsetCreate('Version','Actuals Clear',0);
+SubsetElementInsert( 'Version', 'Actuals Clear', 'Actual', 1 );
+ViewSubsetAssign( sCubeTarget, ViewName, 'Version', 'Actuals Clear' );
+
+ViewZeroOut(sCubeTarget,ViewName);
+#================================================================================================================
+
+### Clear MA Import Layer - Current Year
+CubeSetLogChanges(sCubeTarget,0);
+
+if(ViewExists(sCubeTarget,ViewName)=1);
+  ViewDestroy(sCubeTarget,ViewName);
+endif;
+ViewCreate(sCubeTarget,ViewName);
+
+## Actuals only
+if(SubsetExists('Version','Actuals Clear2')=1);
+  SubsetDestroy('Version','Actuals Clear2');
+endif;
+
+SubsetCreate('Version','Actuals Clear2',0);
+SubsetElementInsert( 'Version', 'Actuals Clear2', 'Actual', 1 );
+ViewSubsetAssign( sCubeTarget, ViewName, 'Version', 'Actuals Clear2' );
+
+## We do not want to clear out Mitcham and Aylesbury. They come from a different source.
+sDim = 'Company';
+
+if(SubsetExists(sDim,'Actuals Clear2')=1);
+  SubsetDestroy(sDim,'Actuals Clear2');
+endif;
+
+sMDX = 'EXCEPT(TM1FILTERBYLEVEL(TM1SUBSETALL([Company].[Company]) , 0) , {[Company].[Company].[CTP-UK^Mitcham],[Company].[Company].[Aylesbury]})';
+SubsetCreatebyMDX( 'Actuals Clear2', sMDX, 0 );
+ViewSubsetAssign( sCubeTarget, ViewName, sDim, 'Actuals Clear' );
+
+ViewSubsetAssign(sCubeTarget,ViewName,'Consolidation Layer','MA Import');
+ViewSubsetAssign(sCubeTarget,ViewName,'Financial Year','History Year');
+ViewSubsetAssign(sCubeTarget,ViewName,'Financial Period','History to Import');
+ViewZeroOut(sCubeTarget,ViewName);
+
+
+iCOunt = 1;
+#========================================================================================================================================================================
+#endregion
+#region Data
+
+# IF(iCount > 1000);
+#     ProcessQuit;
+# ENDIF;
+
+## Get Period or YTD from account dim attribute
+sPerYTD='';
+sBud23PerYTD ='';
+sBud22PerYTD = '';
+
+IF(DimensionElementExists( 'Accounts - Group', vAccount ) = 1);
+	sPerYTD = ATTRS( 'Accounts - Group', vAccount, 'Period YTD' );
+ELSE;
+    ItemSkip;
+ENDIF;
+
+## The Per/YTD flag could be YTD-FA which is used for Fixed assets accounts. These are treated differently in rules, but on import should be treated as YTD
+IF (sPerYTD @= 'YTD-FA');
+    sPerYTD = 'YTD';
+ELSE;
+ENDIF;
+
+IF (sPerYTD @= 'YTD-BF');
+    sPerYTD = 'YTD';
+ELSE;
+ENDIF;
+
+
+
+## YTD values will be loaded into imported YTD
+# IF(sPerYTD@='YTD');
+#     sPerYTD = 'Imported YTD';
+# ENDIF;
+
+## Turn the finper into a month and year
+sMonth = 'P' | SUBST(vFinPer,3,2);
+sYear = 'FY' | SUBST( vFinPer, 1, 2 );
+
+
+
+##Same as above for Bud 23
+# sBud23Month = 'P' | SUBST(vBud23Finper,3,2);
+# sBud23Year = 'FY' | SUBST(vBud23FinPer,1,2);
+
+# ## Bud 22
+# sBud22Month = 'P' | SUBST(vBud22Finper,3,2);
+# sBud22Year = 'FY' |SUBST(vBud22FinPer,1,2);
+
+## Map the version
+IF(vVersion @='A');
+   sVersion = 'Actual';
+ELSEIF(vVersion@='F');
+    sVersion = 'Budget';
+ENDIF;
+
+## Only load actuals, ignore budget and forecast
+IF(sVersion @<>'Actual');
+    Itemskip;
+ENDIF;
+
+
+## Same as above for Bud23
+# IF(vBud23Version @='A');
+#    sBud23Version = 'Actual';
+# ELSEIF(vBud23Version@='F');
+#     sBud23Version = 'Budget';
+# ELSEIF(vBud23Version@='B');
+#     sBud23Version = 'Budget';
+# ENDIF;
+
+# ## Same as above for Bud22
+# IF(vBud22Version @='A');
+#    sBud22Version = 'Actual';
+# ELSEIF(vBud22Version@='F');
+#     sBud22Version = 'Budget';
+# ELSEIF(vBud22Version@='B');
+#     sBud22Version = 'Budget';
+# ENDIF;
+
+## Tidy up names in the file
+IF(SUBST(vComp,1,3) @='HO1');
+    sComp = 'H01';
+ELSEIF(SUBST(vComp,1,3) @='HO2');
+	sComp = 'H02';
+ELSEIF(SUBST(vComp,1,3) @='HO3');
+	sComp = 'H03';
+ELSEIF(vComp @='CTP-UK');
+    sComp = 'CTP-UK Historic';
+    ELSE;
+    sComp = vComp;
+ENDIF;
+
+## Ignore CTP-UK for FY 24 as this is loaded in the form of Mitcham and Aylesbury (from a separate file)
+# IF(sComp @='CTP-UK Historic' & sYear @='FY24' );
+#     ItemSkip;
+# ENDIF;
+
+IF(vComp@='CTP-UK');
+    IF(sYear@='FY24');
+        ItemSkip;
+    ENDIF;
+ENDIF;
+
+# ## Same as above for Bud23
+# IF(SUBST(vBud23Comp,1,3) @='HO1');
+#     sBud23Comp = 'H01';
+# ELSEIF(SUBST(vBud23Comp,1,3) @='HO2');
+# 	sBud23Comp = 'H02';
+# ELSEIF(SUBST(vBud23Comp,1,3) @='HO3');
+# 	sBud23Comp = 'H03';
+# ELSE;
+#     sBud23Comp = vBud23Comp;
+# ENDIF;
+
+# ## Same as above for Bud22
+# IF(SUBST(vBud22Comp,1,3) @='HO1');
+#     sBud22Comp = 'H01';
+# ELSEIF(SUBST(vBud22Comp,1,3) @='HO2');
+# 	sBud22Comp = 'H02';
+# ELSEIF(SUBST(vBud22Comp,1,3) @='HO3');
+# 	sBud22Comp = 'H03';
+# ELSE;
+#     sBud22Comp = vBud22Comp;
+# ENDIF;
+
+## Skip any companies that have 'Total' in the name as these will be calculated using the Group Consol Structure cube
+IF(SCAN( 'Total', vComp ) > 0);
+    ItemSKip;
+ENDIF;
+
+## sh commented out 11/03/2024 as it was causing some valid actuals lines to be skiiped
+# ## Bud 23
+# IF(SCAN( 'Total', sBud23Comp ) > 0);
+#     ItemSKip;
+# ENDIF;
+
+# ## Bud 22
+# IF(SCAN( 'Total', sBud22Comp ) > 0);
+#     ItemSKip;
+# ENDIF;
+
+# ## Skip any companies that have 'Consol' in the name as these will be calculated using the Group Consol Structure cube
+# IF(SCAN( 'consol', sComp ) > 0);
+#     ItemSKip;
+# ENDIF;
+
+# ## Bud 23
+# IF(SCAN( 'consol', sBud23Comp ) > 0);
+#     ItemSKip;
+# ENDIF;
+
+# ## Bud 22
+# IF(SCAN( 'consol', sBud22Comp ) > 0);
+#     ItemSKip;
+# ENDIF;
+
+IF(DimensionElementExists( 'Accounts - Group', vAccount ) = 1);
+	## Load the local currency amount 
+    ## If sPerYTD is YTD, load it into imported YTD and YTD
+    IF(sPerYTD@='YTD');
+        IF(CellIsUpdateable( sCubeTarget,sVersion, sYear, sMonth, sPerYTD, sComp, vAccount, 'Local', sLayer, sMeas )=1);
+    		CellIncrementN( vLocal, sCubeTarget,sVersion, sYear, sMonth, sPerYTD, sComp, vAccount, 'Local', sLayer, sMeas );
+        ENDIF;
+        IF(CellIsUpdateable( sCubeTarget,sVersion, sYear, sMonth, 'Imported YTD', sComp, vAccount, 'Local', sLayer, sMeas )=1);
+            CellIncrementN( vLocal, sCubeTarget,sVersion, sYear, sMonth, 'Imported YTD', sComp, vAccount, 'Local', sLayer, sMeas );
+        ENDIF;
+    ELSE;
+        IF(CellIsUpdateable( sCubeTarget,sVersion, sYear, sMonth, sPerYTD, sComp, vAccount, 'Local', sLayer, sMeas )=1);
+            CellIncrementN( vLocal, sCubeTarget,sVersion, sYear, sMonth, sPerYTD, sComp, vAccount, 'Local', sLayer, sMeas );
+        ENDIF;
+    ENDIF;
+
+	## Load the GBP amount  at Actual rates
+    ## If sPerYTD is YTD, load it into imported YTD and YTD
+    IF(sPerYTD@='YTD');
+        IF(CellIsUpdateable( sCubeTarget,sVersion, sYear, sMonth, sPerYTD, sComp, vAccount, 'GBP MA', sLayer, sMeas )=1);
+    		CellIncrementN( vGBPAct, sCubeTarget,sVersion, sYear, sMonth,sPerYTD, sComp, vAccount, 'GBP MA', sLayer, sMeas );
+    		CellIncrementN( vGBPAct, sCubeTarget,sVersion, sYear, sMonth,'Imported YTD', sComp, vAccount, 'GBP MA', sLayer, sMeas );
+        ENDIF;
+    ELSE;
+        IF(CellIsUpdateable( sCubeTarget,sVersion, sYear, sMonth, sPerYTD, sComp, vAccount, 'GBP MA', sLayer, sMeas )=1);
+            CellIncrementN( vGBPAct, sCubeTarget,sVersion, sYear, sMonth,sPerYTD, sComp, vAccount, 'GBP MA', sLayer, sMeas );
+        ENDIF;
+    ENDIF;
+	## Load the GBP amount at Budget Rate
+    ## If sPerYTD is YTD, load it into imported YTD and YTD
+    IF(sPerYTD@='YTD');    
+        IF(CellIsUpdateable( sCubeTarget,sVersion, sYear, sMonth, sPerYTD, sComp, vAccount, 'GBP MA at Budget rate', sLayer, sMeas )=1);
+    		CellIncrementN( vGBPBud, sCubeTarget,sVersion, sYear, sMonth,sPerYTD, sComp, vAccount, 'GBP MA at Budget rate', sLayer, sMeas );
+            CellIncrementN( vGBPBud, sCubeTarget,sVersion, sYear, sMonth,'Imported YTD', sComp, vAccount, 'GBP MA at Budget rate', sLayer, sMeas );
+        ENDIF;
+    ELSE;
+        IF(CellIsUpdateable( sCubeTarget,sVersion, sYear, sMonth, sPerYTD, sComp, vAccount, 'GBP MA at Budget rate', sLayer, sMeas )=1);
+            CellIncrementN( vGBPBud, sCubeTarget,sVersion, sYear, sMonth,sPerYTD, sComp, vAccount, 'GBP MA at Budget rate', sLayer, sMeas );
+        ENDIF;
+    ENDIF;
+ELSE;
+    DimensionElementInsertDirect('zMissing Account Codes','',vAccount,'N');
+    DimensionElementComponentAddDirect( 'zMissing Account Codes', 'Actual Missing Codes', vAccount, 1 );
+    nCount = nCount + 1;
+ENDIF;
+iCount = iCount + 1;
+############################################
+
+## Bud 23
+## Only do this if there is data on bud23 lines in the source file
+# IF(sBud23Comp@<>'');
+#     IF(DimensionElementExists( 'Accounts - Group', vBud23Account )= 1);
+#     	sBud23PerYTD = ATTRS( 'Accounts - Group', vBud23Account, 'Period YTD' );
+        ## YTD values will be loaded into imported YTD
+#     ELSE;
+#         ItemSkip;
+#     ENDIF;
+# 	## Load the local currency amount 
+#     ## The Per/YTD flag could be YTD-FA which is used for Fixed assets accounts. These are treated differently in rules, but on import should be treated as YTD
+#     IF (sBud23PerYTD @= 'YTD-FA');
+#         sBud23PerYTD = 'YTD';
+#     ELSE;
+#     ENDIF;
+
+#     IF (sBud23PerYTD @= 'YTD-BF');
+#     sBud23PerYTD = 'YTD';
+# ELSE;
+# ENDIF;
+
+
+#     IF(DimensionElementExists( 'Accounts - Group', vBud23Account ) = 1);
+#         IF(sBud23PerYTD@='YTD');
+# 			CellIncrementN( vBud23Local, sCubeTarget,sBud23Version, sBud23Year, sBud23Month,sBud23PerYTD, sBud23Comp, vBud23Account, 'Local', sLayer, sMeas );
+#             CellIncrementN( vBud23Local, sCubeTarget,sBud23Version, sBud23Year, sBud23Month,'Imported YTD', sBud23Comp, vBud23Account, 'Local', sLayer, sMeas );
+#         ELSE;
+#             CellIncrementN( vBud23Local, sCubeTarget,sBud23Version, sBud23Year, sBud23Month,sBud23PerYTD, sBud23Comp, vBud23Account, 'Local', sLayer, sMeas );
+#         ENDIF;
+
+# 		## Load the GBP amount  at Actual rates
+#         IF(sBud23PerYTD@='YTD');
+# 			CellIncrementN( vBud23GBP, sCubeTarget,sBud23Version, sBud23Year, sBud23Month,sBud23PerYTD, sBud23Comp, vBud23Account, 'GBP MA', sLayer, sMeas );
+#         	CellIncrementN( vBud23GBP, sCubeTarget,sBud23Version, sBud23Year, sBud23Month,'Imported YTD', sBud23Comp, vBud23Account, 'GBP MA', sLayer, sMeas );
+#         ELSE;
+#             CellIncrementN( vBud23GBP, sCubeTarget,sBud23Version, sBud23Year, sBud23Month,sBud23PerYTD, sBud23Comp, vBud23Account, 'GBP MA', sLayer, sMeas );
+#         ENDIF;
+            
+#     ELSE;
+#         DimensionElementInsertDirect('zMissing Account Codes','',vBud23Account,'N');
+#     	DimensionElementComponentAddDirect( 'zMissing Account Codes', 'Bud 23 Missing Codes', vBud23Account, 1 );
+#         nCount = nCount + 1;
+#     ENDIF;
+        
+# ENDIF;
+############################################
+
+## Bud 22
+## Only do this if there is Bud 22 data on this row of the source file
+
+# IF(sBud22Comp@<>'');
+#     IF(DimensionElementExists( 'Accounts - Group', vBud22Account )= 1);
+# 		sBud22PerYTD = ATTRS( 'Accounts - Group', vBud22Account, 'Period YTD' );
+#         ## YTD values will be loaded into imported YTD
+#     ELSE;
+#     	ItemSkip;
+#     ENDIF;
+#     IF (sBud22PerYTD @= 'YTD-FA');
+#         sBud22PerYTD = 'YTD';
+#     ELSE;
+#     ENDIF;
+# IF (sBud22PerYTD @= 'YTD-BF');
+#     sBud22PerYTD = 'YTD';
+# ELSE;
+# ENDIF;
+
+
+#     ## Load the local currency amount 
+#     IF(DimensionElementExists( 'Accounts - Group', vBud22Account ) = 1);
+
+#         IF(sBud22PerYTD@='YTD');
+# 			CellIncrementN( vBud22Local, sCubeTarget,sBud22Version, sBud22Year, sBud22Month,sBud22PerYTD, sBud22Comp, vBud22Account, 'Local', sLayer, sMeas );
+#         	CellIncrementN( vBud22Local, sCubeTarget,sBud22Version, sBud22Year, sBud22Month,'Imported YTD', sBud22Comp, vBud22Account, 'Local', sLayer, sMeas );
+#         ELSE;
+#             CellIncrementN( vBud22Local, sCubeTarget,sBud22Version, sBud22Year, sBud22Month,sBud22PerYTD, sBud22Comp, vBud22Account, 'Local', sLayer, sMeas );
+#         ENDIF;
+
+# 		## Load the GBP amount  at Actual rates
+#         IF(sBud22PerYTD@='YTD');
+# 			CellIncrementN( vBud22GBP, sCubeTarget,sBud22Version, sBud22Year, sBud22Month,sBud22PerYTD, sBud22Comp, vBud22Account, 'GBP MA', sLayer, sMeas );
+#             CellIncrementN( vBud22GBP, sCubeTarget,sBud22Version, sBud22Year, sBud22Month,'Imported YTD', sBud22Comp, vBud22Account, 'GBP MA', sLayer, sMeas );
+#         ELSE;
+#             CellIncrementN( vBud22GBP, sCubeTarget,sBud22Version, sBud22Year, sBud22Month,sBud22PerYTD, sBud22Comp, vBud22Account, 'GBP MA', sLayer, sMeas );
+#         ENDIF;
+#     ELSE;
+#         DimensionElementInsertDirect('zMissing Account Codes','',vBud22Account,'N');
+#     	DimensionElementComponentAddDirect( 'zMissing Account Codes', 'Bud 22 Missing Codes', vBud22Account, 1 );
+#         nCount = nCount + 1;
+#     ENDIF;
+# ENDIF;
+
+#endregion
+#region Epilog
+CubeSetLogChanges(sCubeTarget, 1);
+#endregion

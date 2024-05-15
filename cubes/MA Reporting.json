@@ -1,0 +1,53 @@
+{
+	"@type":"Cube",
+	"Name":"MA Reporting",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Financial Period')"
+		},
+		{
+			"@id":"Dimensions('Period YTD')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')"
+		},
+		{
+			"@id":"Dimensions('FX Calculation')"
+		},
+		{
+			"@id":"Dimensions('Consolidation Layer')"
+		},
+		{
+			"@id":"Dimensions('m_MA Reporting')"
+		}
+	],
+	"Rules@Code.link":"MA Reporting.rules",
+	"Views@Code.links":
+	[
+		"MA Reporting.views/Actual Forecast by Month PL.json",
+		"MA Reporting.views/Administrative Overheads Reporting View.json",
+		"MA Reporting.views/Balance Sheet Reporting.json",
+		"MA Reporting.views/Default.json",
+		"MA Reporting.views/Group Financial Summary Report View.json",
+		"MA Reporting.views/Group Summary Performance Page 1 Reporting View.json",
+		"MA Reporting.views/Income Statement.json",
+		"MA Reporting.views/Income Statement Reporting.json",
+		"MA Reporting.views/KPI Actual Forecast by Month.json",
+		"MA Reporting.views/OVH_Corp_IntercoFx.json",
+		"MA Reporting.views/Summary Group Balance Sheet.json",
+		"MA Reporting.views/Summary  Group Balance Sheet Report View.json",
+		"MA Reporting.views/Summary Performance by Site.json",
+		"MA Reporting.views/View to show Helen - intercompany.json",
+		"MA Reporting.views/YTD PL.json"
+	]
+}

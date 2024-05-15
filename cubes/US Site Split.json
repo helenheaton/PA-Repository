@@ -1,0 +1,36 @@
+{
+	"@type":"Cube",
+	"Name":"US Site Split",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Financial Period')"
+		},
+		{
+			"@id":"Dimensions('Period YTD')"
+		},
+		{
+			"@id":"Dimensions('US Departments')"
+		},
+		{
+			"@id":"Dimensions('Accounts - US Split')"
+		},
+		{
+			"@id":"Dimensions('FX Calculation')"
+		},
+		{
+			"@id":"Dimensions('m_US Site Split')"
+		}
+	],
+	"Rules@Code.link":"US Site Split.rules",
+	"Views@Code.links":
+	[
+		"US Site Split.views/Default.json"
+	]
+}

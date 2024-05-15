@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Exchange Rates",
+	"Hierarchies@Code.links":
+	[
+		"m_Exchange Rates.hierarchies/m_Exchange Rates.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Exchange Rates')/Hierarchies('m_Exchange Rates')"
+	}
+}

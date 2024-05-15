@@ -1,0 +1,1 @@
+SELECT {EXCEPT(TM1FILTERBYLEVEL(TM1SUBSETALL([Version].[Version]) , 0) , {[Version].[Version].[Derived Forecast]})} ON 0, {TM1SubsetToSet([Financial Year].[Financial Year],"All Leaves","public")}*{TM1SubsetToSet([Financial Period].[Financial Period],"Default","public")} ON 1 FROM [Year Period Version Locking] WHERE ([}SecurityOverlay].[}SecurityOverlay].[OverlayData])

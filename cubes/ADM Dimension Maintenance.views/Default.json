@@ -1,0 +1,22 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : {},
+		"ContextSets" : 
+		{
+			"[}Dimensions].[}Dimensions]" : 
+			{
+				"Expression" : "{[}Dimensions].[}Dimensions].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[ADM - Account Maintenance].[ADM - Account Maintenance]" : false,
+			"[ADM - Generic Items].[ADM - Generic Items]" : false,
+			"[}Dimensions].[}Dimensions]" : false
+		}
+	}
+}

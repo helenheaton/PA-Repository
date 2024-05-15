@@ -1,0 +1,34 @@
+{
+	"@type":"Cube",
+	"Name":"Submission Checks",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Financial Period')"
+		},
+		{
+			"@id":"Dimensions('FX Calculation')"
+		},
+		{
+			"@id":"Dimensions('Submissions')"
+		},
+		{
+			"@id":"Dimensions('m_Submissions Checks')"
+		}
+	],
+	"Rules@Code.link":"Submission Checks.rules",
+	"Views@Code.links":
+	[
+		"Submission Checks.views/Source.json",
+		"Submission Checks.views/Default.json"
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Consol Group Structure",
+	"Hierarchies@Code.links":
+	[
+		"m_Consol Group Structure.hierarchies/m_Consol Group Structure.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Consol Group Structure')/Hierarchies('m_Consol Group Structure')"
+	}
+}

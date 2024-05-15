@@ -1,0 +1,1185 @@
+{
+	"@type":"Hierarchy",
+	"Name":"ExcAccruals",
+	"Elements":
+	[
+		{
+			"Name":"TOTAL EXC ACCRUALS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"INCOME STATEMENT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"BALANCE SHEET",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"SAL_prod_ext",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAL_prod_int",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAL_tool_ext",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAL_tool_int",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_prod_mat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_prod_lab",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_prod_dist",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_prod_dohlabour",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_prod_dohenergy",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_prod_dohconsum",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_prod_dohother",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_tool_all",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_tooling_sal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_tooling_other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_tooling_depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_sal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_energy",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_machmain",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_toolmain",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_machrent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_proprep",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_rentrates",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_travel",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_QA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_trainrecruit",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_ovhinstk",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_sal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_STI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_PSPLTIP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_travel",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_teloffice",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_insure",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_legprof",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_comp",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_forex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_sellsal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_selloth",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_sellcom",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_RDsal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_RDoth",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_divison",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_depnother",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_depnbuild",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_amort",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_bankint",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_leaseint",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_otherint",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_except",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_assetdisp",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_intercofx",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_intercomgmt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_interroycomm",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_intercoint",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_divreceived",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_tax",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_divpayable",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangNL_bf",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangNL_add",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangNL_dep",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangNL_disp",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangNL_other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgNL_bf",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgNL_add",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgNL_amort",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgNL_disp",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgNL_other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangLE_bf",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangLE_add",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangLE_dep",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangLE_disp",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangLE_other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgLE_bf",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgLE_add",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgLE_amort",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgLE_disp",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgLE_other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_othr_investments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_othr_deftax",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_othr_conassets",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_othr_intergreceiveDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_othr_intergreceiveNONDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_invt_cost",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_invt_prov",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_tradereceivables",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_prepayments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_otherreceive",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_conassets",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_assetsale",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_intergreceiveDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_intergreceiveNONDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_curtax",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_tradepayables",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_provisions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_otherpayables",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_lease",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_conliab",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_intergpayablesDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_intergpayablesNONDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_divpayables",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_taxliab",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_defdtax",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_loans",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCL_lease",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCL_pension",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCL_intergpayablesDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCL_intergpayablesNONDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCL_loans",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_capital",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_sharepremium",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_transreserve",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_othreserve",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_noncontrol",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SOCIE_yeadjust",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SOCIE_netinvhedge",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SOCIE_pension",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SOCIE_taxpension",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SOCIE_exershareoptions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SOCIE_Sharebasedpayments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_retainedearnings",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_retainedearningsbf",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_NCAforex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_reservesforex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_tradepayables_Interco",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_aud",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_tradereceivables_interco",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"TOTAL EXC ACCRUALS",
+			"ComponentName":"INCOME STATEMENT",
+			"Weight":-1
+		},
+		{
+			"ParentName":"TOTAL EXC ACCRUALS",
+			"ComponentName":"BALANCE SHEET",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"SAL_prod_ext",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"SAL_prod_int",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"SAL_tool_ext",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"SAL_tool_int",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"COS_prod_mat",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"COS_prod_lab",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"COS_prod_dist",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"COS_prod_dohlabour",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"COS_prod_dohenergy",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"COS_prod_dohconsum",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"COS_prod_dohother",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"COS_tool_all",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_tooling_sal",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_tooling_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_tooling_depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_sal",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_energy",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_machmain",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_toolmain",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_machrent",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_proprep",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_rentrates",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_travel",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_QA",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_trainrecruit",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_ovhinstk",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_sal",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_STI",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_PSPLTIP",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_travel",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_teloffice",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_insure",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_legprof",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_comp",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_forex",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_sellsal",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_selloth",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_sellcom",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_RDsal",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_RDoth",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_divison",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_depnother",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_depnbuild",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_fact_amort",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_corp_bankint",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_corp_leaseint",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_corp_otherint",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_corp_except",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_corp_assetdisp",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_corp_intercofx",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_corp_intercomgmt",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_corp_interroycomm",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_corp_intercoint",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_corp_divreceived",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_corp_tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_corp_divpayable",
+			"Weight":1
+		},
+		{
+			"ParentName":"INCOME STATEMENT",
+			"ComponentName":"OVH_admn_aud",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_tangNL_bf",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_tangNL_add",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_tangNL_dep",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_tangNL_disp",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_tangNL_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_intgNL_bf",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_intgNL_add",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_intgNL_amort",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_intgNL_disp",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_intgNL_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_tangLE_bf",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_tangLE_add",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_tangLE_dep",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_tangLE_disp",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_tangLE_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_intgLE_bf",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_intgLE_add",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_intgLE_amort",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_intgLE_disp",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_intgLE_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_othr_investments",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_othr_deftax",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_othr_conassets",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_othr_intergreceiveDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCA_othr_intergreceiveNONDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CAS_invt_cost",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CAS_invt_prov",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CAS_tradereceivables",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CAS_prepayments",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CAS_otherreceive",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CAS_conassets",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CAS_assetsale",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CAS_intergreceiveDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CAS_intergreceiveNONDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CAS_curtax",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CAS_cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CLI_tradepayables",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CLI_provisions",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CLI_otherpayables",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CLI_lease",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CLI_conliab",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CLI_intergpayablesDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CLI_intergpayablesNONDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CLI_divpayables",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CLI_taxliab",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CLI_defdtax",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CLI_loans",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCL_lease",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCL_pension",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCL_intergpayablesDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCL_intergpayablesNONDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"NCL_loans",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"EQU_capital",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"EQU_sharepremium",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"EQU_transreserve",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"EQU_othreserve",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"EQU_noncontrol",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"SOCIE_yeadjust",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"SOCIE_netinvhedge",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"SOCIE_pension",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"SOCIE_taxpension",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"SOCIE_exershareoptions",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"SOCIE_Sharebasedpayments",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"EQU_retainedearnings",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"EQU_retainedearningsbf",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"EQU_NCAforex",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"EQU_reservesforex",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CLI_tradepayables_Interco",
+			"Weight":1
+		},
+		{
+			"ParentName":"BALANCE SHEET",
+			"ComponentName":"CAS_tradereceivables_interco",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

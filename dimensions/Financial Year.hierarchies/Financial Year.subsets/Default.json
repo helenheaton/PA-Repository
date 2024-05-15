@@ -1,0 +1,14 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')/Elements('FY24')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')/Elements('FY25')"
+		}
+	]
+}

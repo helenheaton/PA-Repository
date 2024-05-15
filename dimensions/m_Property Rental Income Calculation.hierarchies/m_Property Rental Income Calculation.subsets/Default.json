@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Default",
-	"ExpandAbove":true,
-	"Expression":"{[m_Property Rental Income Calculation].[m_Property Rental Income Calculation].MEMBERS}"
-}

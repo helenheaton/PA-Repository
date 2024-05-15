@@ -1,0 +1,28 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Period YTD",
+	"Elements":
+	[
+		{
+			"Name":"Period",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Imported YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Prior Year YTD",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Rolling 12 Periods",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

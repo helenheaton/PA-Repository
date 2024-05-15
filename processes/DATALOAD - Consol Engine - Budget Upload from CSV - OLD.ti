@@ -1,0 +1,558 @@
+#region Prolog
+
+## Steven Hutchison 01/02/2024
+## This process will load budget data for individual companies
+## Data will be loaded into the local source layer
+
+
+## set the path for the source file
+sLogDirectory = GetProcessErrorFileDirectory;
+datasourcenameforserver='Model_Upload\' | pFileName;
+
+## Define variables
+sCubeTarget = 'Consol Engine';
+sCompany = pCompany;
+sLayer = 'Local Source System';
+sYear = CellGetS('Model Settings', 'Value', 'Model Year' );
+
+sMeas = 'Value';
+sViewTarget = GetProcessName();
+pVersion = 'Budget';
+pYear = CellGetS('Model Settings', 'Value', 'Budget Upload Year' );
+pPriorYear = ATTRS('Financial Year',pYear,'Previous Year');
+pNextYear = ATTRS('Financial Year',pYear,'Next Year');
+pYear3 = ATTRS('Financial Year',pNextYear,'Next Year');
+
+pFYYear = SUBST(pYear,3,2);
+pPriorFYYear = SUBST(pPriorYear,3,2);
+pNextFYYear = SUBST(pNextYear,3,2);
+pFY3Year = SUBST(pYear3,3,2);
+
+## Define budget periods
+#sP1Location = 
+nTmp = 1;
+
+## Create target view to clear
+ViewCreate( sCubeTarget, sViewTarget, nTmp );
+
+## Turn off logging
+nOldLog = CubeGetLogChanges( sCubeTarget );
+CubeSetLogChanges( sCubeTarget, 0 );
+
+##Create subsets to be cleared in the view
+
+## Process will run for single forecast version
+sDim = 'Version';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, pVersion, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for single companies
+sDim = 'Company';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sCompany, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for local source system only
+sDim = 'Consolidation Layer';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sLayer, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for current year and next 2 years - as the budget upload will contain 3 years
+## sh amendment 18/04/2024 - previously this process only cleared current year, now 3 years are cleared
+sDim = 'Financial Year';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, pYear, 1 );
+SubsetElementInsert( sDim, sViewTarget, pNextYear, 2 );
+SubsetElementInsert( sDim, sViewTarget, pYear3, 3 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for Period and Imported YTD
+# sDim = 'Period YTD';
+# SubsetCreate( sDim, sViewTarget, nTmp );
+# SubsetElementInsert( sDim, sViewTarget, 'Period', 1 );
+# SubsetElementInsert( sDim, sViewTarget, 'Imported YTD', 1 );
+# ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for Local currency
+sDim = 'FX Calculation';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'Local', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+
+sDim = 'm_Consol Engine';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'Value', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Clear the view
+ViewZeroOut( sCubeTarget, sViewTarget );
+# ProcessBreak;
+
+nDataCount = 1;
+#endregion
+#region Data
+
+
+## Line 1 of the source file is the column header that identifies the period that the column relates to
+## This loop goes through each column and expands the variable name to return the period header value
+## IF the period header for that column matches the current model period we store that position in the loop into sCurrentPeriodLocation
+## That means when we process the other records in the file we can expand that particular column only
+
+IF(nDataCount = 1);
+    i = 1;
+    WHILE(i<=48);
+        iString = 'V'| NumbertoString(i);
+        vResult = Expand( '%v' | Numbertostring(i) | '%' );
+        IF( SUBST(vResult,1,2) @= pFYYear);
+            IF(SUBST(vResult,3,2)@='01');
+                sP1Location = i;
+                sP1 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='02');
+                sP2Location = i;
+                sP2 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='03');
+                sP3Location = i;
+                sP3 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='04');
+                sP4Location = i;
+                sP4 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='05');
+                sP5Location = i;
+                sP5 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='06');
+                sP6Location = i;
+                sP6 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='07');
+                sP7Location = i;
+                sP7 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='08');
+                sP8Location = i;
+                sP8 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='09');
+                sP9Location = i;
+                sP9 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='10');
+                sP10Location = i;
+                sP10 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='11');
+                sP11Location = i;
+                sP11 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='12');
+                sP12Location = i;
+                sP12 = vResult;
+            ENDIF;
+        ELSEIF( SUBST(vResult,1,2) @= pNextFYYear);
+        ## Deal with Next year
+            IF(SUBST(vResult,3,2)@='01');
+                sP1NYLocation = i;
+                sP1NY = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='02');
+                sP2NYLocation = i;
+                sP2NY = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='03');
+                sP3NYLocation = i;
+                sP3NY = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='04');
+                sP4NYLocation = i;
+                sP4NY = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='05');
+                sP5NYLocation = i;
+                sP5NY = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='06');
+                sP6NYLocation = i;
+                sP6NY = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='07');
+                sP7NYLocation = i;
+                sP7NY = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='08');
+                sP8NYLocation = i;
+                sP8NY = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='09');
+                sP9NYLocation = i;
+                sP9NY = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='10');
+                sP10NYLocation = i;
+                sP10NY = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='11');
+                sP11NYLocation = i;
+                sP11NY = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='12');
+                sP12NYLocation = i;
+                sP12NY = vResult;
+            ENDIF;
+         ELSEIF( SUBST(vResult,1,2) @= pNextFYYear);
+        ## Deal with 3RD year
+            IF(SUBST(vResult,3,2)@='01');
+                sP1Y3Location = i;
+                sP1Y3 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='02');
+                sP2Y3Location = i;
+                sP2Y3 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='03');
+                sP3Y3Location = i;
+                sP3Y3 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='04');
+                sP4Y3Location = i;
+                sP4Y3 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='05');
+                sP5Y3Location = i;
+                sP5Y3 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='06');
+                sP6Y3Location = i;
+                sP6Y3 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='07');
+                sP7Y3Location = i;
+                sP7Y3 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='08');
+                sP8Y3Location = i;
+                sP8Y3 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='09');
+                sP9Y3Location = i;
+                sP9Y3 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='10');
+                sP10Y3Location = i;
+                sP10Y3 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='11');
+                sP11Y3Location = i;
+                sP11Y3 = vResult;
+            ELSEIF(SUBST(vResult,3,2)@='12');
+                sP12Y3Location = i;
+                sP12Y3 = vResult;
+            ENDIF;
+        ELSEIF(SUBST(vResult,1,2) @= pPriorFYYear);
+            IF(SUBST(vResult,3,2)@='12');
+                sP12PriorLocation = i;
+                sP12Prior = vResult;
+            EndIf;
+        ENDIF;
+    i = i + 1;
+    END;
+ENDIF;
+
+## Skip rows where the account is blank
+IF(vAccount @='');
+    nDataCount = nDataCount + 1;
+    ItemSkip;
+ENDIF;
+
+##Reset Period values
+sP1Value ='';
+sP2Value ='';
+sP3Value ='';
+sP4Value ='';
+sP5Value ='';
+sP6Value ='';
+sP7Value ='';
+sP8Value ='';
+sP9Value ='';
+sP10Value ='';
+sP11Value ='';
+sP12Value ='';
+sP12PriorValue ='';
+
+sP1Value = Expand( '%v' | Numbertostring(sP1Location) | '%' );
+
+IF(SUBST(sP1Value,1,1) @='(');
+    nP1ValueLong = LONG(sP1Value);
+    sP1Value = SUBST(sP1Value,2,nP1ValueLong - 2);
+    nP1Value = StringtoNumber (sP1Value);
+ELSEIF(sP1Value@<>'-');
+    nP1Value = StringtoNumber(sP1Value);
+ELSE;
+    nP1Value = 0;
+ENDIF;
+# IF(sP1Value @<>'-');
+#     nP1Value = StringtoNumber (sP1Value);
+# ELSE;
+#     nP1Value = 0;
+# ENDIF;
+
+sP2Value = Expand( '%v' | Numbertostring(sP2Location) | '%' );
+# IF(sP2Value @<>'-');
+#     nP2Value = StringtoNumber (sP2Value);
+# ELSE;
+#     nP2Value = 0;
+# ENDIF;
+
+IF(SUBST(sP2Value,1,1) @='(');
+    nP2ValueLong = LONG(sP2Value);
+    sP2Value = SUBST(sP2Value,2,nP2ValueLong - 2);
+    nP2Value = StringtoNumber (sP2Value);
+ELSEIF(sP2Value@<>'-');
+    nP2Value = StringtoNumber(sP2Value);
+ELSE;
+    nP2Value = 0;
+ENDIF;
+
+sP3Value = Expand( '%v' | Numbertostring(sP3Location) | '%' );
+
+IF(SUBST(sP3Value,1,1) @='(');
+    nP3ValueLong = LONG(sP3Value);
+    sP3Value = SUBST(sP3Value,2,nP3ValueLong - 2);
+    nP3Value = StringtoNumber (sP3Value);
+ELSEIF(sP3Value@<>'-');
+    nP3Value = StringtoNumber(sP3Value);
+ELSE;
+    nP3Value = 0;
+ENDIF;
+# IF(sP3Value@<>'-');
+#     nP3Value = StringtoNumber (sP3Value);
+# ELSE;
+#     nP3Value = 0;
+# ENDIF;
+
+sP4Value = Expand( '%v' | Numbertostring(sP4Location) | '%' );
+
+IF(SUBST(sP4Value,1,1) @='(');
+    nP4ValueLong = LONG(sP4Value);
+    sP4Value = SUBST(sP4Value,2,nP4ValueLong - 2);
+    nP4Value = StringtoNumber (sP4Value);
+ELSEIF(sP4Value@<>'-');
+    nP4Value = StringtoNumber(sP4Value);
+ELSE;
+    nP4Value = 0;
+ENDIF;
+
+# IF(sP4Value @<>'-');
+#     nP4Value = StringtoNumber (sP4Value);
+# ELSE;
+#     nP4Value = 0;
+# ENDIF;
+
+sP5Value = Expand( '%v' | Numbertostring(sP5Location) | '%' );
+
+IF(SUBST(sP5Value,1,1) @='(');
+    nP5ValueLong = LONG(sP5Value);
+    sP5Value = SUBST(sP5Value,2,nP5ValueLong - 2);
+    nP5Value = StringtoNumber (sP5Value);
+ELSEIF(sP5Value@<>'-');
+    nP5Value = StringtoNumber(sP5Value);
+ELSE;
+    nP5Value = 0;
+ENDIF;
+
+# IF(sP5Value @<>'-');
+#     nP5Value = StringtoNumber (sP5Value);
+# ELSE;
+#     nP5Value = 0;
+# ENDIF;
+
+sP6Value = Expand( '%v' | Numbertostring(sP6Location) | '%' );
+
+IF(SUBST(sP6Value,1,1) @='(');
+    nP6ValueLong = LONG(sP6Value);
+    sP6Value = SUBST(sP6Value,2,nP6ValueLong - 2);
+    nP6Value = StringtoNumber (sP6Value);
+ELSEIF(sP6Value@<>'-');
+    nP6Value = StringtoNumber(sP6Value);
+ELSE;
+    nP6Value = 0;
+ENDIF;
+
+# IF(sP6Value@<>'-');
+#     nP6Value = StringtoNumber (sP6Value);
+# ELSE;
+#     nP6Value = 0;
+# ENDIF;
+
+sP7Value = Expand( '%v' | Numbertostring(sP7Location) | '%' );
+
+IF(SUBST(sP7Value,1,1) @='(');
+    nP7ValueLong = LONG(sP7Value);
+    sP7Value = SUBST(sP7Value,2,nP7ValueLong - 2);
+    nP7Value = StringtoNumber (sP7Value);
+ELSEIF(sP7Value@<>'-');
+    nP7Value = StringtoNumber(sP7Value);
+ELSE;
+    nP7Value = 0;
+ENDIF;
+
+# IF(sP7Value@<>'-');
+#     nP7Value = StringtoNumber (sP7Value);
+# ELSE;
+#     nP7Value = 0;
+# ENDIF;
+
+sP8Value = Expand( '%v' | Numbertostring(sP8Location) | '%' );
+
+IF(SUBST(sP8Value,1,1) @='(');
+    nP8ValueLong = LONG(sP8Value);
+    sP8Value = SUBST(sP8Value,2,nP8ValueLong - 2);
+    nP8Value = StringtoNumber (sP8Value);
+ELSEIF(sP8Value@<>'-');
+    nP8Value = StringtoNumber(sP8Value);
+ELSE;
+    nP8Value = 0;
+ENDIF;
+
+# IF(sP8Value@<>'-');
+#     nP8Value = StringtoNumber (sP8Value);
+# ELSE;
+#     nP8Value = 0;
+# ENDIF;
+
+sP9Value = Expand( '%v' | Numbertostring(sP9Location) | '%' );
+
+IF(SUBST(sP9Value,1,1) @='(');
+    nP9ValueLong = LONG(sP9Value);
+    sP9Value = SUBST(sP9Value,2,nP9ValueLong - 2);
+    nP9Value = StringtoNumber (sP9Value);
+ELSEIF(sP9Value@<>'-');
+    nP9Value = StringtoNumber(sP9Value);
+ELSE;
+    nP9Value = 0;
+ENDIF;
+
+# IF(sP9Value@<>'-');
+#     nP9Value = StringtoNumber (sP9Value);
+# ELSE;
+#     nP9Value = 0;
+# ENDIF;
+
+sP10Value = Expand( '%v' | Numbertostring(sP10Location) | '%' );
+
+IF(SUBST(sP10Value,1,1) @='(');
+    nP10ValueLong = LONG(sP10Value);
+    sP10Value = SUBST(sP10Value,2,nP10ValueLong - 2);
+    nP10Value = StringtoNumber (sP10Value);
+ELSEIF(sP10Value@<>'-');
+    nP10Value = StringtoNumber(sP10Value);
+ELSE;
+    nP10Value = 0;
+ENDIF;
+
+# IF(sP10Value@<>'-');
+#     nP10Value = StringtoNumber (sP10Value);
+# ELSE;
+#     nP10Value = 0;
+# ENDIF;
+
+sP11Value = Expand( '%v' | Numbertostring(sP11Location) | '%' );
+
+IF(SUBST(sP11Value,1,1) @='(');
+    nP11ValueLong = LONG(sP11Value);
+    sP11Value = SUBST(sP11Value,2,nP11ValueLong - 2);
+    nP11Value = StringtoNumber (sP11Value);
+ELSEIF(sP11Value@<>'-');
+    nP11Value = StringtoNumber(sP11Value);
+ELSE;
+    nP11Value = 0;
+ENDIF;
+
+# IF(sP11Value@<>'-');
+#     nP11Value = StringtoNumber (sP11Value);
+# ELSE;
+#     nP11Value = 0;
+# ENDIF;
+
+sP12Value = Expand( '%v' | Numbertostring(sP12Location) | '%' );
+
+IF(SUBST(sP12Value,1,1) @='(');
+    nP12ValueLong = LONG(sP12Value);
+    sP12Value = SUBST(sP12Value,2,nP12ValueLong - 2);
+    nP12Value = StringtoNumber (sP12Value);
+ELSEIF(sP12Value@<>'-');
+    nP12Value = StringtoNumber(sP12Value);
+ELSE;
+    nP12Value = 0;
+ENDIF;
+
+# IF(sP12Value@<>'-');
+#     nP12Value = StringtoNumber (sP12Value);
+# ELSE;
+#     nP12Value = 0;
+# ENDIF;
+
+sP12PriorValue = Expand( '%v' | Numbertostring(sP12PriorLocation) | '%' );
+
+IF(SUBST(sP12PriorValue,1,1) @='(');
+    nP12PriorValueLong = LONG(sP12PriorValue);
+    sP12PriorValue = SUBST(sP12PriorValue,2,nP12PriorValueLong - 2);
+    nP12PriorValue = StringtoNumber (sP12PriorValue);
+ELSEIF(sP12PriorValue@<>'-');
+    nP12PriorValue = StringtoNumber(sP12PriorValue);
+ELSE;
+    nP12PriorValue = 0;
+ENDIF;
+
+# IF(sP12PriorValue@<>'-');
+#     nP12PriorValue = StringtoNumber (sP12PriorValue);
+# ELSE;
+#     nP12PriorValue = 0;
+# ENDIF;
+
+    
+## This is picking up the period / YTD attribute for valid accounts
+## Accounts that don't exist in the system are added to the missing accounts dimension (this will likely change in phase 2 to a more robust solution)
+ IF(DimensionElementExists( 'Accounts - Group', vAccount ) = 1);
+ 	sPerYTD = ATTRS( 'Accounts - Group', vAccount, 'Period YTD' );
+ ENDIF;
+
+## Map the version
+ sVersion = pVersion;
+
+IF(DimensionElementExists( 'Accounts - Group', vAccount ) = 1);
+     IF(sPerYTD @='Period');
+ 		CellPutN( nP1Value, sCubeTarget,sVersion, pYear, 'P01', 'Period', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP2Value, sCubeTarget,sVersion, pYear, 'P02', 'Period', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP3Value, sCubeTarget,sVersion, pYear, 'P03', 'Period', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP4Value, sCubeTarget,sVersion, pYear, 'P04', 'Period', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP5Value, sCubeTarget,sVersion, pYear, 'P05', 'Period', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP6Value, sCubeTarget,sVersion, pYear, 'P06', 'Period', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP7Value, sCubeTarget,sVersion, pYear, 'P07', 'Period', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP8Value, sCubeTarget,sVersion, pYear, 'P08', 'Period', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP9Value, sCubeTarget,sVersion, pYear, 'P09', 'Period', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP10Value, sCubeTarget,sVersion, pYear, 'P10', 'Period', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP11Value, sCubeTarget,sVersion, pYear, 'P11', 'Period', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP12Value, sCubeTarget,sVersion, pYear, 'P12', 'Period', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP12PriorValue, sCubeTarget,sVersion, pPriorYear, 'P12', 'Period', pCompany, vAccount, 'Local', sLayer, sMeas );
+     ELSE;
+ 		## Load YTD value in to YTD and Imported YTD
+ 		CellPutN( nP1Value, sCubeTarget,sVersion, pYear, 'P01','Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP2Value, sCubeTarget,sVersion, pYear, 'P02','Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP3Value, sCubeTarget,sVersion, pYear, 'P03','Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP4Value, sCubeTarget,sVersion, pYear, 'P04','Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP5Value, sCubeTarget,sVersion, pYear, 'P05','Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP6Value, sCubeTarget,sVersion, pYear, 'P06','Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP7Value, sCubeTarget,sVersion, pYear, 'P07','Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP8Value, sCubeTarget,sVersion, pYear, 'P08','Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP9Value, sCubeTarget,sVersion, pYear, 'P09','Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP10Value, sCubeTarget,sVersion, pYear, 'P10','Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP11Value, sCubeTarget,sVersion, pYear, 'P11','Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP12Value, sCubeTarget,sVersion, pYear, 'P12','Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP12PRIORValue, sCubeTarget,sVersion, pPriorYear, 'P12','Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+
+         
+        CellPutN( nP1Value, sCubeTarget,sVersion, pYear, 'P01','YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP2Value, sCubeTarget,sVersion, pYear, 'P02','YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP3Value, sCubeTarget,sVersion, pYear, 'P03','YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP4Value, sCubeTarget,sVersion, pYear, 'P04','YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP5Value, sCubeTarget,sVersion, pYear, 'P05','YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP6Value, sCubeTarget,sVersion, pYear, 'P06','YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP7Value, sCubeTarget,sVersion, pYear, 'P07','YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP8Value, sCubeTarget,sVersion, pYear, 'P08','YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP9Value, sCubeTarget,sVersion, pYear, 'P09','YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP10Value, sCubeTarget,sVersion, pYear, 'P10','YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP11Value, sCubeTarget,sVersion, pYear, 'P11','YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP12Value, sCubeTarget,sVersion, pYear, 'P12','YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( nP12PriorValue, sCubeTarget,sVersion, pPriorYear, 'P12','YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+     ENDIF;
+ENDIF;
+############################################
+nDataCount = nDataCount + 1;
+
+############################################
+
+
+
+#endregion
+#region Epilog
+
+## Turn logging back on
+CubeSetLogChanges( sCubeTarget, nOldLog );
+
+
+#endregion

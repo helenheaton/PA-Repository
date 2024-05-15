@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Company Selections",
+	"Alias":"Short Name",
+	"Expression":"{EXCEPT(DISTINCT({[Company].[Company].[Division Total],DESCENDANTS([Company].[Company].[Division Total] , 99 , LEAVES)}) , {[Company].[Company].[Division Total],[Company].[Company].[CTP^CTP-UK^03088344],[Company].[Company].[CTP^CTP-consol],[Company].[Company].[Division Total^Aero^Aero-consol]})}"
+}

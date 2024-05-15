@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"KPI Reporting Subset",
+	"Alias":"Display Name",
+	"Expression":"{{FILTER(TM1SubsetAll([Accounts - MA].[Accounts - MA]), ([Accounts - MA].[Accounts - MA].CURRENTMEMBER.PROPERTIES(\"Statement\") = \"KPI\"))}}"
+}

@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"All Leaf Level",
+	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([FX Calculation].[FX Calculation]) , 0)}}"
+}

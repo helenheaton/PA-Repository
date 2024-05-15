@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"Intercompany Selections",
+	"ExpandAbove":true,
+	"Alias":"Short Name",
+	"Expression":"{TM1FILTERBYLEVEL(TM1DRILLDOWNMEMBER(DRILLUPMEMBER({[Company].[Company].[Division Total]} , {[Company].[Company].[Division Total]}) , {[Company].[Company].[Division Total]} , RECURSIVE) , 0)}"
+}

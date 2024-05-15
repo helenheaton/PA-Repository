@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Picklist - Period YTD MA",
+	"Elements":
+	[
+		{
+			"Name":"Period",
+			"Type":"String"
+		},
+		{
+			"Name":"YTD",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

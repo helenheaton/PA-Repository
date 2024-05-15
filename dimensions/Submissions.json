@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Submissions",
+	"Hierarchies@Code.links":
+	[
+		"Submissions.hierarchies/Submissions.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Submissions')/Hierarchies('Submissions')"
+	}
+}

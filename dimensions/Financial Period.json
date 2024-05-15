@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Financial Period",
+	"Hierarchies@Code.links":
+	[
+		"Financial Period.hierarchies/Financial Period.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Financial Period')/Hierarchies('Financial Period')"
+	}
+}

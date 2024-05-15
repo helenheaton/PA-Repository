@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Submissions Checks",
+	"Hierarchies@Code.links":
+	[
+		"m_Submissions Checks.hierarchies/m_Submissions Checks.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Submissions Checks')/Hierarchies('m_Submissions Checks')"
+	}
+}

@@ -1,0 +1,108 @@
+#region Prolog
+
+## Steven Hutchison 31/01/2024
+## This process will load exchange rates from a csv file
+
+## set the path for the source file
+sLogDirectory = GetProcessErrorFileDirectory;
+datasourcenameforserver='Model_Upload\' | pFileName;
+
+## Define variables
+sCubeTarget = 'Exchange Rates';
+sMeas = 'Rate';
+sViewTarget = GetProcessName();
+nTmp = 1;
+
+## View will be create once we know more of the requirements
+## e.g. will we only clear/load a single period or a specified range of time?
+
+# ## Create target view to clear
+# ViewCreate( sCubeTarget, sViewTarget, nTmp );
+
+# ## Turn off logging
+nOldLog = CubeGetLogChanges( sCubeTarget );
+CubeSetLogChanges( sCubeTarget, 0 );
+
+# ##Create subsets to be cleared in the view
+
+# ## Current month only - this will be supplied by a parameter for now, but may be linked to a control cube going forward
+# sDim = 'Financial Period';
+# SubsetCreate( sDim, sViewTarget, nTmp );
+# SubsetElementInsert( sDim, sViewTarget, pPeriod, 1 );
+# ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+# ## Year selection - as above, currently through a parameter, but may change
+# sDim = 'Financial Year';
+# SubsetCreate( sDim, sViewTarget, nTmp );
+# SubsetElementInsert( sDim, sViewTarget, pYear, 1 );
+# ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+# ## Process will run for single companies
+# sDim = 'Company';
+# SubsetCreate( sDim, sViewTarget, nTmp );
+# SubsetElementInsert( sDim, sViewTarget, pCompany, 1 );
+# ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+# ## Process will run for actual version
+# sDim = 'Version';
+# SubsetCreate( sDim, sViewTarget, nTmp );
+# SubsetElementInsert( sDim, sViewTarget, 'Actual', 1 );
+# ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+# ## Process will run for local source system only
+# sDim = 'Consolidation Layer';
+# SubsetCreate( sDim, sViewTarget, nTmp );
+# SubsetElementInsert( sDim, sViewTarget, 'Local Source System', 1 );
+# ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+# ## Process will run for Period and Imported YTD
+# sDim = 'Period YTD';
+# SubsetCreate( sDim, sViewTarget, nTmp );
+# SubsetElementInsert( sDim, sViewTarget, 'Period', 1 );
+# SubsetElementInsert( sDim, sViewTarget, 'Imported YTD', 1 );
+# ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+# ## Process will run for Local currency
+# sDim = 'FX Calculation';
+# SubsetCreate( sDim, sViewTarget, nTmp );
+# SubsetElementInsert( sDim, sViewTarget, 'Local', 1 );
+# ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+
+# sDim = 'm_Consol Engine';
+# SubsetCreate( sDim, sViewTarget, nTmp );
+# SubsetElementInsert( sDim, sViewTarget, 'Value', 1 );
+# ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+# ## Clear the view
+# ViewZeroOut( sCubeTarget, sViewTarget );
+
+
+#endregion
+#region Data
+
+
+## Derive the financial year from the fin per
+sYear = 'FY' | SUBST(vFinPer,1,2);
+
+## Derive the period from the fin per
+sPeriod = 'P' | SUBST(vFinPer,3,2);
+
+## Load the data
+CellPutN(vGBP,sCubeTarget, vVersion, sYear, sPeriod, 'GBP', 'MA Rate' );
+CellPutN(vUSD,sCubeTarget, vVersion, sYear, sPeriod, 'USD', 'MA Rate' );
+CellPutN(vEUR,sCubeTarget, vVersion, sYear, sPeriod, 'EUR', 'MA Rate' );
+CellPutN(vCZK,sCubeTarget, vVersion, sYear, sPeriod, 'CZK', 'MA Rate' );
+CellPutN(vINR,sCubeTarget, vVersion, sYear, sPeriod, 'INR', 'MA Rate' );
+CellPutN(vCNY,sCubeTarget, vVersion, sYear, sPeriod, 'CNY', 'MA Rate' );
+CellPutN(vCHF,sCubeTarget, vVersion, sYear, sPeriod, 'CHF', 'MA Rate' );
+
+
+#endregion
+#region Epilog
+
+## Turn logging back on
+CubeSetLogChanges( sCubeTarget, nOldLog );
+
+
+#endregion

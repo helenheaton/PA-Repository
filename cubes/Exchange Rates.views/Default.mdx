@@ -1,0 +1,1 @@
+SELECT {[Currency].[Currency].MEMBERS} ON 0, {EXCEPT([Financial Year].[Financial Year].MEMBERS , {[Financial Year].[Financial Year].[All Financial Years]} , ALL)}*{TM1SubsetToSet([Financial Period].[Financial Period],"All leaves","public")} ON 1 FROM [Exchange Rates] WHERE ([Version].[Version].[Actual], [m_Exchange Rates].[m_Exchange Rates].[MA Rate])

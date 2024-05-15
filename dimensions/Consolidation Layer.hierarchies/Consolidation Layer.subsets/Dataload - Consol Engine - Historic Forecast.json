@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Dataload - Consol Engine - Historic Forecast",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Consolidation Layer')/Hierarchies('Consolidation Layer')/Elements('Local Source System')"
+		}
+	]
+}

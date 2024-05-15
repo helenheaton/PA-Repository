@@ -1,0 +1,14 @@
+#region Prolog
+pPrologNow = Now;
+nErrors = 0;
+
+if(CellIsUpdateable( 'Year Period Version Locking',  pVersion, pYear, pPeriod, 'OverlayData')=1);
+  CellPutS( '1', 'Year Period Version Locking', pVersion, pYear, pPeriod, 'OverlayData');
+  pMessage = 'Lock to '| pPeriod | ' ' | pYear | ' ' | pVersion | ' successful.';
+else;
+  nErrors = 1;
+  pMessage = 'Lock is already applied.';
+endif;
+
+ExecuteProcess('Process Control Logging', 'pProcessName', GetProcessName, 'pUser', tm1user, 'pPrologNow', pPrologNow, 'pErrors', nErrors, 'pMessage', pMessage);
+#endregion

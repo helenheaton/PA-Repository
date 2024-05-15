@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Covenants Assumptions",
+	"Hierarchies@Code.links":
+	[
+		"m_Covenants Assumptions.hierarchies/m_Covenants Assumptions.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Covenants Assumptions')/Hierarchies('m_Covenants Assumptions')"
+	}
+}

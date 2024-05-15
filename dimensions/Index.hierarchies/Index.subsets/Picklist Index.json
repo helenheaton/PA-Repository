@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Picklist Index",
-	"Expression":"{TM1FILTERBYLEVEL([Index].[Index].MEMBERS , 0)}"
-}

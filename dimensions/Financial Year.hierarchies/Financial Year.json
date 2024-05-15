@@ -1,0 +1,112 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Financial Year",
+	"Elements":
+	[
+		{
+			"Name":"All Financial Years",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"FY20",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY21",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY22",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY23",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY24",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY25",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY26",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY27",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FY19",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Financial Years",
+			"ComponentName":"FY19",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Financial Years",
+			"ComponentName":"FY20",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Financial Years",
+			"ComponentName":"FY21",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Financial Years",
+			"ComponentName":"FY22",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Financial Years",
+			"ComponentName":"FY23",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Financial Years",
+			"ComponentName":"FY24",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Financial Years",
+			"ComponentName":"FY25",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Financial Years",
+			"ComponentName":"FY26",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Financial Years",
+			"ComponentName":"FY27",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Financial Year.subsets/All Financial Years.json",
+		"Financial Year.subsets/All Leaves.json",
+		"Financial Year.subsets/Covenants Years.json",
+		"Financial Year.subsets/Dataload - Consol Engine - Historic.json",
+		"Financial Year.subsets/Dataload - Consol Engine - Historic Forecast.json",
+		"Financial Year.subsets/Default.json",
+		"Financial Year.subsets/HistoryToCopy.json",
+		"Financial Year.subsets/History to import.json",
+		"Financial Year.subsets/History Year.json",
+		"Financial Year.subsets/Latest Submission Upload - Core Group Admin.json",
+		"Financial Year.subsets/Model Year.json",
+		"Financial Year.subsets/Model Year - User Selection.json",
+		"Financial Year.subsets/Reporting Year.json",
+		"Financial Year.subsets/Reporting Year - User Selection.json"
+	]
+}

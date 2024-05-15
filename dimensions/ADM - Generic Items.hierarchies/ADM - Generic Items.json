@@ -1,0 +1,36 @@
+{
+	"@type":"Hierarchy",
+	"Name":"ADM - Generic Items",
+	"Elements":
+	[
+		{
+			"Name":"Item 1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Item 2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Item 3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Item 4",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Item 5",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Item 6",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Item 7",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

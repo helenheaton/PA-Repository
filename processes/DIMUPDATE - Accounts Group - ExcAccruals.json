@@ -1,0 +1,29 @@
+{
+	"@type":"Process",
+	"Name":"DIMUPDATE - Accounts Group - ExcAccruals",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"DIMUPDATE - Accounts Group - ExcAccruals.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"VariablesUIData":
+	[
+		"VarType=32\fColType=827\f"
+	],
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForClient":"Accounts - Group:Leaves",
+		"dataSourceNameForServer":"Accounts - Group:Leaves",
+		"subset":"All"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"vAccount",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

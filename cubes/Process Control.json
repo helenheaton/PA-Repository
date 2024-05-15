@@ -1,0 +1,15 @@
+{
+	"@type":"Cube",
+	"Name":"Process Control",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('}Processes')"
+		},
+		{
+			"@id":"Dimensions('m_Process Control')"
+		}
+	],
+	"Rules@Code.link":"Process Control.rules",
+	"Views@Code.links":[]
+}

@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Recurring Journals",
+	"Alias":"Recurring Journal Name",
+	"Expression":"{FILTER(TM1FILTERBYLEVEL(TM1SUBSETALL([Journal Reference].[Journal Reference]) , 0) , ([Journal Reference].[Journal Reference].CURRENTMEMBER.PROPERTIES(\"Recurring Journal\") = \"1\"))}"
+}

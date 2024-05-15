@@ -1,0 +1,157 @@
+#region Prolog
+# ===========================================================================================
+## Created by Steven Hutchison 26/01/2024
+## Updated by Helen Heaton 31/01/2024
+## This process will load historic data from a csv file
+# ===========================================================================================
+
+### Define variables
+sCubeTarget = 'Consol Engine';
+sLayer = 'MA Import';
+sMeas = 'Value';
+nCount = 1;
+ 
+ViewName='Dataload - Consol Engine - Historic Forecast';
+SubName = ViewName;
+
+sCurrentFinPer = '2409';
+
+### Clear MA Import Layer
+CubeSetLogChanges(sCubeTarget,0);
+
+if(ViewExists(sCubeTarget,ViewName)=1);
+  ViewDestroy(sCubeTarget,ViewName);
+endif;
+ViewCreate(sCubeTarget,ViewName);
+ViewSubsetAssign(sCubeTarget,ViewName,'Consolidation Layer','MA Import');
+
+
+SubsetCreate( 'Version', Subname, 0 );
+SubsetElementInsert( 'Version', ViewName, pVersion, 1 );
+ViewSubsetAssign( sCubeTarget, ViewName, 'Version', ViewName );
+
+SubsetCreate( 'Financial Year', Viewname, 0 );
+SubsetElementInsert( 'Financial Year', ViewName, 'FY24', 1 );
+ViewSubsetAssign( sCubeTarget, ViewName, 'Financial Year', ViewName );
+
+ViewZeroOut(sCubeTarget,ViewName);
+#endregion
+#region Data
+
+## Get Period or YTD from account dim attribute
+ sPerYTD='';
+
+IF(DimensionElementExists( 'Accounts - Group', vAccount ) = 1);
+	sPerYTD = ATTRS( 'Accounts - Group', vAccount, 'Period YTD' );
+ELSE;
+    ItemSkip;
+ENDIF;
+
+## The Per/YTD flag could be YTD-FA which is used for Fixed assets accounts. These are treated differently in rules, but on import should be treated as YTD
+IF (sPerYTD @= 'YTD-FA');
+    sPerYTD = 'YTD';
+ELSE;
+ENDIF;
+
+IF (sPerYTD @= 'YTD-BF');
+    sPerYTD = 'YTD';
+ELSE;
+ENDIF;
+
+
+
+## YTD values will be loaded into imported YTD
+# IF(sPerYTD@='YTD');
+#     sPerYTD = 'Imported YTD';
+# ENDIF;
+
+## Turn the finper into a month and year
+sMonth = 'P' | SUBST(vFinPer,3,2);
+sYear = 'FY' | SUBST( vFinPer, 1, 2 );
+
+
+## Map the version
+IF(vVersion @='A');
+   sVersion = 'Actual';
+ELSEIF(vVersion@='F');
+    sVersion = pVersion;
+ENDIF;
+
+## skip actuals, these are loaded in another process
+IF(sVersion@='Actual');
+    ItemSkip;
+ENDIF;
+
+## Tidy up names in the file
+IF(SUBST(vComp,1,3) @='HO1');
+    sComp = 'H01';
+ELSEIF(SUBST(vComp,1,3) @='HO2');
+	sComp = 'H02';
+ELSEIF(SUBST(vComp,1,3) @='HO3');
+	sComp = 'H03';
+ELSE;
+    sComp = vComp;
+ENDIF;
+
+
+
+
+## Skip any companies that have 'Total' in the name as these will be calculated using the Group Consol Structure cube
+IF(SCAN( 'Total', sComp ) > 0);
+    ItemSKip;
+ENDIF;
+
+
+
+## Data after 2412 is next year budget, which we will ignore for now.
+## Everything up to current period is actual, everything from current period +1 - period 12 is forecast and ignore everything beyond that
+
+IF(SUBST(vFinper,1,2) @='25'); 
+    ItemSkip;
+ENDIF;
+
+## Skip forecast records where the finper is already actualised
+IF(vFinPer @<= sCurrentFinPer);
+        ItemSkip;
+ENDIF;
+
+
+IF(DimensionElementExists( 'Accounts - Group', vAccount ) = 1);
+	## Load the local currency amount 
+    ## If sPerYTD is YTD, load it into imported YTD and YTD
+    IF(sPerYTD@='YTD');
+		CellIncrementN( vLocal, sCubeTarget,sVersion, sYear, sMonth, sPerYTD, sComp, vAccount, 'Local', sLayer, sMeas );
+        CellIncrementN( vLocal, sCubeTarget,sVersion, sYear, sMonth, 'Imported YTD', sComp, vAccount, 'Local', sLayer, sMeas );
+    ELSE;
+        CellIncrementN( vLocal, sCubeTarget,sVersion, sYear, sMonth, sPerYTD, sComp, vAccount, 'Local', sLayer, sMeas );
+    ENDIF;
+
+	## Load the GBP amount  at Actual rates
+    ## If sPerYTD is YTD, load it into imported YTD and YTD
+    IF(sPerYTD@='YTD');
+		CellIncrementN( vGBPAct, sCubeTarget,sVersion, sYear, sMonth,sPerYTD, sComp, vAccount, 'GBP MA', sLayer, sMeas );
+		CellIncrementN( vGBPAct, sCubeTarget,sVersion, sYear, sMonth,'Imported YTD', sComp, vAccount, 'GBP MA', sLayer, sMeas );
+    ELSE;
+        CellIncrementN( vGBPAct, sCubeTarget,sVersion, sYear, sMonth,sPerYTD, sComp, vAccount, 'GBP MA', sLayer, sMeas );
+    ENDIF;
+	## Load the GBP amount at Budget Rate
+    ## If sPerYTD is YTD, load it into imported YTD and YTD
+    IF(sPerYTD@='YTD');    
+		CellIncrementN( vGBPBud, sCubeTarget,sVersion, sYear, sMonth,sPerYTD, sComp, vAccount, 'GBP MA at Budget rate', sLayer, sMeas );
+        CellIncrementN( vGBPBud, sCubeTarget,sVersion, sYear, sMonth,'Imported YTD', sComp, vAccount, 'GBP MA at Budget rate', sLayer, sMeas );
+    ELSE;
+        CellIncrementN( vGBPBud, sCubeTarget,sVersion, sYear, sMonth,sPerYTD, sComp, vAccount, 'GBP MA at Budget rate', sLayer, sMeas );
+    ENDIF;
+ELSE;
+    DimensionElementInsertDirect('zMissing Account Codes','',vAccount,'N');
+    DimensionElementComponentAddDirect( 'zMissing Account Codes', 'Actual Missing Codes', vAccount, 1 );
+    nCount = nCount + 1;
+ENDIF;
+############################################
+
+
+
+#endregion
+#region Epilog
+CubeSetLogChanges(sCubeTarget, 1);
+#endregion

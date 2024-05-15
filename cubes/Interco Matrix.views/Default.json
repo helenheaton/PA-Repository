@@ -1,0 +1,40 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Company].[Company]" : "Short Name"
+		},
+		"ContextSets" : 
+		{
+			"[Financial Period].[Financial Period]" : 
+			{
+				"Expression" : "{[Financial Period].[Financial Period].MEMBERS}"
+			},
+			"[Financial Year].[Financial Year]" : 
+			{
+				"Expression" : "{[Financial Year].[Financial Year].MEMBERS}"
+			},
+			"[Period YTD].[Period YTD]" : 
+			{
+				"Expression" : "{[Period YTD].[Period YTD].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Company].[Company]" : false,
+			"[Financial Period].[Financial Period]" : false,
+			"[Financial Year].[Financial Year]" : false,
+			"[Intercompany Partner].[Intercompany Partner]" : false,
+			"[Period YTD].[Period YTD]" : false,
+			"[Version].[Version]" : false
+		}
+	}
+}

@@ -1,0 +1,36 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_MA Cashflow",
+	"Elements":
+	[
+		{
+			"Name":"Opening Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Movement",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Closing Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Calculation Type",
+			"Type":"String"
+		},
+		{
+			"Name":"Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Value2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FX differences",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,96 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Model Settings",
+	"Elements":
+	[
+		{
+			"Name":"Reporting Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Reporting Year",
+			"Type":"String"
+		},
+		{
+			"Name":"Reporting Fin Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Budget Upload Year",
+			"Type":"String"
+		},
+		{
+			"Name":"Budget FX Source",
+			"Type":"String"
+		},
+		{
+			"Name":"Budget FX Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Budget FX Year",
+			"Type":"String"
+		},
+		{
+			"Name":"Budget FX Fin Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Model Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Model Year",
+			"Type":"String"
+		},
+		{
+			"Name":"Model Fin Period",
+			"Type":"String"
+		},
+		{
+			"Name":"History Imported to Period",
+			"Type":"String"
+		},
+		{
+			"Name":"History Year",
+			"Type":"String"
+		},
+		{
+			"Name":"History Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Last Submitted Consol Adjustment Journal",
+			"Type":"String"
+		},
+		{
+			"Name":"Current Consol Adjustment Journal",
+			"Type":"String"
+		},
+		{
+			"Name":"Local Source History Imported from",
+			"Type":"String"
+		},
+		{
+			"Name":"Source Version for Derived Forecast",
+			"Type":"String"
+		},
+		{
+			"Name":"Reporting Forecast Version",
+			"Type":"String"
+		},
+		{
+			"Name":"TB Tolerance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Default Covenants Period",
+			"Type":"String"
+		},
+		{
+			"Name":"Default Covenants Year",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

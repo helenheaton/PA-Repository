@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Actuals Clear",
+	"Expression":"EXCEPT(TM1FILTERBYLEVEL(TM1SUBSETALL([Company].[Company]) , 0) , {[Company].[Company].[CTP-UK^Mitcham],[Company].[Company].[Aylesbury]})"
+}

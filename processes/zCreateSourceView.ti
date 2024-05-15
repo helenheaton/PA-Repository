@@ -1,0 +1,4 @@
+#region Prolog
+vCube = 'Submission checks';
+ViewCreate( vCube, 'Source', 0 );
+#endregion

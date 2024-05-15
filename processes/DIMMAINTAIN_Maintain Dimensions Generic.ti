@@ -1,0 +1,88 @@
+#region Prolog
+
+if(SubsetElementExists( '}Dimensions', 'Dim Maintenance',pdim ) =0);
+    ItemReject( 'Dimension not set up for maintenance. ' );
+endif;
+#Create Datasource to Clear
+cubename = 'ADM Dimension Maintenance';
+viewname = getprocessname();
+subname = viewname;
+temp = 1;
+
+#Create View
+if(ViewExists( cubename, viewname ) = 1);
+    ViewDestroy(  cubename, viewname );
+    ViewCreate(  cubename, viewname ,temp );
+Else;
+    ViewCreate(  cubename, viewname ,temp );
+Endif;
+
+
+#Assign Dim 3
+dimname = '}Dimensions';
+if(SubsetExists( Dimname, subname ) = 1);
+    SubsetDestroy( Dimname, subname );
+    SubsetCreate( Dimname, subname, temp );
+Else;
+    SubsetCreate( Dimname, subname, temp );
+endif;
+
+SubsetElementInsert(  Dimname, subname, pDim, 1 );
+ViewSubsetAssign( cubename, viewname, dimname, Subname );
+
+#Assign Dim 3
+dimname = 'ADM - Account Maintenance';
+if(SubsetExists( Dimname, subname ) = 1);
+    SubsetDestroy( Dimname, subname );
+    SubsetCreate( Dimname, subname, temp );
+Else;
+    SubsetCreate( Dimname, subname, temp );
+endif;
+
+SubsetElementInsert(  Dimname, subname, 'Add/Remove', 1 );
+ViewSubsetAssign( cubename, viewname, dimname, Subname );
+
+DataSourceType = 'View';
+DatasourceCubeview = viewname;
+#endregion
+#region Metadata
+
+if (CellGetS( 'ADM Dimension Maintenance', vItem, pdim, 'Check') @<>'Verified');
+    ItemReject( 'Not Verified. Please ensure all Parameters are correctly set up' );
+    itemskip;
+endif;
+
+if (pConfirm@<>'1'); 
+    ProcessQuit ; 
+endif;
+
+if(value @= 'Create Element');
+    DimensionElementInsert( pdim, '', CellGetS( 'ADM Dimension Maintenance', vItem, pdim, 'Element'), 'N' );
+    DimensionElementComponentAdd( pDim, CellGetS( 'ADM Dimension Maintenance', vItem, pdim, 'Parent'), CellGetS( 'ADM Dimension Maintenance', vItem, pdim, 'Element'), 1 );
+elseif(value @= 'Create Consolidated Element');
+    DimensionElementInsert( pdim, '', CellGetS( 'ADM Dimension Maintenance', vItem, pdim, 'Element'), 'C' );
+    DimensionElementComponentAdd( pDim, CellGetS( 'ADM Dimension Maintenance', vItem, pdim, 'Parent'), CellGetS( 'ADM Dimension Maintenance', vItem, pdim, 'Element'), 1 );
+elseif(value @= 'Add to Parent');
+    DimensionElementComponentAdd( pDim, CellGetS( 'ADM Dimension Maintenance', vItem, pdim, 'Parent'), CellGetS( 'ADM Dimension Maintenance', vItem, pdim, 'Element'), 1 );
+elseif(value @= 'Remove from Parent');
+    DimensionElementComponentDelete( pdim, CellGetS( 'ADM Dimension Maintenance', vItem, pdim, 'Parent'), CellGetS( 'ADM Dimension Maintenance', vItem, pdim, 'Element'));
+elseif(value @= 'Delete Element');
+    if (SCAN( CellGetS( 'ADM Dimension Maintenance', vItem, pdim, 'Element'), pConfirmDelete )= 0); 
+        ItemReject( 'Element Name '|CellGetS( 'ADM Dimension Maintenance', vItem, pdim, 'Element')|' not confirmed in process parameters. Element remains in Hierarchy' );
+        itemskip; 
+    else;
+        DimensionElementDelete( pDim, CellGetS( 'ADM Dimension Maintenance', vItem, pdim, 'Element') );
+
+    endif;
+endif;
+
+CellPutS( '', 'ADM Dimension Maintenance', vItem, pDim, 'Add/Remove' );
+#endregion
+#region Epilog
+IF(pDim @= 'Accounts - Group');
+    ExecuteProcess( 'DIMUPDATE - Accounts Group - ExcAccruals' );
+ENDIF;
+
+
+CubeClearData( 'ADM Dimension Maintenance' );
+#endregion

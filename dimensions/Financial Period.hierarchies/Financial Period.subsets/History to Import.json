@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"History to Import",
+	"Expression":"{FILTER(TM1FILTERBYLEVEL(TM1SUBSETALL([Financial Period]) , 0) , ([Financial Period].CURRENTMEMBER.NAME <= [Model Settings].([m_Model Settings].[History Period],[Value].[Value])))}"
+}

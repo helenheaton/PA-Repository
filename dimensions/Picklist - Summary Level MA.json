@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Picklist - Summary Level MA",
+	"Hierarchies@Code.links":
+	[
+		"Picklist - Summary Level MA.hierarchies/Picklist - Summary Level MA.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Picklist - Summary Level MA')/Hierarchies('Picklist - Summary Level MA')"
+	}
+}

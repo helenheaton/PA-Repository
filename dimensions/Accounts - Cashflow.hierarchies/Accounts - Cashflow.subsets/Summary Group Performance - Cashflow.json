@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"Summary Group Performance - Cashflow",
+	"ExpandAbove":true,
+	"Alias":"Display Name",
+	"Expression":"{DRILLDOWNMEMBER({[Accounts - Cashflow].[Accounts - Cashflow].[CF Underlying EBITDA]} , {[Accounts - Cashflow].[Accounts - Cashflow].[CF Underlying EBITDA]} , RECURSIVE),DRILLDOWNMEMBER({[Accounts - Cashflow].[Accounts - Cashflow].[Working Capital Movements]} , {[Accounts - Cashflow].[Accounts - Cashflow].[Working Capital Movements]} , RECURSIVE),[Accounts - Cashflow].[Accounts - Cashflow].[Operating Cashflows]}"
+}

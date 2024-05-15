@@ -1,0 +1,13 @@
+{
+	"@type":"Process",
+	"Name":"Test Process",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Test Process.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

@@ -1,0 +1,17 @@
+{
+	"@type":"Subset",
+	"Name":"Summary Group Performance Reporting Subset - KPI",
+	"Alias":"Display Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Headcount (Month end FTEs)')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('FTE Churn Percent')"
+		},
+		{
+			"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')/Elements('Labour Cost per FTE')"
+		}
+	]
+}

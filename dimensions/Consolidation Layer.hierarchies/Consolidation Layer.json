@@ -1,0 +1,163 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Consolidation Layer",
+	"Elements":
+	[
+		{
+			"Name":"Local Submission",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Local Adjustment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Local Source System",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Year End Alignment",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Forex adjustments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Interco elimination",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Consol entries",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Management Accounts",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Stat Forex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FRS16",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"UK GAAP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Reclasses",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Adjustments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Financial Accounts",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"MA Import",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Stat Adjustments",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Central Adjustments",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Local Submission",
+			"ComponentName":"Local Adjustment",
+			"Weight":1
+		},
+		{
+			"ParentName":"Local Submission",
+			"ComponentName":"Local Source System",
+			"Weight":1
+		},
+		{
+			"ParentName":"Management Accounts",
+			"ComponentName":"Central Adjustments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Management Accounts",
+			"ComponentName":"Year End Alignment",
+			"Weight":1
+		},
+		{
+			"ParentName":"Management Accounts",
+			"ComponentName":"Forex adjustments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Management Accounts",
+			"ComponentName":"Interco elimination",
+			"Weight":1
+		},
+		{
+			"ParentName":"Management Accounts",
+			"ComponentName":"Consol entries",
+			"Weight":1
+		},
+		{
+			"ParentName":"Management Accounts",
+			"ComponentName":"Local Submission",
+			"Weight":1
+		},
+		{
+			"ParentName":"Financial Accounts",
+			"ComponentName":"Stat Adjustments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Financial Accounts",
+			"ComponentName":"Management Accounts",
+			"Weight":1
+		},
+		{
+			"ParentName":"Stat Adjustments",
+			"ComponentName":"Stat Forex",
+			"Weight":1
+		},
+		{
+			"ParentName":"Stat Adjustments",
+			"ComponentName":"FRS16",
+			"Weight":1
+		},
+		{
+			"ParentName":"Stat Adjustments",
+			"ComponentName":"UK GAAP",
+			"Weight":1
+		},
+		{
+			"ParentName":"Stat Adjustments",
+			"ComponentName":"Reclasses",
+			"Weight":1
+		},
+		{
+			"ParentName":"Stat Adjustments",
+			"ComponentName":"Adjustments",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Consolidation Layer.subsets/Consol Adjustment Selections.json",
+		"Consolidation Layer.subsets/Dataload - Consol Engine - Historic Forecast.json",
+		"Consolidation Layer.subsets/Default.json",
+		"Consolidation Layer.subsets/Local Source System.json",
+		"Consolidation Layer.subsets/Local Submission.json",
+		"Consolidation Layer.subsets/MA Import.json",
+		"Consolidation Layer.subsets/Submission Layers.json"
+	]
+}

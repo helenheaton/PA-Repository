@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"ADM - Generic Items",
+	"Hierarchies@Code.links":
+	[
+		"ADM - Generic Items.hierarchies/ADM - Generic Items.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('ADM - Generic Items')/Hierarchies('ADM - Generic Items')"
+	}
+}

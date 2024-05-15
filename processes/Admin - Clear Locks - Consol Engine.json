@@ -1,0 +1,13 @@
+{
+	"@type":"Process",
+	"Name":"Admin - Clear Locks - Consol Engine",
+	"HasSecurityAccess":true,
+	"Code@Code.link":"Admin - Clear Locks - Consol Engine.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

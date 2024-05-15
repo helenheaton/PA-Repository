@@ -1,0 +1,27 @@
+#region Prolog
+pPrologNow = Now();
+ 
+
+n = 1;
+nErrors = 0;
+pMessage = 'Process Completed Successfully';
+sMessage1 = '';
+sMessage2 = '';
+
+while( n<10000000 );
+   if( MOD(n, 3)=0);
+     nErrors = nErrors+1;
+     sMessage1 = 'Project doesnt exist';
+   endif;
+   n = n+1;
+end;
+
+if(nErrors>0);
+    pMessage = 'Errors in process: ' | sMessage1 | sMessage2 ;
+endif;
+
+#endregion
+#region Epilog
+ExecuteProcess('Process Control Logging', 'pProcessName', GetProcessName, 'pUser', TM1User, 'pPrologNow', pPrologNow, 'pErrors', nErrors, 'pMessage', pMessage);
+
+#endregion

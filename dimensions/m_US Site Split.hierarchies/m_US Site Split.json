@@ -1,0 +1,33 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_US Site Split",
+	"Elements":
+	[
+		{
+			"Name":"Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Consol Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Check",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Check",
+			"ComponentName":"Value",
+			"Weight":1
+		},
+		{
+			"ParentName":"Check",
+			"ComponentName":"Consol Value",
+			"Weight":-1
+		}
+	],
+	"Subsets@Code.links":[]
+}

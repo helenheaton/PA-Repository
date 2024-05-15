@@ -1,0 +1,45 @@
+{
+	"@type":"Cube",
+	"Name":"MA Cashflow",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Financial Period')"
+		},
+		{
+			"@id":"Dimensions('Period YTD')"
+		},
+		{
+			"@id":"Dimensions('Accounts - Cashflow')"
+		},
+		{
+			"@id":"Dimensions('FX Calculation')"
+		},
+		{
+			"@id":"Dimensions('Consolidation Layer')"
+		},
+		{
+			"@id":"Dimensions('m_MA Cashflow')"
+		}
+	],
+	"Rules@Code.link":"MA Cashflow.rules",
+	"Views@Code.links":
+	[
+		"MA Cashflow.views/Current Month - Cashflow.json",
+		"MA Cashflow.views/Default.json",
+		"MA Cashflow.views/Detailed Cashflow.json",
+		"MA Cashflow.views/Manual Items.json",
+		"MA Cashflow.views/New Cashflow MI.json",
+		"MA Cashflow.views/Summary Group Performance - Cashflow.json",
+		"MA Cashflow.views/UX Summary.json"
+	]
+}

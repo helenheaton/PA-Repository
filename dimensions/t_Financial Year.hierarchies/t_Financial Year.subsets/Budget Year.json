@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Budget Year",
-	"Expression":"{TM1FILTERBYPATTERN(TM1SUBSETALL([t_Financial Year]) , [Admin - Model Parameters].([Parameter].[Budget Year],[m_Model Parameters].[Value]))}"
-}

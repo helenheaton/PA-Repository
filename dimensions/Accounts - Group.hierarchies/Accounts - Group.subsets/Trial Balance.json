@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Trial Balance",
+	"Expression":"{EXCEPT(DRILLUPMEMBER(EXCEPT(DRILLUPMEMBER([Accounts - Group].[Accounts - Group].MEMBERS , {[Accounts - Group].[Accounts - Group].[KPI]}) , {[Accounts - Group].[Accounts - Group].[KPI],[Accounts - Group].[Accounts - Group].[EQU_retainedearnings]}) , {[Accounts - Group].[Accounts - Group].[CASHFLOW]}) , {[Accounts - Group].[Accounts - Group].[CASHFLOW]})}"
+}

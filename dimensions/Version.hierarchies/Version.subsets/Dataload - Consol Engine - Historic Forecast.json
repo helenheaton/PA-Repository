@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Dataload - Consol Engine - Historic Forecast",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('6+6 Forecast')"
+		}
+	]
+}

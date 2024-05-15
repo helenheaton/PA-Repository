@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Covenants Years",
+	"Alias":"MEMBER_NAME",
+	"Expression":"{TM1FILTERBYPATTERN(TM1SUBSETALL([Financial Year]) , [Model Settings].([m_Model Settings].[Default Covenants Year],[Value].[Value])),TM1FILTERBYLEVEL(TM1SUBSETALL([Financial Year].[Financial Year]) , 0)}"
+}

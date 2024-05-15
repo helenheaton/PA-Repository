@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"FX Calculation",
+	"Hierarchies@Code.links":
+	[
+		"FX Calculation.hierarchies/FX Calculation.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('FX Calculation')/Hierarchies('FX Calculation')"
+	}
+}

@@ -1,0 +1,58 @@
+{
+	"@type":"MDXView",
+	"Name":"View to show Helen - intercompany",
+	"MDX@Code.link":"View to show Helen - intercompany.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Accounts - MA].[Accounts - MA]" : "Display Name",
+			"[Company].[Company]" : "Short Name",
+			"[Consolidation Layer].[Consolidation Layer]" : "MEMBER_NAME"
+		},
+		"ContextSets" : 
+		{
+			"[Company].[Company]" : 
+			{
+				"Expression" : "{[Company].[Company].[Division Total]}"
+			},
+			"[Consolidation Layer].[Consolidation Layer]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[FX Calculation].[FX Calculation]" : 
+			{
+				"Expression" : "{[FX Calculation].[FX Calculation].MEMBERS}"
+			},
+			"[Financial Period].[Financial Period]" : 
+			{
+				"Expression" : "{[Financial Period].[Financial Period].MEMBERS}"
+			},
+			"[Financial Year].[Financial Year]" : 
+			{
+				"Expression" : "{[Financial Year].[Financial Year].MEMBERS}"
+			},
+			"[Period YTD].[Period YTD]" : 
+			{
+				"Expression" : "{[Period YTD].[Period YTD].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Accounts - MA].[Accounts - MA]" : false,
+			"[Company].[Company]" : true,
+			"[Consolidation Layer].[Consolidation Layer]" : true,
+			"[FX Calculation].[FX Calculation]" : false,
+			"[Financial Period].[Financial Period]" : false,
+			"[Financial Year].[Financial Year]" : false,
+			"[Period YTD].[Period YTD]" : false,
+			"[Version].[Version]" : false,
+			"[m_MA Reporting].[m_MA Reporting]" : false
+		}
+	}
+}

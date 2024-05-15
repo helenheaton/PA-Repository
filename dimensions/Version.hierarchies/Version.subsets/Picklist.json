@@ -1,0 +1,22 @@
+{
+	"@type":"Subset",
+	"Name":"Picklist",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Actual')"
+		},
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Budget')"
+		},
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('3+9 Forecast')"
+		},
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('6+6 Forecast')"
+		},
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('9+3 Forecast')"
+		}
+	]
+}

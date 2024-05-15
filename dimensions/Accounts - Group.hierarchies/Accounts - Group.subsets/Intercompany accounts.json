@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Intercompany accounts",
+	"Expression":"{{FILTER(TM1FILTERBYLEVEL(TM1SUBSETALL([Accounts - Group].[Accounts - Group]) , 0), ([Accounts - Group].[Accounts - Group].CURRENTMEMBER.PROPERTIES(\"Interco\") = \"Y\"))},[Accounts - Group].[Accounts - Group].[CLI_accruals]}"
+}

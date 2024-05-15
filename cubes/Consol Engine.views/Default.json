@@ -1,0 +1,56 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Company].[Company]" : "Short Name"
+		},
+		"ContextSets" : 
+		{
+			"[Company].[Company]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Consolidation Layer].[Consolidation Layer]" : 
+			{
+				"Expression" : "{[Consolidation Layer].[Consolidation Layer].MEMBERS}"
+			},
+			"[FX Calculation].[FX Calculation]" : 
+			{
+				"Expression" : "{[FX Calculation].[FX Calculation].MEMBERS}"
+			},
+			"[Financial Year].[Financial Year]" : 
+			{
+				"Expression" : "{[Financial Year].[Financial Year].[FY24]}"
+			},
+			"[Period YTD].[Period YTD]" : 
+			{
+				"Expression" : "{[Period YTD].[Period YTD].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			},
+			"[m_Consol Engine].[m_Consol Engine]" : 
+			{
+				"Expression" : "{[m_Consol Engine].[m_Consol Engine].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Accounts - Group].[Accounts - Group]" : false,
+			"[Company].[Company]" : true,
+			"[Consolidation Layer].[Consolidation Layer]" : false,
+			"[FX Calculation].[FX Calculation]" : false,
+			"[Financial Period].[Financial Period]" : false,
+			"[Financial Year].[Financial Year]" : false,
+			"[Period YTD].[Period YTD]" : false,
+			"[Version].[Version]" : false,
+			"[m_Consol Engine].[m_Consol Engine]" : false
+		}
+	}
+}

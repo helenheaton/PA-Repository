@@ -1,0 +1,13 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Submissions')/Hierarchies('Submissions')/Elements('Current')"
+		},
+		{
+			"@id":"Dimensions('Submissions')/Hierarchies('Submissions')/Elements('Last Submission')"
+		}
+	]
+}

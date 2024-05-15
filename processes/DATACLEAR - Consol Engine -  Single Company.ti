@@ -1,0 +1,81 @@
+#region Prolog
+
+## Steven Hutchison 01/02/2024
+## This process will clear historic manaccs data for individual companies
+## Data will be loaded into the local source layer
+## This process is supposed to be "one off" to load history and is not likely to be used going forward
+
+
+## Define variables
+sCubeTarget = 'Consol Engine';
+sCompany = pCompany;
+sLayer = pLayer;
+sYear = CellGetS('Model Settings', 'Value', 'Model Year' );
+sPrevYear = attrs('Financial Year',CellGetS('Model Settings', 'Value', 'Model Year' ),'Previous Year');
+sMeas = 'Value';
+sViewTarget = GetProcessName();
+pVersion = 'Actual';
+nTmp = 1;
+sPeriods = CellGetS('Model Settings', 'Value', 'History Period' );
+nPeriods = Numbr(SUBST( sPeriods, 2, 2 ));
+sColumn = '';
+#NumericGlobalVariable( sColumn );
+
+
+## Create target view to clear
+ViewCreate( sCubeTarget, sViewTarget, nTmp );
+
+## Turn off logging
+nOldLog = CubeGetLogChanges( sCubeTarget );
+CubeSetLogChanges( sCubeTarget, 0 );
+
+##Create subsets to be cleared in the view
+
+## Process will run for single forecast version
+sDim = 'Version';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, pVersion, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for selected company
+sDim = 'Company';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sCompany, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for selected layer
+sDim = 'Consolidation Layer';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sLayer, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for current year only
+sDim = 'Financial Year';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sYear, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for Local currency
+sDim = 'FX Calculation';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'Local', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+
+sDim = 'm_Consol Engine';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'Value', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Clear the view
+ViewZeroOut( sCubeTarget, sViewTarget );
+
+#ProcessBreak;
+#endregion
+#region Epilog
+
+## Turn logging back on
+CubeSetLogChanges( sCubeTarget, nOldLog );
+
+
+#endregion

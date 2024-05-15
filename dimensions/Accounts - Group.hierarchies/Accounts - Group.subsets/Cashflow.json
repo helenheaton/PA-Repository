@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Cashflow",
+	"Expression":"{DRILLDOWNMEMBER({[Accounts - Group].[Accounts - Group].[CASHFLOW]} , {[Accounts - Group].[Accounts - Group].[CASHFLOW]} , RECURSIVE)}"
+}

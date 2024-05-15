@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Accounts - MA",
+	"Hierarchies@Code.links":
+	[
+		"Accounts - MA.hierarchies/Accounts - MA.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Accounts - MA')/Hierarchies('Accounts - MA')"
+	}
+}

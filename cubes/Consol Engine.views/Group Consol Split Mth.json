@@ -1,0 +1,55 @@
+{
+	"@type":"MDXView",
+	"Name":"Group Consol Split Mth",
+	"MDX@Code.link":"Group Consol Split Mth.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Company].[Company]" : "Short Name"
+		},
+		"ContextSets" : 
+		{
+			"[Consolidation Layer].[Consolidation Layer]" : 
+			{
+				"Expression" : "{[Consolidation Layer].[Consolidation Layer].MEMBERS}"
+			},
+			"[FX Calculation].[FX Calculation]" : 
+			{
+				"Expression" : "{[FX Calculation].[FX Calculation].MEMBERS}"
+			},
+			"[Financial Period].[Financial Period]" : 
+			{
+				"Expression" : "{[Financial Period].[Financial Period].[All Financial Periods^P01],[Financial Period].[Financial Period].[All Financial Periods^P02],[Financial Period].[Financial Period].[All Financial Periods^P03],[Financial Period].[Financial Period].[All Financial Periods^P04],[Financial Period].[Financial Period].[All Financial Periods^P05],[Financial Period].[Financial Period].[All Financial Periods^P06],[Financial Period].[Financial Period].[All Financial Periods^P07],[Financial Period].[Financial Period].[All Financial Periods^P08],[Financial Period].[Financial Period].[All Financial Periods^P09],[Financial Period].[Financial Period].[All Financial Periods^P10],[Financial Period].[Financial Period].[All Financial Periods^P11],[Financial Period].[Financial Period].[All Financial Periods^P12]}"
+			},
+			"[Financial Year].[Financial Year]" : 
+			{
+				"Expression" : "{{TM1FILTERBYLEVEL(TM1SUBSETALL([Financial Year].[Financial Year]) , 0)}}"
+			},
+			"[Period YTD].[Period YTD]" : 
+			{
+				"Expression" : "{[Period YTD].[Period YTD].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			},
+			"[m_Consol Engine].[m_Consol Engine]" : 
+			{
+				"Expression" : "{[m_Consol Engine].[m_Consol Engine].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Accounts - Group].[Accounts - Group]" : false,
+			"[Company].[Company]" : true,
+			"[Consolidation Layer].[Consolidation Layer]" : false,
+			"[FX Calculation].[FX Calculation]" : false,
+			"[Financial Period].[Financial Period]" : false,
+			"[Financial Year].[Financial Year]" : false,
+			"[Period YTD].[Period YTD]" : false,
+			"[Version].[Version]" : false,
+			"[m_Consol Engine].[m_Consol Engine]" : false
+		}
+	}
+}

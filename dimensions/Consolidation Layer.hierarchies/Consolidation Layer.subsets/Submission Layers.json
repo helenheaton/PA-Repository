@@ -1,0 +1,13 @@
+{
+	"@type":"Subset",
+	"Name":"Submission Layers",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Consolidation Layer')/Hierarchies('Consolidation Layer')/Elements('Local Source System')"
+		},
+		{
+			"@id":"Dimensions('Consolidation Layer')/Hierarchies('Consolidation Layer')/Elements('MA Import')"
+		}
+	]
+}

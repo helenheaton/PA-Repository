@@ -1,0 +1,14 @@
+{
+	"@type":"Dimension",
+	"Name":"Accounts - Group",
+	"AllLeavesHierarchyName":"Leaves",
+	"Hierarchies@Code.links":
+	[
+		"Accounts - Group.hierarchies/Accounts - Group.json",
+		"Accounts - Group.hierarchies/ExcAccruals.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Accounts - Group')/Hierarchies('Accounts - Group')"
+	}
+}

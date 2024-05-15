@@ -1,0 +1,36 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Journal Reference",
+	"Elements":
+	[
+		{
+			"Name":"1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R1",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"R2",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"4",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Journal Reference.subsets/Current Consol Adjustment Journal.json",
+		"Journal Reference.subsets/Recurring Journals.json"
+	]
+}

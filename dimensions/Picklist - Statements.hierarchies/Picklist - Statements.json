@@ -1,0 +1,28 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Picklist - Statements",
+	"Elements":
+	[
+		{
+			"Name":"P+L",
+			"Type":"String"
+		},
+		{
+			"Name":"BS",
+			"Type":"String"
+		},
+		{
+			"Name":"KPI",
+			"Type":"String"
+		},
+		{
+			"Name":"SOCIE",
+			"Type":"String"
+		},
+		{
+			"Name":"CF",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":[]
+}

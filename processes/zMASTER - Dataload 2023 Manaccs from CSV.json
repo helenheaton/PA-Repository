@@ -1,0 +1,13 @@
+{
+	"@type":"Process",
+	"Name":"zMASTER - Dataload 2023 Manaccs from CSV",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zMASTER - Dataload 2023 Manaccs from CSV.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

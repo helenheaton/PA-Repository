@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"All leaves",
+	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([Accounts - Cashflow].[Accounts - Cashflow]) , 0)}}"
+}

@@ -1,0 +1,291 @@
+#---------------------------------------------------------------------------------------------------
+# MA Cashflow
+# This cube calculates the cashflow. Any figures that can be derived directly from the balance sheet
+# or P&L are calculated. Source figures are brought in from the MA Reporting cube based on the 'Cashflow 
+# Account' attribute. They calculation type is brought from the 'Cashflow Calculation' attribute. 
+# These attributes are on the 'Accounts MA' dimension.
+#
+# REMEMBER TO REPROCESS FEEDERS IF ATTRIBUTES ARE CHANGED!!!
+#
+# Rule file created by Helen Heaton Budgeting Solutions Ltd 17/03/2024
+#---------------------------------------------------------------------------------------------------
+
+SKIPCHECK;
+#---------------------------------------------------------------------------------------------------
+
+# Populate Current Period which will be shown be default on reports
+['Current Period'] = n:
+    db('MA Cashflow', !Version, !Company, !Financial Year, db('Model Settings', 'Value', 'Reporting Fin Period' ), !Period YTD, !Accounts - Cashflow, !FX Calculation, !Consolidation Layer, !m_MA Cashflow);
+
+
+
+
+# No actuals after the model period
+['Actual'] = n:
+  IF(!Financial Year @= db('Model Settings','Value','Model Year') 
+      ,IF(!Financial Period @> db('Model Settings','Value','Model Fin Period') 
+          ,0
+          ,CONTINUE
+          )
+      ,CONTINUE
+      );
+
+#---------------------------------------------------------------------------------------------------
+# Special rule for CTP-UK after split out
+['Actual','CTP-UK historic','Value'] = n:
+  IF(!Financial Year @= 'FY24' 
+#     ,IF(db('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', !Period YTD, !Accounts - Cashflow, !'FX Calculation', !'Consolidation Layer', 'Period YTD') @= 'Period'
+        ,0
+        ,CONTINUE
+#         )
+#      ,CONTINUE
+     );
+
+#---------------------------------------------------------------------------------------------------
+# Special Rule - Opening Balance for Fixed Assets
+['Opening Balance','YTD'] = n:
+     IF(db('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', !Period YTD, !Accounts - Cashflow, !'FX Calculation', !'Consolidation Layer', 'Calculation Type') @= 'Fixed Asset'
+       , ['Opening Balance','Period','P01']
+       , CONTINUE
+       );
+
+#---------------------------------------------------------------------------------------------------
+# Special Rule - Retained earnings
+['EQU_retainedearningsbf','Consol entries'] = n: 0;
+['EQU_retainedearningsbf','Closing Balance','YTD',{'P02','P03','P04','P05','P06','P07','P08','P09','P10','P11','P12'}] = n: ['EQU_retainedearningsbf','Closing Balance','YTD', 'P01' ];
+
+
+#---------------------------------------------------------------------------------------------------
+# Special Rule - Translation differences
+['Value','Forex','GBP MA'] = n: ['FX differences','Closing Cash','GBP MA'];
+['Value','Forex','GBP MA at Budget rate'] = n: ['FX differences','Closing Cash','GBP MA at budget Rate'];
+
+#---------------------------------------------------------------------------------------------------
+# Copy Actuals for Forecast
+[] = n:
+IF(ATTRN( 'Version', !Version, 'Actual Periods' )>0
+   ,IF(NUMBR(SUBST(!Financial Period,2,2)) <= ATTRN( 'Version', !Version, 'Actual Periods' )
+      , ['Actual'] 
+      , CONTINUE
+      )
+   ,CONTINUE
+   );
+
+
+
+#---------------------------------------------------------------------------------------------------
+# Bring in the values from the Consol Engine cube
+['Opening Balance','Period'] = n:
+    if(attrs('Accounts - Cashflow',!Accounts - Cashflow, 'Period YTD' ) @= 'Period'
+       , if (!Financial Period @= 'P01'
+            ,0
+            ,continue
+            )
+       ,continue
+       );
+       
+['Opening Balance','Period'] = n:
+       db('MA Reporting', !Version, !Company, attrs('Financial Year', !Financial Year, attrs('Financial Period',!Financial Period, 'Previous Period Year')), attrs('Financial Period',!Financial Period, 'Previous Period'), 'YTD', !Accounts - Cashflow, !'FX Calculation', !'Consolidation Layer', 'Value' );
+
+
+['Opening Balance','YTD'] = n:
+    if(attrs('Accounts - Cashflow',!Accounts - Cashflow, 'Period YTD' ) @= 'Period'
+       ,0
+       ,db('MA Reporting', !Version, !Company, attrs('Financial Year', !Financial Year, 'Previous Year'), 'P12', 'YTD', !Accounts - Cashflow, !'FX Calculation', !'Consolidation Layer', 'Value' )
+       ); 
+
+['Closing Balance'] = n:
+        db('MA Reporting', !Version, !Company, !'Financial Year', !'Financial Period', 'YTD', !Accounts - Cashflow, !'FX Calculation', !'Consolidation Layer', 'Value' );
+
+['Calculation Type'] = s: attrs('Accounts - MA', !Accounts - Cashflow , 'Cashflow Calculation');
+
+
+#---------------------------------------------------------------------------------------------------
+# Retranslate Opening Balance - GBP MA
+['CF_openbalretranslated','GBP MA','Value'] = n:
+    ['CF_openbal','Local','Opening Balance'] \ db('Exchange Rates', !Version, !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate');
+				
+['CF_openbalfx','GBP MA','Value'] = n:
+    ['CF_openbalretranslated'] - ['CF_openbal'];
+
+# Retranslate Opening Balance - GBP MA at Budget Rate
+['CF_openbalretranslated','GBP MA at Budget rate','Value'] = n:
+    ['CF_openbal','Local','Opening Balance'] \ db('Exchange Rates', 'Budget', !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate');
+				
+['CF_openbalfx','GBP MA at Budget rate','Value'] = n:
+    ['CF_openbalretranslated'] - ['CF_openbal'];
+
+['CF_openbalretranslated','Local','Value'] = n:
+    ['CF_openbal','Local','Opening Balance'];
+    
+
+
+
+
+
+#---------------------------------------------------------------------------------------------------
+# Calculate period and YTD movements
+['Movement','Period'] = n:
+        ['Closing Balance','Period'] - ['Opening Balance','Period'];
+
+['Movement','YTD'] = n:
+        ['Closing Balance','YTD'] - ['Opening Balance','YTD'];
+
+     
+
+#---------------------------------------------------------------------------------------------------
+# Calculate Cashflow value based on calculation type
+['Value'] = n:
+    IF(db('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', !Period YTD, !Accounts - Cashflow, !'FX Calculation', !'Consolidation Layer', 'Calculation Type') @= 'Movement -'
+      , -['Movement']
+      , CONTINUE
+      );
+
+# ['Value','P01'] = n:
+#     IF(db('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', !Period YTD, !Accounts - Cashflow, !'FX Calculation', !'Consolidation Layer', 'Calculation Type') @= 'Fixed Asset'
+#       , ['Opening Balance']
+#       , CONTINUE
+#       );
+
+# ['Value'] = n:
+#     IF(db('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', !Period YTD, !Accounts - Cashflow, !'FX Calculation', !'Consolidation Layer', 'Calculation Type') @= 'Fixed Asset'
+#       , -['Movement']
+#       , CONTINUE
+#       );
+      
+['Value'] = n:
+    IF(db('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', !Period YTD, !Accounts - Cashflow, !'FX Calculation', !'Consolidation Layer', 'Calculation Type') @= 'Fixed Asset'
+      , 0
+      , CONTINUE
+      );
+
+['Value'] = n:
+    IF(db('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', !Period YTD, !Accounts - Cashflow, !'FX Calculation', !'Consolidation Layer', 'Calculation Type') @= 'Movement +'
+      , ['Movement']
+      , CONTINUE
+      );
+
+['Value'] = n:
+    IF(db('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', !Period YTD, !Accounts - Cashflow, !'FX Calculation', !'Consolidation Layer', 'Calculation Type') @= 'Opening Balance'
+      , ['Opening Balance']
+      , CONTINUE
+      );
+
+['Value','Period'] = n:
+    IF(db('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', !Period YTD, !Accounts - Cashflow, !'FX Calculation', !'Consolidation Layer', 'Calculation Type') @= 'Closing Balance'
+      , -['Closing Balance']
+      , CONTINUE
+      );
+
+#---------------------------------------------------------------------------------------------------
+# Add depreciation and amortisation per P&L to the Fixed assets section
+
+['CF_tangNL_dep_PL','Value'] = n: -['OVH_fact_depnbuild','Value'] - ['OVH_fact_depnother','Value'];
+['CF_IntgNL_amort_PL','Value'] = n: -['OVH_fact_amort','Value'];
+
+
+#---------------------------------------------------------------------------------------------------
+# Calculate YTD for manually entered items
+['YTD','Value'] = n:
+    IF (ATTRS('Accounts - Cashflow',!Accounts - Cashflow,'Manual' )@='1'
+       ,db('MA Cashflow', !Version, !Company, !'Financial Year', ATTRS('Financial Period',!'Financial Period','YTD'), 'Period', !Accounts - Cashflow, !'FX Calculation', !'Consolidation Layer', 'Value')
+       ,CONTINUE
+       );
+
+
+#---------------------------------------------------------------------------------------------------
+# Calculate Closing Cash
+['CF_closebal'] = n:
+      ['CF_openbalretranslated'] + ['Total Cash Movement'];
+
+['CF_CloseBalBS'] = n:
+      db('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', !Period YTD, 'CF_openbal', !'FX Calculation', !'Consolidation Layer', 'Closing Balance');
+
+['CF_checksum'] = 
+      ['CF_CloseBalBS'] - ['CF_closebal'];
+
+
+#---------------------------------------------------------------------------------------------------
+# General currency conversions
+
+# Value 1 - Calculated by translating the opening and closing balance
+['GBP MA','Value'] = n:
+       IF ( attrs('Accounts - Cashflow',!Accounts - Cashflow, 'Period YTD') @<> 'Period' 
+          , ['GBP MA','Opening Balance'] - ['GBP MA','Closing Balance'] 
+          , ['GBP MA','Movement']
+          );
+          
+['GBP MA at Budget Rate','Value'] = n:
+       IF ( !Accounts - Cashflow @<> 'CAS_Cash'
+          , ['Local','Value'] \ db('Exchange Rates', 'Budget', !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate')
+          , continue
+          );      
+
+# Value 2 - Calculated by translating the movement - GBP MA
+['GBP MA','Value2'] = n:
+       IF ( !Accounts - Cashflow @<> 'FOREX'
+          , ['Local','Value'] \ db('Exchange Rates', !Version, !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate')
+          , continue
+          );
+
+['FX differences','Forex','GBP MA'] = n: 0;
+
+['FX differences', 'GBP MA'] = n: 
+  IF (!Accounts - Cashflow @= 'CAS_Cash'
+     ,continue
+     ,['Value2'] - ['Value']
+     );
+
+
+# Value 2 - Calculated by translating the movement - GBP MA at budget rate
+['GBP MA at budget rate','Value2'] = n:
+       IF ( !Accounts - Cashflow @<> 'FOREX'
+          , ['Local','Value'] \ db('Exchange Rates', 'Budget', !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate')
+          , continue
+          );
+
+['FX differences','Forex','GBP MA at budget rate'] = n: 0;
+
+['FX differences', 'GBP MA at budget rate'] = n: 
+  IF (!Accounts - Cashflow @= 'CAS_Cash'
+     ,continue
+     ,['Value2'] - ['Value']
+     );
+
+
+#---------------------------------------------------------------------------------------------------
+FEEDERS;
+#---------------------------------------------------------------------------------------------------
+[{'P01','P02','P03','P04','P05','P06','P07','P08','P09','P10','P11','P12'}] => ['Current Period'];
+
+[{'OVH_fact_depnbuild','OVH_fact_depnother'},'Value'] => ['CF_tangNL_dep_PL','Value'];
+['OVH_fact_amort','Value'] => ['CF_IntgNL_amort_PL','Value'];
+
+[{'Closing Balance','Opening Balance'}] => ['Movement'];
+[{'Closing Balance','Movement', 'Opening Balance'}] => ['Value'];
+[{'Closing Balance','Movement', 'Opening Balance'}] => ['Value2'];
+
+[{'Value','Value2'}] => ['FX differences'];
+['FX differences','Closing Cash','GBP MA'] => ['Value','Forex','GBP MA'];
+['FX differences','Closing Cash','GBP MA at budget rate'] => ['Value','Forex','GBP MA at budget rate'];
+
+['CF_openbal','Local','Opening Balance'] => ['CF_openbalretranslated','Value'];
+['CF_openbal','Local','Opening Balance'] => ['CF_openbalfx','GBP MA','Value'];
+['CF_openbal','Local','Opening Balance'] => ['CF_openbalfx','GBP MA at Budget rate','Value'];
+['CF_openbal','Local','Opening Balance'] => ['CF_openbalfx','Local','Value'];
+
+['CF_openbalretranslated'] => ['CF_closebal'];
+['CF_Openbal','Closing Balance'] => ['CF_CloseBalBS'];
+['CF_CloseBalBS'] => ['CF_checksum'];
+['CF_closebal']=> ['CF_checksum'];
+
+['Local','Value'] => ['GBP MA','Value'];
+['Local','Value'] => ['GBP MA at Budget rate','Value'];
+
+# External
+#[]  =>   db('MA Reporting', !Version, !Company, !Financial Year, !Financial Period, !Period YTD, attrs('Accounts - MA',!Accounts - Cashflow, 'Cashflow Source Account'), !FX Calculation, !Consolidation Layer, 'Value');
+##Feed the Net Debt cube
+['CF_LeaseCapital','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', !'Financial Period', 'Period', 'Capital Repayment', 'Leases' );
+
+
+

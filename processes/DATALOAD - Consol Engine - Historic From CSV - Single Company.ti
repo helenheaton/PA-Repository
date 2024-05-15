@@ -1,0 +1,271 @@
+#region Prolog
+
+## Steven Hutchison 01/02/2024
+## This process will load historic manaccs data for individual companies
+## Data will be loaded into the local source layer
+## This process is supposed to be "one off" to load history and is not likely to be used going forward
+
+## set the path for the source file
+sLogDirectory = GetProcessErrorFileDirectory;
+datasourcenameforserver='Model_Upload\' | pFileName;
+
+## Define variables
+sCubeTarget = 'Consol Engine';
+sCompany = pCompany;
+sLayer = pLayer;
+sYear = CellGetS('Model Settings', 'Value', 'Model Year' );
+sPrevYear = attrs('Financial Year',CellGetS('Model Settings', 'Value', 'Model Year' ),'Previous Year');
+sMeas = 'Value';
+sViewTarget = GetProcessName();
+pVersion = 'Actual';
+nTmp = 1;
+sPeriods = CellGetS('Model Settings', 'Value', 'History Period' );
+nPeriods = Numbr(SUBST( sPeriods, 2, 2 ));
+sColumn = '';
+#NumericGlobalVariable( sColumn );
+
+
+## Create target view to clear
+ViewCreate( sCubeTarget, sViewTarget, nTmp );
+
+## Turn off logging
+nOldLog = CubeGetLogChanges( sCubeTarget );
+CubeSetLogChanges( sCubeTarget, 0 );
+
+##Create subsets to be cleared in the view
+
+## Process will run for single forecast version
+sDim = 'Version';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, pVersion, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for single companies
+sDim = 'Company';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sCompany, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for local source system only
+sDim = 'Consolidation Layer';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sLayer, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for current year only
+sDim = 'Financial Year';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sYear, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for Period and Imported YTD
+# sDim = 'Period YTD';
+# SubsetCreate( sDim, sViewTarget, nTmp );
+# SubsetElementInsert( sDim, sViewTarget, 'Period', 1 );
+# SubsetElementInsert( sDim, sViewTarget, 'Imported YTD', 1 );
+# ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for Local currency
+sDim = 'FX Calculation';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'Local', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+
+sDim = 'm_Consol Engine';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'Value', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Clear the view
+ViewZeroOut( sCubeTarget, sViewTarget );
+
+#ProcessBreak;
+#endregion
+#region Data
+## Data Cleansing
+if(trim(vStatement) @= 'Cash Flow');
+    ItemSkip;
+endif;
+
+## Don't load these lines from the cashflow and reserves movements
+IF (TRIM(VPY12)  @= 'Cash (net of overdrafts)');
+    ITEMSKIP;
+ENDIF;
+
+IF (TRIM(VDescription)  @= 'Retained earnings B/F @ Monthly Opening Rate');
+    ITEMSKIP;
+ENDIF;
+ 
+IF (TRIM(VDescription)  @= 'Retained earnings B/F @ Monthly Closing Rate');
+    ITEMSKIP;
+ENDIF;
+
+
+#PY P12
+IF (TRIM(VPY12)  @= '-');
+    VPY12 = '0';
+ELSEIF (VPY12  @= '#DIV/0!');
+    VPY12 = '0';
+ENDIF;
+NPY12 = NUMBR(VPY12);
+
+# CY P01
+IF (TRIM(VCY01)  @= '-');
+    VCY01 = '0';
+ELSEIF (VCY01  @= '#DIV/0!');
+    VCY01 = '0';
+ENDIF;
+NCY01 = NUMBR(VCY01);
+
+# CY P02
+IF (TRIM(VCY02)  @= '-');
+    VCY02 = '0';
+ELSEIF (VCY02  @= '#DIV/0!');
+    VCY02 = '0';
+ENDIF;
+NCY02 = NUMBR(VCY02);
+
+# CY P03
+IF (TRIM(VCY03)  @= '-');
+    VCY03 = '0';
+ELSEIF (VCY03  @= '#DIV/0!');
+    VCY03 = '0';
+ENDIF;
+NCY03 = NUMBR(VCY03);
+
+# CY P04
+IF (TRIM(VCY04)  @= '-');
+    VCY04 = '0';
+ELSEIF (VCY04  @= '#DIV/0!');
+    VCY04 = '0';
+ENDIF;
+NCY04 = NUMBR(VCY04);
+
+# CY P05
+IF (TRIM(VCY05)  @= '-');
+    VCY05 = '0';
+ELSEIF (VCY05  @= '#DIV/0!');
+    VCY05 = '0';
+ENDIF;
+NCY05 = NUMBR(VCY05);
+
+# CY P06
+IF (TRIM(VCY06)  @= '-');
+    VCY06 = '0';
+ELSEIF (VCY06  @= '#DIV/0!');
+    VCY06 = '0';
+ENDIF;
+NCY06 = NUMBR(VCY06);
+
+# CY P07
+IF (TRIM(VCY07)  @= '-');
+    VCY07 = '0';
+ELSEIF (VCY07  @= '#DIV/0!');
+    VCY07 = '0';
+ENDIF;
+NCY07 = NUMBR(VCY07);
+
+# CY P08
+IF (TRIM(VCY08)  @= '-');
+    VCY08 = '0';
+ELSEIF (VCY08  @= '#DIV/0!');
+    VCY08 = '0';
+ENDIF;
+NCY08 = NUMBR(VCY08);
+
+# CY P09
+IF (TRIM(VCY09)  @= '-');
+    VCY09 = '0';
+ELSEIF (VCY09  @= '#DIV/0!');
+    VCY09 = '0';
+ENDIF;
+NCY09 = NUMBR(VCY09);
+
+# CY P10
+IF (TRIM(VCY10)  @= '-');
+    VCY10 = '0';
+ENDIF;
+IF (VCY10  @= '#DIV/0!');
+    VCY10 = '0';
+ENDIF;
+NCY10 = NUMBR(VCY10);
+
+# CY P11
+IF (TRIM(VCY11)  @= '-');
+    VCY11 = '0';
+ELSEIF (VCY11  @= '#DIV/0!');
+    VCY11 = '0';
+ENDIF;
+NCY11 = NUMBR(VCY11);
+
+# CY P12
+IF (TRIM(VCY12)  @= '-');
+    VCY12 = '0';
+ENDIF;
+IF (VCY12  @= '#DIV/0!');
+    VCY12 = '0';
+ENDIF;
+NCY12 = NUMBR(VCY12);
+
+
+
+
+## This is picking up the period / YTD attribute for valid accounts
+## Accounts that don't exist in the system are added to the missing accounts dimension (this will likely change in phase 2 to a more robust solution)
+IF(DimensionElementExists( 'Accounts - Group', vAccount ) = 1);
+	sPerYTD = ATTRS( 'Accounts - Group', vAccount, 'Period YTD' );
+ELSE;
+    DimensionElementInsertDirect('zMissing Account Codes','',vAccount,'N');
+    DimensionElementComponentAddDirect( 'zMissing Account Codes', 'Actual Missing Codes', vAccount, 1 );
+    ItemSkip;
+ENDIF;
+
+## The Per/YTD flag could be YTD-FA which is used for Fixed assets accounts. These are treated differently in rules, but on import should be treated as YTD
+IF (sPerYTD @= 'YTD-FA');
+    sPerYTD = 'YTD';
+ELSE;
+ENDIF;
+
+IF (sPerYTD @= 'YTD-BF');
+    sPerYTD = 'YTD';
+ELSE;
+ENDIF;
+
+## Load Period Figures ##
+IF(sPerYTD @='Period'); 
+    nLoopCount = 1;
+    WHILE (nLoopCount <= nPeriods)    ;
+        sColumn = '%VCY'| SUBST(NumberToString(nLoopCount + 100),2,2)|'%'; 
+        sPeriod = 'P'| SUBST(NumberToString(nLoopCount + 100),2,2);
+        CellPutN( NUMBR(Expand(sColumn)) * ATTRN('Accounts - MA', vAccount, 'Local Submission Polarity'), sCubeTarget,pVersion, sYear, sPeriod, 'Period', sCompany, vAccount, 'Local', sLayer, sMeas );
+        nLoopCount = nLoopCount + 1;
+    END;
+ELSE;
+    ## Load Opening Balance sheet
+        CellPutN( NPY12 * ATTRN('Accounts - MA', vAccount, 'Local Submission Polarity'), sCubeTarget,pVersion, sPrevYear, 'P12', sPerYTD, sCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( NPY12 * ATTRN('Accounts - MA', vAccount, 'Local Submission Polarity'), sCubeTarget,pVersion, sPrevYear, 'P12', 'Imported YTD', sCompany, vAccount, 'Local', sLayer, sMeas );
+
+	## Load YTD value in to YTD and Imported YTD
+    nLoopCount = 1;
+    WHILE (nLoopCount <= nPeriods)    ;
+        sColumn = '%VCY'| SUBST(NumberToString(nLoopCount + 100),2,2)|'%'; 
+        sPeriod = 'P'| SUBST(NumberToString(nLoopCount + 100),2,2);
+        CellPutN( NUMBR(Expand(sColumn)) * ATTRN('Accounts - MA', vAccount, 'Local Submission Polarity'), sCubeTarget,pVersion, sYear, sPeriod, sPerYTD, sCompany, vAccount, 'Local', sLayer, sMeas );
+        CellPutN( NUMBR(Expand(sColumn)) * ATTRN('Accounts - MA', vAccount, 'Local Submission Polarity'), sCubeTarget,pVersion, sYear, sPeriod, 'Imported YTD', sCompany, vAccount, 'Local', sLayer, sMeas );
+        nLoopCount = nLoopCount + 1;
+    END;
+ENDIF;
+
+############################################
+
+
+
+#endregion
+#region Epilog
+
+## Turn logging back on
+CubeSetLogChanges( sCubeTarget, nOldLog );
+
+
+#endregion

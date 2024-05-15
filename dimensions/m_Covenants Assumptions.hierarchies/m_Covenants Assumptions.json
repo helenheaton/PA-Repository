@@ -1,0 +1,12 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Covenants Assumptions",
+	"Elements":
+	[
+		{
+			"Name":"Compliance Level",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

@@ -1,0 +1,75 @@
+## Rule created by Steven Hutchison 05/02/2024
+## Skipcheck off for now until performance is reviewed
+
+## Users should only need to enter consolidation layer once per journal
+## If they need to enter a different layer, they should submit the current journal first
+
+[{'Consolidation Layer','Currency','Intercompany Partner'},'Entry ID':'1'] =S:STET;
+[{'Consolidation Layer','Account','Currency','Intercompany Partner'},'Entry ID':'All Entry ID'] =S:'';
+#['Entry ID':'All Entry ID','Value'] =C:0;
+['Consolidation Layer'] =S: 
+
+IF(['Value'] <> 0
+,
+  DB('Consol Adjustments',!Version,!Financial Year,!Financial Period,!Company,'1',!Journal Reference,'Consolidation Layer') 
+,
+  STET
+);
+
+['Currency'] =S: 
+
+IF(['Value'] <> 0
+,
+  DB('Consol Adjustments',!Version,!Financial Year,!Financial Period,!Company,'1',!Journal Reference,'Currency') 
+,
+  STET
+);
+
+['Intercompany Partner'] =S: 
+
+IF(['Value'] <> 0
+,
+  DB('Consol Adjustments',!Version,!Financial Year,!Financial Period,!Company,'1',!Journal Reference,'Intercompany Partner') 
+,
+  STET
+);
+
+## Set up flag for conditional formatting in the ux
+['Journal Balance Conditional Format Flag'] =C:
+IF(DB('Consol Adjustments', !Version, !'Financial Year', !'Financial Period', !Company, 'All Entry ID', !'Journal Reference', 'Value' ) <> 0
+,
+  1
+,
+  CONTINUE
+);
+
+## flag to identify where an account has not been entered
+['Missing Account Conditional Format Flag'] =C:0;
+
+['Missing Account Conditional Format Flag'] =N:
+IF(DB('Consol Adjustments', !Version, !'Financial Year', !'Financial Period', !Company, !Entry ID, !'Journal Reference', 'Value' ) <> 0 & DB('Consol Adjustments', !Version, !'Financial Year', !'Financial Period', !Company, !Entry ID, !'Journal Reference', 'Account' ) @=''
+,
+  1
+,
+  CONTINUE
+);
+
+## flag to identify where a currency has not been entered
+['Missing Currency Conditional Format Flag'] =C: 0;
+['Missing Currency Conditional Format Flag'] =N:
+IF(DB('Consol Adjustments', !Version, !'Financial Year', !'Financial Period', !Company, !Entry ID, !'Journal Reference', 'Value' ) <> 0 & DB('Consol Adjustments', !Version, !'Financial Year', !'Financial Period', !Company, !Entry ID, !'Journal Reference', 'Currency' ) @=''
+,
+  1
+,
+  CONTINUE
+);
+
+## flag to identify where a consol layer has not been entered
+['Missing Consolidation Layer Conditional Format Flag'] =C:0;
+['Missing Consolidation Layer Conditional Format Flag'] =N:
+IF(DB('Consol Adjustments', !Version, !'Financial Year', !'Financial Period', !Company, !Entry ID, !'Journal Reference', 'Value' ) <> 0 & DB('Consol Adjustments', !Version, !'Financial Year', !'Financial Period', !Company, '1', !'Journal Reference', 'Consolidation Layer' ) @=''
+,
+  1
+,
+  CONTINUE
+);

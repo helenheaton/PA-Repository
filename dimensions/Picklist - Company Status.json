@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Picklist - Company Status",
+	"Hierarchies@Code.links":
+	[
+		"Picklist - Company Status.hierarchies/Picklist - Company Status.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Picklist - Company Status')/Hierarchies('Picklist - Company Status')"
+	}
+}

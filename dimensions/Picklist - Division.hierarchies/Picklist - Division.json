@@ -1,0 +1,20 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Picklist - Division",
+	"Elements":
+	[
+		{
+			"Name":"HO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CTP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"AERO",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

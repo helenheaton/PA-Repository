@@ -1,0 +1,48 @@
+#region Prolog
+
+## This process will add a new year worth of Months to the Month dimension
+
+sDim = 'Year Period';
+sYear = SUBST(pYear, 3,2);
+
+## Add All Period if it doesn't exist ##
+## Add in ALL YTD
+
+IF(Dimix(sDim,'All Year Period') < 1);
+    HierarchyElementInsertDirect( sDim,sDim, '', 'All Year Period', 'C' );
+ENDIF;
+
+## Add the year as a consolidation
+HierarchyElementInsertDirect( sDim, sDim,  '',pYear, 'C' );
+## Add the year to all period
+HierarchyElementComponentAddDirect( sDim, sDim, 'All Year Period',pYear, 1 );
+
+## add each period
+HierarchyElementInsertDirect( sDim, sDim, '', sYear | '01', 'N' );
+HierarchyElementInsertDirect( sDim, sDim, '', sYear | '02', 'N' );
+HierarchyElementInsertDirect( sDim, sDim, '', sYear | '03', 'N' );
+HierarchyElementInsertDirect( sDim, sDim, '', sYear | '04', 'N' );
+HierarchyElementInsertDirect( sDim, sDim, '', sYear | '05', 'N' );
+HierarchyElementInsertDirect( sDim, sDim, '', sYear | '06', 'N' );
+HierarchyElementInsertDirect( sDim, sDim, '', sYear | '07', 'N' );
+HierarchyElementInsertDirect( sDim, sDim, '', sYear | '08', 'N' );
+HierarchyElementInsertDirect( sDim, sDim, '', sYear | '09', 'N' );
+HierarchyElementInsertDirect( sDim, sDim, '', sYear | '10', 'N' );
+HierarchyElementInsertDirect( sDim, sDim, '', sYear | '11', 'N' );
+HierarchyElementInsertDirect( sDim, sDim, '', sYear | '12', 'N' );
+
+## add the period to the Year
+HierarchyElementComponentAddDirect( sDim, sDim, pYear, sYear |'01', 1 );
+HierarchyElementComponentAddDirect( sDim, sDim, pYear, sYear |'02', 1 );
+HierarchyElementComponentAddDirect( sDim, sDim, pYear, sYear |'03', 1 );
+HierarchyElementComponentAddDirect( sDim, sDim, pYear, sYear |'04', 1 );
+HierarchyElementComponentAddDirect( sDim, sDim, pYear, sYear |'05', 1 );
+HierarchyElementComponentAddDirect( sDim, sDim, pYear, sYear |'06', 1 );
+HierarchyElementComponentAddDirect( sDim, sDim, pYear, sYear |'07', 1 );
+HierarchyElementComponentAddDirect( sDim, sDim, pYear, sYear |'08', 1 );
+HierarchyElementComponentAddDirect( sDim, sDim, pYear, sYear |'09', 1 );
+HierarchyElementComponentAddDirect( sDim, sDim, pYear, sYear |'10', 1 );
+HierarchyElementComponentAddDirect( sDim, sDim, pYear, sYear |'11', 1 );
+HierarchyElementComponentAddDirect( sDim, sDim, pYear, sYear |'12', 1 );
+
+#endregion

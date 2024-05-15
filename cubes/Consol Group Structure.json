@@ -1,0 +1,17 @@
+{
+	"@type":"Cube",
+	"Name":"Consol Group Structure",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Year Period')"
+		},
+		{
+			"@id":"Dimensions('m_Consol Group Structure')"
+		}
+	],
+	"Views@Code.links":[]
+}

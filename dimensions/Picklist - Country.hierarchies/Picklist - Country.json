@@ -1,0 +1,48 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Picklist - Country",
+	"Elements":
+	[
+		{
+			"Name":"England & Wales",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Scotland",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"France",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"USA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"China",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Czechia",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Netherlands",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cayman Islands",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Curacao",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"India",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

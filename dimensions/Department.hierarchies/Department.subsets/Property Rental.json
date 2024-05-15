@@ -1,6 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Property Rental",
-	"Alias":"Alias",
-	"Expression":"{ORDER({[Department].[Department].[FM14],[Department].[Department].[CK40],[Department].[Department].[CK41],TM1FILTERBYPATTERN(TM1SubsetToSet([Department].[Department] , \"Picklist Department\" , \"public\") , \"*ck43*\" , \"Alias\"),[Department].[Department].[GP12],[Department].[Department].[NH25],[Department].[Department].[FM12],[Department].[Department].[B20],[Department].[Department].[NH08],[Department].[Department].[VA03],[Department].[Department].[HH12],[Department].[Department].[HH13],[Department].[Department].[BA06],[Department].[Department].[BA07]} , IIF([Department].[Department].CURRENTMEMBER.PROPERTIES(\"Alias\")=\"\", [Department].[Department].CURRENTMEMBER.PROPERTIES(\"MEMBER_CAPTION\"), [Department].[Department].CURRENTMEMBER.PROPERTIES(\"Alias\")) , BASC)}"
-}

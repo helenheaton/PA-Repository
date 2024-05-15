@@ -1,0 +1,11 @@
+{
+	"@type":"Subset",
+	"Name":"Latest Submission Upload - Core Group Admin",
+	"Alias":"Short Name",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('1038394')"
+		}
+	]
+}

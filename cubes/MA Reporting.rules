@@ -1,0 +1,263 @@
+SKIPCHECK;
+## Rule file created by Steven Hutchison Budgeting Solutions Ltd 08/02/2024
+
+
+# Populate Current Period which will be shown be default on reports
+['Current Period'] = n:
+    db('MA Reporting', !Version, !Company, !Financial Year, db('Model Settings', 'Value', 'Reporting Fin Period' ), !Period YTD, !Accounts - MA, !FX Calculation, !Consolidation Layer, !m_MA Reporting);
+
+
+['Monthly Change in BS WC','YTD'] = N: 
+        DB('MA Reporting',!Version,!Company,!Financial Year,!Financial Period,'YTD','BS Working Capital excl Cash',!FX Calculation,!Consolidation Layer,'Value')
+       -DB('MA Reporting',!Version,!Company,ATTRS('Financial Year',!Financial Year,'Previous Year'),'P12','YTD','BS Working Capital excl Cash',!FX Calculation,!Consolidation Layer,'Value');
+
+['Monthly Change in BS WC','Period'] = N: 
+        DB('MA Reporting',!Version,!Company,!Financial Year,!Financial Period,'YTD','BS Working Capital excl Cash',!FX Calculation,!Consolidation Layer,'Value')
+        -
+        IF(!Financial Period @='P01'
+        ,
+          DB('MA Reporting',!Version,!Company,ATTRS('Financial Year',!Financial Year,'Previous Year'),ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','BS Working Capital excl Cash',!FX Calculation,!Consolidation Layer,'Value')
+        ,
+          DB('MA Reporting',!Version,!Company,!Financial Year,ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','BS Working Capital excl Cash',!FX Calculation,!Consolidation Layer,'Value')
+        );
+
+## Headcount has it's own rule
+
+['Value',{'OTH_FTEAdminOVH','OTH_FTEDIrectCOS','OTH_FTEFactoryOVH','OTH_FTEIndirectCOS'},'YTD'] =N:
+DB('MA Reporting',!Version,!Company,!Financial Year,!Financial Period |' YTD','Period',!Accounts - MA,!FX Calculation,!Consolidation Layer,'Value')
+\
+ELCOMPN( 'Financial Period', !Financial Period | ' YTD');
+
+## Bring in the values from the Consol Engine cube
+['Value'] =N: 
+IF(!Period YTD @= 'Prior Year YTD' % !Period YTD @= 'Rolling 12 Periods'
+,
+  CONTINUE
+,
+  IF(!Accounts - MA @= ATTRS('Accounts - Group',!Accounts - MA,'MA Reporting')
+  ,
+    DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', !'Period YTD', !Company, !Accounts - MA, !'FX Calculation', !'Consolidation Layer', 'Value' )
+  ,
+    Continue
+  )
+);
+
+
+#---------------------------------------------------------------------------------------------------
+# Helen Heaton 30/04/2024
+# Retranslate opening balances at closing rate
+
+# Translated Opening Balances - Local
+['NCA_TangNL_bf_cr','Local'] = n: ['NCA_TangNL_bf','Local'];
+['NCA_IntgNL_bf_cr','Local'] = n: ['NCA_IntgNL_bf','Local'];
+['NCA_TangLE_bf_cr','Local'] = n: ['NCA_TangLE_bf','Local'];
+['NCA_IntgLE_bf_cr','Local'] = n: ['NCA_IntgLE_bf','Local'];
+['EQU_retainedearningsbf_cr','Local'] = n: ['EQU_retainedearningsbf','Local'];
+
+# Retranslate Opening Balances - GBP MA
+['NCA_TangNL_bf_cr','GBP MA'] = n: ['NCA_TangNL_bf','Local'] \ db('Exchange Rates', !Version, !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate');
+['NCA_IntgNL_bf_cr','GBP MA'] = n: ['NCA_IntgNL_bf','Local'] \ db('Exchange Rates', !Version, !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate');
+['NCA_TangLE_bf_cr','GBP MA'] = n: ['NCA_TangLE_bf','Local'] \ db('Exchange Rates', !Version, !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate');
+['NCA_IntgLE_bf_cr','GBP MA'] = n: ['NCA_IntgLE_bf','Local'] \ db('Exchange Rates', !Version, !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate');
+['EQU_retainedearningsbf_cr','GBP MA'] = n: ['EQU_retainedearningsbf','Local'] \ db('Exchange Rates', !Version, !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate');
+
+
+# Calculate translation FX amount - GBP MA
+['NCA_TangLE_bf_fx','GBP MA'] = n: ['NCA_TangLE_bf_cr'] - ['NCA_TangLE_bf'];
+['NCA_IntgLE_bf_fx','GBP MA'] = n: ['NCA_IntgLE_bf_cr'] - ['NCA_IntgLE_bf'];
+['NCA_TangNL_bf_fx','GBP MA'] = n: ['NCA_TangNL_bf_cr'] - ['NCA_TangNL_bf'];
+['NCA_IntgNL_bf_fx','GBP MA'] = n: ['NCA_IntgNL_bf_cr'] - ['NCA_IntgNL_bf'];
+['EQU_retainedearningsbf_fx','GBP MA'] = n: ['EQU_retainedearningsbf_cr'] - ['EQU_retainedearningsbf'];
+
+
+# Retranslate Opening Balance - GBP MA at Budget Rate
+['NCA_TangNL_bf_cr','GBP MA at Budget rate'] = n: ['NCA_TangNL_bf','Local'] \ db('Exchange Rates', 'Budget', !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate');
+['NCA_IntgNL_bf_cr','GBP MA at Budget rate'] = n: ['NCA_IntgNL_bf','Local'] \ db('Exchange Rates', 'Budget', !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate');
+['NCA_TangLE_bf_cr','GBP MA at Budget rate'] = n: ['NCA_TangLE_bf','Local'] \ db('Exchange Rates', 'Budget', !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate');
+['NCA_IntgLE_bf_cr','GBP MA at Budget rate'] = n: ['NCA_IntgLE_bf','Local'] \ db('Exchange Rates', 'Budget', !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate');
+['EQU_retainedearningsbf_cr','GBP MA at Budget rate'] = n: ['EQU_retainedearningsbf','Local'] \ db('Exchange Rates', 'Budget', !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate');
+
+
+# Calculate translation FX amount - GBP MA
+['NCA_TangLE_bf_fx','GBP MA at Budget rate'] = n: ['NCA_TangLE_bf_cr'] - ['NCA_TangLE_bf'];
+['NCA_IntgLE_bf_fx','GBP MA at Budget rate'] = n: ['NCA_IntgLE_bf_cr'] - ['NCA_IntgLE_bf'];
+['NCA_TangNL_bf_fx','GBP MA at Budget rate'] = n: ['NCA_TangNL_bf_cr'] - ['NCA_TangNL_bf'];
+['NCA_IntgNL_bf_fx','GBP MA at Budget rate'] = n: ['NCA_IntgNL_bf_cr'] - ['NCA_IntgNL_bf'];
+['EQU_retainedearningsbf_fx','GBP MA at Budget rate'] = n: ['EQU_retainedearningsbf_cr'] - ['EQU_retainedearningsbf'];
+
+
+
+
+## Steven Hutchison 16/02/2024 - calculated Rolling 12 periods
+['Prior Year YTD'] =N: DB('MA Reporting', !Version,!Company, ATTRS('Financial Year',!'Financial Year','Previous Year'), !'Financial Period', 'YTD',!'Accounts - MA', !'FX Calculation', !'Consolidation Layer', 'Value' );
+
+
+ ['Rolling 12 Periods'] =N: 
+ DB('MA Reporting', !Version, !Company,!'Financial Year', !'Financial Period', 'YTD', !'Accounts - MA', !'FX Calculation', !'Consolidation Layer', 'Value' )
+ +
+ DB('MA Reporting', !Version, !Company,ATTRS('Financial Year',!'Financial Year','Previous Year'), 'All Financial Periods', 'Period', !'Accounts - MA', !'FX Calculation', !'Consolidation Layer', 'Value' )
+ -
+ DB('MA Reporting', !Version, !Company,!'Financial Year', !'Financial Period', 'Prior Year YTD', !'Accounts - MA', !'FX Calculation', !'Consolidation Layer', 'Value' );
+
+
+
+## Percentage rules added by Steven Hutchison 14/02/2024
+['Contribution Margin Percent'] = ['CONTRIBUTION MARGIN'] \ ['TOTAL SALES'];
+
+['Manufacturing Margin Percent'] = ['MS Contribution Margin'] \ ['MS NET SALES'];
+
+['Design & Eng Margin Percent'] = ['D&E Contribution Margin'] \ ['D&E NET SALES'];
+
+['Design & Eng ROS Percent'] = ['uEBIT D&E'] \ ['D&E NET SALES'];
+
+['uEBIT Percent'] = ['UNDERLYING EBIT'] \ ['TOTAL SALES'];
+
+['Factory Overheads Percent'] = ['MS Total FACTORY OVERHEADS'] \ ['TOTAL SALES'];
+
+['Admin Overheads Percent'] = ['ADMINISTRATIVE OVERHEADS'] \ ['TOTAL SALES'];
+
+['MS Added Value Percent'] = ['MS Added Value'] \ ['MS NET SALES'];
+
+['MS ROS Percent'] = ['MS uEBIT'] \ ['MS NET SALES'];
+
+['MS Throughput Percent'] = ['MS Contribution Margin'] \ (['MS Net Sales'] + ['MS Raw Material']);
+
+['Total ROS Percent'] = ['Total uEBIT'] \ ['TOTAL SALES'];
+
+['Labour Cost per FTE'] = (['OVH_fact_tooling_sal'] + ['COS_prod_lab'] + ['MS Direct Labour'] + ['OVH_fact_sal']) \ ['Headcount (Month end FTEs)'];
+
+['Annualised MS Net Sales','Period'] = ((['MS NET SALES','Period'] \ NUMBR(ATTRS('Financial Period',!Financial Period,'MM'))) * 12) \ ['Tangible Fixed Assets (incl Leased Assets) - BS NBV','YTD'];
+
+['Annualised MS Net Sales','YTD'] = ((['MS NET SALES','YTD'] \ NUMBR(ATTRS('Financial Period',!Financial Period,'MM'))) * 12) \ ['Tangible Fixed Assets (incl Leased Assets) - BS NBV','YTD'];
+
+['Working Capital Percent','Period'] = 
+DB('MA Reporting', !Version, !Company,!'Financial Year', !'Financial Period', 'YTD', 'BS Working Capital excl Cash', !'FX Calculation', !'Consolidation Layer', 'Value' )
+\
+DB('MA Reporting', !Version, !Company,!'Financial Year', !'Financial Period', 'Period', 'Total Sales', !'FX Calculation', !'Consolidation Layer', 'Value' )
+\ 12;
+
+['Working Capital Percent','YTD'] = 
+DB('MA Reporting', !Version, !Company,!'Financial Year', !'Financial Period', 'YTD', 'BS Working Capital excl Cash', !'FX Calculation', !'Consolidation Layer', 'Value' )
+\
+DB('MA Reporting', !Version, !Company,!'Financial Year', !'Financial Period', 'YTD', 'Total Sales', !'FX Calculation', !'Consolidation Layer', 'Value' )
+\ 12 * ELCOMPN('Financial Period',!Financial Period | ' YTD');
+
+
+
+
+          
+['Site ROCE - Monthly uEBIT Percent','Period'] = (['Total uEBIT','Period'] * 12 \ (['Tangible Fixed Assets (incl Leased Assets) - BS NBV','YTD'] + ['BS Working Capital excl Cash','YTD'] ));           
+
+['Site ROCE - Monthly uEBIT Percent','YTD'] = (['Total uEBIT','YTD'] * 12 \ ELCOMPN( 'Financial Period', !Financial Period |  ' YTD' ) \ (['Tangible Fixed Assets (incl Leased Assets) - BS NBV','YTD'] + ['BS Working Capital excl Cash','YTD'] ));           
+          
+          
+FEEDERS;
+
+## Internal
+[{'P01','P02','P03','P04','P05','P06','P07','P08','P09','P10','P11','P12'}] => ['Current Period'];
+
+[{'OTH_FTEAdminOVH','OTH_FTEDIrectCOS','OTH_FTEFactoryOVH','OTH_FTEIndirectCOS'},'Period','Value'] => ['YTD'];
+
+## Version Feeders
+[{'Actual','Budget','3+9 Forecast','6+6 Forecast','9+3 Forecast'}] => ['Derived Forecast'];
+
+['TOTAL SALES'] => ['Contribution Margin Percent']
+                    ,['uEBIT Percent'],['Total ROS Percent'],['Working Capital Percent'],['Factory Overheads Percent'],['Admin Overheads Percent'];
+                    
+['MS NET Sales'] => ['Manufacturing Margin Percent'],['MS Added Value Percent'],['MS ROS Percent'],['MS Throughput Percent'];
+
+['D&E NET Sales'] => ['Design & Eng Margin Percent'],['Design & Eng ROS Percent'];
+
+['Headcount (Month end FTEs)'] => ['Labour Cost per FTE'];
+
+['Tangible Fixed Assets (incl Leased Assets) - BS NBV'] => ['Annualised MS Net Sales'];
+
+['BS Working Capital excl Cash'] => ['Monthly Change in BS WC'],['Site ROCE - Monthly uEBIT Percent'];
+
+## External
+
+## Feed the Covenants Summary cube                    
+['Value','UNDERLYING EBIT'] => DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period',!Company, !'Period YTD', !'FX Calculation',!Consolidation Layer, 'Covenant 1', 'Underlying Operating Profit' );
+['Value','UNDERLYING EBIT'] => DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period',!Company, !'Period YTD', !'FX Calculation',!Consolidation Layer, 'Covenant 2', 'Underlying Operating Profit' );
+['Value','UNDERLYING EBIT'] => DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period',!Company, !'Period YTD', !'FX Calculation',!Consolidation Layer, 'Covenant 4', 'Underlying Operating Profit' );
+
+
+['Value','OVH_fact_amort'] => DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period',!Company, !'Period YTD', !'FX Calculation', !Consolidation Layer,'Covenant 1', 'Amortisation of Intangibles' );
+['Value','OVH_fact_amort'] => DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period',!Company,  !'Period YTD', !'FX Calculation',!Consolidation Layer, 'Covenant 2', 'Amortisation of Intangibles' );
+['Value','OVH_fact_amort'] => DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period',!Company,  !'Period YTD', !'FX Calculation',!Consolidation Layer, 'Covenant 4', 'Amortisation of Intangibles' );
+
+['Value','OVH_corp_bankint'] => DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period',!Company,  !'Period YTD', !'FX Calculation',!Consolidation Layer, 'Covenant 1', 'Net Bank Interest Paid / (Received)' );
+['Value','OVH_corp_leaseint'] => DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period',!Company,  !'Period YTD', !'FX Calculation',!Consolidation Layer, 'Covenant 1', 'Lease Interest' );
+['Value','OVH_fact_depnbuild'] => DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period', !Company, !'Period YTD', !'FX Calculation',!Consolidation Layer, 'Covenant 2', 'Depreciation' );
+
+['Value','NET DEBT'] => DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period', !Company, !'Period YTD', !'FX Calculation',!Consolidation Layer, 'Covenant 2', 'Net Debt' );
+
+['Value','TOTAL SALES','Group Total'] => DB('Covenant Summary', !Version, !'Financial Year', !'Financial Period', !Company, !'Period YTD', !'FX Calculation',!Consolidation Layer, 'Covenant 3', 'External Revenue' );            
+                    
+                    
+## Feed the net debt cube
+## Balance b/f
+['CLI_Lease','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', ATTRS('Financial Period',!'Financial Period','Next Period'), 'Period', 'Balance b/f', 'Leases' );
+['NCL_Lease','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', ATTRS('Financial Period',!'Financial Period','Next Period'), 'Period', 'Balance b/f', 'Leases' );
+
+['CLI_Lease','Value','Actual'] => DB('Net Debt', !Version, ATTRS('Financial Year',!'Financial Year','Next Year'), ATTRS('Financial Period',!'Financial Period','Next Period'), 'Period', 'Balance b/f', 'Leases' );
+['NCL_Lease','Value','Actual'] => DB('Net Debt', !Version, ATTRS('Financial Year',!'Financial Year','Next Year'), ATTRS('Financial Period',!'Financial Period','Next Period'), 'Period', !Company, 'Balance b/f', 'Leases' );
+
+['CLI_loans','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', ATTRS('Financial Period',!'Financial Period','Next Period'), 'Period', 'Balance b/f','Bank and Other Debt' );
+['NCL_Loans','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', ATTRS('Financial Period',!'Financial Period','Next Period'), 'Period', 'Balance b/f', 'Bank and Other Debt' );
+
+['CLI_Loans','Value','Actual'] => DB('Net Debt', !Version, ATTRS('Financial Year',!'Financial Year','Next Year'), ATTRS('Financial Period',!'Financial Period','Next Period'), 'Period', 'Balance b/f', 'Bank and Other Debt' );
+['NCL_Loans','Value','Actual'] => DB('Net Debt', !Version, ATTRS('Financial Year',!'Financial Year','Next Year'), ATTRS('Financial Period',!'Financial Period','Next Period'), 'Period', 'Balance b/f', 'Bank and Other Debt' );
+
+## Balance c/f
+['CLI_Lease','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', !'Financial Period', 'Period', 'Balance c/f', 'Leases' );
+['NCL_Lease','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year',!'Financial Period', 'Period', 'Balance c/f',  'Leases' );
+
+['CLI_Loans','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', !'Financial Period', 'Period', 'Balance c/f', 'Bank and Other Debt' );
+['NCL_Loans','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year',!'Financial Period', 'Period', 'Balance c/f', 'Bank and Other Debt' );
+
+
+['NCA_tangNL_add','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', !'Financial Period', 'Period', 'Drawings/New Debt', 'Leases' );
+['NCA_tangLE_add','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', !'Financial Period', 'Period', 'Drawings/New Debt', 'Leases' );
+
+['CF_LeaseCapital','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', !'Financial Period', 'Period', 'Capital Repayment', 'Leases' );
+
+['CF_NCLloansRepay','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', !'Financial Period', 'Period', 'Capital Repayment', 'Bank and Other Debt' );
+['CF_NCLloansRepay','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', !'Financial Period', 'Period', 'Drawings/New Debt', 'Bank and Other Debt' );
+
+['Trading Cashflows','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', !'Financial Period', 'Period','Net Trading Cashflow less Debt Movement', 'Cash' );
+
+['CAS_cash','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', ATTRS('Financial Period',!'Financial Period','Next Period'), 'Period', 'Balance b/f', 'Cash');
+['CAS_cash','Value','Actual'] => DB('Net Debt', !Version, ATTRS('Financial Year',!'Financial Year','Next Year'), ATTRS('Financial Period',!'Financial Period','Next Period'), 'Period', 'Balance b/f', 'Cash' );
+['CAS_cash','Value','Actual'] => DB('Net Debt', !Version, !'Financial Year', !'Financial Period', 'Period', 'Balance c/f', 'Cash' );
+
+
+
+## Feed the US Site Split cube
+['Value','CTP-US','TOTAL SALES','Period'] => DB('US Site Split',!Version,!Financial Year,!Financial Period,'Period','CTP-US','Sales',!FX Calculation,'Value');
+['Value','CTP-US','Total uEBIT','Period'] => DB('US Site Split',!Version,!Financial Year,!Financial Period,'Period','CTP-US','uEBIT',!FX Calculation,'Value');
+ 
+
+## Feed MA Cashflow
+# Opening Balance
+['Period YTD':'YTD']       =>  DB('MA Cashflow', !Version, !Company, attrs('Financial Year', !Financial Year, attrs('Financial Period',!Financial Period, 'Next Period Year')), attrs('Financial Period',!Financial Period, 'Next Period'), 'Period', !Accounts - MA, !'FX Calculation', !'Consolidation Layer', 'Opening Balance' );
+['Period YTD':'YTD','P12'] =>  db('MA Cashflow', !Version, !Company, attrs('Financial Year', !Financial Year, 'Next Year'), 'All Financial Periods', 'YTD', !Accounts - MA, !'FX Calculation', !'Consolidation Layer', 'Opening Balance' );
+['Period YTD':'YTD','P12'] =>  db('MA Cashflow', !Version, !Company, attrs('Financial Year', !Financial Year, 'Next Year'), 'P01', 'Period', !Accounts - MA, !'FX Calculation', !'Consolidation Layer', 'Opening Balance' );
+#['Period YTD':'YTD','P12'] =>  db('MA Cashflow', !Version, !Company, attrs('Financial Year', !Financial Year, attrs('Financial Period',!Financial Period, 'Next Period Year')), 'P01', 'Period', ATTRS('Accounts - MA', !'Accounts - MA', 'Cashflow Account'), !'FX Calculation', !'Consolidation Layer', 'Opening Balance' );
+
+# Movement
+['Period YTD':'Period'] =>  DB('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', 'Period', !Accounts - MA, !'FX Calculation', !'Consolidation Layer', 'Movement' );
+['Period YTD':'Period'] =>  DB('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', 'YTD', !Accounts - MA, !'FX Calculation', !'Consolidation Layer', 'Movement' );
+
+#Closing Balance
+['Period YTD':'YTD'] =>  DB('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', 'Period', !Accounts - MA, !'FX Calculation', !'Consolidation Layer', 'Closing Balance' );
+['Period YTD':'YTD'] =>  DB('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', 'YTD', !Accounts - MA, !'FX Calculation', !'Consolidation Layer', 'Closing Balance' );
+#['NCA_TangLE_bf']
+
+
+#Opening balance translations
+['NCA_TangLE_bf'] => ['NCA_TangLE_bf_fx','GBP MA'], ['NCA_TangLE_bf_cr'];
+['NCA_IntgLE_bf'] => ['NCA_IntgLE_bf_fx','GBP MA'], ['NCA_IntgLE_bf_cr'];
+['NCA_TangNL_bf'] => ['NCA_TangNL_bf_fx','GBP MA'], ['NCA_TangNL_bf_cr'];
+['NCA_TangNL_bf'] => ['NCA_IntgNL_bf_fx','GBP MA'], ['NCA_IntgNL_bf_cr'];
+['EQU_retainedearningsbf'] => ['EQU_retainedearningsbf_fx','GBP MA'], ['EQU_retainedearningsbf_cr'];

@@ -1,0 +1,48 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Journal Info",
+	"Elements":
+	[
+		{
+			"Name":"Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Account",
+			"Type":"String"
+		},
+		{
+			"Name":"Currency",
+			"Type":"String"
+		},
+		{
+			"Name":"Consolidation Layer",
+			"Type":"String"
+		},
+		{
+			"Name":"Intercompany Partner",
+			"Type":"String"
+		},
+		{
+			"Name":"Comment",
+			"Type":"String"
+		},
+		{
+			"Name":"Journal Balance Conditional Format Flag",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Missing Account Conditional Format Flag",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Missing Currency Conditional Format Flag",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Missing Consolidation Layer Conditional Format Flag",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

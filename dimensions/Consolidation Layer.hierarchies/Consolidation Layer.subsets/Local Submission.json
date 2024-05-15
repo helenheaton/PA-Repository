@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Local Submission",
+	"Expression":"{DRILLDOWNMEMBER({[Consolidation Layer].[Consolidation Layer].[Local Submission]} , {[Consolidation Layer].[Consolidation Layer].[Local Submission]} , RECURSIVE)}"
+}

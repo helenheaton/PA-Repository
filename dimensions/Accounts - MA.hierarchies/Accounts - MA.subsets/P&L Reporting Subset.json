@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"P&L Reporting Subset",
+	"ExpandAbove":true,
+	"Alias":"Display Name",
+	"Expression":"{DRILLDOWNMEMBER({[Accounts - MA].[Accounts - MA].[TOTAL SALES]} , {[Accounts - MA].[Accounts - MA].[TOTAL SALES]} , RECURSIVE),TM1DRILLDOWNMEMBER(DRILLUPMEMBER({[Accounts - MA].[Accounts - MA].[Total Retained Earnings]} , {[Accounts - MA].[Accounts - MA].[Total Retained Earnings]}) , {[Accounts - MA].[Accounts - MA].[Total Retained Earnings]} , RECURSIVE)}"
+}

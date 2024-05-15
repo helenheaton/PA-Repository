@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"ADM Dim Control",
+	"Expression":"{FILTER(TM1SubsetAll([Accounts - MA].[Accounts - MA]), ([Accounts - MA].[Accounts - MA].CURRENTMEMBER.PROPERTIES(\"Statement\") <> \"KPI\") AND ([Accounts - MA].[Accounts - MA].CURRENTMEMBER.PROPERTIES(\"Statement\") <> \"CF\"))}"
+}

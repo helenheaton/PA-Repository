@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Summary Performance by Site",
+	"Alias":"Short Name",
+	"Expression":"{{DRILLDOWNMEMBER(DRILLDOWNMEMBER(DRILLDOWNMEMBER(DRILLDOWNMEMBER({[Company].[Company].[Division Total]} , {[Company].[Company].[Division Total]} , RECURSIVE) , {[Company].[Company].[Central Costs]} , RECURSIVE) , {[Company].[Company].[Division Total^Aero]} , RECURSIVE) , {[Company].[Company].[CTP]} , RECURSIVE)}}"
+}

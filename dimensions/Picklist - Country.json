@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Picklist - Country",
+	"Hierarchies@Code.links":
+	[
+		"Picklist - Country.hierarchies/Picklist - Country.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Picklist - Country')/Hierarchies('Picklist - Country')"
+	}
+}

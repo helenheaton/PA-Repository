@@ -1,0 +1,22 @@
+#region Prolog
+pPrologNow = Now;
+nErrors = 0;
+
+sPeriod = CellGetS( 'Model Settings', 'Value', 'Model Fin Period' );
+sYear = CellGetS( 'Model Settings', 'Value', 'Model Year' );
+nSubmission = CellGetN( 'Submission Checks', 'Actual', pCompany, sYear, sPeriod, 'Local', 'Current', 'Submission number' );
+
+if(CellIsUpdateable( '}SecurityOverlayGlobal_Consol Engine', 'Actual', sYear, sPeriod, pCompany, 'Local Source System', 'OverlayData')=1);
+  SecurityOverlayGlobalLockCell( 0, 'Consol Engine', 'Actual', sYear, sPeriod, pCompany, 'Local Source System');
+  CellPutS( 'UNLOCKED', 'Submission Checks', 'Actual', pCompany, sYear, sPeriod, 'Local', str(nSubmission,1,0), 'Lock Status' ); 
+  CellPutS( 'UNLOCKED', 'Submission Checks', 'Actual', pCompany, sYear, sPeriod, 'Local', 'Last Submission', 'Lock Status' ); 
+  CellPutS( 'UNLOCKED', 'Submission Checks', 'Actual', pCompany, sYear, sPeriod, 'GBP MA', str(nSubmission,1,0), 'Lock Status' ); 
+  CellPutS( 'UNLOCKED', 'Submission Checks', 'Actual', pCompany, sYear, sPeriod, 'GBP MA', 'Last Submission', 'Lock Status' ); 
+  pMessage = 'Company '| pCompany |' unlocked for current period.';
+else;
+  nErrors = 1;
+  pMessage = 'Year or Period is locked.';
+endif;
+
+ExecuteProcess('Process Control Logging', 'pProcessName', GetProcessName, 'pUser', tm1user, 'pPrologNow', pPrologNow, 'pErrors', nErrors, 'pMessage', pMessage);
+#endregion

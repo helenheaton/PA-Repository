@@ -1,0 +1,39 @@
+{
+	"@type":"Cube",
+	"Name":"Covenant Summary",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Financial Period')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Period YTD')"
+		},
+		{
+			"@id":"Dimensions('FX Calculation')"
+		},
+		{
+			"@id":"Dimensions('Consolidation Layer')"
+		},
+		{
+			"@id":"Dimensions('Covenant')"
+		},
+		{
+			"@id":"Dimensions('m_Covenants Summary')"
+		}
+	],
+	"Rules@Code.link":"Covenant Summary.rules",
+	"Views@Code.links":
+	[
+		"Covenant Summary.views/Summary View.json"
+	]
+}

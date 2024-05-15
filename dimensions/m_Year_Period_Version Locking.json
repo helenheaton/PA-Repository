@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Year_Period_Version Locking",
+	"Hierarchies@Code.links":
+	[
+		"m_Year_Period_Version Locking.hierarchies/m_Year_Period_Version Locking.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Year_Period_Version Locking')/Hierarchies('m_Year_Period_Version Locking')"
+	}
+}

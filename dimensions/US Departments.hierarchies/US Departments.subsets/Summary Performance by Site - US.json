@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Summary Performance by Site - US",
+	"Expression":"{EXCEPT([US Departments].[US Departments].MEMBERS , {[US Departments].[US Departments].[CTP-US]})}"
+}

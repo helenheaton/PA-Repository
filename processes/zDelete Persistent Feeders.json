@@ -1,0 +1,13 @@
+{
+	"@type":"Process",
+	"Name":"zDelete Persistent Feeders",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zDelete Persistent Feeders.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

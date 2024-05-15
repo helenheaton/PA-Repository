@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Current Consol Adjustment Journal",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Journal Reference')/Hierarchies('Journal Reference')/Elements('4')"
+		}
+	]
+}

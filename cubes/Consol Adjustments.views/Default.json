@@ -1,0 +1,42 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Company].[Company]" : "Short Name"
+		},
+		"ContextSets" : 
+		{
+			"[Company].[Company]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Financial Year].[Financial Year]" : 
+			{
+				"Expression" : "{[Financial Year].[Financial Year].MEMBERS}"
+			},
+			"[Journal Reference].[Journal Reference]" : 
+			{
+				"Expression" : "{[Journal Reference].[Journal Reference].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Company].[Company]" : true,
+			"[Entry ID].[Entry ID]" : false,
+			"[Financial Period].[Financial Period]" : false,
+			"[Financial Year].[Financial Year]" : false,
+			"[Journal Reference].[Journal Reference]" : false,
+			"[Version].[Version]" : false,
+			"[m_Journal Info].[m_Journal Info]" : false
+		}
+	}
+}

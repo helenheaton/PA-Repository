@@ -1,0 +1,122 @@
+{
+	"@type":"NativeView",
+	"Name":"Dataload - Consol Engine - Historic Forecast",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_Consol Engine')/Hierarchies('m_Consol Engine')"
+				},
+				"Expression":"TM1SubsetAll([m_Consol Engine])"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Consolidation Layer')/Hierarchies('Consolidation Layer')/Subsets('Dataload - Consol Engine - Historic Forecast')"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Subsets('Dataload - Consol Engine - Historic Forecast')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('6+6 Forecast')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')/Subsets('Dataload - Consol Engine - Historic Forecast')"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')/Elements('FY24')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Financial Period')/Hierarchies('Financial Period')"
+				},
+				"Expression":"TM1SubsetAll([Financial Period])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Financial Period')/Hierarchies('Financial Period')/Elements('All Financial Periods')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Period YTD')/Hierarchies('Period YTD')"
+				},
+				"Expression":"TM1SubsetAll([Period YTD])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Period YTD')/Hierarchies('Period YTD')/Elements('Period')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Company')/Hierarchies('Company')"
+				},
+				"Expression":"TM1SubsetAll([Company])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('Aero')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Accounts - Group')/Hierarchies('Accounts - Group')"
+				},
+				"Expression":"TM1SubsetAll([Accounts - Group])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Accounts - Group')/Hierarchies('Accounts - Group')/Elements('OTH_wdays')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('FX Calculation')/Hierarchies('FX Calculation')"
+				},
+				"Expression":"TM1SubsetAll([FX Calculation])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('FX Calculation')/Hierarchies('FX Calculation')/Elements('Local')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.00"
+}

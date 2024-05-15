@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Default",
-	"Expression":"{EXCEPT([m_Resident Related Costs Calculation].[m_Resident Related Costs Calculation].MEMBERS , {[m_Resident Related Costs Calculation].[m_Resident Related Costs Calculation].[Phasing Adjustment Amount],[m_Resident Related Costs Calculation].[m_Resident Related Costs Calculation].[Adjusted Total With Rounding Errors]})}"
-}

@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Entity Performance BS",
+	"Alias":"Display Name",
+	"Expression":"{EXCEPT(TM1TOGGLEEXPANDMODE(TM1SubsetToSet([Accounts - MA].[Accounts - MA] , \"Summary Group Performance Reporting Subset - Balance Sheet\") , EXPAND_ABOVE) , {[Accounts - MA].[Accounts - MA].[BS Working Capital excl Cash^CLI_intergpayablesNONDIV],[Accounts - MA].[Accounts - MA].[BS Working Capital excl Cash^CLI_intergpayablesDIV],[Accounts - MA].[Accounts - MA].[BS Working Capital excl Cash^CAS_intergreceiveNONDIV],[Accounts - MA].[Accounts - MA].[BS Working Capital excl Cash^CAS_intergreceiveDIV]})}"
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Covenant",
+	"Hierarchies@Code.links":
+	[
+		"Covenant.hierarchies/Covenant.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Covenant')/Hierarchies('Covenant')"
+	}
+}

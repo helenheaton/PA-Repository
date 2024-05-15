@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"Cashflow MI Reports",
+	"ExpandAbove":true,
+	"Alias":"Display Name",
+	"Expression":"{DRILLDOWNMEMBER({[Accounts - Cashflow].[Accounts - Cashflow].[Total Cash Movement]} , {[Accounts - Cashflow].[Accounts - Cashflow].[Total Cash Movement],[Accounts - Cashflow].[Accounts - Cashflow].[Non-Trade Intragroup Cash Inflows / (Outflows)],[Accounts - Cashflow].[Accounts - Cashflow].[Trading Cashflows],[Accounts - Cashflow].[Accounts - Cashflow].[Operating Cashflows],[Accounts - Cashflow].[Accounts - Cashflow].[Working Capital Movements],[Accounts - Cashflow].[Accounts - Cashflow].[CF Underlying EBITDA]} , RECURSIVE)}"
+}

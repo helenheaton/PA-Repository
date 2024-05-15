@@ -1,0 +1,29 @@
+{
+	"@type":"Process",
+	"Name":"Dimension Update - Financial Year - Update Attributes old",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Dimension Update - Financial Year - Update Attributes old.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"VariablesUIData":
+	[
+		"VarType=32\fColType=827\f"
+	],
+	"DataSource":
+	{
+		"Type":"TM1DimensionSubset",
+		"dataSourceNameForClient":"Financial Year:Financial Year",
+		"dataSourceNameForServer":"Financial Year:Financial Year",
+		"subset":"All"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"vYear",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"zMissing Account Codes",
+	"Hierarchies@Code.links":
+	[
+		"zMissing Account Codes.hierarchies/zMissing Account Codes.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('zMissing Account Codes')/Hierarchies('zMissing Account Codes')"
+	}
+}

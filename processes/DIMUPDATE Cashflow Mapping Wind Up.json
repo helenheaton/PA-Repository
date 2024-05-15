@@ -1,0 +1,38 @@
+{
+	"@type":"Process",
+	"Name":"DIMUPDATE Cashflow Mapping Wind Up",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"DIMUPDATE Cashflow Mapping Wind Up.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"VariablesUIData":
+	[
+		"VarType=32\fColType=827\f",
+		"IgnoredInputVarName=vMeas\fVarType=32\fColType=1165\f",
+		"VarType=32\fColType=827\f"
+	],
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForClient":"}ElementAttributes_Accounts - MA",
+		"dataSourceNameForServer":"}ElementAttributes_Accounts - MA",
+		"view":"DIMUPDATE Cashflow Mapping Wind Up"
+	},
+	"Parameters":[],
+	"Variables":
+	[
+		{
+			"Name":"vEl",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Value",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

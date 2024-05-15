@@ -1,0 +1,446 @@
+{
+	"@type":"Hierarchy",
+	"Name":"zMissing Account Codes",
+	"Elements":
+	[
+		{
+			"Name":"Actual Missing Codes",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Bud 22 Missing Codes",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Bud 23 Missing Codes",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"OVH_admn_aud",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_tradereceivables_Interco",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_tradepayables_Interco",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_WCtraderec_Interco",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_WCtradepay_Interco",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_wdays",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_FTEdirectCOS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_FTEindirectCOS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_FTEfactoryOVH",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_FTEadminOVH",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_ordersprod",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_orderstool",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_Future Growth",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_LTI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_OTIF",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_Quality",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_openbal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_uEBIT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_depnnb",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_depnb",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_amort",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_WCinventory",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_WCtraderec",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_WCtradepay",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_WCother",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_TFAcapex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_IFAcapex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_TFAcapexproceed",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_IFAcapexproceed",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_LeaseCapital",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interest",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_tax",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_forex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_exceptionals",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_NCLloansRepay",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_PensionCont",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_other3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_Bruntons",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_Jacottet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_CTPUS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_CTPUK",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_CTPCzech",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_CTPIndia",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_CTPChina",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_HO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_otherHO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_closebal",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"OVH_admn_aud",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CAS_tradereceivables_Interco",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CLI_tradepayables_Interco",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_WCtraderec_Interco",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_WCtradepay_Interco",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"OTH_wdays",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"OTH_FTEdirectCOS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"OTH_FTEindirectCOS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"OTH_FTEfactoryOVH",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"OTH_FTEadminOVH",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"OTH_ordersprod",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"OTH_orderstool",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"OTH_Future Growth",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"OTH_LTI",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"OTH_OTIF",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"OTH_Quality",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_openbal",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_uEBIT",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_depnnb",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_depnb",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_amort",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_WCinventory",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_WCtraderec",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_WCtradepay",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_WCother",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_TFAcapex",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_IFAcapex",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_TFAcapexproceed",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_IFAcapexproceed",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_LeaseCapital",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_interest",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_forex",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_exceptionals",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_NCLloansRepay",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_PensionCont",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_other3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_interco_Bruntons",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_interco_Jacottet",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_interco_CTPUS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_interco_CTPUK",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_interco_CTPCzech",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_interco_CTPIndia",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_interco_CTPChina",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_interco_HO",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_interco_otherHO",
+			"Weight":1
+		},
+		{
+			"ParentName":"Actual Missing Codes",
+			"ComponentName":"CF_closebal",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":[]
+}

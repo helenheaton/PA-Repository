@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"ADM Dim Control",
+	"Expression":"{TM1DRILLDOWNMEMBER(DRILLUPMEMBER(EXCEPT(DRILLUPMEMBER(EXCEPT(DRILLUPMEMBER([Accounts - Group].[Accounts - Group].MEMBERS , {[Accounts - Group].[Accounts - Group].[KPI]}) , {[Accounts - Group].[Accounts - Group].[KPI]}) , {[Accounts - Group].[Accounts - Group].[TRIAL BALANCE],[Accounts - Group].[Accounts - Group].[CASHFLOW]}) , {[Accounts - Group].[Accounts - Group].[CASHFLOW]}) , {[Accounts - Group].[Accounts - Group].[TRIAL BALANCE]}), {[Accounts - Group].[Accounts - Group].[TRIAL BALANCE]}, RECURSIVE)}"
+}

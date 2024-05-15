@@ -1,0 +1,21 @@
+{
+	"@type":"Process",
+	"Name":"Dimension Update - Year Period - Add New Year",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"Dimension Update - Year Period - Add New Year.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pYear",
+			"Prompt":"e.g. FY24",
+			"Value":"",
+			"Type":"String"
+		}
+	],
+	"Variables":[]
+}

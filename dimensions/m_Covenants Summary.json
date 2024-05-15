@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Covenants Summary",
+	"Hierarchies@Code.links":
+	[
+		"m_Covenants Summary.hierarchies/m_Covenants Summary.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Covenants Summary')/Hierarchies('m_Covenants Summary')"
+	}
+}

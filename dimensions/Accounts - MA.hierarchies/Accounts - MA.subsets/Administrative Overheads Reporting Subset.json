@@ -1,0 +1,7 @@
+{
+	"@type":"Subset",
+	"Name":"Administrative Overheads Reporting Subset",
+	"ExpandAbove":true,
+	"Alias":"Display Name",
+	"Expression":"{DRILLDOWNMEMBER({[Accounts - MA].[Accounts - MA].[ADMINISTRATIVE OVERHEADS]} , {[Accounts - MA].[Accounts - MA].[ADMINISTRATIVE OVERHEADS]} , RECURSIVE)}"
+}

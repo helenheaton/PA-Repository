@@ -1,0 +1,10 @@
+{
+	"@type":"Subset",
+	"Name":"Local Source System",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Consolidation Layer')/Hierarchies('Consolidation Layer')/Elements('Local Source System')"
+		}
+	]
+}

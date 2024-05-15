@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Accounts - Net Debt",
+	"Hierarchies@Code.links":
+	[
+		"Accounts - Net Debt.hierarchies/Accounts - Net Debt.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Accounts - Net Debt')/Hierarchies('Accounts - Net Debt')"
+	}
+}

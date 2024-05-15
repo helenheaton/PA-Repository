@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"US Departments",
+	"Hierarchies@Code.links":
+	[
+		"US Departments.hierarchies/US Departments.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('US Departments')/Hierarchies('US Departments')"
+	}
+}

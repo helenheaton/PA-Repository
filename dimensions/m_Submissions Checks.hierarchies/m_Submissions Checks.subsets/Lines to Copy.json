@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Lines to Copy",
+	"Expression":"{EXCEPT([m_Submissions Checks].[m_Submissions Checks].MEMBERS , {[m_Submissions Checks].[m_Submissions Checks].[Submission number],[m_Submissions Checks].[m_Submissions Checks].[Submitted by],[m_Submissions Checks].[m_Submissions Checks].[Date and Time]})}"
+}

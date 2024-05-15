@@ -1,0 +1,14 @@
+#region Prolog
+
+## This process will add a new year to the financial year dimension
+## The attributes 'Next Year' & 'Previous Year' will also be updated
+
+sDim = 'Financial Year';
+
+DimensionElementInsertDirect( sDim, '', pYear, 'N' );
+DimensionElementComponentAddDirect( sDIm, 'All Financial Years', pYear, 1 );
+
+## Call the process that will update attributes on this dimension
+ExecuteProcess( 'Dimension Update - Financial Year - Update Attributes');
+ExecuteProcess( 'Dimension Update - Year Period - Add New Year','pYear',pYear);
+#endregion

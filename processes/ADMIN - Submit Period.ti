@@ -1,0 +1,154 @@
+#region Prolog
+
+pPrologNow = Now;
+
+if(CubeExists( '}SecurityOverlayGlobal_Consol Engine' )=0);
+    SecurityOverlayCreateGlobalDefault( 'Consol Engine', '1:1:1:0:1:0:0:1:0' );
+endif;
+
+### Define Parameters
+pVersion = 'Actual';
+pPeriod = CellGetS( 'Model Settings', 'Value', 'Model Fin Period' );
+pYear = CellGetS( 'Model Settings', 'Value', 'Model Year' ); 
+
+nSubmission = CellGetN( 'Submission Checks', pVersion, pCompany, pYear, pPeriod, 'Local', 'Last Submission', 'Submission number' );
+nSubmission = nSubmission + 1;
+pSubmission = NumberToString(nSubmission);
+
+
+### Check if period is locked
+sCheckLock = CellGetS( 'Submission Checks', pVersion, pCompany, pYear, pPeriod, 'Local', 'Current', 'Lock Status' );
+
+if(sCheckLock@='LOCKED');
+    nErrors=1;
+    pMessage = 'ERROR. Period is locked for this company. Please request the group administrator to unlock the period.';
+    ExecuteProcess('Process Control Logging', 'pProcessName', GetProcessName, 'pUser', tm1user(), 'pPrologNow', pPrologNow, 'pErrors', nErrors, 'pMessage', pMessage);
+    ProcessBreak;
+endif;
+
+
+### Check if validation is OK. If not write the error to the Process Control cube and quit the process
+sCheck = CellGetS( 'Submission Checks', pVersion, pCompany, pYear, pPeriod, 'Local', 'Current', 'Overall Status' );
+
+if(sCheck@<>'OK');
+    nErrors=1;
+    pMessage = 'Overall Status - ERROR. Validation failed.';
+    ExecuteProcess('Process Control Logging', 'pProcessName', GetProcessName, 'pUser', tm1user(), 'pPrologNow', pPrologNow, 'pErrors', nErrors, 'pMessage', pMessage);
+    ProcessBreak;
+endif;
+
+### Define Cube and views
+sCubeSource = 'Submission checks';
+sCubeTarget = 'Submission checks';
+sViewSource = GetProcessName();
+nTmp= 1;
+
+### Turn off logging on destination cube
+nOldLog = CubeGetLogChanges( sCubeTarget );
+CubeSetLogChanges( sCubeTarget, 0 );
+
+### Create Source view
+If(ViewExists( sCubeSource, sViewSource ) = 1);
+   ViewDestroy( sCubeSource, sViewSource );
+Endif; 
+ViewCreate( sCubeSource, sViewSource, nTmp );
+
+### Create subsets to be used in the view
+# Version
+sDim = 'Version';
+sSubset = sViewSource;
+sElement = pVersion;
+SubsetCreate( sDim, sSubset, nTmp );
+SubsetElementInsert( sDim, sSubset, sElement, 1 );
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sSubset );
+
+# Company
+sDim = 'Company';
+sSubset = sViewSource;
+sElement = pCompany;
+SubsetCreate( sDim, sSubset, nTmp );
+SubsetElementInsert( sDim, sSubset, sElement, 1 );
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sSubset );
+
+# Financial Year
+sDim = 'Financial Year';
+sSubset = sViewSource;
+sElement = pYear;
+SubsetCreate( sDim, sSubset, nTmp );
+SubsetElementInsert( sDim, sSubset, sElement, 1 );
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sSubset );
+
+# Financial Period
+sDim = 'Financial Period';
+sSubset = sViewSource;
+sElement = pPeriod;
+SubsetCreate( sDim, sSubset, nTmp );
+SubsetElementInsert( sDim, sSubset, sElement, 1 );
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sSubset );
+
+# Submissions
+sDim = 'Submissions';
+sSubset = sViewSource;
+sElement = 'Current';
+SubsetCreate( sDim, sSubset, nTmp );
+SubsetElementInsert( sDim, sSubset, sElement, 1 );
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sSubset );
+
+# m_Submissions Checks
+sDim = 'm_Submissions Checks';
+sSubset = 'Lines to Copy';
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sSubset );
+
+# Set view properties
+ViewExtractSkipCalcsSet( sCubeSource, sViewSource, 0 );
+ViewExtractSkipRuleValuesSet( sCubeSource, sViewSource, 0 );
+ViewExtractSkipZeroesSet( sCubeSource, sViewSource, 0 );
+
+# Data Source Information
+DataSourceType = 'View';
+DatasourceNameForServer = sCubeSource;
+DatasourceCubeview = sViewSource;
+#endregion
+#region Data
+if(sCheck@='OK');
+    IF (Value_Is_String = 0);
+        CellPutN( StringToNumber(Value), sCubeTarget, pVersion, pCompany, pYear, pPeriod, sCurrency, pSubmission, sMeasure );
+        CellPutN( StringToNumber(Value), sCubeTarget, pVersion, pCompany, pYear, pPeriod, sCurrency, 'Last Submission', sMeasure );
+    endif;
+    
+    IF (Value_Is_String <> 0);
+        CellPutS( Value, sCubeTarget, pVersion, pCompany, pYear, pPeriod, sCurrency, pSubmission, sMeasure );
+        CellPutS( Value, sCubeTarget, pVersion, pCompany, pYear, pPeriod, sCurrency, 'Last Submission', sMeasure );
+    endif;
+endif;
+
+#endregion
+#region Epilog
+if(sCheck@='OK');
+     if(sCheckLock@<>'LOCKED');   
+            # lock submitted period
+            SecurityOverlayGlobalLockCell( 1, 'Consol Engine', 'Actual', pYear, pPeriod, pCompany, 'Local Source System');
+        
+            # write last submission
+            CellPutN( nSubmission, 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'Local', 'Last Submission' , 'Submission number' ); 
+            
+            # write user that submitted
+            CellPutS( ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' ), 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'Local', pSubmission , 'Submitted by' ); 
+            CellPutS( ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' ), 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'Local', 'Last Submission' , 'Submitted by' ); 
+        
+            # write timestamp submitted
+            CellPutS( TIMST(Now(), '\d/\m/\y \h:\i:\s'), 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'Local', pSubmission, 'Date and Time' ); 
+            CellPutS( TIMST(Now(), '\d/\m/\y \h:\i:\s'), 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'Local', 'Last Submission', 'Date and Time' ); 
+        
+            # write locked status
+            CellPutS( 'LOCKED', 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'Local', pSubmission, 'Lock Status' ); 
+            CellPutS( 'LOCKED', 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'Local', 'Last Submission', 'Lock Status' ); 
+            CellPutS( 'LOCKED', 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'GBP MA', pSubmission, 'Lock Status' ); 
+            CellPutS( 'LOCKED', 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'GBP MA', 'Last Submission', 'Lock Status' ); 
+        
+            # write message to error logging cube
+            pMessage = 'Submission successful!';
+            ExecuteProcess('Process Control Logging', 'pProcessName', GetProcessName, 'pUser', tm1user(), 'pPrologNow', pPrologNow, 'pErrors', nErrors, 'pMessage', pMessage);
+     endif;
+endif;
+#endregion

@@ -1,0 +1,50 @@
+#region Prolog
+
+pPrologNow = Now;
+
+if(CubeExists( '}SecurityOverlayGlobal_Consol Engine' )=0);
+    SecurityOverlayCreateGlobalDefault( 'Consol Engine', '1:1:1:0:1:0:0:1:0' );
+endif;
+
+
+pVersion = 'Actual';
+pPeriod = CellGetS( 'Model Settings', 'Value', 'Model Fin Period' );
+pYear = CellGetS( 'Model Settings', 'Value', 'Model Year' ); 
+nSubmission = CellGetN( 'Submission Checks', pVersion, pCompany, pYear, pPeriod, 'Local', 'Last Submission', 'Submission number' );
+nSubmission = nSubmission + 1;
+pSubmission = NumberToString(nSubmission);
+
+sCheck = CellGetS( 'Submission Checks', pVersion, pCompany, pYear, pPeriod, 'Local', 'Current', 'Overall Status' );
+
+if(sCheck@<>'OK');
+    nErrors=1;
+    pMessage = 'Overall Status - ERROR. Validation failed.';
+    ExecuteProcess('Process Control Logging', 'pProcessName', GetProcessName, 'pUser', tm1user(), 'pPrologNow', pPrologNow, 'pErrors', nErrors, 'pMessage', pMessage);
+   # ProcessError;
+endif;
+#endregion
+#region Epilog
+if(sCheck@='OK');
+    # lock submitted period
+    SecurityOverlayGlobalLockCell( 1, 'Consol Engine', 'Actual', pYear, pPeriod, pCompany, 'Local Source System');
+
+    # write last submission
+    CellPutN( nSubmission, 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'Local', 'Last Submission' , 'Submission number' ); 
+    
+    # write user that submitted
+    CellPutS( ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' ), 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'Local', pSubmission , 'Submitted by' ); 
+    CellPutS( ATTRS( '}Clients', TM1User(), '}TM1_DefaultDisplayValue' ), 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'Local', 'Last Submission' , 'Submitted by' ); 
+
+    # write timestamp submitted
+    CellPutS( TIMST(Now(), '\d/\m/\y \h:\i:\s'), 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'Local', pSubmission, 'Date and Time' ); 
+    CellPutS( TIMST(Now(), '\d/\m/\y \h:\i:\s'), 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'Local', 'Last Submission', 'Date and Time' ); 
+
+    # write locked status
+    CellPutS( 'LOCKED', 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'Local', pSubmission, 'Lock Status' ); 
+    CellPutS( 'LOCKED', 'Submission Checks', 'Actual', pCompany, pYear, pPeriod, 'Local', 'Last Submission', 'Lock Status' ); 
+
+    # write message to error logging cube
+    pMessage = 'Submission successful!';
+    ExecuteProcess('Process Control Logging', 'pProcessName', GetProcessName, 'pUser', tm1user(), 'pPrologNow', pPrologNow, 'pErrors', nErrors, 'pMessage', pMessage);
+endif;
+#endregion

@@ -1,0 +1,32 @@
+#region Prolog
+vDim = 'Accounts - Group';
+vHier = 'ExcAccruals';
+
+HierarchyDeleteAllElements( vDim, vHier );
+HierarchyElementInsert( vDim, vHier, '', 'TOTAL EXC ACCRUALS', 'C' );
+HierarchyElementInsert( vDim, vHier, '', 'INCOME STATEMENT', 'C' );
+HierarchyElementInsert( vDim, vHier, '', 'BALANCE SHEET', 'C' );
+HierarchyElementComponentAdd( vDim, vHier, 'TOTAL EXC ACCRUALS', 'INCOME STATEMENT', -1 );
+HierarchyElementComponentAdd( vDim, vHier, 'TOTAL EXC ACCRUALS', 'BALANCE SHEET', 1 );
+
+
+#endregion
+#region Metadata
+IF (HierarchyElementExists( vDim, vHier, vAccount )  = 0);
+    IF(ATTRS( vDim, vAccount, 'Report Category' ) @= 'INCOME STATEMENT');
+       HierarchyElementInsert( vDim, vHier, '', vAccount, 'N' );
+       HierarchyElementComponentAdd( vDim, vHier, 'INCOME STATEMENT', vAccount, 1 );
+    ENDIF;
+ENDIF;
+
+IF (HierarchyElementExists( vDim, vHier, vAccount )  = 0);
+    IF(ATTRS( vDim, vAccount, 'Report Category' ) @= 'BALANCE SHEET');
+        IF(vAccount @<> 'CLI_Accruals');
+              HierarchyElementInsert( vDim, vHier, '', vAccount, 'N' );
+              HierarchyElementComponentAdd( vDim, vHier, 'BALANCE SHEET', vAccount, 1 );
+        ENDIF;
+    ENDIF;
+ENDIF;
+
+
+#endregion

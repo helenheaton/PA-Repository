@@ -1,0 +1,14 @@
+{
+	"@type":"Subset",
+	"Name":"GBP and Local",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('FX Calculation')/Hierarchies('FX Calculation')/Elements('GBP MA')"
+		},
+		{
+			"@id":"Dimensions('FX Calculation')/Hierarchies('FX Calculation')/Elements('Local')"
+		}
+	]
+}

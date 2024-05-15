@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Period YTD",
+	"Hierarchies@Code.links":
+	[
+		"Period YTD.hierarchies/Period YTD.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Period YTD')/Hierarchies('Period YTD')"
+	}
+}

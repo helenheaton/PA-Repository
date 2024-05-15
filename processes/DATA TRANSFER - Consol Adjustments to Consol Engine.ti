@@ -1,0 +1,164 @@
+#region Prolog
+
+## Process created by STeven Hutchison Budgeting Solutions Ltd 05/02/2024
+## This process will transfer Consol Adjustments into the main Consol Engine cube
+## Currently there is no zero out of the target cube. This means that if they want to reverse changes out they need to make a new journal submission
+
+## Define Variables
+sCubeSource = 'Consol Adjustments';
+sCubeTarget = 'Consol Engine';
+
+sViewSource = GetProcessName();
+sViewTarget = sViewSource | ' Target';
+sMsg = '';
+nTmp = 1;
+sYear = CellGetS( 'Model Settings', 'Value', 'Model Year' );
+pYear = sYear;
+
+## Turn off logging on destination cube
+nOldLog = CubeGetLogChanges( sCubeTarget );
+CubeSetLogChanges( sCubeTarget, 0 );
+
+## Create Source view
+ViewCreate( sCubeSource, sViewSource, nTmp );
+
+## Create subsets to be used in the view
+## Company - Process only executes for one company
+sDim = 'Company';
+SubsetCreate( sDim, sViewSource, nTmp );
+SubsetElementInsert( sDim, sViewSource, pCompany, 1 );
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sViewSource );
+
+## Year
+sDim = 'Financial Year';
+SubsetCreate( sDim, sViewSource, nTmp );
+SubsetElementInsert( sDim, sViewSource, pYear, 1 );
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sViewSource );
+
+sDim = 'Journal Reference';
+sJournal = CellGetS( 'Model Settings', 'Value', 'Current Consol Adjustment Journal' );
+SubsetCreate( sDim, sViewSource, nTmp );
+SubsetElementInsert( sDim, sViewSource, sJournal, 1 );
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sViewSource );
+
+sDim = 'm_Journal Info';
+SubsetCreate( sDim, sViewSource, nTmp );
+SubsetElementInsert( sDim, sViewSource, 'Value', 1 );
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sViewSource );
+
+## Set view properties
+ViewExtractSkipCalcsSet( sCubeSource, sViewSource, 1 );
+ViewExtractSkipRuleValuesSet( sCubeSource, sViewSource, 1 );
+ViewExtractSkipZeroesSet( sCubeSource, sViewSource, 1 );
+
+## Data Source Information
+DataSourceType = 'View';
+DatasourceNameForServer = sCubeSource;
+DatasourceCubeview = sViewSource;
+
+
+
+
+
+#endregion
+#region Data
+
+## Reset string variables
+sPerYTD = '';
+sMSG = '';
+sPartner = '';
+
+## If the journal doesn't balance, do not transfer
+IF(CellGetN(sCubeSource, vVersion, pYear, vPeriod, pCompany,'All Entry ID' , sJournal, 'Value' ) <> 0);
+    #ItemReject( 'Journal ' | sJournal | ' does not balance. Please review ' | pYear | ' ' | vPeriod | ' for ' | pCompany );
+    sMSG = 'Journal ' | sJournal | ' does not balance. Please review ' | pYear | ' ' | vPeriod | ' for ' | pCompany ;
+	Processbreak;
+ENDIF;
+
+## Get the account from the source cube
+sAccount = CellGetS(sCubeSource, vVersion,pYear, vPeriod,pCompany,vID,sJournal,'Account');
+
+## Get the currency from the source cube
+sCurrency = CellGetS(sCubeSource, vVersion,pYear, vPeriod,pCompany,vID,sJournal,'Currency');
+
+## Get the Layer from the source cube
+sLayer = CellGetS(sCubeSource, vVersion,pYear, vPeriod,pCompany,vID,sJournal,'Consolidation Layer');
+
+## If the account has not been selected, reject the item
+IF(sAccount @='');
+    sMsg = 'No Account has been entered. Please review your inputs in ' | pYear| ' for '| pCompany ;
+    ProcessBreak;
+ENDIF;
+
+## If the currency is blank, reject the item
+IF(sAccount @='');
+    sMsg = 'No Currency has been entered. Please review your inputs in ' | pYear| ' for '| pCompany ;
+    ProcessBreak;
+ENDIF;
+
+## If the layer is blank, reject the item
+IF(sLayer @='');
+    sMsg = 'No Consolidation Layer has been entered. Please review your inputs in ' | pYear| ' for '| pCompany ;
+    ProcessBreak;
+ENDIF;
+
+## Derive Period/YTD from the account
+
+sPerYTD = ATTRS('Accounts - Group',sAccount,'Period YTD');
+
+## If the selected currency is local, do nothing
+## If the selected currency is GBP MA, convert it back to the local value and load it into local
+## THis is because GBP will be calculated in the main cube
+
+IF(sCurrency@='GBP MA');
+    nValue = vValue \ CellGetN('Exchange Rates', vVersion, pYear, vPeriod, ATTRS('Company',pCompany,'Base Currency'),'MA Rate');
+ELSE;
+    nValue = vValue;
+ENDIF;
+                               
+## Check if there is an intercompany partner selected.
+## If there is, we will post the equal and opposite into that company
+sPartner = CellGetS(sCubeSource, vVersion, pYear, vPeriod, pCompany, vID, sJournal, 'Intercompany Partner' );
+
+## Generate the equal and opposite value for the partner
+nPartnerValue = nValue * -1;
+
+## If the intercompany Partner is blank, only load into pCompany
+IF(sPartner @='');
+	CellIncrementN( nValue, sCubeTarget, vVersion, pYear, vPeriod, sPerYTD, pCompany, sAccount, 'Local', sLayer, 'Value' );
+ELSE;
+## Otherwise load into pCompany and Load equal and opposite into the partner
+	CellIncrementN( nValue, sCubeTarget, vVersion, pYear, vPeriod, sPerYTD, pCompany, sAccount, 'Local', sLayer, 'Value' );
+	CellIncrementN( nPartnerValue, sCubeTarget, vVersion, pYear, vPeriod, sPerYTD, sPartner, sAccount, 'Local', sLayer, 'Value' );
+ENDIF;
+
+#endregion
+#region Epilog
+
+## Update the model settinsg cube with the journal number
+CellPutS(sJournal,'Model Settings', 'Value', 'Last Submitted Consol Adjustment Journal' );
+
+
+
+## Turn logging back to original state
+CubeSetLogChanges( sCubeTarget, nOldLog );
+
+## check if any items have been rejected, if so flag them
+IF(sMsg @<>'');
+    ItemReject( sMsg );
+ENDIF;
+
+## increment the journal number and add recurring journal if necessary
+ExecuteProcess( 'Admin - Create New Consolidation Journal', 'pRecurring', pRecurring,'pRecurringName',pRecurringName );
+
+
+
+
+
+#
+
+
+
+
+
+#endregion

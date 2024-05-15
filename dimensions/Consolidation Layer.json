@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Consolidation Layer",
+	"Hierarchies@Code.links":
+	[
+		"Consolidation Layer.hierarchies/Consolidation Layer.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Consolidation Layer')/Hierarchies('Consolidation Layer')"
+	}
+}

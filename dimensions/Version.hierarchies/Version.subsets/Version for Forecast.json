@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Version for Forecast",
-	"Expression":"{TM1FILTERBYPATTERN(TM1SUBSETALL([Version]) , [Admin - Model Parameters].([Parameter].[Version for Forecast],[m_Model Parameters].[Value]))}"
-}

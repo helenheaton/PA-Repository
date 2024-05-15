@@ -1,0 +1,12 @@
+#region Prolog
+
+sP1Value = '(123456)';
+
+IF(SUBST(sP1Value,1,1) @='(');
+    nP1ValueLong = LONG(sP1Value);
+    sP1Value = SUBST(sP1Value,2,nP1ValueLong - 2);
+    nP1Value = StringtoNumber (sP1Value);
+ELSE;
+    nP1Value = 0;
+ENDIF;
+#endregion

@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_MA Reporting",
+	"Hierarchies@Code.links":
+	[
+		"m_MA Reporting.hierarchies/m_MA Reporting.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_MA Reporting')/Hierarchies('m_MA Reporting')"
+	}
+}

@@ -1,0 +1,55 @@
+{
+	"@type":"MDXView",
+	"Name":"Group Detail Split Mth",
+	"MDX@Code.link":"Group Detail Split Mth.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Company].[Company]" : "Short Name"
+		},
+		"ContextSets" : 
+		{
+			"[Consolidation Layer].[Consolidation Layer]" : 
+			{
+				"Expression" : "{DRILLDOWNMEMBER({[Consolidation Layer].[Consolidation Layer].[Management Accounts]} , {[Consolidation Layer].[Consolidation Layer].[Management Accounts]} , RECURSIVE),[Consolidation Layer].[Consolidation Layer].[Local Source System]}"
+			},
+			"[FX Calculation].[FX Calculation]" : 
+			{
+				"Expression" : "{[FX Calculation].[FX Calculation].MEMBERS}"
+			},
+			"[Financial Period].[Financial Period]" : 
+			{
+				"Expression" : "{[Financial Period].[Financial Period].[P01],[Financial Period].[Financial Period].[P02],[Financial Period].[Financial Period].[P03],[Financial Period].[Financial Period].[P04],[Financial Period].[Financial Period].[P05],[Financial Period].[Financial Period].[P06],[Financial Period].[Financial Period].[P07],[Financial Period].[Financial Period].[P08],[Financial Period].[Financial Period].[P09],[Financial Period].[Financial Period].[P10],[Financial Period].[Financial Period].[P11],[Financial Period].[Financial Period].[P12]}"
+			},
+			"[Financial Year].[Financial Year]" : 
+			{
+				"Expression" : "{TM1FILTERBYLEVEL(TM1SubsetAll([Financial Year].[Financial Year]), 0)}"
+			},
+			"[Period YTD].[Period YTD]" : 
+			{
+				"Expression" : "{[Period YTD].[Period YTD].MEMBERS}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			},
+			"[m_Consol Engine].[m_Consol Engine]" : 
+			{
+				"Expression" : "{[m_Consol Engine].[m_Consol Engine].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Accounts - Group].[Accounts - Group]" : false,
+			"[Company].[Company]" : true,
+			"[Consolidation Layer].[Consolidation Layer]" : false,
+			"[FX Calculation].[FX Calculation]" : false,
+			"[Financial Period].[Financial Period]" : false,
+			"[Financial Year].[Financial Year]" : false,
+			"[Period YTD].[Period YTD]" : false,
+			"[Version].[Version]" : false,
+			"[m_Consol Engine].[m_Consol Engine]" : false
+		}
+	}
+}

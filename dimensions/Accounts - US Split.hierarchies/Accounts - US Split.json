@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Accounts - US Split",
+	"Elements":
+	[
+		{
+			"Name":"Sales",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"uEBIT",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

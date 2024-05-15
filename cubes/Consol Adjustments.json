@@ -1,0 +1,34 @@
+{
+	"@type":"Cube",
+	"Name":"Consol Adjustments",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Financial Period')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Entry ID')"
+		},
+		{
+			"@id":"Dimensions('Journal Reference')"
+		},
+		{
+			"@id":"Dimensions('m_Journal Info')"
+		}
+	],
+	"Rules@Code.link":"Consol Adjustments.rules",
+	"Views@Code.links":
+	[
+		"Consol Adjustments.views/zData Source.json",
+		"Consol Adjustments.views/Default.json"
+	]
+}

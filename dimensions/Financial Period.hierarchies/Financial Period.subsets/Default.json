@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Expression":"{EXCEPT(DRILLDOWNMEMBER({[Financial Period].[Financial Period].[All Financial Periods]} , {[Financial Period].[Financial Period].[All Financial Periods],[Financial Period].[Financial Period].[Q4],[Financial Period].[Financial Period].[Q3],[Financial Period].[Financial Period].[Q2],[Financial Period].[Financial Period].[Q1]} , RECURSIVE) , {[Financial Period].[Financial Period].[Q4],[Financial Period].[Financial Period].[Q3],[Financial Period].[Financial Period].[Q2],[Financial Period].[Financial Period].[Q1]})}"
+}

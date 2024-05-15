@@ -1,0 +1,212 @@
+#region Prolog
+
+## Steven Hutchison 26/01/2024
+## This process will load current month and YTD data from a csv file
+
+## set the path for the source file
+sLogDirectory = GetProcessErrorFileDirectory;
+datasourcenameforserver='Model_Upload\' | pFileName;
+
+## Define variables
+sCubeTarget = 'Consol Engine';
+sLayer = 'Local Source System';
+sMeas = 'Value';
+sViewTarget = GetProcessName();
+sSubUX = 'Latest Submission Upload - Core Group Admin';
+nTmp = 1;
+sModelPeriod = CellGetS('Model Settings', 'Value', 'Model Period' );
+sYear = CellGetS('Model Settings', 'Value', 'Model Year' );
+sPeriod = CellGetS('Model Settings', 'Value', 'Model Fin Period' );
+    
+## Update the UX subsets - these are used in the Core Group Admin workbook called 'Site Submission'
+## Company
+SubsetDeleteAllElements( 'Company', sSubUX );
+SubsetElementInsert( 'Company', sSubUX, pCompany, 1 );
+
+pYear = CellGetS( 'Model Settings', 'Value', 'Model Year' );
+pPeriod = CellGetS('Model Settings', 'Value', 'Model Fin Period' );
+
+## Financial Year
+SubsetDeleteAllElements( 'Financial Year', sSubUX );
+SubsetElementInsert( 'Financial Year', sSubUX, pYear, 1 );
+
+
+## Create target view to clear
+ViewCreate( sCubeTarget, sViewTarget, nTmp );
+
+## Turn off logging
+nOldLog = CubeGetLogChanges( sCubeTarget );
+CubeSetLogChanges( sCubeTarget, 0 );
+
+##Create subsets to be cleared in the view
+
+## Current month only - this will be supplied by a parameter for now, but may be linked to a control cube going forward
+sDim = 'Financial Period';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sPeriod, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Year selection - as above, currently through a parameter, but may change
+sDim = 'Financial Year';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sYear, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for single companies
+sDim = 'Company';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, pCompany, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for actual version
+sDim = 'Version';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'Actual', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for local source system only
+sDim = 'Consolidation Layer';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'Local Source System', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for Period and Imported YTD
+sDim = 'Period YTD';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'Period', 1 );
+SubsetElementInsert( sDim, sViewTarget, 'Imported YTD', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for Local currency
+sDim = 'FX Calculation';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'Local', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+
+sDim = 'm_Consol Engine';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'Value', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Clear the view
+ViewZeroOut( sCubeTarget, sViewTarget );
+
+nDataCount = 1;
+sCurrentPeriodLocation = 0;
+sP1 = '';
+
+#endregion
+#region Data
+## Line 1 of the source file is the column header that identifies the period that the column relates to
+## This loop goes through each column and expands the variable name to return the period header value
+## IF the period header for that column matches the current model period we store that position in the loop into sCurrentPeriodLocation
+## That means when we process the other records in the file we can expand that particular column only
+
+IF(nDataCount = 1);
+    i = 1;
+    WHILE(i<=12);
+        iString = 'V'| NumbertoString(i);
+        vResult = Expand( '%v' | Numbertostring(i) | '%' );
+        IF( vResult @= sModelPeriod);
+            sCurrentPeriodLocation = i;
+            sP1 = vResult;
+        ENDIF;
+    i = i + 1;
+    END;
+ENDIF;
+
+## Skip rows where the account is blank
+IF(vAccount @='');
+    nDataCount = nDataCount + 1;
+    ItemSkip;
+ENDIF;
+
+## Don't load these lines: 
+
+IF (TRIM(VAccount)  @= 'Group Reporting Line');
+    ITEMSKIP;
+ENDIF;
+
+IF (TRIM(VDescription)  @= 'OPENING CASH (and overdrafts) @ Opening Rate');
+    ITEMSKIP;
+ENDIF;
+
+IF (TRIM(VDescription)  @= 'Retained earnings B/F @ Monthly Opening Rate');
+    ITEMSKIP;
+ENDIF;
+
+IF (TRIM(VDescription)  @= 'Retained earnings B/F @ Monthly Closing Rate');
+    ITEMSKIP;
+ENDIF;
+
+## Convert dashes and errors to zero
+sValue = Expand( '%v' | Numbertostring(sCurrentPeriodLocation) | '%' );
+IF (sValue @= ' -   ');
+    sValue = '0';
+ENDIF;
+IF (sValue @= '#DIV/0!');
+    sValue = '0';
+ENDIF;
+nValue = StringtoNumber (sValue);
+
+IF (vYTD @= ' -   ');
+    vYTD = '0';
+ENDIF;
+IF (vYTD @= '#DIV/0!');
+    vYTD = '0';
+ENDIF;
+nYTD = StringToNumber( vYTD );
+
+
+
+    
+## This is picking up the period / YTD attribute for valid accounts
+## Accounts that don't exist in the system are added to the missing accounts dimension (this will likely change in phase 2 to a more robust solution)
+ IF(DimensionElementExists( 'Accounts - Group', vAccount ) = 1);
+ 	sPerYTD = ATTRS( 'Accounts - Group', vAccount, 'Period YTD' );
+ ENDIF;
+
+## The Per/YTD flag could be YTD-FA which is used for Fixed assets accounts. These are treated differently in rules, but on import should be treated as YTD
+IF (sPerYTD @= 'YTD-FA');
+    sPerYTD = 'YTD';
+ELSE;
+ENDIF;
+
+IF (sPerYTD @= 'YTD-BF');
+    sPerYTD = 'YTD';
+ELSE;
+ENDIF;
+
+## Map the version
+ sVersion = 'Actual';
+
+IF(DimensionElementExists( 'Accounts - Group', vAccount ) = 1);
+     IF(sPerYTD @='Period');
+ 		IF(CellIsUpdateable(sCubeTarget,sVersion, sYear, sPeriod, 'Period', pCompany, vAccount, 'Local', sLayer, sMeas  ) = 1);
+             CellPutN( nValue, sCubeTarget,sVersion, sYear, sPeriod, 'Period', pCompany, vAccount, 'Local', sLayer, sMeas );
+        ENDIF;
+    ELSE;
+ 		## Load YTD value in to YTD and Imported YTD
+ 		IF(CellIsUpdateable(sCubeTarget,sVersion, sYear, sPeriod,'Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas  ) = 1);
+     		CellPutN( nYTD, sCubeTarget,sVersion, sYear, sPeriod,'Imported YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        ENDIF; 
+ 		IF(CellIsUpdateable(sCubeTarget,sVersion, sYear, sPeriod,'YTD', pCompany, vAccount, 'Local', sLayer, sMeas  ) = 1);
+            CellPutN( nYTD, sCubeTarget,sVersion, sYear, sPeriod,'YTD', pCompany, vAccount, 'Local', sLayer, sMeas );
+        ENDIF;
+     ENDIF;
+ENDIF;
+############################################
+nDataCount = nDataCount + 1;
+
+# Reset Value
+sValue = '0';
+
+#endregion
+#region Epilog
+
+## Turn logging back on
+CubeSetLogChanges( sCubeTarget, nOldLog );
+
+
+#endregion

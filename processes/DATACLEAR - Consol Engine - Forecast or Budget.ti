@@ -1,0 +1,85 @@
+#region Prolog
+
+## Steven Hutchison 01/02/2024
+## This process will load historic manaccs data for individual companies
+## Data will be loaded into the local source layer
+## This process is supposed to be "one off" to load history and is not likely to be used going forward
+
+## set the path for the source file
+sLogDirectory = GetProcessErrorFileDirectory;
+
+## Define variables
+sCubeTarget = 'Consol Engine';
+sCompany = pCompany;
+sLayer = 'Local Source System';
+sYear = CellGetS('Model Settings', 'Value', 'Model Year' );
+sMeas = 'Value';
+sViewTarget = GetProcessName();
+nTmp = 1;
+## Create target view to clear
+ViewCreate( sCubeTarget, sViewTarget, nTmp );
+
+## Turn off logging
+nOldLog = CubeGetLogChanges( sCubeTarget );
+CubeSetLogChanges( sCubeTarget, 0 );
+
+##Create subsets to be cleared in the view
+
+## Process will run for single forecast version
+sDim = 'Version';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, pVersion, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for single companies
+sDim = 'Company';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sCompany, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for local source system only
+sDim = 'Consolidation Layer';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sLayer, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for current year only
+sDim = 'Financial Year';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sYear, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for Period and Imported YTD
+# sDim = 'Period YTD';
+# SubsetCreate( sDim, sViewTarget, nTmp );
+# SubsetElementInsert( sDim, sViewTarget, 'Period', 1 );
+# SubsetElementInsert( sDim, sViewTarget, 'Imported YTD', 1 );
+# ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Process will run for Local currency
+sDim = 'FX Calculation';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'Local', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+
+sDim = 'm_Consol Engine';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, 'Value', 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+## Clear the view
+ViewZeroOut( sCubeTarget, sViewTarget );
+
+#ProcessBreak;
+#endregion
+#region Data
+
+#endregion
+#region Epilog
+
+## Turn logging back on
+CubeSetLogChanges( sCubeTarget, nOldLog );
+
+
+#endregion

@@ -1,0 +1,2821 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Accounts - MA",
+	"Elements":
+	[
+		{
+			"Name":"NCA_tangNL_bf",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangNL_add",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangNL_dep",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangNL_disp",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangNL_other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgNL_add",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgNL_bf",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgNL_amort",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgNL_disp",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgNL_other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgLE_bf",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_othr_investments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_othr_conassets",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_invt_cost",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_invt_prov",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_tradereceivables",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_prepayments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_otherreceive",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_conassets",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_assetsale",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_intergreceiveNONDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_tradepayables",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_accruals",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_provisions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_otherpayables",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_conliab",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_intergpayablesNONDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_cash",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCL_lease",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_taxliab",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_defdtax",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_divpayables",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCL_pension",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCL_intergpayablesNONDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_capital",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_sharepremium",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_transreserve",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_othreserve",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_retainedearnings",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCL_loans",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgLE_add",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgLE_amort",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgLE_disp",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_intgLE_other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_othr_deftax",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_othr_intergreceiveDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_othr_intergreceiveNONDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_intergreceiveDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_curtax",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_lease",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_intergpayablesDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CLI_loans",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCL_intergpayablesDIV",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_noncontrol",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF Underlying EBITDA",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"CF_uEBIT",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_depnnb",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_amort",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Working Capital Movements",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"CF_WCinventory",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_WCtraderec",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_WCtradepay",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_WCother",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Operating Cashflows",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Trading Cashflows",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"CF_TFAcapex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_IFAcapex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_TFAcapexproceed",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_IFAcapexproceed",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interest",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_tax",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_forex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_exceptionals",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_NCLloansRepay",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_other3",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Non-Trade Intragroup Cash Inflows / (Outflows)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"CF_interco_otherHO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_depnb",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_LeaseCapital",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_PensionCont",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_Bruntons",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_Jacottet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_CTPUS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_CTPUK",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_CTPCzech",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_CTPIndia",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_CTPChina",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_interco_HO",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Reporting",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"OTH_FTEadminOVH",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_FTEdirectCOS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_FTEfactoryOVH",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_FTEindirectCOS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAL_prod_ext",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAL_prod_int",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAL_tool_ext",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SAL_tool_int",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_prod_mat",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_prod_lab",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_prod_dist",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_prod_dohlabour",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_prod_dohenergy",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_prod_dohconsum",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_prod_dohother",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"COS_tool_all",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_sal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_energy",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_machmain",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_toolmain",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_machrent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_proprep",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_rentrates",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_travel",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_QA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_trainrecruit",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_ovhinstk",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_depnother",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_amort",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_sal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_travel",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_teloffice",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_insure",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_legprof",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_comp",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_sellsal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_selloth",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_RDsal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_RDoth",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_divison",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_STI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_PSPLTIP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_bankint",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_leaseint",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_otherint",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_except",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_assetdisp",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_intercomgmt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_interroycomm",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_intercoint",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_divreceived",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_tax",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_depnbuild",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_forex",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_sellcom",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_divpayable",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_corp_intercofx",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MS Depreciation & Amortisation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"MS Total Admin Overheads",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"MS Other Admin Overheads",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"MS SG&A Labour Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"MS Total Factory Overheads",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"MS uEBIT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"uEBIT D&E",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total EBIT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"MS Direct Labour",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"PRODUCT GROSS MARGIN",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"PRODUCT SALES",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOOLING GROSS MARGIN",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOOLING SALES",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"FACTORY OVERHEADS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"ADMINISTRATIVE OVERHEADS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"UNDERLYING EBITDA",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Intangible Fixed Assets - Additions",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"NCA_tangLE_bf",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangLE_add",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangLE_dep",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangLE_disp",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_tangLE_other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Inventories",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Other Working Capital",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Headcount (Month end FTEs)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"OTH_Future Growth",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_LTI",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_ordersprod",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_orderstool",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_OTIF",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_Quality",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OTH_wdays",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Contribution Margin Percent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Manufacturing Margin Percent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Design & Eng Margin Percent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Design & Eng ROS Percent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MS Added Value Percent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MS Throughput Percent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"MS ROS Percent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total ROS Percent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"uEBIT Percent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FTE Churn Percent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Working Capital Percent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Site ROCE - Monthly uEBIT Percent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Group STI Bonus",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Labour Cost per FTE",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total uEBIT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"MS Other Factory Overheads",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"MS COS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"MS Added Value",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Other Non-Current Assets",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"NET DEBT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOTAL INTEREST",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"CONTRIBUTION MARGIN",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOTAL SALES",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Total CAPEX Additions - Monthly",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Tangible Fixed Assets (incl Leased Assets) - BS NBV",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Annualised MS Net Sales",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"BS Working Capital excl Cash",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Monthly Change in BS WC",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Retained Earnings",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"EAT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"EBT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"UNDERLYING EBIT",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TANGIBLE FIXED ASSETS (not leased)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"INTANGIBLE FIXED ASSETS (not leased)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"LEASED TANGIBLE FIXED ASSETS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"LEASED INTANGIBLE FIXED ASSETS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOTAL NON-CURRENT ASSETS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOTAL CURRENT ASSETS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOTAL CURRENT LIABILITIES",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"NET CURRENT ASSETS / (LIABILITIES)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOTAL NON-CURRENT LIABILITIES",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"NET ASSETS / (LIABILITIES)",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"TOTAL EQUITY AND RESERVES",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"SOCIE_pension",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SOCIE_yeadjust",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SOCIE_netinvhedge",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SOCIE_taxpension",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SOCIE_exershareoptions",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SOCIE_Sharebasedpayments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_tooling_sal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_tooling_other",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_fact_tooling_depn",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CF_openbal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Total Cash Movement",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"CF_closebal",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"FIXED ASSETS",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"FIXED ASSET CAPEX",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"CF Depreciation and Amortisation",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"CLI_tradepayables_Interco",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"OVH_admn_aud",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CAS_tradereceivables_Interco",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Payables",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Inventory",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Other Receiveables",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"MS Maintenance",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"EQU_adjust",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_adjustments",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_retainedearningsbf",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Factory Overheads Percent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Admin Overheads Percent",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_TangNL_bf_fx",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_IntgNL_bf_fx",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_TangLE_bf_fx",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_IntgLE_bf_fx",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_TangNL_bf_cr",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_IntgNL_bf_cr",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_TangLE_bf_cr",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"NCA_IntgLE_bf_cr",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_retainedearningsbf_fx",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EQU_retainedearningsbf_cr",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"CF Underlying EBITDA",
+			"ComponentName":"CF_uEBIT",
+			"Weight":1
+		},
+		{
+			"ParentName":"CF Underlying EBITDA",
+			"ComponentName":"CF Depreciation and Amortisation",
+			"Weight":1
+		},
+		{
+			"ParentName":"Working Capital Movements",
+			"ComponentName":"CF_WCinventory",
+			"Weight":1
+		},
+		{
+			"ParentName":"Working Capital Movements",
+			"ComponentName":"CF_WCtraderec",
+			"Weight":1
+		},
+		{
+			"ParentName":"Working Capital Movements",
+			"ComponentName":"CF_WCtradepay",
+			"Weight":1
+		},
+		{
+			"ParentName":"Working Capital Movements",
+			"ComponentName":"CF_WCother",
+			"Weight":1
+		},
+		{
+			"ParentName":"Operating Cashflows",
+			"ComponentName":"CF Underlying EBITDA",
+			"Weight":1
+		},
+		{
+			"ParentName":"Operating Cashflows",
+			"ComponentName":"Working Capital Movements",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trading Cashflows",
+			"ComponentName":"Operating Cashflows",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trading Cashflows",
+			"ComponentName":"FIXED ASSET CAPEX",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trading Cashflows",
+			"ComponentName":"CF_TFAcapexproceed",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trading Cashflows",
+			"ComponentName":"CF_IFAcapexproceed",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trading Cashflows",
+			"ComponentName":"CF_interest",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trading Cashflows",
+			"ComponentName":"CF_tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trading Cashflows",
+			"ComponentName":"CF_forex",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trading Cashflows",
+			"ComponentName":"CF_exceptionals",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trading Cashflows",
+			"ComponentName":"CF_NCLloansRepay",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trading Cashflows",
+			"ComponentName":"CF_other3",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trading Cashflows",
+			"ComponentName":"CF_LeaseCapital",
+			"Weight":1
+		},
+		{
+			"ParentName":"Trading Cashflows",
+			"ComponentName":"CF_PensionCont",
+			"Weight":1
+		},
+		{
+			"ParentName":"Non-Trade Intragroup Cash Inflows / (Outflows)",
+			"ComponentName":"CF_interco_otherHO",
+			"Weight":1
+		},
+		{
+			"ParentName":"Non-Trade Intragroup Cash Inflows / (Outflows)",
+			"ComponentName":"CF_interco_Bruntons",
+			"Weight":1
+		},
+		{
+			"ParentName":"Non-Trade Intragroup Cash Inflows / (Outflows)",
+			"ComponentName":"CF_interco_Jacottet",
+			"Weight":1
+		},
+		{
+			"ParentName":"Non-Trade Intragroup Cash Inflows / (Outflows)",
+			"ComponentName":"CF_interco_CTPUS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Non-Trade Intragroup Cash Inflows / (Outflows)",
+			"ComponentName":"CF_interco_CTPUK",
+			"Weight":1
+		},
+		{
+			"ParentName":"Non-Trade Intragroup Cash Inflows / (Outflows)",
+			"ComponentName":"CF_interco_CTPCzech",
+			"Weight":1
+		},
+		{
+			"ParentName":"Non-Trade Intragroup Cash Inflows / (Outflows)",
+			"ComponentName":"CF_interco_CTPIndia",
+			"Weight":1
+		},
+		{
+			"ParentName":"Non-Trade Intragroup Cash Inflows / (Outflows)",
+			"ComponentName":"CF_interco_CTPChina",
+			"Weight":1
+		},
+		{
+			"ParentName":"Non-Trade Intragroup Cash Inflows / (Outflows)",
+			"ComponentName":"CF_interco_HO",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Headcount (Month end FTEs)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"OTH_Future Growth",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"OTH_LTI",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"OTH_ordersprod",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"OTH_orderstool",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"OTH_OTIF",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"OTH_Quality",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"OTH_wdays",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Contribution Margin Percent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Factory Overheads Percent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Admin Overheads Percent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Manufacturing Margin Percent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Design & Eng Margin Percent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Design & Eng ROS Percent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"MS Added Value Percent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"MS Throughput Percent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"MS ROS Percent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Total ROS Percent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"uEBIT Percent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"FTE Churn Percent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Working Capital Percent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Site ROCE - Monthly uEBIT Percent",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Group STI Bonus",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Labour Cost per FTE",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"NCA_TangNL_bf_fx",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"NCA_IntgNL_bf_fx",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"NCA_TangLE_bf_fx",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"NCA_IntgLE_bf_fx",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"NCA_TangNL_bf_cr",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"NCA_IntgNL_bf_cr",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"NCA_TangLE_bf_cr",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"NCA_IntgLE_bf_cr",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"EQU_retainedearningsbf_fx",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"EQU_retainedearningsbf_cr",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Total uEBIT",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"MS Other Factory Overheads",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"MS COS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"MS Added Value",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Other Non-Current Assets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"NET DEBT",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"TOTAL INTEREST",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"CONTRIBUTION MARGIN",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"TOTAL SALES",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Total CAPEX Additions - Monthly",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Tangible Fixed Assets (incl Leased Assets) - BS NBV",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Annualised MS Net Sales",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"BS Working Capital excl Cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"Reporting",
+			"ComponentName":"Monthly Change in BS WC",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Depreciation & Amortisation",
+			"ComponentName":"OVH_fact_depnother",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Depreciation & Amortisation",
+			"ComponentName":"OVH_fact_amort",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Depreciation & Amortisation",
+			"ComponentName":"OVH_fact_depnbuild",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Total Admin Overheads",
+			"ComponentName":"MS Other Admin Overheads",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Total Admin Overheads",
+			"ComponentName":"MS SG&A Labour Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Admin Overheads",
+			"ComponentName":"OVH_admn_aud",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Admin Overheads",
+			"ComponentName":"OVH_admn_travel",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Admin Overheads",
+			"ComponentName":"OVH_admn_teloffice",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Admin Overheads",
+			"ComponentName":"OVH_admn_insure",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Admin Overheads",
+			"ComponentName":"OVH_admn_legprof",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Admin Overheads",
+			"ComponentName":"OVH_admn_comp",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Admin Overheads",
+			"ComponentName":"OVH_admn_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Admin Overheads",
+			"ComponentName":"OVH_admn_forex",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Admin Overheads",
+			"ComponentName":"OVH_admn_selloth",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Admin Overheads",
+			"ComponentName":"OVH_admn_sellcom",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Admin Overheads",
+			"ComponentName":"OVH_admn_RDoth",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Admin Overheads",
+			"ComponentName":"OVH_admn_divison",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS SG&A Labour Costs",
+			"ComponentName":"OVH_admn_sal",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS SG&A Labour Costs",
+			"ComponentName":"OVH_admn_STI",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS SG&A Labour Costs",
+			"ComponentName":"OVH_admn_PSPLTIP",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS SG&A Labour Costs",
+			"ComponentName":"OVH_admn_sellsal",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS SG&A Labour Costs",
+			"ComponentName":"OVH_admn_RDsal",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Total Factory Overheads",
+			"ComponentName":"OVH_fact_sal",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Total Factory Overheads",
+			"ComponentName":"OVH_fact_energy",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Total Factory Overheads",
+			"ComponentName":"MS Maintenance",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Total Factory Overheads",
+			"ComponentName":"OVH_fact_machrent",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Total Factory Overheads",
+			"ComponentName":"OVH_fact_rentrates",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Total Factory Overheads",
+			"ComponentName":"OVH_fact_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Total Factory Overheads",
+			"ComponentName":"OVH_fact_travel",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Total Factory Overheads",
+			"ComponentName":"OVH_fact_QA",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Total Factory Overheads",
+			"ComponentName":"OVH_fact_trainrecruit",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Total Factory Overheads",
+			"ComponentName":"OVH_fact_ovhinstk",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS uEBIT",
+			"ComponentName":"MS Depreciation & Amortisation",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS uEBIT",
+			"ComponentName":"MS Total Admin Overheads",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS uEBIT",
+			"ComponentName":"MS Total Factory Overheads",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS uEBIT",
+			"ComponentName":"PRODUCT GROSS MARGIN",
+			"Weight":1
+		},
+		{
+			"ParentName":"uEBIT D&E",
+			"ComponentName":"TOOLING GROSS MARGIN",
+			"Weight":1
+		},
+		{
+			"ParentName":"uEBIT D&E",
+			"ComponentName":"OVH_fact_tooling_sal",
+			"Weight":1
+		},
+		{
+			"ParentName":"uEBIT D&E",
+			"ComponentName":"OVH_fact_tooling_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"uEBIT D&E",
+			"ComponentName":"OVH_fact_tooling_depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total EBIT",
+			"ComponentName":"UNDERLYING EBIT",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total EBIT",
+			"ComponentName":"OVH_corp_except",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total EBIT",
+			"ComponentName":"OVH_corp_assetdisp",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Direct Labour",
+			"ComponentName":"COS_prod_lab",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Direct Labour",
+			"ComponentName":"COS_prod_dohlabour",
+			"Weight":1
+		},
+		{
+			"ParentName":"PRODUCT GROSS MARGIN",
+			"ComponentName":"COS_prod_mat",
+			"Weight":1
+		},
+		{
+			"ParentName":"PRODUCT GROSS MARGIN",
+			"ComponentName":"COS_prod_lab",
+			"Weight":1
+		},
+		{
+			"ParentName":"PRODUCT GROSS MARGIN",
+			"ComponentName":"COS_prod_dist",
+			"Weight":1
+		},
+		{
+			"ParentName":"PRODUCT GROSS MARGIN",
+			"ComponentName":"COS_prod_dohlabour",
+			"Weight":1
+		},
+		{
+			"ParentName":"PRODUCT GROSS MARGIN",
+			"ComponentName":"COS_prod_dohenergy",
+			"Weight":1
+		},
+		{
+			"ParentName":"PRODUCT GROSS MARGIN",
+			"ComponentName":"COS_prod_dohconsum",
+			"Weight":1
+		},
+		{
+			"ParentName":"PRODUCT GROSS MARGIN",
+			"ComponentName":"COS_prod_dohother",
+			"Weight":1
+		},
+		{
+			"ParentName":"PRODUCT GROSS MARGIN",
+			"ComponentName":"PRODUCT SALES",
+			"Weight":1
+		},
+		{
+			"ParentName":"PRODUCT SALES",
+			"ComponentName":"SAL_prod_ext",
+			"Weight":1
+		},
+		{
+			"ParentName":"PRODUCT SALES",
+			"ComponentName":"SAL_prod_int",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOOLING GROSS MARGIN",
+			"ComponentName":"TOOLING SALES",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOOLING GROSS MARGIN",
+			"ComponentName":"COS_tool_all",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOOLING SALES",
+			"ComponentName":"SAL_tool_ext",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOOLING SALES",
+			"ComponentName":"SAL_tool_int",
+			"Weight":1
+		},
+		{
+			"ParentName":"FACTORY OVERHEADS",
+			"ComponentName":"OVH_fact_tooling_sal",
+			"Weight":1
+		},
+		{
+			"ParentName":"FACTORY OVERHEADS",
+			"ComponentName":"OVH_fact_tooling_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"FACTORY OVERHEADS",
+			"ComponentName":"OVH_fact_sal",
+			"Weight":1
+		},
+		{
+			"ParentName":"FACTORY OVERHEADS",
+			"ComponentName":"OVH_fact_energy",
+			"Weight":1
+		},
+		{
+			"ParentName":"FACTORY OVERHEADS",
+			"ComponentName":"OVH_fact_machmain",
+			"Weight":1
+		},
+		{
+			"ParentName":"FACTORY OVERHEADS",
+			"ComponentName":"OVH_fact_toolmain",
+			"Weight":1
+		},
+		{
+			"ParentName":"FACTORY OVERHEADS",
+			"ComponentName":"OVH_fact_machrent",
+			"Weight":1
+		},
+		{
+			"ParentName":"FACTORY OVERHEADS",
+			"ComponentName":"OVH_fact_proprep",
+			"Weight":1
+		},
+		{
+			"ParentName":"FACTORY OVERHEADS",
+			"ComponentName":"OVH_fact_rentrates",
+			"Weight":1
+		},
+		{
+			"ParentName":"FACTORY OVERHEADS",
+			"ComponentName":"OVH_fact_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"FACTORY OVERHEADS",
+			"ComponentName":"OVH_fact_travel",
+			"Weight":1
+		},
+		{
+			"ParentName":"FACTORY OVERHEADS",
+			"ComponentName":"OVH_fact_QA",
+			"Weight":1
+		},
+		{
+			"ParentName":"FACTORY OVERHEADS",
+			"ComponentName":"OVH_fact_trainrecruit",
+			"Weight":1
+		},
+		{
+			"ParentName":"FACTORY OVERHEADS",
+			"ComponentName":"OVH_fact_ovhinstk",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_sal",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_STI",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_PSPLTIP",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_travel",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_teloffice",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_insure",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_aud",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_legprof",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_comp",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_forex",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_sellsal",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_selloth",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_sellcom",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_RDsal",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_RDoth",
+			"Weight":1
+		},
+		{
+			"ParentName":"ADMINISTRATIVE OVERHEADS",
+			"ComponentName":"OVH_admn_divison",
+			"Weight":1
+		},
+		{
+			"ParentName":"UNDERLYING EBITDA",
+			"ComponentName":"PRODUCT GROSS MARGIN",
+			"Weight":1
+		},
+		{
+			"ParentName":"UNDERLYING EBITDA",
+			"ComponentName":"TOOLING GROSS MARGIN",
+			"Weight":1
+		},
+		{
+			"ParentName":"UNDERLYING EBITDA",
+			"ComponentName":"FACTORY OVERHEADS",
+			"Weight":1
+		},
+		{
+			"ParentName":"UNDERLYING EBITDA",
+			"ComponentName":"ADMINISTRATIVE OVERHEADS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intangible Fixed Assets - Additions",
+			"ComponentName":"NCA_intgLE_add",
+			"Weight":1
+		},
+		{
+			"ParentName":"Intangible Fixed Assets - Additions",
+			"ComponentName":"NCA_intgNL_add",
+			"Weight":1
+		},
+		{
+			"ParentName":"Inventories",
+			"ComponentName":"CAS_invt_cost",
+			"Weight":1
+		},
+		{
+			"ParentName":"Inventories",
+			"ComponentName":"CAS_invt_prov",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Working Capital",
+			"ComponentName":"NCA_othr_conassets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Working Capital",
+			"ComponentName":"CAS_prepayments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Working Capital",
+			"ComponentName":"CAS_otherreceive",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Working Capital",
+			"ComponentName":"CAS_conassets",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Working Capital",
+			"ComponentName":"CAS_assetsale",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Working Capital",
+			"ComponentName":"CLI_accruals",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Working Capital",
+			"ComponentName":"CLI_provisions",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Working Capital",
+			"ComponentName":"CLI_otherpayables",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Working Capital",
+			"ComponentName":"CLI_conliab",
+			"Weight":1
+		},
+		{
+			"ParentName":"Headcount (Month end FTEs)",
+			"ComponentName":"OTH_FTEadminOVH",
+			"Weight":0
+		},
+		{
+			"ParentName":"Headcount (Month end FTEs)",
+			"ComponentName":"OTH_FTEdirectCOS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Headcount (Month end FTEs)",
+			"ComponentName":"OTH_FTEfactoryOVH",
+			"Weight":1
+		},
+		{
+			"ParentName":"Headcount (Month end FTEs)",
+			"ComponentName":"OTH_FTEindirectCOS",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total uEBIT",
+			"ComponentName":"MS uEBIT",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total uEBIT",
+			"ComponentName":"uEBIT D&E",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Factory Overheads",
+			"ComponentName":"OVH_fact_energy",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Factory Overheads",
+			"ComponentName":"OVH_fact_machrent",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Factory Overheads",
+			"ComponentName":"OVH_fact_rentrates",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Factory Overheads",
+			"ComponentName":"OVH_fact_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Factory Overheads",
+			"ComponentName":"OVH_fact_travel",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Factory Overheads",
+			"ComponentName":"OVH_fact_QA",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Factory Overheads",
+			"ComponentName":"OVH_fact_trainrecruit",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Other Factory Overheads",
+			"ComponentName":"OVH_fact_ovhinstk",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS COS",
+			"ComponentName":"MS Direct Labour",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS COS",
+			"ComponentName":"COS_prod_dist",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS COS",
+			"ComponentName":"COS_prod_dohenergy",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS COS",
+			"ComponentName":"COS_prod_dohconsum",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS COS",
+			"ComponentName":"COS_prod_dohother",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Added Value",
+			"ComponentName":"COS_prod_mat",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Added Value",
+			"ComponentName":"PRODUCT SALES",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Non-Current Assets",
+			"ComponentName":"NCA_othr_deftax",
+			"Weight":1
+		},
+		{
+			"ParentName":"NET DEBT",
+			"ComponentName":"CAS_cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"NET DEBT",
+			"ComponentName":"CLI_lease",
+			"Weight":1
+		},
+		{
+			"ParentName":"NET DEBT",
+			"ComponentName":"CLI_loans",
+			"Weight":1
+		},
+		{
+			"ParentName":"NET DEBT",
+			"ComponentName":"NCL_lease",
+			"Weight":1
+		},
+		{
+			"ParentName":"NET DEBT",
+			"ComponentName":"NCL_loans",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL INTEREST",
+			"ComponentName":"OVH_corp_bankint",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL INTEREST",
+			"ComponentName":"OVH_corp_leaseint",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL INTEREST",
+			"ComponentName":"OVH_corp_otherint",
+			"Weight":1
+		},
+		{
+			"ParentName":"CONTRIBUTION MARGIN",
+			"ComponentName":"PRODUCT GROSS MARGIN",
+			"Weight":1
+		},
+		{
+			"ParentName":"CONTRIBUTION MARGIN",
+			"ComponentName":"TOOLING GROSS MARGIN",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL SALES",
+			"ComponentName":"SAL_prod_ext",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL SALES",
+			"ComponentName":"SAL_prod_int",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL SALES",
+			"ComponentName":"SAL_tool_ext",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL SALES",
+			"ComponentName":"SAL_tool_int",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total CAPEX Additions - Monthly",
+			"ComponentName":"NCA_tangNL_add",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total CAPEX Additions - Monthly",
+			"ComponentName":"NCA_tangLE_add",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total CAPEX Additions - Monthly",
+			"ComponentName":"Intangible Fixed Assets - Additions",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tangible Fixed Assets (incl Leased Assets) - BS NBV",
+			"ComponentName":"NCA_tangNL_bf",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tangible Fixed Assets (incl Leased Assets) - BS NBV",
+			"ComponentName":"NCA_tangNL_add",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tangible Fixed Assets (incl Leased Assets) - BS NBV",
+			"ComponentName":"NCA_tangNL_dep",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tangible Fixed Assets (incl Leased Assets) - BS NBV",
+			"ComponentName":"NCA_tangNL_disp",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tangible Fixed Assets (incl Leased Assets) - BS NBV",
+			"ComponentName":"NCA_tangNL_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tangible Fixed Assets (incl Leased Assets) - BS NBV",
+			"ComponentName":"NCA_tangLE_bf",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tangible Fixed Assets (incl Leased Assets) - BS NBV",
+			"ComponentName":"NCA_tangLE_add",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tangible Fixed Assets (incl Leased Assets) - BS NBV",
+			"ComponentName":"NCA_tangLE_dep",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tangible Fixed Assets (incl Leased Assets) - BS NBV",
+			"ComponentName":"NCA_tangLE_disp",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tangible Fixed Assets (incl Leased Assets) - BS NBV",
+			"ComponentName":"NCA_tangLE_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"BS Working Capital excl Cash",
+			"ComponentName":"Inventories",
+			"Weight":1
+		},
+		{
+			"ParentName":"BS Working Capital excl Cash",
+			"ComponentName":"Other Working Capital",
+			"Weight":1
+		},
+		{
+			"ParentName":"BS Working Capital excl Cash",
+			"ComponentName":"CAS_tradereceivables",
+			"Weight":1
+		},
+		{
+			"ParentName":"BS Working Capital excl Cash",
+			"ComponentName":"CAS_tradereceivables_Interco",
+			"Weight":1
+		},
+		{
+			"ParentName":"BS Working Capital excl Cash",
+			"ComponentName":"CAS_intergreceiveNONDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"BS Working Capital excl Cash",
+			"ComponentName":"CAS_intergreceiveDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"BS Working Capital excl Cash",
+			"ComponentName":"CLI_tradepayables",
+			"Weight":1
+		},
+		{
+			"ParentName":"BS Working Capital excl Cash",
+			"ComponentName":"CLI_tradepayables_Interco",
+			"Weight":1
+		},
+		{
+			"ParentName":"BS Working Capital excl Cash",
+			"ComponentName":"CLI_intergpayablesNONDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"BS Working Capital excl Cash",
+			"ComponentName":"CLI_intergpayablesDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Retained Earnings",
+			"ComponentName":"EAT",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Retained Earnings",
+			"ComponentName":"OVH_corp_divpayable",
+			"Weight":1
+		},
+		{
+			"ParentName":"EAT",
+			"ComponentName":"EBT",
+			"Weight":1
+		},
+		{
+			"ParentName":"EAT",
+			"ComponentName":"OVH_corp_tax",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBT",
+			"ComponentName":"Total EBIT",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBT",
+			"ComponentName":"OVH_corp_bankint",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBT",
+			"ComponentName":"OVH_corp_leaseint",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBT",
+			"ComponentName":"OVH_corp_otherint",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBT",
+			"ComponentName":"OVH_corp_intercofx",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBT",
+			"ComponentName":"OVH_corp_intercomgmt",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBT",
+			"ComponentName":"OVH_corp_interroycomm",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBT",
+			"ComponentName":"OVH_corp_intercoint",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBT",
+			"ComponentName":"OVH_corp_divreceived",
+			"Weight":1
+		},
+		{
+			"ParentName":"UNDERLYING EBIT",
+			"ComponentName":"UNDERLYING EBITDA",
+			"Weight":1
+		},
+		{
+			"ParentName":"UNDERLYING EBIT",
+			"ComponentName":"OVH_fact_depnother",
+			"Weight":1
+		},
+		{
+			"ParentName":"UNDERLYING EBIT",
+			"ComponentName":"OVH_fact_tooling_depn",
+			"Weight":1
+		},
+		{
+			"ParentName":"UNDERLYING EBIT",
+			"ComponentName":"OVH_fact_amort",
+			"Weight":1
+		},
+		{
+			"ParentName":"UNDERLYING EBIT",
+			"ComponentName":"OVH_fact_depnbuild",
+			"Weight":1
+		},
+		{
+			"ParentName":"TANGIBLE FIXED ASSETS (not leased)",
+			"ComponentName":"NCA_tangNL_bf",
+			"Weight":1
+		},
+		{
+			"ParentName":"TANGIBLE FIXED ASSETS (not leased)",
+			"ComponentName":"NCA_tangNL_add",
+			"Weight":1
+		},
+		{
+			"ParentName":"TANGIBLE FIXED ASSETS (not leased)",
+			"ComponentName":"NCA_tangNL_dep",
+			"Weight":1
+		},
+		{
+			"ParentName":"TANGIBLE FIXED ASSETS (not leased)",
+			"ComponentName":"NCA_tangNL_disp",
+			"Weight":1
+		},
+		{
+			"ParentName":"TANGIBLE FIXED ASSETS (not leased)",
+			"ComponentName":"NCA_tangNL_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"INTANGIBLE FIXED ASSETS (not leased)",
+			"ComponentName":"NCA_intgNL_add",
+			"Weight":1
+		},
+		{
+			"ParentName":"INTANGIBLE FIXED ASSETS (not leased)",
+			"ComponentName":"NCA_intgNL_bf",
+			"Weight":1
+		},
+		{
+			"ParentName":"INTANGIBLE FIXED ASSETS (not leased)",
+			"ComponentName":"NCA_intgNL_amort",
+			"Weight":1
+		},
+		{
+			"ParentName":"INTANGIBLE FIXED ASSETS (not leased)",
+			"ComponentName":"NCA_intgNL_disp",
+			"Weight":1
+		},
+		{
+			"ParentName":"INTANGIBLE FIXED ASSETS (not leased)",
+			"ComponentName":"NCA_intgNL_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"LEASED TANGIBLE FIXED ASSETS",
+			"ComponentName":"NCA_tangLE_bf",
+			"Weight":1
+		},
+		{
+			"ParentName":"LEASED TANGIBLE FIXED ASSETS",
+			"ComponentName":"NCA_tangLE_add",
+			"Weight":1
+		},
+		{
+			"ParentName":"LEASED TANGIBLE FIXED ASSETS",
+			"ComponentName":"NCA_tangLE_dep",
+			"Weight":1
+		},
+		{
+			"ParentName":"LEASED TANGIBLE FIXED ASSETS",
+			"ComponentName":"NCA_tangLE_disp",
+			"Weight":1
+		},
+		{
+			"ParentName":"LEASED TANGIBLE FIXED ASSETS",
+			"ComponentName":"NCA_tangLE_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"LEASED INTANGIBLE FIXED ASSETS",
+			"ComponentName":"NCA_intgLE_bf",
+			"Weight":1
+		},
+		{
+			"ParentName":"LEASED INTANGIBLE FIXED ASSETS",
+			"ComponentName":"NCA_intgLE_add",
+			"Weight":1
+		},
+		{
+			"ParentName":"LEASED INTANGIBLE FIXED ASSETS",
+			"ComponentName":"NCA_intgLE_amort",
+			"Weight":1
+		},
+		{
+			"ParentName":"LEASED INTANGIBLE FIXED ASSETS",
+			"ComponentName":"NCA_intgLE_disp",
+			"Weight":1
+		},
+		{
+			"ParentName":"LEASED INTANGIBLE FIXED ASSETS",
+			"ComponentName":"NCA_intgLE_other",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL NON-CURRENT ASSETS",
+			"ComponentName":"FIXED ASSETS",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL NON-CURRENT ASSETS",
+			"ComponentName":"NCA_othr_deftax",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL NON-CURRENT ASSETS",
+			"ComponentName":"NCA_othr_intergreceiveDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL NON-CURRENT ASSETS",
+			"ComponentName":"NCA_othr_intergreceiveNONDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL NON-CURRENT ASSETS",
+			"ComponentName":"NCA_othr_investments",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL NON-CURRENT ASSETS",
+			"ComponentName":"NCA_othr_conassets",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL CURRENT ASSETS",
+			"ComponentName":"Inventory",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL CURRENT ASSETS",
+			"ComponentName":"CAS_tradereceivables",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL CURRENT ASSETS",
+			"ComponentName":"CAS_tradereceivables_Interco",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL CURRENT ASSETS",
+			"ComponentName":"CAS_conassets",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL CURRENT ASSETS",
+			"ComponentName":"Other Receiveables",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL CURRENT ASSETS",
+			"ComponentName":"CAS_cash",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL CURRENT LIABILITIES",
+			"ComponentName":"CLI_tradepayables",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL CURRENT LIABILITIES",
+			"ComponentName":"CLI_tradepayables_Interco",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL CURRENT LIABILITIES",
+			"ComponentName":"CLI_accruals",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL CURRENT LIABILITIES",
+			"ComponentName":"CLI_lease",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL CURRENT LIABILITIES",
+			"ComponentName":"CLI_conliab",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL CURRENT LIABILITIES",
+			"ComponentName":"Other Payables",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL CURRENT LIABILITIES",
+			"ComponentName":"CLI_divpayables",
+			"Weight":1
+		},
+		{
+			"ParentName":"NET CURRENT ASSETS / (LIABILITIES)",
+			"ComponentName":"TOTAL CURRENT ASSETS",
+			"Weight":1
+		},
+		{
+			"ParentName":"NET CURRENT ASSETS / (LIABILITIES)",
+			"ComponentName":"TOTAL CURRENT LIABILITIES",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL NON-CURRENT LIABILITIES",
+			"ComponentName":"NCL_lease",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL NON-CURRENT LIABILITIES",
+			"ComponentName":"NCL_pension",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL NON-CURRENT LIABILITIES",
+			"ComponentName":"NCL_intergpayablesNONDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL NON-CURRENT LIABILITIES",
+			"ComponentName":"NCL_loans",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL NON-CURRENT LIABILITIES",
+			"ComponentName":"NCL_intergpayablesDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"NET ASSETS / (LIABILITIES)",
+			"ComponentName":"TOTAL NON-CURRENT ASSETS",
+			"Weight":1
+		},
+		{
+			"ParentName":"NET ASSETS / (LIABILITIES)",
+			"ComponentName":"NET CURRENT ASSETS / (LIABILITIES)",
+			"Weight":1
+		},
+		{
+			"ParentName":"NET ASSETS / (LIABILITIES)",
+			"ComponentName":"TOTAL NON-CURRENT LIABILITIES",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL EQUITY AND RESERVES",
+			"ComponentName":"EQU_capital",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL EQUITY AND RESERVES",
+			"ComponentName":"EQU_adjustments",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL EQUITY AND RESERVES",
+			"ComponentName":"EQU_sharepremium",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL EQUITY AND RESERVES",
+			"ComponentName":"EQU_transreserve",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL EQUITY AND RESERVES",
+			"ComponentName":"EQU_othreserve",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL EQUITY AND RESERVES",
+			"ComponentName":"EQU_retainedearnings",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL EQUITY AND RESERVES",
+			"ComponentName":"EQU_retainedearningsbf",
+			"Weight":1
+		},
+		{
+			"ParentName":"TOTAL EQUITY AND RESERVES",
+			"ComponentName":"EQU_noncontrol",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Cash Movement",
+			"ComponentName":"Trading Cashflows",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total Cash Movement",
+			"ComponentName":"Non-Trade Intragroup Cash Inflows / (Outflows)",
+			"Weight":1
+		},
+		{
+			"ParentName":"FIXED ASSETS",
+			"ComponentName":"TANGIBLE FIXED ASSETS (not leased)",
+			"Weight":1
+		},
+		{
+			"ParentName":"FIXED ASSETS",
+			"ComponentName":"INTANGIBLE FIXED ASSETS (not leased)",
+			"Weight":1
+		},
+		{
+			"ParentName":"FIXED ASSETS",
+			"ComponentName":"LEASED TANGIBLE FIXED ASSETS",
+			"Weight":1
+		},
+		{
+			"ParentName":"FIXED ASSETS",
+			"ComponentName":"LEASED INTANGIBLE FIXED ASSETS",
+			"Weight":1
+		},
+		{
+			"ParentName":"FIXED ASSET CAPEX",
+			"ComponentName":"CF_TFAcapex",
+			"Weight":1
+		},
+		{
+			"ParentName":"FIXED ASSET CAPEX",
+			"ComponentName":"CF_IFAcapex",
+			"Weight":1
+		},
+		{
+			"ParentName":"CF Depreciation and Amortisation",
+			"ComponentName":"CF_depnnb",
+			"Weight":1
+		},
+		{
+			"ParentName":"CF Depreciation and Amortisation",
+			"ComponentName":"CF_amort",
+			"Weight":1
+		},
+		{
+			"ParentName":"CF Depreciation and Amortisation",
+			"ComponentName":"CF_depnb",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Payables",
+			"ComponentName":"CLI_otherpayables",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Payables",
+			"ComponentName":"CLI_provisions",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Payables",
+			"ComponentName":"CLI_taxliab",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Payables",
+			"ComponentName":"CLI_defdtax",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Payables",
+			"ComponentName":"CLI_loans",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Payables",
+			"ComponentName":"CLI_intergpayablesNONDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Payables",
+			"ComponentName":"CLI_intergpayablesDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"Inventory",
+			"ComponentName":"CAS_invt_cost",
+			"Weight":1
+		},
+		{
+			"ParentName":"Inventory",
+			"ComponentName":"CAS_invt_prov",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Receiveables",
+			"ComponentName":"CAS_prepayments",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Receiveables",
+			"ComponentName":"CAS_otherreceive",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Receiveables",
+			"ComponentName":"CAS_assetsale",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Receiveables",
+			"ComponentName":"CAS_intergreceiveNONDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Receiveables",
+			"ComponentName":"CAS_intergreceiveDIV",
+			"Weight":1
+		},
+		{
+			"ParentName":"Other Receiveables",
+			"ComponentName":"CAS_curtax",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Maintenance",
+			"ComponentName":"OVH_fact_machmain",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Maintenance",
+			"ComponentName":"OVH_fact_toolmain",
+			"Weight":1
+		},
+		{
+			"ParentName":"MS Maintenance",
+			"ComponentName":"OVH_fact_proprep",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Accounts - MA.subsets/ADM Dim Control.json",
+		"Accounts - MA.subsets/Administrative Overheads Reporting Subset.json",
+		"Accounts - MA.subsets/All Members.json",
+		"Accounts - MA.subsets/All Trial Balance Accounts.json",
+		"Accounts - MA.subsets/Balance Sheet and Reserves Reporting Subset.json",
+		"Accounts - MA.subsets/Balance Sheet Reporting Subset.json",
+		"Accounts - MA.subsets/Balance Sheet Reporting Subset - MI Detail.json",
+		"Accounts - MA.subsets/Cashflow Mapping.json",
+		"Accounts - MA.subsets/Cashflow Reporting Subset.json",
+		"Accounts - MA.subsets/Default.json",
+		"Accounts - MA.subsets/Entity Performance BS.json",
+		"Accounts - MA.subsets/Entity Performance Reporting Subset - KPI.json",
+		"Accounts - MA.subsets/Entity Performance Reporting Subset - MS.json",
+		"Accounts - MA.subsets/Fixed Assets.json",
+		"Accounts - MA.subsets/KPI Reporting Subset.json",
+		"Accounts - MA.subsets/KPI Reporting Subset - Act Fore Bud PY.json",
+		"Accounts - MA.subsets/KPI Reporting Subset - Act Fore by Month.json",
+		"Accounts - MA.subsets/KPI Reporting Subset - MI.json",
+		"Accounts - MA.subsets/KPI Reporting Subset - MI Detail.json",
+		"Accounts - MA.subsets/P&L - Act Fore Bud PY.json",
+		"Accounts - MA.subsets/P&L - Act Fore by Month.json",
+		"Accounts - MA.subsets/P&L Reporting Subset.json",
+		"Accounts - MA.subsets/P&L Reporting Subset - MI.json",
+		"Accounts - MA.subsets/P&L Reporting Subset - MI Detail.json",
+		"Accounts - MA.subsets/P&L Reporting Subset 2.json",
+		"Accounts - MA.subsets/Summary Group Balance Sheet.json",
+		"Accounts - MA.subsets/Summary Group Performance Reporting Subset.json",
+		"Accounts - MA.subsets/Summary Group Performance Reporting Subset - Balance Sheet.json",
+		"Accounts - MA.subsets/Summary Group Performance Reporting Subset - CAPEX.json",
+		"Accounts - MA.subsets/Summary Group Performance Reporting Subset - Cashflow.json",
+		"Accounts - MA.subsets/Summary Group Performance Reporting Subset - D&E.json",
+		"Accounts - MA.subsets/Summary Group Performance Reporting Subset - KPI.json",
+		"Accounts - MA.subsets/Summary Group Performance Reporting Subset - MS.json"
+	]
+}

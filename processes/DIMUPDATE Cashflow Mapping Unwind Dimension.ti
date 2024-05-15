@@ -1,0 +1,23 @@
+#region Prolog
+dimname = 'Accounts - Cashflow';
+subname = GetProcessName();
+
+if (SubsetExists( dimname, subname )= 1); 
+    SubsetDestroy( dimname, subname  ); 
+endif;
+SubsetCreatebyMDX( subname, 'TM1FILTERBYLEVEL({FILTER(TM1SubsetAll([Accounts - Cashflow].[Accounts - Cashflow]), ([Accounts - Cashflow].[Accounts - Cashflow].CURRENTMEMBER.PROPERTIES("Display") = "N"))}, 0)', 1 );
+
+DataSourceType='SUBSET';
+DatasourceDimensionSubset = subname;
+#endregion
+#region Metadata
+maxpar = ElParn( dimname, vel );
+i = 1;
+while(i<= maxpar);
+    DimensionElementComponentDelete( dimname, ELPAR( dimname, vEl, i ), vEl );
+    i = i+1;
+end;
+#endregion
+#region Epilog
+ExecuteProcess( 'DIMUPDATE Cashflow Mapping Wind Up' );
+#endregion

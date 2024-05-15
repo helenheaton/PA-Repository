@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"Intercompany Partner",
+	"Hierarchies@Code.links":
+	[
+		"Intercompany Partner.hierarchies/Intercompany Partner.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('Intercompany Partner')/Hierarchies('Intercompany Partner')"
+	}
+}

@@ -1,0 +1,52 @@
+#region Prolog
+
+## Process created by STeven Hutchison Budgeting Solutions Ltd 05/02/2024
+## This process will create a new consolidation journal in the Journal Reference dimension
+## This process will be triggered when a user submits the current journal
+## The model settings cube will be updated upon submission to flag the most recently submitted journal.
+
+## Define Variables
+sSub = 'Current Consol Adjustment Journal';
+
+## Get the most recent journal number from the model settings cube
+sCurrentJournal = CellGetS('Model Settings', 'Value', 'Last Submitted Consol Adjustment Journal' );
+
+nCurrentJournal = StringToNumber( sCurrentJournal );
+nNextJournal = nCurrentJournal + 1;
+
+sNextJournal = NumberToString( nNextJournal );
+
+## Populate the model settings cube with new current journal
+CellPutS( sNextJournal, 'Model Settings', 'Value', 'Current Consol Adjustment Journal' );
+
+## Add the new journal to the Journal Reference dimension
+DimensionElementInsertDirect( 'Journal Reference', '', sNextJournal, 'N' );
+
+IF(pRecurring @= 'Yes');
+    AttrPutS( '1', 'Journal Reference', sCurrentJournal, 'Recurring Journal');
+	AttrPutS( pRecurringName, 'Journal Reference', sCurrentJournal, 'Recurring Journal Name');
+ENDIF;
+
+## Update current journal subset
+SubsetDeleteAllElements( 'Journal Reference', sSub );
+SubsetElementInsert( 'Journal Reference', sSub, sNextJournal, 1 );
+
+
+
+
+
+
+
+
+
+
+
+#endregion
+#region Data
+
+
+
+#endregion
+#region Epilog
+
+#endregion

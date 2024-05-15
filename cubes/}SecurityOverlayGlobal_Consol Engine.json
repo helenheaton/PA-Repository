@@ -1,0 +1,30 @@
+{
+	"@type":"Cube",
+	"Name":"}SecurityOverlayGlobal_Consol Engine",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Financial Period')"
+		},
+		{
+			"@id":"Dimensions('Company')"
+		},
+		{
+			"@id":"Dimensions('Consolidation Layer')"
+		},
+		{
+			"@id":"Dimensions('}SecurityOverlay')"
+		}
+	],
+	"Rules@Code.link":"}SecurityOverlayGlobal_Consol Engine.rules",
+	"Views@Code.links":
+	[
+		"}SecurityOverlayGlobal_Consol Engine.views/Default.json"
+	]
+}

@@ -1,0 +1,38 @@
+[{'Element', 'Parent'}] = S:IF( DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Add/Remove'  )@= '', '', continue);
+['Parent'] = S:IF( DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Add/Remove'  )@= 'Delete Element', '', continue);
+
+['Check'] = S:IF( DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Add/Remove'  )@= '', 'Choose a Maintenance Function', Continue );
+['Check'] = S:IF( DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Add/Remove'   )@= 'Add to Parent', 
+              IF(  DIMIX(!}dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Element'   ))= 0, 'Choose an already existing Element', 
+              IF( DIMIX(!}dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Parent'   ))= 0,'Choose an already existing Parent', 
+              IF( DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Element'   )@=DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Parent'   ),'Element and Parent Cannot be the same', 
+              IF( ELISANC(!}Dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Element'   ), DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'parent'   ) )<> 0, 'Element Cannot be an Ancestor of Parent', 
+              IF( ElementIsParent(!'}Dimensions', !'}Dimensions',DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Parent'   ) , DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Element'   )) = 1, 'Already Parent of Element', 
+              IF( ELLEV(!}Dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'parent'   ) )=0, 'Parent is leaf Level', 
+              'Verified' )))))), continue);
+['Check'] = S:IF( DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Add/Remove'   )@= 'Remove from Parent', 
+              IF(  DIMIX(!}dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Element'   ))= 0, 'Choose an already existing Element', 
+              IF( DIMIX(!}dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Parent'   ))= 0,'Choose an already existing Parent', 
+              IF( DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Element'   )@=DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Parent'   ),'Element and Parent Cannot be the same', 
+              IF( ElementIsParent(!'}Dimensions', !'}Dimensions',DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Parent'   ) , DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Element'   )) = 0, 'Not a Parent of Element', 
+              IF( ELLEV(!}Dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'parent'   ) )=0, 'Parent is leaf Level', 
+              'Verified' ))))), continue);
+['Check'] = S:IF( DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Add/Remove'   )@= 'Create Element', 
+              IF(  DIMIX(!}dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Element'   ))<> 0, 'Element Already Exists', 
+              IF( DIMIX(!}dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Parent'   ))= 0,'Choose an already existing Parent to Add Element to', 
+              IF( DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Element'   )@=DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Parent'   ),'Element and Parent Cannot be the same',  
+              IF( ELLEV(!}Dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'parent'   ) )=0, 'Parent is leaf Level', 
+              'Verified' )))), continue);
+              
+['Check'] = S:IF( DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Add/Remove'   )@= 'Create Consolidated Element', 
+              IF(  DIMIX(!}dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Element'   ))<> 0, 'Element Already Exists', 
+              IF( DIMIX(!}dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Parent'   ))= 0,'Choose an already existing Parent to Add Element to', 
+              IF( DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Element'   )@=DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Parent'   ),'Element and Parent Cannot be the same',  
+              IF( ELLEV(!}Dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'parent'   ) )=0, 'Parent is leaf Level', 
+              'Verified' )))), continue);
+              
+['Check'] = S:IF( DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Add/Remove'   )@= 'Delete Element', 
+              IF(  DIMIX(!}dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Element'   ))= 0, 'Not an Existing Element', 
+              IF(  ATTRS( '}Dimensions', !}Dimensions,'Allow Leaf Element Deletion?' )@='N', IF(  ELLEV(!}Dimensions, DB( 'ADM Dimension Maintenance', !'ADM - Generic Items', !'}Dimensions', 'Element'   ) )=0, 'Leaf Elements Cannot be deleted in this dimension.', 
+              'Verified' ),
+              'Verified' )), continue);

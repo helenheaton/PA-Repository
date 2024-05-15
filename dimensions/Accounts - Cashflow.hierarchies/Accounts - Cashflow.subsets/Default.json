@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Alias":"Display Name",
+	"Expression":"{FILTER(TM1SUBSETALL([Accounts - Cashflow].[Accounts - Cashflow]) , ([Accounts - Cashflow].[Accounts - Cashflow].CURRENTMEMBER.PROPERTIES(\"Display\") <> \"N\"))}"
+}

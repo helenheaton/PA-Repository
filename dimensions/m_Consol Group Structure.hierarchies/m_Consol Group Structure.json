@@ -1,0 +1,16 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Consol Group Structure",
+	"Elements":
+	[
+		{
+			"Name":"Parent",
+			"Type":"String"
+		},
+		{
+			"Name":"Include",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

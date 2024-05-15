@@ -1,0 +1,163 @@
+SKIPCHECK;
+
+## Currently rules only apply to actuals, version dimension has been included to future proof
+[]= IF(!Version @<>'Actual',STET,CONTINUE);
+
+## YTD values will be the closing balance from mar prior year, 
+
+['YTD','Balance b/f'] =N: 
+DB('Net Debt',!Version,ATTRS('Financial Year',!Financial Year,'Previous Year'),'P12','Period','Balance c/f',!m_Net Debt);
+
+['YTD','Balance c/f'] =N: ['Balance c/f','Period'];
+
+['YTD'] =N: DB('Net Debt',!Version,!Financial Year,!Financial Period | ' YTD','Period',!Accounts - Net Debt,!m_Net Debt);
+################# Leases ###################
+## Balance b/f
+['Leases','Balance b/f','Period'] =N: 
+IF(ATTRS('Financial Period',!Financial Period,'Previous Period Year')@='Current Year'
+,
+  DB('MA Reporting',!Version,'Group Total',!Financial Year,ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','NCL_lease','GBP MA','Financial Accounts','Value')
+  +
+  DB('MA Reporting',!Version,'Group Total',!Financial Year,ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','CLI_lease','GBP MA','Financial Accounts','Value')
+,
+  DB('MA Reporting',!Version,'Group Total',ATTRS('Financial Year',!Financial Year,'Previous Year'),ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','NCL_lease','GBP MA','Financial Accounts','Value')
+  +
+  DB('MA Reporting',!Version,'Group Total',ATTRS('Financial Year',!Financial Year,'Previous Year'),ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','CLI_lease','GBP MA','Financial Accounts','Value')
+);
+
+## rule for P01 - don't take away prev period, just ytd for p01. 
+## Drawings / New Debt
+## Is this reversal correct?
+# ['Leases','Drawings/New Debt','Period'] =N: 
+
+# (DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','NCA_tangLE_add','GBP MA','Financial Accounts','Value') * -1 
+# +
+# DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','NCA_intangLE_add','GBP MA','Financial Accounts','Value') * -1)
+# -
+# IF(ATTRS('Financial Period',!Financial Period,'Previous Period Year')@='Current Year'
+# ,
+#   (DB('MA Reporting',!Version,'Group Total',!Financial Year,ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','NCA_tangLE_add','GBP MA','Financial Accounts','Value') * -1
+#   +
+#   DB('MA Reporting',!Version,'Group Total',!Financial Year,ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','NCA_intangLE_add','GBP MA','Financial Accounts','Value') * -1)
+# ,
+#   DB('MA Reporting',!Version,'Group Total',ATTRS('Financial Year',!Financial Year,'Previous Year'),ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','NCA_tangLE_add','GBP MA','Financial Accounts','Value') * -1
+#   +
+#   DB('MA Reporting',!Version,'Group Total',ATTRS('Financial Year',!Financial Year,'Previous Year'),ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','NCA_intangLE_add','GBP MA','Financial Accounts','Value') * -1
+ 
+# );
+
+['Leases','Drawings/New Debt','Period'] =N: 
+
+IF(!Financial Period@='P01'
+,
+  (DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period | ' YTD','Period','NCA_tangLE_add','GBP MA','Financial Accounts','Value') * -1 
+  +
+  DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period | ' YTD','Period','NCA_intangLE_add','GBP MA','Financial Accounts','Value') * -1)
+,
+  (DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','NCA_tangLE_add','GBP MA','Financial Accounts','Value') * -1 
+  +
+  DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','NCA_intangLE_add','GBP MA','Financial Accounts','Value') * -1)
+  -
+  (DB('MA Reporting',!Version,'Group Total',!Financial Year,ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','NCA_tangLE_add','GBP MA','Financial Accounts','Value') * -1
+  +
+  DB('MA Reporting',!Version,'Group Total',!Financial Year,ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','NCA_intangLE_add','GBP MA','Financial Accounts','Value') * -1)
+);
+
+## Lease Capital Repayments
+## Is this reversal correct?
+## SH 14/05/2024 - changed as this data is now in the MA cashflow cube
+# ['Leases','Capital Repayment','Period'] =N: 
+# DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','CF_LeaseCapital','GBP MA','Financial Accounts','Value')* -1;
+
+['Leases','Capital Repayment','Period'] =N: 
+DB('MA Cashflow',!Version,'Group Total',!Financial Year,!Financial Period,'Period','CF_LeaseCapital','GBP MA','Financial Accounts','Value')* -1;
+
+
+## Balance c/f
+['Leases','Balance c/f','Period'] =N: 
+DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','NCL_lease','GBP MA','Financial Accounts','Value')
++
+DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','CLI_lease','GBP MA','Financial Accounts','Value');
+
+
+################## Bank and Other Debt #####################
+
+['Bank and Other Debt','Balance b/f','Period'] =N: 
+IF(ATTRS('Financial Period',!Financial Period,'Previous Period Year')@='Current Year'
+,
+  DB('MA Reporting',!Version,'Group Total',!Financial Year,ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','NCL_loans','GBP MA','Financial Accounts','Value')
+  +
+  DB('MA Reporting',!Version,'Group Total',!Financial Year,ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','CLI_loans','GBP MA','Financial Accounts','Value')
+,
+  DB('MA Reporting',!Version,'Group Total',ATTRS('Financial Year',!Financial Year,'Previous Year'),ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','NCL_loans','GBP MA','Financial Accounts','Value')
+  +
+  DB('MA Reporting',!Version,'Group Total',ATTRS('Financial Year',!Financial Year,'Previous Year'),ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','CLI_loans','GBP MA','Financial Accounts','Value')
+);
+
+['Bank and Other Debt','Balance c/f','Period'] =N: 
+DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','NCL_loans','GBP MA','Financial Accounts','Value')
++
+DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','CLI_loans','GBP MA','Financial Accounts','Value');
+
+## Capitalisation of Bank Arrangement Fee - this is a manual input - UX to be provided
+['Bank and Other Debt','Capitalisation of Bank Arrangement Fee','Period'] =N: STET;
+
+## Amortisation of Bank Arrangement Fee - this is a manual input - UX to be provided
+['Bank and Other Debt','Amortisation of Bank Arrangement Fee','Period'] =N: STET;
+
+## FX on Bank Term Loans - this is a manual input - UX to be provided
+['Bank and Other Debt','FX on Bank Term Loans (Hedging)','Period'] =N: STET;
+
+## If CF_NCLLoansRepay is positive, put it into drawings/new debt, if it is negative, put it into Capital Repayment
+['Bank and Other Debt','Drawings/New Debt','Period'] = N:
+IF(DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','CF_NCLLoansRepay','GBP MA','Financial Accounts','Value') > 0
+,
+  DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','CF_NCLLoansRepay','GBP MA','Financial Accounts','Value')
+,
+  CONTINUE
+);
+
+['Bank and Other Debt','Capital Repayment','Period'] = N:
+IF(DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','CF_NCLLoansRepay','GBP MA','Financial Accounts','Value') < 0
+,
+  DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','CF_NCLLoansRepay','GBP MA','Financial Accounts','Value') *-1
+,
+  CONTINUE
+);
+
+
+######### Cash #########
+## Ask Stephen where the balances come from
+['Cash','Balance b/f','Period'] =N:
+IF(ATTRS('Financial Period',!Financial Period,'Previous Period Year')@='Current Year'
+,
+  DB('MA Reporting',!Version,'Group Total',!Financial Year,ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','CAS_Cash','GBP MA','Financial Accounts','Value')
+,
+  DB('MA Reporting',!Version,'Group Total',ATTRS('Financial Year',!Financial Year,'Previous Year'),ATTRS('Financial Period',!Financial Period,'Previous Period'),'YTD','CAS_Cash','GBP MA','Financial Accounts','Value')
+);
+
+['Cash','Balance c/f','Period'] =N:
+DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','CAS_Cash','GBP MA','Financial Accounts','Value');
+
+
+# ['Cash','Net Trading Cashflow less Debt Movement','Period'] =N:
+# DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','Trading Cashflows','GBP MA','Financial Accounts','Value')
+# -
+# DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','CF_NCLLoansRepay','GBP MA','Financial Accounts','Value')
+# -
+# DB('MA Reporting',!Version,'Group Total',!Financial Year,!Financial Period,'YTD','CF_LeaseCapital','GBP MA','Financial Accounts','Value');
+
+['Cash','Net Trading Cashflow less Debt Movement','Period'] =N:
+DB('MA Cashflow',!Version,'Group Total',!Financial Year,!Financial Period,'Period','Trading Cashflows','GBP MA','Financial Accounts','Value')
+-
+DB('Net Debt', !Version, !'Financial Year', !'Financial Period', !'Period YTD', 'Capital Repayment', 'Cash' );
+
+
+['Cash','Capital Repayment','Period'] =N: ['Gross Debt','Capital Repayment'] * -1;
+
+#['FX Retranslation of Overseas Net Debt Balances','Cash'] =C: (['Balance b/f'] * -1) + ['Balance c/f'] - ['Net Trading Cashflow Less Debt Movement'] - ['Capital Repayment'];
+
+FEEDERS;
+
+['Gross Debt','Capital Repayment','Actual'] => ['Cash','Capital Repayment'];
+['Period','Actual'] => ['YTD'];  

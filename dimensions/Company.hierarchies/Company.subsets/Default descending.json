@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Default descending",
+	"Alias":"Short Name",
+	"Expression":"{ORDER(TM1TOGGLEEXPANDMODE(TM1SubsetToSet([Company].[Company] , \"Default\" , \"public\") , EXPAND_ABOVE) , IIF([Company].[Company].CURRENTMEMBER.PROPERTIES(\"Short Name\")=\"\", [Company].[Company].CURRENTMEMBER.PROPERTIES(\"MEMBER_CAPTION\"), [Company].[Company].CURRENTMEMBER.PROPERTIES(\"Short Name\")) , DESC)}"
+}

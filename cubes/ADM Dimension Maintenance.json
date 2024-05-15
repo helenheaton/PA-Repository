@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"ADM Dimension Maintenance",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('ADM - Generic Items')"
+		},
+		{
+			"@id":"Dimensions('}Dimensions')"
+		},
+		{
+			"@id":"Dimensions('ADM - Account Maintenance')"
+		}
+	],
+	"Rules@Code.link":"ADM Dimension Maintenance.rules",
+	"Views@Code.links":
+	[
+		"ADM Dimension Maintenance.views/Default.json"
+	]
+}

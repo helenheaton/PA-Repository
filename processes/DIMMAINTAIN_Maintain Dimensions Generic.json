@@ -1,0 +1,66 @@
+{
+	"@type":"Process",
+	"Name":"DIMMAINTAIN_Maintain Dimensions Generic",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"DIMMAINTAIN_Maintain Dimensions Generic.ti",
+	"UIData":"_ParameterConstraints=e30=\f",
+	"VariablesUIData":
+	[
+		"VarType=32\fColType=827\f",
+		"IgnoredInputVarName=vDim\fVarType=32\fColType=1165\f",
+		"VarType=32\fColType=827\f",
+		"VarType=32\fColType=827\f"
+	],
+	"DataSource":
+	{
+		"Type":"TM1CubeView",
+		"dataSourceNameForClient":"ADM Dimension Maintenance",
+		"dataSourceNameForServer":"ADM Dimension Maintenance",
+		"view":"DIMMAINTAIN_Maintain Dimensions Generic"
+	},
+	"Parameters":
+	[
+		{
+			"Name":"pDim",
+			"Prompt":"",
+			"Value":"",
+			"Type":"String"
+		},
+		{
+			"Name":"pConfirmDelete",
+			"Prompt":"Type the element name of ALL elements marked for delete, seperated by a semicolon. If these are not exact, the element will not be deleted. Element Names are Case Sensitive.",
+			"Value":"Example: Element_1;Element_2;Element_3",
+			"Type":"String"
+		},
+		{
+			"Name":"pConfirm",
+			"Prompt":"WARNING: CHECK CHANGES ARE CORRECT. IT IS MUCH HARDER TO RESTORE A BACKUP THAN IT IS TO GET IT RIGHT FIRST TIME.",
+			"Value":"Enter 1 here to confirm changes.",
+			"Type":"String"
+		}
+	],
+	"Variables":
+	[
+		{
+			"Name":"vItem",
+			"Type":"String",
+			"Position":1,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"vMeas",
+			"Type":"String",
+			"Position":3,
+			"StartByte":0,
+			"EndByte":0
+		},
+		{
+			"Name":"Value",
+			"Type":"String",
+			"Position":4,
+			"StartByte":0,
+			"EndByte":0
+		}
+	]
+}

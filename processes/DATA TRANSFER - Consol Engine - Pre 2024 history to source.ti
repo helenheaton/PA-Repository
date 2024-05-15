@@ -1,0 +1,102 @@
+#region Prolog
+
+## Process created by Helen Heaton Budgeting Solutions Ltd 13/02/2024
+## This process will copy data from the Management Accounts Layer to the Source Submission Layer in the Consol Engine cube for years prior to 2024
+
+### Define Variables ###
+sCubeSource = 'Consol Engine';
+sCubeTarget = 'Consol Engine';
+
+sSourceLayer = 'MA Import';
+sTargetLayer = 'Local Source System';
+
+sViewSource = GetProcessName() | ' Source';
+sViewTarget = GetProcessName() | ' Target';
+
+sMsg = '';
+nTmp = 1;
+
+### Turn off logging on destination cube ###
+nOldLog = CubeGetLogChanges( sCubeTarget );
+CubeSetLogChanges( sCubeTarget, 0 );
+
+#############################################################################################################
+### SOURCE VIEW
+#############################################################################################################
+
+### Create Source view ###
+ViewCreate( sCubeSource, sViewSource, nTmp );
+
+### Create and assign subsets to be used in the view ###
+# Year - Years prior to 2024
+sDim = 'Financial Year';
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, 'HistoryToCopy' );
+
+# Layer
+sDim = 'Consolidation Layer';
+SubsetCreate( sDim, sViewSource, nTmp );
+SubsetElementInsert( sDim, sViewSource, sSourceLayer, 1 );
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, sViewSource );
+
+# Version
+sDim = 'Version';
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, 'Actual' );
+
+### Set view properties ###
+ViewExtractSkipCalcsSet( sCubeSource, sViewSource, 1 );
+ViewExtractSkipRuleValuesSet( sCubeSource, sViewSource, 1 );
+ViewExtractSkipZeroesSet( sCubeSource, sViewSource, 1 );
+
+### Data Source Information ###
+DataSourceType = 'View';
+DatasourceNameForServer = sCubeSource;
+DatasourceCubeview = sViewSource;
+
+
+#############################################################################################################
+### TARGET VIEW
+#############################################################################################################
+
+### Create Target view ###
+ViewCreate( sCubeTarget, sViewTarget, nTmp );
+
+### Create and assign subsets to be used in the view ###
+# Year - Years prior to 2024
+sDim = 'Financial Year';
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, 'HistoryToCopy' );
+
+# Layer
+sDim = 'Consolidation Layer';
+SubsetCreate( sDim, sViewTarget, nTmp );
+SubsetElementInsert( sDim, sViewTarget, sTargetLayer, 1 );
+ViewSubsetAssign( sCubeTarget, sViewTarget, sDim, sViewTarget );
+
+# Version
+sDim = 'Version';
+ViewSubsetAssign( sCubeSource, sViewSource, sDim, 'Actual' );
+
+### Clear Target ###
+ViewZeroOut( sCubeTarget, sViewTarget );
+
+#endregion
+#region Data
+IF (CellIsUpdateable( 'Consol Engine', 'Actual', vYear, vPeriod, vYTD, vCompany, vAccount, vFX, sTargetLayer, 'Value' ) = 1);
+	CellPutN( Value, 'Consol Engine', 'Actual', vYear, vPeriod, vYTD, vCompany, vAccount, vFX, sTargetLayer, 'Value' ); 
+ENDIF;
+#endregion
+#region Epilog
+## Turn logging back to original state
+CubeSetLogChanges( sCubeTarget, nOldLog );
+
+
+
+
+
+
+#
+
+
+
+
+
+#endregion

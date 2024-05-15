@@ -1,0 +1,112 @@
+#---------------------------------------------------------------------------------------------------
+# Submission Checks
+# This cube cube allows the Group Administrator to check the status of local submissions and lock the individual companies submissions for the current period
+# 
+# Created by Helen Heaton | Budgeting Solutions | 05/03/2024
+#
+#---------------------------------------------------------------------------------------------------
+SKIPCHECK;
+
+# Perform checks in the "current" submission
+# If submission is successful, copy the submission status and checks in to the submission version, increment the versions and the last submission
+# lock the local source system layer for the current period for the actuals for the submitted company
+
+
+
+# Added by JGP for admin - period submission process
+# ['Current','Submission number'] = STET;
+
+# ['Lock Status'] = if(!Submissions@<>'Current',stet, continue);
+
+# ['Current'] = s:DB( 'Submission Checks', !Version, !Company, !'Financial Year', !'Financial Period', !'FX Calculation', str(DB( 'Submission Checks', !Version, !Company, !'Financial Year', !'Financial Period', !'FX Calculation', 'Current', 'Submission number'  ),1,0), !'m_Submissions Checks'  );
+
+# ['Current'] = n:DB( 'Submission Checks', !Version, !Company, !'Financial Year', !'Financial Period', !'FX Calculation', str(DB( 'Submission Checks', !Version, !Company, !'Financial Year', !'Financial Period', !'FX Calculation', 'Current', 'Submission number'  ),1,0), !'m_Submissions Checks'  );
+
+
+
+### Check TBs balance ###
+['Month Trial Balance','Current'] = db('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'Period', !Company, 'TRIAL BALANCE', !FX Calculation, 'Local Submission', 'Value' );
+['YTD Trial Balance','Current'] = db('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'TRIAL BALANCE', !FX Calculation, 'Local Submission', 'Value' );
+
+['Trial Balance Status','Current'] = s:
+  IF ( ABS(['Month Trial Balance']) >  db('Model Settings', 'Value', 'TB Tolerance') * DB('Exchange Rates', DB('Model Settings', 'Value', 'Budget FX Source'), DB('Model Settings', 'Value', 'Budget FX Year'), DB('Model Settings', 'Value', 'Budget FX Fin Period'), attrs('Company', !Company, 'Base Currency'), 'MA Rate' )
+     , 'ERROR'
+     , CONTINUE
+     ); 
+     
+['Trial Balance Status','Current'] = s:
+  IF ( ABS(['YTD Trial Balance']) >  db('Model Settings', 'Value', 'TB Tolerance') * DB('Exchange Rates', DB('Model Settings', 'Value', 'Budget FX Source'), DB('Model Settings', 'Value', 'Budget FX Year'), DB('Model Settings', 'Value', 'Budget FX Fin Period'), attrs('Company', !Company, 'Base Currency'), 'MA Rate' )
+     , 'ERROR'
+     , 'OK'
+     ); 
+     
+     
+### Check Cashflow balance ###
+['Cash per Balance Sheet','Current'] = db('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'CAS_cash', !FX Calculation, 'Local Submission', 'Value' );
+['Cash per Cashflow','Current'] = db('MA Cashflow', !Version, !Company, !'Financial Year', !'Financial Period', 'Period',  'CF_closebal', !FX Calculation, 'Local Submission', 'Value' );
+
+['Cash Status','Current'] = s:
+  IF ( ABS(['Cash per Balance Sheet'] - ['Cash per Cashflow']) >  db('Model Settings', 'Value', 'TB Tolerance') * DB('Exchange Rates', DB('Model Settings', 'Value', 'Budget FX Source'), DB('Model Settings', 'Value', 'Budget FX Year'), DB('Model Settings', 'Value', 'Budget FX Fin Period'), attrs('Company', !Company, 'Base Currency'), 'MA Rate' ) 
+     , 'ERROR'
+     , 'OK'
+     ); 
+     
+
+### Check Depreciation balances ###
+['Depreciation per BS','Current'] = db('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'Period', !Company, 'NCA_tangLE_dep', !FX Calculation, 'Local Submission', 'Value' )
+                        + db('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'Period', !Company, 'NCA_intgLE_amort', !FX Calculation, 'Local Submission', 'Value' )
+                        + db('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'Period', !Company, 'NCA_intgNL_amort', !FX Calculation, 'Local Submission', 'Value' )
+                        + db('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'Period', !Company, 'NCA_tangNL_dep', !FX Calculation, 'Local Submission', 'Value' )
+                        ;
+
+['Depreciation per PL','Current'] = db('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'Period', !Company, 'OVH_fact_amort', !FX Calculation, 'Local Submission', 'Value' )
+                        + db('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'Period', !Company, 'OVH_fact_depnbuild', !FX Calculation, 'Local Submission', 'Value' )
+                        + db('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'Period', !Company, 'OVH_fact_depnother', !FX Calculation, 'Local Submission', 'Value' )
+                        ;
+
+['Depreciation check','Current'] = s:
+  IF ( ABS(['Depreciation per BS'] - ['Depreciation per PL']) >  db('Model Settings', 'Value', 'TB Tolerance') * DB('Exchange Rates', DB('Model Settings', 'Value', 'Budget FX Source'), DB('Model Settings', 'Value', 'Budget FX Year'), DB('Model Settings', 'Value', 'Budget FX Fin Period'), attrs('Company', !Company, 'Base Currency'), 'MA Rate' )
+     , 'ERROR'
+     , 'OK'
+     ); 
+
+
+### Overall Status ###
+['Overall Status','Current'] = s:
+  IF( db('Submission Checks', !Version, !Company, !'Financial Year', !'Financial Period', !'FX Calculation', !Submissions, 'Trial Balance Status' ) @= 'ERROR'
+    , 'ERROR'
+    , CONTINUE
+    );
+
+['Overall Status','Current'] = s:
+  IF( db('Submission Checks', !Version, !Company, !'Financial Year', !'Financial Period', !'FX Calculation', !Submissions, 'Intercompany Balance Status' ) @= 'ERROR'
+     ,'ERROR'
+     ,CONTINUE
+     );
+
+['Overall Status','Current'] = s:
+  IF( db('Submission Checks', !Version, !Company, !'Financial Year', !'Financial Period', !'FX Calculation', !Submissions, 'Depreciation check' ) @= 'ERROR'
+     ,'ERROR'
+     ,CONTINUE
+     );
+     
+['Overall Status','Current'] = s:
+  IF( db('Submission Checks', !Version, !Company, !'Financial Year', !'Financial Period', !'FX Calculation', !Submissions, 'Cash status' ) @= 'ERROR'
+     ,'ERROR'
+     ,CONTINUE
+     );
+
+['Overall Status','Current'] = s: 'OK';
+
+
+### Lock Status ###
+['Lock Status','Current'] = s:
+    IF( db('}SecurityOverlayGlobal_Consol Engine', !Version, !'Financial Year', !'Financial Period', !Company, 'Local Source System','Overlay Data' ) @= '1'
+       , 'LOCKED'
+       , 'UNLOCKED'
+       );
+
+### Submission Number ###
+['Submission Number','Current'] = n:
+   ['Submission Number','Last Submission','Local'] +1;
+    

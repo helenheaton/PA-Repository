@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Trial Balance Descendants",
+	"Expression":"{TM1FILTERBYLEVEL(TM1DRILLDOWNMEMBER({[Accounts - Group].[Accounts - Group].[TRIAL BALANCE]} , ALL , RECURSIVE) , 0)}"
+}

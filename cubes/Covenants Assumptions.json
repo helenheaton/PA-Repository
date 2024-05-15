@@ -1,0 +1,21 @@
+{
+	"@type":"Cube",
+	"Name":"Covenants Assumptions",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Financial Period')"
+		},
+		{
+			"@id":"Dimensions('Covenant')"
+		},
+		{
+			"@id":"Dimensions('m_Covenants Assumptions')"
+		}
+	],
+	"Rules@Code.link":"Covenants Assumptions.rules",
+	"Views@Code.links":[]
+}

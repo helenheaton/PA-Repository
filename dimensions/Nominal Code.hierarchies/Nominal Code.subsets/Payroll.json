@@ -1,5 +1,0 @@
-{
-	"@type":"Subset",
-	"Name":"Payroll",
-	"Expression":"{DRILLDOWNMEMBER({[Nominal Code].[Nominal Code].[Payroll]} , {[Nominal Code].[Nominal Code].[Payroll]} , RECURSIVE)}"
-}

@@ -1,0 +1,40 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Interco Data",
+	"Elements":
+	[
+		{
+			"Name":"Transaction Type",
+			"Type":"String"
+		},
+		{
+			"Name":"Details",
+			"Type":"String"
+		},
+		{
+			"Name":"Counterparty",
+			"Type":"String"
+		},
+		{
+			"Name":"TB Value",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LCY",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"GBP",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Currency",
+			"Type":"String"
+		},
+		{
+			"Name":"Exchange Rate",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

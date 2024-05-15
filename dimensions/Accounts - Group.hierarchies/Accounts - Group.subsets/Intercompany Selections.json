@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Intercompany Selections",
+	"Alias":"Description",
+	"Expression":"{{FILTER(TM1FILTERBYLEVEL(TM1SUBSETALL([Accounts - Group].[Accounts - Group]) , 0), ([Accounts - Group].[Accounts - Group].CURRENTMEMBER.PROPERTIES(\"Report Category\") = \"Balance Sheet\"))}}"
+}

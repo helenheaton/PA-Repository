@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Interco Data",
+	"Hierarchies@Code.links":
+	[
+		"m_Interco Data.hierarchies/m_Interco Data.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Interco Data')/Hierarchies('m_Interco Data')"
+	}
+}

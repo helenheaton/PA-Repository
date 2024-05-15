@@ -1,0 +1,676 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Financial Period",
+	"Elements":
+	[
+		{
+			"Name":"All Financial Periods",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"P01",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"P02",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"P03",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"P04",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"P05",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"P06",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"P07",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"P08",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"P09",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"P10",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"P11",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"P12",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"All YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"P01 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"P02 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"P03 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"P04 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"P05 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"P06 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"P07 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"P08 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"P09 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"P10 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"P11 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"P12 YTD",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Q1",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Q2",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Q3",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Q4",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Current Period",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"All Financial Periods",
+			"ComponentName":"Q1",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Financial Periods",
+			"ComponentName":"Q2",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Financial Periods",
+			"ComponentName":"Q3",
+			"Weight":1
+		},
+		{
+			"ParentName":"All Financial Periods",
+			"ComponentName":"Q4",
+			"Weight":1
+		},
+		{
+			"ParentName":"All YTD",
+			"ComponentName":"P01 YTD",
+			"Weight":0
+		},
+		{
+			"ParentName":"All YTD",
+			"ComponentName":"P02 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"All YTD",
+			"ComponentName":"P03 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"All YTD",
+			"ComponentName":"P04 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"All YTD",
+			"ComponentName":"P05 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"All YTD",
+			"ComponentName":"P06 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"All YTD",
+			"ComponentName":"P07 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"All YTD",
+			"ComponentName":"P08 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"All YTD",
+			"ComponentName":"P09 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"All YTD",
+			"ComponentName":"P10 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"All YTD",
+			"ComponentName":"P11 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"All YTD",
+			"ComponentName":"P12 YTD",
+			"Weight":1
+		},
+		{
+			"ParentName":"P01 YTD",
+			"ComponentName":"P01",
+			"Weight":1
+		},
+		{
+			"ParentName":"P02 YTD",
+			"ComponentName":"P01",
+			"Weight":1
+		},
+		{
+			"ParentName":"P02 YTD",
+			"ComponentName":"P02",
+			"Weight":1
+		},
+		{
+			"ParentName":"P03 YTD",
+			"ComponentName":"P01",
+			"Weight":1
+		},
+		{
+			"ParentName":"P03 YTD",
+			"ComponentName":"P02",
+			"Weight":1
+		},
+		{
+			"ParentName":"P03 YTD",
+			"ComponentName":"P03",
+			"Weight":1
+		},
+		{
+			"ParentName":"P04 YTD",
+			"ComponentName":"P01",
+			"Weight":1
+		},
+		{
+			"ParentName":"P04 YTD",
+			"ComponentName":"P02",
+			"Weight":1
+		},
+		{
+			"ParentName":"P04 YTD",
+			"ComponentName":"P03",
+			"Weight":1
+		},
+		{
+			"ParentName":"P04 YTD",
+			"ComponentName":"P04",
+			"Weight":1
+		},
+		{
+			"ParentName":"P05 YTD",
+			"ComponentName":"P01",
+			"Weight":1
+		},
+		{
+			"ParentName":"P05 YTD",
+			"ComponentName":"P02",
+			"Weight":1
+		},
+		{
+			"ParentName":"P05 YTD",
+			"ComponentName":"P03",
+			"Weight":1
+		},
+		{
+			"ParentName":"P05 YTD",
+			"ComponentName":"P04",
+			"Weight":1
+		},
+		{
+			"ParentName":"P05 YTD",
+			"ComponentName":"P05",
+			"Weight":1
+		},
+		{
+			"ParentName":"P06 YTD",
+			"ComponentName":"P01",
+			"Weight":1
+		},
+		{
+			"ParentName":"P06 YTD",
+			"ComponentName":"P02",
+			"Weight":1
+		},
+		{
+			"ParentName":"P06 YTD",
+			"ComponentName":"P03",
+			"Weight":1
+		},
+		{
+			"ParentName":"P06 YTD",
+			"ComponentName":"P04",
+			"Weight":1
+		},
+		{
+			"ParentName":"P06 YTD",
+			"ComponentName":"P05",
+			"Weight":1
+		},
+		{
+			"ParentName":"P06 YTD",
+			"ComponentName":"P06",
+			"Weight":1
+		},
+		{
+			"ParentName":"P07 YTD",
+			"ComponentName":"P01",
+			"Weight":1
+		},
+		{
+			"ParentName":"P07 YTD",
+			"ComponentName":"P02",
+			"Weight":1
+		},
+		{
+			"ParentName":"P07 YTD",
+			"ComponentName":"P03",
+			"Weight":1
+		},
+		{
+			"ParentName":"P07 YTD",
+			"ComponentName":"P04",
+			"Weight":1
+		},
+		{
+			"ParentName":"P07 YTD",
+			"ComponentName":"P05",
+			"Weight":1
+		},
+		{
+			"ParentName":"P07 YTD",
+			"ComponentName":"P06",
+			"Weight":1
+		},
+		{
+			"ParentName":"P07 YTD",
+			"ComponentName":"P07",
+			"Weight":1
+		},
+		{
+			"ParentName":"P08 YTD",
+			"ComponentName":"P01",
+			"Weight":1
+		},
+		{
+			"ParentName":"P08 YTD",
+			"ComponentName":"P02",
+			"Weight":1
+		},
+		{
+			"ParentName":"P08 YTD",
+			"ComponentName":"P03",
+			"Weight":1
+		},
+		{
+			"ParentName":"P08 YTD",
+			"ComponentName":"P04",
+			"Weight":1
+		},
+		{
+			"ParentName":"P08 YTD",
+			"ComponentName":"P05",
+			"Weight":1
+		},
+		{
+			"ParentName":"P08 YTD",
+			"ComponentName":"P06",
+			"Weight":1
+		},
+		{
+			"ParentName":"P08 YTD",
+			"ComponentName":"P07",
+			"Weight":1
+		},
+		{
+			"ParentName":"P08 YTD",
+			"ComponentName":"P08",
+			"Weight":1
+		},
+		{
+			"ParentName":"P09 YTD",
+			"ComponentName":"P01",
+			"Weight":1
+		},
+		{
+			"ParentName":"P09 YTD",
+			"ComponentName":"P02",
+			"Weight":1
+		},
+		{
+			"ParentName":"P09 YTD",
+			"ComponentName":"P03",
+			"Weight":1
+		},
+		{
+			"ParentName":"P09 YTD",
+			"ComponentName":"P04",
+			"Weight":1
+		},
+		{
+			"ParentName":"P09 YTD",
+			"ComponentName":"P05",
+			"Weight":1
+		},
+		{
+			"ParentName":"P09 YTD",
+			"ComponentName":"P06",
+			"Weight":1
+		},
+		{
+			"ParentName":"P09 YTD",
+			"ComponentName":"P07",
+			"Weight":1
+		},
+		{
+			"ParentName":"P09 YTD",
+			"ComponentName":"P08",
+			"Weight":1
+		},
+		{
+			"ParentName":"P09 YTD",
+			"ComponentName":"P09",
+			"Weight":1
+		},
+		{
+			"ParentName":"P10 YTD",
+			"ComponentName":"P01",
+			"Weight":1
+		},
+		{
+			"ParentName":"P10 YTD",
+			"ComponentName":"P02",
+			"Weight":1
+		},
+		{
+			"ParentName":"P10 YTD",
+			"ComponentName":"P03",
+			"Weight":1
+		},
+		{
+			"ParentName":"P10 YTD",
+			"ComponentName":"P04",
+			"Weight":1
+		},
+		{
+			"ParentName":"P10 YTD",
+			"ComponentName":"P05",
+			"Weight":1
+		},
+		{
+			"ParentName":"P10 YTD",
+			"ComponentName":"P06",
+			"Weight":1
+		},
+		{
+			"ParentName":"P10 YTD",
+			"ComponentName":"P07",
+			"Weight":1
+		},
+		{
+			"ParentName":"P10 YTD",
+			"ComponentName":"P08",
+			"Weight":1
+		},
+		{
+			"ParentName":"P10 YTD",
+			"ComponentName":"P09",
+			"Weight":1
+		},
+		{
+			"ParentName":"P10 YTD",
+			"ComponentName":"P10",
+			"Weight":1
+		},
+		{
+			"ParentName":"P11 YTD",
+			"ComponentName":"P01",
+			"Weight":1
+		},
+		{
+			"ParentName":"P11 YTD",
+			"ComponentName":"P02",
+			"Weight":1
+		},
+		{
+			"ParentName":"P11 YTD",
+			"ComponentName":"P03",
+			"Weight":1
+		},
+		{
+			"ParentName":"P11 YTD",
+			"ComponentName":"P04",
+			"Weight":1
+		},
+		{
+			"ParentName":"P11 YTD",
+			"ComponentName":"P05",
+			"Weight":1
+		},
+		{
+			"ParentName":"P11 YTD",
+			"ComponentName":"P06",
+			"Weight":1
+		},
+		{
+			"ParentName":"P11 YTD",
+			"ComponentName":"P07",
+			"Weight":1
+		},
+		{
+			"ParentName":"P11 YTD",
+			"ComponentName":"P08",
+			"Weight":1
+		},
+		{
+			"ParentName":"P11 YTD",
+			"ComponentName":"P09",
+			"Weight":1
+		},
+		{
+			"ParentName":"P11 YTD",
+			"ComponentName":"P10",
+			"Weight":1
+		},
+		{
+			"ParentName":"P11 YTD",
+			"ComponentName":"P11",
+			"Weight":1
+		},
+		{
+			"ParentName":"P12 YTD",
+			"ComponentName":"P01",
+			"Weight":1
+		},
+		{
+			"ParentName":"P12 YTD",
+			"ComponentName":"P02",
+			"Weight":1
+		},
+		{
+			"ParentName":"P12 YTD",
+			"ComponentName":"P03",
+			"Weight":1
+		},
+		{
+			"ParentName":"P12 YTD",
+			"ComponentName":"P04",
+			"Weight":1
+		},
+		{
+			"ParentName":"P12 YTD",
+			"ComponentName":"P05",
+			"Weight":1
+		},
+		{
+			"ParentName":"P12 YTD",
+			"ComponentName":"P06",
+			"Weight":1
+		},
+		{
+			"ParentName":"P12 YTD",
+			"ComponentName":"P07",
+			"Weight":1
+		},
+		{
+			"ParentName":"P12 YTD",
+			"ComponentName":"P08",
+			"Weight":1
+		},
+		{
+			"ParentName":"P12 YTD",
+			"ComponentName":"P09",
+			"Weight":1
+		},
+		{
+			"ParentName":"P12 YTD",
+			"ComponentName":"P10",
+			"Weight":1
+		},
+		{
+			"ParentName":"P12 YTD",
+			"ComponentName":"P11",
+			"Weight":1
+		},
+		{
+			"ParentName":"P12 YTD",
+			"ComponentName":"P12",
+			"Weight":1
+		},
+		{
+			"ParentName":"Q1",
+			"ComponentName":"P01",
+			"Weight":1
+		},
+		{
+			"ParentName":"Q1",
+			"ComponentName":"P02",
+			"Weight":1
+		},
+		{
+			"ParentName":"Q1",
+			"ComponentName":"P03",
+			"Weight":1
+		},
+		{
+			"ParentName":"Q2",
+			"ComponentName":"P04",
+			"Weight":1
+		},
+		{
+			"ParentName":"Q2",
+			"ComponentName":"P05",
+			"Weight":1
+		},
+		{
+			"ParentName":"Q2",
+			"ComponentName":"P06",
+			"Weight":1
+		},
+		{
+			"ParentName":"Q3",
+			"ComponentName":"P07",
+			"Weight":1
+		},
+		{
+			"ParentName":"Q3",
+			"ComponentName":"P08",
+			"Weight":1
+		},
+		{
+			"ParentName":"Q3",
+			"ComponentName":"P09",
+			"Weight":1
+		},
+		{
+			"ParentName":"Q4",
+			"ComponentName":"P10",
+			"Weight":1
+		},
+		{
+			"ParentName":"Q4",
+			"ComponentName":"P11",
+			"Weight":1
+		},
+		{
+			"ParentName":"Q4",
+			"ComponentName":"P12",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"Financial Period.subsets/All leaves.json",
+		"Financial Period.subsets/Covenants Periods.json",
+		"Financial Period.subsets/Default.json",
+		"Financial Period.subsets/History to Import.json",
+		"Financial Period.subsets/Model Period.json",
+		"Financial Period.subsets/Model Period - User Selection.json",
+		"Financial Period.subsets/No Quarters.json",
+		"Financial Period.subsets/Reporting Period.json",
+		"Financial Period.subsets/Reporting Period - User Selection.json"
+	]
+}

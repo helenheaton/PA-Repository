@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"m_Net Debt",
+	"Hierarchies@Code.links":
+	[
+		"m_Net Debt.hierarchies/m_Net Debt.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('m_Net Debt')/Hierarchies('m_Net Debt')"
+	}
+}

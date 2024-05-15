@@ -1,0 +1,71 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Submissions Checks",
+	"Elements":
+	[
+		{
+			"Name":"Month Trial Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"YTD Trial Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Trial Balance Status",
+			"Type":"String"
+		},
+		{
+			"Name":"Intercompany Balance Status",
+			"Type":"String"
+		},
+		{
+			"Name":"Cash per Balance Sheet",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cash per Cashflow",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Cash status",
+			"Type":"String"
+		},
+		{
+			"Name":"Depreciation per BS",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Depreciation per PL",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Depreciation check",
+			"Type":"String"
+		},
+		{
+			"Name":"Overall Status",
+			"Type":"String"
+		},
+		{
+			"Name":"Submission number",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Submitted by",
+			"Type":"String"
+		},
+		{
+			"Name":"Date and Time",
+			"Type":"String"
+		},
+		{
+			"Name":"Lock Status",
+			"Type":"String"
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"m_Submissions Checks.subsets/Lines to Copy.json"
+	]
+}

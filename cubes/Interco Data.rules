@@ -1,0 +1,36 @@
+#SKIPCHECK;
+## Rule created by Steven Hutchison Budgeting Solutions Ltd 06/02/2024
+
+## Bring in the TB value from the Consol Engine cube
+['TB Value'] =N:
+IF(DB('Interco Data', !Version, !'Financial Year', !'Financial Period', !Company, !'FX Calculation', !'Consolidation Layer', !'Entry ID', 'Transaction Type' ) @<>''
+,
+  DB('Consol Engine', !Version, !'Financial Year', !'Financial Period',
+  ATTRS('Accounts - Group', DB('Interco Data', !Version, !'Financial Year', !'Financial Period', !Company, !'FX Calculation', !'Consolidation Layer', !'Entry ID', 'Transaction Type' ),'Period YTD')
+  ,!Company
+  , DB('Interco Data', !Version, !'Financial Year', !'Financial Period', !Company, !'FX Calculation', !'Consolidation Layer', !'Entry ID', 'Transaction Type' )
+  ,'Local' , 'Local Submission', 'Value' )
+,
+ STET
+);
+
+## Bring in the exchange rates if the currency has been entered
+['Exchange Rate'] =N: 
+IF(DB('Interco Data', !Version, !'Financial Year', !'Financial Period', !Company, !'FX Calculation', !'Consolidation Layer', !'Entry ID', 'Currency' ) @<>''
+,
+  DB('Exchange Rates', !Version, !'Financial Year', !'Financial Period', DB('Interco Data', !Version, !'Financial Year', !'Financial Period', !Company, !'FX Calculation', !'Consolidation Layer', !'Entry ID', 'Currency' ),'MA Rate')
+,
+  STET
+);
+
+## Calculate GBP value if a LCY value has been entered
+['GBP'] =N: 
+IF(DB('Interco Data', !Version, !'Financial Year', !'Financial Period', !Company, !'FX Calculation', !'Consolidation Layer', !'Entry ID', 'LCY' ) <> 0
+,
+  ['LCY'] \ ['Exchange Rate']
+,
+  STET
+);
+
+
+#FEEDERS;

@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Default",
+	"Expression":"{DRILLUPMEMBER(EXCEPT(DRILLUPMEMBER(EXCEPT(DRILLUPMEMBER([Accounts - Group].[Accounts - Group].MEMBERS , {[Accounts - Group].[Accounts - Group].[KPI]}) , {[Accounts - Group].[Accounts - Group].[KPI],[Accounts - Group].[Accounts - Group].[EQU_retainedearnings]}) , {[Accounts - Group].[Accounts - Group].[CASHFLOW]}) , {[Accounts - Group].[Accounts - Group].[CASHFLOW]}) , {[Accounts - Group].[Accounts - Group].[PROFIT AND LOSS],[Accounts - Group].[Accounts - Group].[BALANCE SHEET],[Accounts - Group].[Accounts - Group].[RESERVES]}),DRILLDOWNMEMBER({[Accounts - Group].[Accounts - Group].[CASHFLOW]} , {[Accounts - Group].[Accounts - Group].[CASHFLOW]} , RECURSIVE),DRILLDOWNMEMBER({[Accounts - Group].[Accounts - Group].[KPI]} , {[Accounts - Group].[Accounts - Group].[KPI]} , RECURSIVE)}"
+}

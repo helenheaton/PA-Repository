@@ -1,0 +1,47 @@
+{
+	"@type":"MDXView",
+	"Name":"Default",
+	"MDX@Code.link":"Default.mdx",
+	"Meta" : 
+	{
+		"Aliases" : 
+		{
+			"[Company].[Company]" : "Short Name"
+		},
+		"ContextSets" : 
+		{
+			"[Company].[Company]" : 
+			{
+				"IsPublic" : true,
+				"SubsetName" : "Default"
+			},
+			"[Consolidation Layer].[Consolidation Layer]" : 
+			{
+				"Expression" : "{[Consolidation Layer].[Consolidation Layer].MEMBERS}"
+			},
+			"[FX Calculation].[FX Calculation]" : 
+			{
+				"Expression" : "{[FX Calculation].[FX Calculation].MEMBERS}"
+			},
+			"[Financial Year].[Financial Year]" : 
+			{
+				"Expression" : "{[Financial Year].[Financial Year].[FY23],[Financial Year].[Financial Year].[FY24],[Financial Year].[Financial Year].[FY25]}"
+			},
+			"[Version].[Version]" : 
+			{
+				"Expression" : "{[Version].[Version].MEMBERS}"
+			}
+		},
+		"ExpandAboves" : 
+		{
+			"[Company].[Company]" : false,
+			"[Consolidation Layer].[Consolidation Layer]" : false,
+			"[Entry ID].[Entry ID]" : false,
+			"[FX Calculation].[FX Calculation]" : false,
+			"[Financial Period].[Financial Period]" : false,
+			"[Financial Year].[Financial Year]" : false,
+			"[Version].[Version]" : false,
+			"[m_Interco Data].[m_Interco Data]" : false
+		}
+	}
+}

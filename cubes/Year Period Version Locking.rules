@@ -1,0 +1,3 @@
+[] = s:if(ELLEV( 'Financial Period', !Financial Period )<>0,stet,CONTINUE);
+
+[] = s:if(DB( 'Year Period Version Locking', !Version, !'Financial Year', 'All Financial Periods', !'}SecurityOverlay' )@='1','1',CONTINUE);

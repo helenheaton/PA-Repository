@@ -1,0 +1,106 @@
+{
+	"@type":"NativeView",
+	"Name":"zData Source",
+	"Columns":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('m_Journal Info')/Hierarchies('m_Journal Info')"
+				},
+				"Expression":"TM1SubsetAll([m_Journal Info])"
+			}
+		}
+	],
+	"Rows":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Journal Reference')/Hierarchies('Journal Reference')"
+				},
+				"Expression":"TM1SubsetAll([Journal Reference])"
+			}
+		}
+	],
+	"Titles":
+	[
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Version')/Hierarchies('Version')"
+				},
+				"Expression":"TM1SubsetAll([Version])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Actual')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')"
+				},
+				"Expression":"TM1SubsetAll([Financial Year])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Financial Year')/Hierarchies('Financial Year')/Elements('All Financial Years')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Financial Period')/Hierarchies('Financial Period')"
+				},
+				"Expression":"TM1SubsetAll([Financial Period])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Financial Period')/Hierarchies('Financial Period')/Elements('All Financial Periods')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Company')/Hierarchies('Company')"
+				},
+				"Expression":"TM1SubsetAll([Company])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Company')/Hierarchies('Company')/Elements('Aero')"
+			}
+		},
+		{
+			"Subset":
+			{
+				"Hierarchy":
+				{
+					"@id":"Dimensions('Entry ID')/Hierarchies('Entry ID')"
+				},
+				"Expression":"TM1SubsetAll([Entry ID])"
+			},
+			"Selected":
+			{
+				"@id":"Dimensions('Entry ID')/Hierarchies('Entry ID')/Elements('1')"
+			}
+		}
+	],
+	"SuppressEmptyColumns":false,
+	"SuppressEmptyRows":false,
+	"FormatString":"0.00"
+}

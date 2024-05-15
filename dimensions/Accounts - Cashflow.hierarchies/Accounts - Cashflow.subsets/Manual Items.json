@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Manual Items",
+	"Expression":"{{FILTER(TM1FILTERBYLEVEL(TM1SUBSETALL([Accounts - Cashflow].[Accounts - Cashflow]) , 0), ([Accounts - Cashflow].[Accounts - Cashflow].CURRENTMEMBER.PROPERTIES(\"Manual\") = \"1\"))}}"
+}

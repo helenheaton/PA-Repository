@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Consol Adjustment Selections",
+	"Alias":"Description",
+	"Expression":"{{TM1FILTERBYLEVEL(TM1SUBSETALL([Accounts - Group].[Accounts - Group]) , 0)}}"
+}

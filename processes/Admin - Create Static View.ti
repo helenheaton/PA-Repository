@@ -1,0 +1,3 @@
+#region Prolog
+ViewCreate( 'Consol Engine', 'zData Source', 0 );
+#endregion

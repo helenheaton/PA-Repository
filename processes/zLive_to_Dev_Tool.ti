@@ -1,0 +1,28 @@
+#region Prolog
+if(p1@='Y' & p2@='Y');
+    
+    SaveDataAll;
+
+    # Share data should be \\'IP address from Welcome Kit'\s as below
+    SHARE_DRIVE='\\10.175.169.181\s';
+
+    # Share user should be 'devurlprefix'RICH\'fileshare user' as below
+    SHARE_USER='CARCLODEVRICH\fs_carclodev';
+
+    # Share pass is the password for the fileshare account from the Welcome Kit.
+    SHARE_PASS='BHsXf43PGJhaDl';
+
+    # Local data should be s:\prod\'instance name'\data as below
+    LOCAL_DATA='s:\prod\Finance\data';
+
+    # Share data should be \prod\'instance name'\data
+    SHARE_DATA='\prod\Finance\data';
+
+
+    ExecuteCommand( 's:\live_to_dev_tool.bat' | ' ' | SHARE_DRIVE | ' ' | SHARE_USER | ' ' | SHARE_PASS | ' ' | LOCAL_DATA | ' ' | SHARE_DATA, 0 );
+
+else;
+
+    ItemReject( 'Validation failed, please check and confirm parameters.' );
+endif;
+#endregion

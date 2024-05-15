@@ -1,0 +1,641 @@
+#---------------------------------------------------------------------------------------------------
+# Consol Engine
+# This cube is the main calculation cube at the heart of the consolidation model. All external data 
+# comes into this cube and the consolidation is created in consolidation layers
+# 
+# This cube Feeds MA Reporting which ten summarises the data from this cube into reporting hierarchies
+#
+# Created by Steven Hutchison | Budgeting Solutions | 26/01/2024
+# Amended by Helen Heaton | Budgeting Solutions | 31/01/2024
+#
+#---------------------------------------------------------------------------------------------------
+SKIPCHECK;
+
+#---------------------------------------------------------------------------------------------------
+
+# Populate Current Period which will be shown be default on reports
+['Current Period'] = n:
+    db('Consol Engine', !Version, !Financial Year, db('Model Settings', 'Value', 'Reporting Fin Period' ), !Period YTD, !Company, !Accounts - Group, !FX Calculation, !Consolidation Layer, !m_Consol Engine);
+
+#---------------------------------------------------------------------------------------------------
+# CTP-UK Historic
+# In 2023 P12 The CTP-UK balance sheet was split into Mitcham and Aylesbury
+# Force any imbalances into CTP-UK Historic
+
+['CTP-UK Historic','Consol Entries','YTD','Actual'] = n:
+IF (ATTRS('Accounts - Group', !Accounts - Group,'Period YTD') @<>'Period'
+   , IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @<= '2312'
+        ,-( DB('Consol Engine', 'Actual', !Financial Year, !Financial Period, 'YTD', 'CTP-UK', !Accounts - Group, !FX Calculation, 'Local Submission', !m_Consol Engine)
+         -DB('Consol Engine', 'Actual', !Financial Year, !Financial Period, 'YTD', 'CTP-UK Historic', !Accounts - Group, !FX Calculation, 'MA Import', !m_Consol Engine))
+        ,CONTINUE)
+   ,CONTINUE);
+ 
+['CTP-UK Historic','Consol Entries','Period','Actual'] = n:
+    ['CTP-UK Historic','Consol Entries','YTD','Actual'] - db('Consol Engine', !Version, !'Financial Year', attrs('Financial Period',!Financial Period,'Previous Period'), 'YTD', !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' );
+
+
+#---------------------------------------------------------------------------------------------------
+# CONSOLIDATION ELIMINATIONS
+
+# Consol eliminations - CTP
+# Only calculate for periods after history at MA level was loaded to
+['Sal_prod_int','CTP-Consol','Interco Elimination','Period'] = n:
+IF (!'Version' @= 'Budget'
+   , continue
+   , IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @> db('Model Settings', 'Value', 'History Imported to Period' )
+         ,continue
+         ,stet
+         )
+    );
+
+# The companies are currently hard coded - ideally replace with code that uses attributes
+ ['Sal_prod_int','CTP-Consol','Interco Elimination','Period'] = n:
+         -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'CTP-US', 'Sal_Prod_Int', 'GBP MA', 'Local Submission', !m_Consol Engine)
+         -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'CTP-UK', 'Sal_Prod_Int', 'GBP MA', 'Local Submission', !m_Consol Engine)
+         -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'CTP-China', 'Sal_Prod_Int', 'GBP MA', 'Local Submission', !m_Consol Engine)
+         -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'CTP-India', 'Sal_Prod_Int', 'GBP MA', 'Local Submission', !m_Consol Engine)
+         -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'CTP-Czech', 'Sal_Prod_Int', 'GBP MA', 'Local Submission', !m_Consol Engine);
+
+['COS_prod_mat','CTP-Consol','Interco Elimination','Period'] = n:
+         -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'CTP-Consol', 'Sal_Prod_Int', !FX Calculation, 'Interco Elimination', !m_Consol Engine);
+
+# Consol eliminations - Aero
+['Sal_prod_int','Aero-Consol','Interco Elimination','Period'] = n:
+IF (!'Version' @= 'Budget'
+   , continue
+   , IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @> db('Model Settings', 'Value', 'History Imported to Period' )
+         ,continue
+         ,stet
+         )
+    );
+
+['Sal_prod_int','Aero-Consol','Interco Elimination','Period'] = n:
+        -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'Aero-Bruntons', 'Sal_Prod_Int', 'GBP MA', 'Local Submission', !m_Consol Engine)
+        -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'Aero-Jacottet', 'Sal_Prod_Int', 'GBP MA', 'Local Submission', !m_Consol Engine);
+        
+        
+['COS_prod_mat','Aero-Consol','Interco Elimination','Period'] = n:
+         -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'Aero-Consol', 'Sal_Prod_Int', !FX Calculation, 'Interco Elimination', !m_Consol Engine);
+
+
+### Same again for Tooling
+['Sal_Tool_int','CTP-Consol','Interco Elimination','Period'] = n:
+IF (!'Version' @= 'Budget'
+   , continue
+   , IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @> db('Model Settings', 'Value', 'History Imported to Period' )
+         ,continue
+         ,stet
+         )
+    );
+
+ ['Sal_Tool_int','CTP-Consol','Interco Elimination','Period'] = n:
+         -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'CTP-US', 'Sal_Tool_Int', 'GBP MA', 'Local Submission', !m_Consol Engine)
+         -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'CTP-UK', 'Sal_Tool_Int', 'GBP MA', 'Local Submission', !m_Consol Engine)
+         -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'CTP-China', 'Sal_Tool_Int', 'GBP MA', 'Local Submission', !m_Consol Engine)
+         -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'CTP-India', 'Sal_Tool_Int', 'GBP MA', 'Local Submission', !m_Consol Engine)
+         -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'CTP-Czech', 'Sal_Tool_Int', 'GBP MA', 'Local Submission', !m_Consol Engine);
+
+['COS_tool_all','CTP-Consol','Interco Elimination','Period'] = n:
+         -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'CTP-Consol', 'Sal_Tool_Int', !FX Calculation, 'Interco Elimination', !m_Consol Engine);
+
+# Consol eliminations - Aero
+['Sal_Tool_int','Aero-Consol','Interco Elimination','Period'] = n:
+IF (!'Version' @= 'Budget'
+   , continue
+   , IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @> db('Model Settings', 'Value', 'History Imported to Period' )
+         ,continue
+         ,stet
+         )
+    );
+
+['Sal_Tool_int','Aero-Consol','Interco Elimination','Period'] = n:
+        -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'Aero-Bruntons', 'Sal_Tool_Int', 'GBP MA', 'Local Submission', !m_Consol Engine)
+        -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'Aero-Jacottet', 'Sal_Tool_Int', 'GBP MA', 'Local Submission', !m_Consol Engine);
+        
+        
+['COS_tool_all','Aero-Consol','Interco Elimination','Period'] = n:
+         -DB('Consol Engine', !Version, !Financial Year, !Financial Period, 'Period', 'Aero-Consol', 'Sal_Tool_Int', !FX Calculation, 'Interco Elimination', !m_Consol Engine);
+
+
+#---------------------------------------------------------------------------------------------------
+# INTERCOMPANY ELIMINATIONS
+
+# Create a balancing entry in HO3 to eliminate intercompany balances
+# Create these eliminations in the 'Interco elimination' layer
+# Only apply to periods after the history import ##### UAT revealed data quality issues in the loaded data so apply to all periods
+# Only apply  to actuals
+
+['H03','Interco elimination','Actual'] = n:
+   IF(attrs('Accounts - Group', !Accounts - Group, 'Interco') @= 'Y'
+     , IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @> db('Model Settings', 'Value', 'History Imported to Period' )
+           ,-DB('Consol Engine', 'Actual', !'Financial Year', !'Financial Period', !'Period YTD', 'Group Total', !'Accounts - Group', !'FX Calculation', 'Local Submission', 'Value' )
+           ,CONTINUE
+            )
+       ,CONTINUE
+   );
+
+
+
+# The overall net balance should be eliminated in H03 accruals
+# The element 'TOTAL EXC ACCRUALS' exists in the 'ExcAccruals' hierarchy on the 'Accounts - Group' dimension
+# This hierarchy can be updated by running the process 'DIM UPDATE - Accounts Group - ExcAccruals'
+
+['H03','Interco elimination','CLI_accruals'] = n:
+     IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @> db('Model Settings', 'Value', 'History Imported to Period' )
+       ,
+       -DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', !'Period YTD', !Company, 'ExcAccruals':'TOTAL EXC ACCRUALS', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+        , CONTINUE
+        )
+;
+       
+#---------------------------------------------------------------------------------------------------
+# FX TRANSLATIONS
+
+### Budget FX Rates ###
+# Populate Rate MA for just Local Source layer
+# Use the rate as specified by the Budget FX paramaters in the 'Model Settings' cube
+# Do not convert KPI's
+
+['Budget','Rate MA','Local Source System'] = n:
+IF (ATTRS ('Accounts - Group', !Accounts - Group, 'Report Category' ) @<> 'Other KPIs'
+      , DB('Exchange Rates', DB('Model Settings', 'Value', 'Budget FX Source'), DB('Model Settings', 'Value', 'Budget FX Year'), DB('Model Settings', 'Value', 'Budget FX Fin Period'), attrs('Company', !Company, 'Base Currency'), 'MA Rate' )
+      , 1
+      );
+
+# Populate Rate Budget for all Layers
+[{'Budget','Actual'},'Rate Budget'] = n:
+IF (ATTRS ('Accounts - Group', !Accounts - Group, 'Report Category' ) @<> 'Other KPIs'
+      , DB('Exchange Rates', DB('Model Settings', 'Value', 'Budget FX Source'), DB('Model Settings', 'Value', 'Budget FX Year'), DB('Model Settings', 'Value', 'Budget FX Fin Period'), attrs('Company', !Company, 'Base Currency'), 'MA Rate' )
+      , 1
+      );
+
+# Convert Budget to GBP
+['Budget','GBP MA'] = n:
+    ['Local'] \ ['Rate Budget'];
+    
+['Budget','Rate Budget'] = c:    
+    ['Local'] \ ['GBP MA'];
+    
+    
+
+### Other FX Rates ###
+# Populate Rate MA for actuals for all layers
+# Do not convert KPI's
+['Rate MA','Actual'] = n:
+IF (ATTRS ('Accounts - Group', !Accounts - Group, 'Report Category' ) @<> 'Other KPIs'
+      , DB('Exchange Rates', !Version, !Financial Year, !Financial Period, attrs('Company', !Company, 'Base Currency'), 'MA Rate' )
+      , 1
+      );
+
+
+
+### Balance sheet movement FX ###
+# Calculate the FX impact of retranslating opening balances at current exchange rate
+
+## First calculate the opening balance at opening rate and the opening balance at closing rate
+# Period
+['OpBal @ OpRate','Period'] = n:
+    IF(ATTRS('Accounts - Group', !Accounts - Group,'Period YTD') @<>'Period'
+      , db('Consol Engine',!Version, ATTRS('Financial Year', !'Financial Year', ATTRS('Financial Period', !'Financial Period', 'Previous Period Year')), ATTRS('Financial Period', !'Financial Period', 'Previous Period'), 'YTD', !Company, !Accounts - Group, 'GBP MA',!Consolidation Layer, 'Value'  )
+      , CONTINUE
+      );
+      
+['OpBal @ ClosRate','Period'] = n:
+    IF(ATTRS('Accounts - Group', !Accounts - Group,'Period YTD') @<>'Period'
+      , db('Consol Engine',!Version, ATTRS('Financial Year', !'Financial Year', ATTRS('Financial Period', !'Financial Period', 'Previous Period Year')), ATTRS('Financial Period', !'Financial Period', 'Previous Period'), 'YTD', !Company, !Accounts - Group, 'Local',!Consolidation Layer, 'Value'  )\ ['Rate MA']
+      , CONTINUE
+      );      
+
+# YTD
+['OpBal @ OpRate','YTD'] = n:
+    IF(ATTRS('Accounts - Group', !Accounts - Group,'Period YTD') @<>'Period'
+      , db('Consol Engine',!Version, ATTRS('Financial Year', !'Financial Year', 'Previous Year'), 'P12', 'YTD', !Company, !Accounts - Group, 'GBP MA',!Consolidation Layer, 'Value'  )
+      , CONTINUE
+      );
+      
+['OpBal @ ClosRate','YTD'] = n:
+    IF(ATTRS('Accounts - Group', !Accounts - Group,'Period YTD') @<>'Period'
+      , db('Consol Engine',!Version, ATTRS('Financial Year', !'Financial Year', 'Previous Year'), 'P12', 'YTD', !Company, !Accounts - Group, 'Local',!Consolidation Layer, 'Value'  )\ ['Rate MA']
+      , CONTINUE
+      );      
+
+## Next Calculate the FX movement
+# For period 1 only non-current assets
+['FX Mvt','P01'] = n:
+    IF(ATTRS('Accounts - Group', !Accounts - Group,'Fixed Assets') @= 'Y'
+      ,-(['OpBal @ ClosRate','P01'] - ['OpBal @ OpRate','P01'])
+      ,stet);
+      
+# ['FX Mvt','P01','YTD'] = n:
+#     stet;      
+
+# Other Periods
+['FX Mvt'] = n:
+['OpBal @ ClosRate'] - ['OpBal @ OpRate'];
+
+
+## Finally adjust the forex line on the P&L to compensate for the movement on the balance sheet
+['OVH_admn_forex','GBP MA','Period'] = n:
+    ['FX Mvt','Accounts - Group':'Accounts - Group':'TRIAL BALANCE','Period']
+    + ['OVH_admn_forex','Local','Period'] \ ['Rate MA'];
+
+['EQU_reservesforex','GBP MA','YTD'] = n:
+    ['FX Mvt','Accounts - Group':'Accounts - Group':'TRIAL BALANCE','Period','P01'];
+
+### General Conversions ###
+
+# Convert Actuals to GBP at Local Level
+# Convert Balance sheet at YTD
+['GBP MA','Actual',{'Local Source System','Local Adjustment'}, 'YTD'] = n:
+      IF (ATTRS('Accounts - Group',!Accounts - Group,'Period YTD')@<>'Period'
+      , ['Local'] \ ['Rate MA']
+      , CONTINUE
+      );
+
+# Convert P&L at Period
+['GBP MA','Actual',{'Local Source System','Local Adjustment'}, 'Period'] = n:
+      IF (ATTRS('Accounts - Group',!Accounts - Group,'Period YTD')@='Period'
+      , ['Local'] \ ['Rate MA']
+      , CONTINUE
+      );
+      
+['Rate MA'] = c:    
+    ['Local'] \ ['GBP MA'];
+
+
+# Convert Actuals etc at Budget Rate
+['GBP MA at Budget rate'] = n:
+    ['Local'] \ ['Rate Budget'];    
+
+['Budget','Rate Budget'] = c:    
+    ['Local'] \ ['GBP MA at Budget rate'];
+
+### Retranslate Opening reserves ###
+# Retranslate the opening reserves top the current period rate
+# Only do for periods after the initial dataload
+# Do for all versions
+# Post into the 'Forex Adjustments' layer
+
+# ['Forex adjustments','EQU_reservesforex'] = n:
+#     ['Local Submission']
+
+
+
+
+
+#---------------------------------------------------------------------------------------------------
+# CALCULATE MA CONSOL ENTRIES FOR IMPORTED HISTORY
+
+# This will be MA import layer minus the Local Source import values
+# Only do this up to the period that data has been imported for - maintained in Model Settings Cube
+
+# Don't do this for Mitcham and Aylesbury
+
+['Consol entries','Actual'] = n:
+  IF (!Company @= 'Mitcham',stet,continue);
+
+['Consol entries','Actual'] = n:
+  IF (!Company @= 'Aylesbury',stet,continue);
+  
+['Consol entries','Actual'] = n:
+  IF (!Company @= '03088344',stet,continue); 
+
+
+
+['Consol entries','Actual','Local'] = n:
+IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @<= db('Model Settings', 'Value', 'History Imported to Period' )
+   ,['MA Import','Local'] - ['Local Source System','Local']
+   ,STET
+   );
+   
+
+
+
+#---------------------------------------------------------------------------------------------------
+# ACTUALISE IMPORTED FORECASTS
+
+# Periods up to and including the reporting period will be pulled from actuals, subsequent periods will be pulled from the selected version (also in model settings cube)
+# Forecast versions can be identified becaie they have a value in the 'Actual Periods' attribute
+
+# ['Period'] =N: 
+# IF(ATTRN( 'Version', !Version, 'Actual Periods' )>0
+#    ,continue
+#    ,stet
+#    );
+
+# ['Period'] =N: 
+# IF(NUMBR(SUBST(!Financial Period,2,2)) <= ATTRN( 'Version', !Version, 'Actual Periods' )
+#   , DB('Consol Engine','Actual',!Financial Year,!Financial Period,!Period YTD,!Company,!Accounts - Group,!FX Calculation,!Consolidation Layer,'Value') 
+#   , CONTINUE
+#   );
+
+['Period YTD':'Period'] =N: 
+IF(ATTRN( 'Version', !Version, 'Actual Periods' )>0
+   ,IF(NUMBR(SUBST(!Financial Period,2,2)) <= ATTRN( 'Version', !Version, 'Actual Periods' )
+      , DB('Consol Engine','Actual',!Financial Year,!Financial Period,!Period YTD,!Company,!Accounts - Group,!FX Calculation,!Consolidation Layer,'Value') 
+      , CONTINUE
+      )
+   ,CONTINUE
+   );
+
+#---------------------------------------------------------------------------------------------------
+# CALCULATE DERIVED FORECAST 
+
+# SH added 19/02/2024
+# This will reference the Reporting Period from the model settings cube
+# Periods up to and including the reporting period will be pulled from actuals, subsequent periods will be pulled from the selected version (also in model settings cube)
+
+## SH amendment 18/04/2024 - future years in the derived forecast will pull from the budget
+['Derived Forecast','Period'] =N: 
+IF(NUMBR(SUBST(!Financial Year,3,2))  > NUMBR(SUBST(DB('Model Settings', 'Value', 'Reporting Year' ),3,2))
+,
+  DB('Consol Engine','Budget',!Financial Year,!Financial Period,!Period YTD,!Company,!Accounts - Group,!FX Calculation,!Consolidation Layer,'Value') 
+,
+  CONTINUE
+);
+
+['Derived Forecast','Period'] =N: 
+IF(NUMBR(SUBST(!Financial Year,3,2) | SUBST(!Financial Period,2,2)) <= NUMBR(DB('Model Settings', 'Value', 'Reporting Period' ))
+,
+  DB('Consol Engine','Actual',!Financial Year,!Financial Period,!Period YTD,!Company,!Accounts - Group,!FX Calculation,!Consolidation Layer,'Value') 
+,
+  DB('Consol Engine',DB('Model Settings', 'Value', 'Source Version for Derived Forecast' ),!Financial Year,!Financial Period,!Period YTD,!Company,!Accounts - Group,!FX Calculation,!Consolidation Layer,'Value') 
+);
+
+## Steven Hutchison 18/04/2024 - changed logic to pull in budget for future years and selected version for future periods in the current financial year
+# ['Derived Forecast','Period'] =N: 
+# IF(NUMBR(SUBST(!Financial Year,3,2) | SUBST(!Financial Period,2,2)) <= NUMBR(DB('Model Settings', 'Value', 'Reporting Period' ))
+# ,
+#   DB('Consol Engine','Actual',!Financial Year,!Financial Period,!Period YTD,!Company,!Accounts - Group,!FX Calculation,!Consolidation Layer,'Value') 
+# ,
+#   IF(!Financial Year @= DB('Model Settings', 'Reporting Year', 'Value' )
+#   ,
+#     #DB('Consol Engine','Budget',!Financial Year,!Financial Period,!Period YTD,!Company,!Accounts - Group,!FX Calculation,!Consolidation Layer,'Value')
+#     DB('Consol Engine',DB('Model Settings', 'Value', 'Source Version for Derived Forecast' ),!Financial Year,!Financial Period,!Period YTD,!Company,!Accounts - Group,!FX Calculation,!Consolidation Layer,'Value') 
+#   ,
+#     DB('Consol Engine','Budget',!Financial Year,!Financial Period,!Period YTD,!Company,!Accounts - Group,!FX Calculation,!Consolidation Layer,'Value')
+#     #DB('Consol Engine',DB('Model Settings', 'Value', 'Source Version for Derived Forecast' ),!Financial Year,!Financial Period,!Period YTD,!Company,!Accounts - Group,!FX Calculation,!Consolidation Layer,'Value') 
+#   )
+# );
+
+['Derived Forecast','YTD'] =N: 
+
+IF(ATTRS('Accounts - Group', !Accounts - Group,'Period YTD') @<>'YTD'
+  ,  DB('Consol Engine', !Version, !'Financial Year', !'Financial Period' | ' YTD', 'Period', !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+  ,  DB('Consol Engine', !Version, !'Financial Year', !'Financial Period' | ' YTD', 'Period', !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+    +DB('Consol Engine', !Version, ATTRS('Financial Year',!'Financial Year','Previous Year'), 'P12', 'YTD', !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+  );
+
+
+
+#YTD from period dimension, YTD from Period dim + Prior Year period 12 ytd
+
+
+#---------------------------------------------------------------------------------------------------
+# CALCULATE YTD OPENING RETAINED EARNINGS
+
+# Special rule for Mitcham and Aylesbury being split out from CTP-UK
+[{'Mitcham','Aylesbury'},'EQU_retainedearningsbf','YTD',{'MA Import','Local Source System'},'FY23', 'P12'] = n:
+      -['Accounts - Group':'Accounts - Group':'BALANCE SHEET'] - ['EQU_capital'];
+
+# Special rule for CTP-UK Historic after split into Mitcham and Aylesbury
+['CTP-UK Historic','FY24','P01','Period','Actual',{'MA Import','Local Source System'}] = n: 0;
+
+# Specific Rule for P1 for  imported data at management accounts level
+# ['EQU_retainedearningsbf','YTD',{'MA Import','Local Source System'},'P01'] = n:
+#      DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'EQU_retainedearnings', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+#     -DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'SOCIE', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+#     +DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'PROFIT AND LOSS', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' );
+
+# General Rule to be applied to imported data at management accounts level
+['EQU_retainedearningsbf','YTD','MA Import'] = n:
+     DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'EQU_retainedearnings', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+    -DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'SOCIE', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+    +DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'PROFIT AND LOSS', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' );
+
+# Specific Rule for Mitcham and Aylesbury imported history
+# ['EQU_retainedearningsbf','YTD',{'MA Import','Local Source System'},{'Mitcham','Aylesbury'}] = n:
+#      DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'EQU_retainedearnings', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+#     -DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'SOCIE', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+#     +DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'PROFIT AND LOSS', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' );
+
+
+# Specific Rule for Source Layer P01
+# ['EQU_retainedearningsbf','YTD','Local Source System','P01'] = n:
+# IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @>= db('Model Settings', 'Value', 'Local Source History Imported from' )
+#    , DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'EQU_retainedearnings', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+#    ,CONTINUE
+#    );
+
+# Specific Rule for Source layer where copied from MA Import Layer
+['EQU_retainedearningsbf','YTD','Local Source System'] = n:
+IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @< db('Model Settings', 'Value', 'Local Source History Imported from' )
+   ,  
+      DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'EQU_retainedearnings', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+     -DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'SOCIE', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+     +DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'PROFIT AND LOSS', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+   ,CONTINUE
+   )
+  ;
+
+# Rule for Source Layer history
+['EQU_retainedearningsbf','YTD','Local Source System'] = n:
+IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @<= db('Model Settings', 'Value', 'History Imported to period' )
+    , DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'EQU_retainedearnings', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+     -DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'SOCIE', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+     +DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'PROFIT AND LOSS', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+     , CONTINUE
+     );
+     
+# General Rule for Source Layer
+['EQU_retainedearningsbf','YTD','Local Source System'] = n:
+     DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'EQU_retainedearnings', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+     -DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'SOCIE', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+     +DB('Consol Engine', !Version, !'Financial Year', !'Financial Period', 'YTD', !Company, 'PROFIT AND LOSS', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+     ;
+
+#---------------------------------------------------------------------------------------------------
+# CALCULATE PERIOD VALUES FOR RETAINED EARNINGS
+
+# Don't calculate for periods after the model period set in the Model Setings cube
+# These will be calculated for anything that has 'YTD' as an attribute on the account dimension e.g. balance sheet items 
+# Calculate period as YTD - prev period YTD
+
+['Period YTD':'Period', 'EQU_retainedearningsbf',{'MA Import','Local Source System'}] =N:
+IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @<= db('Model Settings', 'Value', 'Model Period' )
+   ,
+     IF(ATTRS('Accounts - Group',!Accounts - Group,'Period YTD')@='YTD'
+       ,
+         IF (!'Financial Period' @= 'P01'
+          ,
+            DB('Consol Engine', !Version, !'Financial Year', !'Financial Period' , ' YTD',  !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' ) 
+           -DB('Consol Engine', !Version, ATTRS('Financial Year', !'Financial Year', 'Previous Year'), ATTRS('Financial Period', !'Financial Period', 'Previous Period') , 'YTD', !Company, 'EQU_retainedearnings', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+    #       +DB('Consol Engine', !Version, ATTRS('Financial Year', !'Financial Year', 'Previous Year'), ATTRS('Financial Period', !'Financial Period', 'Previous Period') , ' YTD', !Company, 'SOCIE', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+          , 
+            DB('Consol Engine', !Version, !'Financial Year', !'Financial Period' , ' YTD',  !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+           -DB('Consol Engine', !Version, !'Financial Year', ATTRS('Financial Period', !'Financial Period', 'Previous Period') , ' YTD', !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+          )
+       ,
+         STET
+       )
+   ,
+     STET
+   );
+
+#---------------------------------------------------------------------------------------------------
+# CACLUATE YTD VALUES FOR P&L
+
+# These will not be calculated for anything that does not have 'YTD' as an attribute on the account dimension 
+# e.g. balance sheet items. These will be loaded in via a process into the 'Local Source System' or 'MA Import' layers
+
+['Period YTD':'YTD',{'Local Source System','MA Import'}] =N:
+IF (ATTRS('Accounts - Group',!Accounts - Group,'Period YTD')@<>'Period'
+    ,STET
+    ,DB('Consol Engine', !Version, !'Financial Year', !'Financial Period' | ' YTD', 'Period', !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+    );
+
+
+
+#---------------------------------------------------------------------------------------------------
+# CALCULATE PERIOD BALANCES FOR BALANCE SHEET & RESERVES
+
+### General rule for period balances for balance sheet and reserves ###
+# Don't calculate for periods after the model period set in the Model Setings cube
+# These will be calculated for anything that has 'YTD' as an attribute on the account dimension e.g. balance sheet items 
+# Calculate period as YTD - prev period YTD
+
+['Period YTD':'Period',{'Local Source System','MA Import'}] =N:
+IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @<= db('Model Settings', 'Value', 'Model Period' )
+   ,IF(ATTRS('Accounts - Group',!Accounts - Group,'Period YTD')@='YTD'
+       ,IF (!'Financial Period' @= 'P01'
+          , DB('Consol Engine', !Version, !'Financial Year', !'Financial Period' , ' YTD',  !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+           -DB('Consol Engine', !Version, ATTRS('Financial Year', !'Financial Year', 'Previous Year'), ATTRS('Financial Period', !'Financial Period', 'Previous Period') , ' YTD', !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+          , DB('Consol Engine', !Version, !'Financial Year', !'Financial Period' , ' YTD',  !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+           -DB('Consol Engine', !Version, !'Financial Year', ATTRS('Financial Period', !'Financial Period', 'Previous Period') , ' YTD', !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+          )
+       ,CONTINUE
+       )
+   ,CONTINUE
+   );
+
+### Special rule for period values for Fixed Assets ###
+# Don't calculate for periods after the model period set in the Model Setings cube
+# These will be calculated for anything that has 'YTD-FA' as an attribute on the account dimension
+# Calculate period as YTD - prev period YTD Except in P1 where the Period is the same as the YTD because balances reset at the start of the year and are transferred to 
+['Period YTD':'Period',{'Local Source System','MA Import'}] =N:
+IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @<= db('Model Settings', 'Value', 'Model Period' )
+   ,IF(ATTRS('Accounts - Group',!Accounts - Group,'Period YTD')@='YTD-FA'
+       ,IF (!'Financial Period' @= 'P01'
+          , DB('Consol Engine', !Version, !'Financial Year', !'Financial Period' , ' YTD',  !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+          , DB('Consol Engine', !Version, !'Financial Year', !'Financial Period' , ' YTD',  !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+           -DB('Consol Engine', !Version, !'Financial Year', ATTRS('Financial Period', !'Financial Period', 'Previous Period') , ' YTD', !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+          )
+       ,CONTINUE
+       )
+   ,CONTINUE
+   );
+
+### Special rule for period values for Fixed Assets Brought Forward ###
+# These will be calculated for anything that has 'YTD-BF' as an attribute on the account dimension
+# Calculate period 1 as 0 
+['Period YTD':'Period',{'Local Source System','MA Import'}] =N:
+IF (ATTRS('Financial Year', !Financial Year,'YY') | ATTRS('Financial Period', !Financial Period, 'MM') @<= db('Model Settings', 'Value', 'Model Period' )
+   ,IF(ATTRS('Accounts - Group',!Accounts - Group,'Period YTD')@='YTD-BF'
+       ,IF (!'Financial Period' @= 'P01'
+          , 0
+          , DB('Consol Engine', !Version, !'Financial Year', !'Financial Period' , ' YTD',  !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+           -DB('Consol Engine', !Version, !'Financial Year', ATTRS('Financial Period', !'Financial Period', 'Previous Period') , ' YTD', !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+          )
+       ,CONTINUE
+       )
+   ,CONTINUE
+   );   
+
+#---------------------------------------------------------------------------------------------------
+# CALCULATE YTD VALUES FOR OTHER LAYERS
+# All adjustment layers will 
+# e.g. balance sheet items. These will be loaded in via a process into the 'Local Source System' or 'MA Import' layers
+
+# ['Period YTD':'YTD'] =N:
+# IF (ATTRS('Accounts - Group',!Accounts - Group,'Period YTD')@<>'Period'
+#     ,STET
+#     ,DB('Consol Engine', !Version, !'Financial Year', !'Financial Period' | ' YTD', 'Period', !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+#     );
+
+['Period YTD':'YTD'] =N:
+    DB('Consol Engine', !Version, !'Financial Year', !'Financial Period' | ' YTD', 'Period', !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' )
+    ;
+
+
+#---------------------------------------------------------------------------------------------------
+FEEDERS;
+#---------------------------------------------------------------------------------------------------
+
+### Internal ###
+[{'P01','P02','P03','P04','P05','P06','P07','P08','P09','P10','P11','P12'}] => ['Current Period'];
+
+[{'Actual','Budget','6+6 Forecast','3+9 Forecast','9+3 Forecast'}] => ['Derived Forecast']; 
+
+['Actual'] => ['6+6 Forecast'];
+['Actual'] => ['3+9 Forecast'];
+['Actual'] => ['9+3 Forecast'];
+
+['Period YTD':'Period'] => ['Period YTD': 'YTD'];
+['Period YTD':'YTD'] => DB('Consol Engine', !Version, !'Financial Year', ATTRS('Financial Period', !'Financial Period', 'Next Period') , ' Period', !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' );
+['Period YTD':'YTD','P12'] => DB('Consol Engine', !Version, ATTRS('Financial Year', !'Financial Year', 'Next Year'), 'P01', ' Period', !Company, !'Accounts - Group', !'FX Calculation', !'Consolidation Layer', !'m_Consol Engine' );
+
+['MA Import'] => ['Consol entries'];
+['Local Source System'] => ['Consol entries'];
+['EQU_retainedearnings'] => ['EQU_retainedearningsbf'];
+['profit and loss'] => ['EQU_retainedearningsbf'];
+['socie'] => ['EQU_retainedearningsbf'];
+['YTD'] => ['Prior Year YTD'],['Rolling 12 Periods'];
+
+['Local'] => ['GBP MA'];
+['Local'] => ['GBP MA at Budget rate'];
+
+# Consol Adjustments
+['Sal_prod_int',{'CTP-US','CTP-UK','CTP-Czech','CTP-India','CTP-China'},'Local Submission','Period'] => ['Sal_prod_int','CTP-Consol','Interco Elimination','Period'];
+['Sal_prod_int',{'Aero-Bruntons','Aero-Jacottet'},'Local Submission','Period'] => ['Sal_prod_int','Aero-Consol','Interco Elimination','Period'];
+['Sal_prod_int','CTP-Consol','Interco Elimination','Period'] => ['COS_prod_mat','CTP-Consol','Interco Elimination','Period'];
+['Sal_prod_int','Aero-Consol','Interco Elimination','Period'] => ['COS_prod_mat','Aero-Consol','Interco Elimination','Period'];
+
+['Sal_tool_int',{'CTP-US','CTP-UK','CTP-Czech','CTP-India','CTP-China'},'Local Submission','Period'] => ['Sal_tool_int','CTP-Consol','Interco Elimination','Period'];
+['Sal_tool_int',{'Aero-Bruntons','Aero-Jacottet'},'Local Submission','Period'] => ['Sal_tool_int','Aero-Consol','Interco Elimination','Period'];
+['Sal_tool_int','CTP-Consol','Interco Elimination','Period'] => ['COS_tool_all','CTP-Consol','Interco Elimination','Period'];
+['Sal_tool_int','Aero-Consol','Interco Elimination','Period'] => ['COS_tool_all','Aero-Consol','Interco Elimination','Period'];
+
+# Interco eliminations
+['Group Total','Local Submission','Actual'] =>['H03','Interco elimination','Actual'];
+['H03','Interco elimination','TOTAL EXC ACCRUALS'] => ['H03','Interco elimination','CLI_accruals'];
+
+['CTP-UK','Local Submission','YTD','Actual'] => ['CTP-UK Historic','Consol Entries','YTD','Actual'];
+['CTP-UK Historic','MA Import','YTD','Actual'] => ['CTP-UK Historic','Consol Entries','YTD','Actual'];
+['CTP-UK Historic','Consol Entries','YTD','Actual'] => ['CTP-UK Historic','Consol Entries','Period','Actual'];
+
+#FX movements
+['Local','YTD'] => db(IF(ATTRS('Accounts - Group', !Accounts - Group,'Period YTD') @<>'Period','Consol Engine',''),!Version, ATTRS('Financial Year', !'Financial Year', ATTRS('Financial Period', !'Financial Period', 'Next Period Year')), ATTRS('Financial Period', !'Financial Period', 'Next Period'), 'Period', !Company, !Accounts - Group, 'OpBal @ OpRate',!Consolidation Layer, 'Value'  );
+['Local','YTD'] => db(IF(ATTRS('Accounts - Group', !Accounts - Group,'Period YTD') @<>'Period','Consol Engine',''),!Version, ATTRS('Financial Year', !'Financial Year', ATTRS('Financial Period', !'Financial Period', 'Next Period Year')), ATTRS('Financial Period', !'Financial Period', 'Next Period'), 'Period', !Company, !Accounts - Group, 'OpBal @ ClosRate',!Consolidation Layer, 'Value'  );
+
+['Local','YTD','P12'] => db(IF(ATTRS('Accounts - Group', !Accounts - Group,'Period YTD') @<>'Period','Consol Engine',''),!Version, ATTRS('Financial Year', !'Financial Year', 'Next Year'), !'Financial Period', 'YTD', !Company, !Accounts - Group, 'OpBal @ OpRate',!Consolidation Layer, 'Value'  );
+['Local','YTD','P12'] => db(IF(ATTRS('Accounts - Group', !Accounts - Group,'Period YTD') @<>'Period','Consol Engine',''),!Version, ATTRS('Financial Year', !'Financial Year', 'Next Year'), !'Financial Period', 'YTD', !Company, !Accounts - Group, 'OpBal @ ClosRate',!Consolidation Layer, 'Value'  );
+
+
+
+[{'OpBal @ ClosRate','OpBal @ OpRate'}] => ['FX Mvt'];
+
+['FX Mvt','Accounts - Group':'Accounts - Group':'TRIAL BALANCE'] => ['OVH_admn_forex','GBP MA'];
+
+['FX Mvt','Accounts - Group':'Accounts - Group':'TRIAL BALANCE','Period','P01'] => ['EQU_reservesforex','GBP MA','YTD'];
+
+### External ###
+## Steven Hutchison 06/02/2024 - Feed the Interco Data Cube - these may change following discussion on dimensionality
+#[{'Period','YTD'},'Value'] => DB('Interco Data', !Version, !'Financial Year', !'Financial Period', !Company, !'FX Calculation', 'Interco elimination', 'All Entry ID', 'TB Value' );
+
+# Feed the MA Reporting cube
+['Value'] => DB('MA Reporting',!Version,!Company,!Financial Year,!Financial Period,!Period YTD,ATTRS('Accounts - Group',!Accounts - Group,'MA Reporting'),!FX Calculation,!Consolidation Layer,'Value'); 
+
+['Value','EQU_retainedearnings'] => DB('MA Reporting',!Version,!Company,!Financial Year,!Financial Period,!Period YTD,'EQU_retainedearningsbf',!FX Calculation,!Consolidation Layer,'Value'); 
+
+
+

@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Summary Group Balance Sheet",
+	"Alias":"Display Name",
+	"Expression":"{[Accounts - MA].[Accounts - MA].[FIXED ASSETS],[Accounts - MA].[Accounts - MA].[Other Non-Current Assets],EXCEPT(DRILLDOWNMEMBER({[Accounts - MA].[Accounts - MA].[TOTAL CURRENT ASSETS]} , {[Accounts - MA].[Accounts - MA].[TOTAL CURRENT ASSETS]} , RECURSIVE) , {[Accounts - MA].[Accounts - MA].[TOTAL CURRENT ASSETS^CAS_tradereceivables_Interco]}),EXCEPT(DRILLDOWNMEMBER({[Accounts - MA].[Accounts - MA].[TOTAL CURRENT LIABILITIES]} , {[Accounts - MA].[Accounts - MA].[TOTAL CURRENT LIABILITIES]} , RECURSIVE) , {[Accounts - MA].[Accounts - MA].[TOTAL CURRENT LIABILITIES^CLI_tradepayables_Interco],[Accounts - MA].[Accounts - MA].[CLI_divpayables]}),[Accounts - MA].[Accounts - MA].[NET CURRENT ASSETS / (LIABILITIES)],EXCEPT(DRILLDOWNMEMBER({[Accounts - MA].[Accounts - MA].[TOTAL NON-CURRENT LIABILITIES]} , {[Accounts - MA].[Accounts - MA].[TOTAL NON-CURRENT LIABILITIES]} , RECURSIVE) , {[Accounts - MA].[Accounts - MA].[NCL_intergpayablesNONDIV],[Accounts - MA].[Accounts - MA].[NCL_intergpayablesDIV]}),[Accounts - MA].[Accounts - MA].[NET ASSETS / (LIABILITIES)]}"
+}

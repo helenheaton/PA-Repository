@@ -1,0 +1,54 @@
+#region Prolog
+#Create Datasource
+cubename = '}elementattributes_Accounts - MA';
+viewname = getprocessname();
+subname = viewname;
+temp = 1;
+
+#Create View
+if(ViewExists( cubename, viewname ) = 1);
+    ViewDestroy(  cubename, viewname );
+    ViewCreate(  cubename, viewname ,temp );
+Else;
+    ViewCreate(  cubename, viewname ,temp );
+Endif;
+
+
+#Assign Dim 3
+dimname = 'Accounts - MA';
+if(SubsetExists( Dimname, subname ) = 1);
+    SubsetDestroy( Dimname, subname );
+endif;
+
+SubsetCreatebyMDX( subname,'TM1FILTERBYLEVEL(TM1SUBSETALL([Accounts - MA].[Accounts - MA]), 0)', temp );
+
+
+dimname = '}elementattributes_Accounts - MA';
+if(SubsetExists( Dimname, subname ) = 1);
+    SubsetDestroy( Dimname, subname );
+    SubsetCreate( Dimname, subname, temp );
+Else;
+    SubsetCreate( Dimname, subname, temp );
+endif;
+
+SubsetElementInsert(  Dimname, subname, 'Cashflow Account', 1 );
+ViewSubsetAssign( cubename, viewname, dimname, Subname );
+
+#View Adjustment
+ViewExtractSkipCalcsSet( Cubename, viewname, 1 );
+ViewExtractSkipRuleValuesSet( Cubename, viewname, 1 );
+ViewExtractSkipZeroesSet( Cubename, viewname, 1 );
+
+DataSourceType = 'View';
+DatasourceCubeview = viewname;
+
+#endregion
+#region Metadata
+DimensionElementComponentAdd( 'Accounts - Cashflow', Value, vEl, 1 );
+#endregion
+#region Data
+CellPutS( 'N', '}ElementAttributes_Accounts - Cashflow', vEl, 'Display' );
+#endregion
+#region Epilog
+CubeProcessFeeders( 'MA Reporting' );
+#endregion

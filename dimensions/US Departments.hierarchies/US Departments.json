@@ -1,0 +1,130 @@
+{
+	"@type":"Hierarchy",
+	"Name":"US Departments",
+	"Elements":
+	[
+		{
+			"Name":"Total US",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Latrobe",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Export",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tucson",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Derry",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"LED",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"D+E",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"SGA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Tucson D+E",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Derry D+E",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"CTP-US",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pennsylvania",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Derry Total",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Tucson Total",
+			"Type":"Consolidated"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"Total US",
+			"ComponentName":"Pennsylvania",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total US",
+			"ComponentName":"Tucson Total",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total US",
+			"ComponentName":"Derry Total",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total US",
+			"ComponentName":"D+E",
+			"Weight":1
+		},
+		{
+			"ParentName":"Total US",
+			"ComponentName":"SGA",
+			"Weight":1
+		},
+		{
+			"ParentName":"Pennsylvania",
+			"ComponentName":"Latrobe",
+			"Weight":1
+		},
+		{
+			"ParentName":"Pennsylvania",
+			"ComponentName":"Export",
+			"Weight":1
+		},
+		{
+			"ParentName":"Pennsylvania",
+			"ComponentName":"LED",
+			"Weight":1
+		},
+		{
+			"ParentName":"Derry Total",
+			"ComponentName":"Derry",
+			"Weight":1
+		},
+		{
+			"ParentName":"Derry Total",
+			"ComponentName":"Derry D+E",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tucson Total",
+			"ComponentName":"Tucson",
+			"Weight":1
+		},
+		{
+			"ParentName":"Tucson Total",
+			"ComponentName":"Tucson D+E",
+			"Weight":1
+		}
+	],
+	"Subsets@Code.links":
+	[
+		"US Departments.subsets/Summary Performance by Site - US.json"
+	]
+}

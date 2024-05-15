@@ -1,0 +1,28 @@
+{
+	"@type":"Hierarchy",
+	"Name":"Cashflow Calculation Types",
+	"Elements":
+	[
+		{
+			"Name":"Opening Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Closing Balance",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Movement +",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Movement -",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Fixed Asset",
+			"Type":"Numeric"
+		}
+	],
+	"Subsets@Code.links":[]
+}

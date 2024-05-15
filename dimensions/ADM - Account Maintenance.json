@@ -1,0 +1,12 @@
+{
+	"@type":"Dimension",
+	"Name":"ADM - Account Maintenance",
+	"Hierarchies@Code.links":
+	[
+		"ADM - Account Maintenance.hierarchies/ADM - Account Maintenance.json"
+	],
+	"DefaultHierarchy":
+	{
+		"@id":"Dimensions('ADM - Account Maintenance')/Hierarchies('ADM - Account Maintenance')"
+	}
+}

@@ -1,0 +1,5 @@
+{
+	"@type":"Subset",
+	"Name":"Reporting Selections",
+	"Expression":"{EXCEPT(TM1SubsetToSet([FX Calculation].[FX Calculation] , \"MA Reporting Selections\" , \"public\") , {[FX Calculation].[FX Calculation].[Rate MA]})}"
+}

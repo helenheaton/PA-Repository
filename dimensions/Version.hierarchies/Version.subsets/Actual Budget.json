@@ -1,0 +1,14 @@
+{
+	"@type":"Subset",
+	"Name":"Actual Budget",
+	"Alias":"MEMBER_NAME",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Actual')"
+		},
+		{
+			"@id":"Dimensions('Version')/Hierarchies('Version')/Elements('Budget')"
+		}
+	]
+}

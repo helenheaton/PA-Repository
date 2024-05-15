@@ -1,0 +1,211 @@
+{
+	"@type":"Hierarchy",
+	"Name":"m_Covenants Summary",
+	"Elements":
+	[
+		{
+			"Name":"Underlying Operating Profit",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Amortisation of Intangibles",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Pensions Admin Costs",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITA Per Agreement",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Required EBITA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Covenant 1:",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITA Headroom",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Bank Interest Paid / (Received)",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Lease Interest",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Interest Cover",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Finance Costs",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Covenant 2:",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDA Per Agreement",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Required EBITDA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"EBITDA Headroom",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Debt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Required Net Debt",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Net Debt Headroom",
+			"Type":"Consolidated"
+		},
+		{
+			"Name":"Net Leverage",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Covenant 3:",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"External Revenue",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Actual / Forecast Core Subsidiary Revenue / Group Revenue",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Required Core Subsidiary Revenue",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Group Revenue Headroom",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Depreciation",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Covenant 4:",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Actual / Forecast Core subsidiary EBITA / Group EBITA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Required Core Subsidiary EBITA",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Group EBITA Headroom",
+			"Type":"Numeric"
+		},
+		{
+			"Name":"Other Interest",
+			"Type":"Numeric"
+		}
+	],
+	"Edges":
+	[
+		{
+			"ParentName":"EBITA Per Agreement",
+			"ComponentName":"Underlying Operating Profit",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBITA Per Agreement",
+			"ComponentName":"Amortisation of Intangibles",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBITA Per Agreement",
+			"ComponentName":"Pensions Admin Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBITA Headroom",
+			"ComponentName":"EBITA Per Agreement",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBITA Headroom",
+			"ComponentName":"Required EBITA",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Finance Costs",
+			"ComponentName":"Net Bank Interest Paid / (Received)",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Costs",
+			"ComponentName":"Lease Interest",
+			"Weight":1
+		},
+		{
+			"ParentName":"Finance Costs",
+			"ComponentName":"Other Interest",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBITDA Per Agreement",
+			"ComponentName":"Underlying Operating Profit",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBITDA Per Agreement",
+			"ComponentName":"Amortisation of Intangibles",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBITDA Per Agreement",
+			"ComponentName":"Pensions Admin Costs",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBITDA Per Agreement",
+			"ComponentName":"Depreciation",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBITDA Headroom",
+			"ComponentName":"EBITDA Per Agreement",
+			"Weight":1
+		},
+		{
+			"ParentName":"EBITDA Headroom",
+			"ComponentName":"Required EBITDA",
+			"Weight":-1
+		},
+		{
+			"ParentName":"Net Debt Headroom",
+			"ComponentName":"Net Debt",
+			"Weight":1
+		},
+		{
+			"ParentName":"Net Debt Headroom",
+			"ComponentName":"Required Net Debt",
+			"Weight":-1
+		}
+	],
+	"Subsets@Code.links":[]
+}

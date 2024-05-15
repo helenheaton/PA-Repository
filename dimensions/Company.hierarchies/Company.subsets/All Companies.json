@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"All Companies",
+	"Alias":"Short Name",
+	"Expression":"{HIERARCHIZE([Company].[Company].MEMBERS)}"
+}

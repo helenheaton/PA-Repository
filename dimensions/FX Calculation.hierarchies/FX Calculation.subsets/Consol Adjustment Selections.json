@@ -1,0 +1,13 @@
+{
+	"@type":"Subset",
+	"Name":"Consol Adjustment Selections",
+	"Elements":
+	[
+		{
+			"@id":"Dimensions('FX Calculation')/Hierarchies('FX Calculation')/Elements('Local')"
+		},
+		{
+			"@id":"Dimensions('FX Calculation')/Hierarchies('FX Calculation')/Elements('GBP MA')"
+		}
+	]
+}

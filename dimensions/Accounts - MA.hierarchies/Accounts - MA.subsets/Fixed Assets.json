@@ -1,0 +1,6 @@
+{
+	"@type":"Subset",
+	"Name":"Fixed Assets",
+	"Alias":"Display Name",
+	"Expression":"{DRILLDOWNMEMBER({[Accounts - MA].[Accounts - MA].[FIXED ASSETS]} , {[Accounts - MA].[Accounts - MA].[FIXED ASSETS],[Accounts - MA].[Accounts - MA].[LEASED INTANGIBLE FIXED ASSETS],[Accounts - MA].[Accounts - MA].[LEASED TANGIBLE FIXED ASSETS],[Accounts - MA].[Accounts - MA].[INTANGIBLE FIXED ASSETS (not leased)],[Accounts - MA].[Accounts - MA].[TANGIBLE FIXED ASSETS (not leased)]} , RECURSIVE),[Accounts - MA].[Accounts - MA].[OVH_corp_assetdisp],[Accounts - MA].[Accounts - MA].[OVH_fact_depnother],[Accounts - MA].[Accounts - MA].[OVH_fact_amort],[Accounts - MA].[Accounts - MA].[OVH_fact_depnbuild]}"
+}

@@ -1,0 +1,24 @@
+{
+	"@type":"Cube",
+	"Name":"Year Period Version Locking",
+	"Dimensions":
+	[
+		{
+			"@id":"Dimensions('Version')"
+		},
+		{
+			"@id":"Dimensions('Financial Year')"
+		},
+		{
+			"@id":"Dimensions('Financial Period')"
+		},
+		{
+			"@id":"Dimensions('}SecurityOverlay')"
+		}
+	],
+	"Rules@Code.link":"Year Period Version Locking.rules",
+	"Views@Code.links":
+	[
+		"Year Period Version Locking.views/Default.json"
+	]
+}
