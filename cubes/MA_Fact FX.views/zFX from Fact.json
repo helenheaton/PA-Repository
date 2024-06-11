@@ -28,7 +28,7 @@
 			},
 			"Selected":
 			{
-				"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('UK1')"
+				"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('US1')"
 			}
 		},
 		{
@@ -38,7 +38,7 @@
 			},
 			"Selected":
 			{
-				"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202403')"
+				"@id":"Dimensions('Period')/Hierarchies('Period')/Elements('202405')"
 			}
 		},
 		{

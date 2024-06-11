@@ -1,0 +1,18 @@
+#region Prolog
+
+i=1;
+
+n=DIMSIZ( 'Journal by Reference' );
+
+while (i<=n); 
+sElement=DIMNM( 'Journal by Reference', n );  
+    if (ATTRS( 'Journal by Reference', sElement, 'Keep' )@='Y');
+        DimensionElementDelete( 'Journal by Reference', sElement );
+    endif;
+
+    i=i+1;
+end;
+
+
+
+#endregion

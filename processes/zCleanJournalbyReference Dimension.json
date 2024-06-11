@@ -1,0 +1,13 @@
+{
+	"@type":"Process",
+	"Name":"zCleanJournalbyReference Dimension",
+	"HasSecurityAccess":false,
+	"Code@Code.link":"zCleanJournalbyReference Dimension.ti",
+	"UIData":"_ParameterConstraints=e30=€",
+	"DataSource":
+	{
+		"Type":"None"
+	},
+	"Parameters":[],
+	"Variables":[]
+}

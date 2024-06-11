@@ -50,6 +50,19 @@ IF(ATTRS( 'TM1 Accounts', DB('JNL_Posting', !MA_Scenario, !Companies, !Period, !
 
 feeders;
 ['Amount'] =>['Exch.Rate GBP'],['Value GBP'],['TM1 Account'],['Value Local Currency'],['Exch. Rate Local Currency'];
+
+
+###IS-BSL 19.04.2024 added missing feeders
+['Opening Balance Transaction Currency']=>['Opening Balance GBP'], ['Opening Balance Local Currency'], ['Value Transaction Currency'], ['Value GBP'], ['Value Local Currency'] ;
+['Closing Balance Transaction Currency']=>['Closing Balance GBP'],['Closing Balance Local Currency'], ['Value Transaction Currency'], ['Value GBP'], ['Value Local Currency'];
+['Amount','MA_Scenario':{'Budget','Forecast'}]=>['Value Transaction Currency'];
+
+
+
+
+
+
+
 # ['Amount','Budget','Current Periods'] => ['Closing Balance GBP','Budget']; 
 # ['Amount','Budget','Current Periods'] => ['Closing Balance Local Currency','Budget']; 
 

@@ -4,10 +4,10 @@
 	"Elements":
 	[
 		{
-			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('UK1')"
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('US1')"
 		},
 		{
-			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('UK1')"
+			"@id":"Dimensions('Companies')/Hierarchies('Companies')/Elements('US1')"
 		}
 	]
 }
